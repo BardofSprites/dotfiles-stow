@@ -1,0 +1,56 @@
+general {
+    colors = true
+    interval = 5
+}
+
+order += "wireless _first_"
+# order += "ethernet _first"
+order += "disk /"
+# order += "battery 0"
+order += "cpu_usage"
+order += "memory"
+order += "volume master"
+order += "tztime local"
+order += "time"
+
+ethernet _first_ {
+    format_up = "E: %ip (%speed)"
+    format_down = "E: Down"
+}
+
+wireless _first_ {
+    format_up = "W: (%quality, %bitrate) Leaked ip: %ip"
+    format_down = "no wifi (sadge)"
+}
+
+disk "/" {
+     format = "Disk: %free"
+}
+
+# battery 0 {
+
+# }
+
+cpu_usage {
+    format = "CPU: %usage "
+}
+
+memory {
+    format = "Mem: %used "
+}
+
+volume master {
+    format = "Sound: %volume" format_muted = "Sound Muted"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+tztime local {
+    # format = "⏲ %a %d-%m-%Y "
+    format = "⏲  %Y-%m-%d %a"
+}
+
+time {
+    format = "%H:%M:%S "
+}

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+selectable_dirs=("~/Code/" "~/Repositories/" "~/Documents/" "~/Notes/Org-Roam/" "~/Pictures/" "~/Pictures/wallpaper" "~/Pictures/screenshots/" "~/Downloads/" "~/Music/" "~/Playlists/" "~/Videos/" "~/Videos/Youtube/Programming/Prot/" "~/Desktop/" "~/.local/bin/scripts/")
+# Use dmenu to select a directory
+selected_dir=$(printf "%s\n" "${selectable_dirs[@]}" | dmenu -p "Dired here: ")
+
+# Open the selected directory in Emacsclient with Dired mode
+if [ -n "$selected_dir" ]; then
+    emacsclient -c -e "(dired \"$selected_dir\")"
+fi

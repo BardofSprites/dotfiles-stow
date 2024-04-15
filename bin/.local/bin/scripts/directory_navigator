@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Navigate directories with fzf and open a program based on file extension
+
+# Function to navigate directories with fzf
+navigate_directories() {
+    selected_file=$(find "$HOME" -type f | fzf --height=50%)
+    if [ -n "$selected_file" ]; then
+        file_extension="${selected_file##*.}"
+
+        case "$file_extension" in
+            "pdf")
+                zathura "$selected_file"
+                ;;
+            ".org")
+                emacsclient -c "$selected_file"
+                ;;
+	    ".png" | ".webp" | ".gif" | ".jpg")
+                nsxiv "$selected_file"
+                ;;
+            *)
+                # Example: open other file types with a default program
+                xdg-open "$selected_file"
+                ;;
+        esac
+    fi
+}
+
+# Main script
+main() {
+    navigate_directories
+}
+
+main

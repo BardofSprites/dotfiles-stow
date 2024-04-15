@@ -1,0 +1,69 @@
+set $mod Mod4
+font pango: Iosevka Comfy 12
+
+# Including other files
+include ~/.config/i3/colors
+include ~/.config/i3/autostart
+include ~/.config/i3/keybinds
+include ~/.config/i3/winsettings
+include ~/.config/i3/gaps
+
+exec --no-startup-id dex --autostart --environment i3
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+bindsym $mod+[any key] exec i3-dmenu-desktop
+for_window [class="^Pavucontrol$"]  floating enable
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+
+        # vim keys for resizing
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Escape
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+space mode "resize"
+
+# Launcher mode, (you execute the keybind to start the mode [found below] and then the keybinds defined in the mode)
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+    bindsym f exec librewolf
+    bindsym e exec emacsclient -c
+    bindsym Escape mode "default"
+}
+
+for_window [class="^.*"] border pixel 5
+
+no_focus [window_role="pop-up"]
+
+# bar {
+#     position top
+#     status_command i3status
+#     # status_command SCRIPT_DIR=~/.local/bin/i3blocks i3blocks
+#     # colors {
+#     #     # switch these when switching between dark and light mode
+#     #     background $bg
+#     #     statusline $fg
+#     #     # workspaces section
+#     #     #                    border     background  text
+#     #     focused_workspace    $space     $space         $bg
+#     #     inactive_workspace   $bg        $bg            $fg
+#     #     active_workspace     $bg        $bg            $fg
+#     #     urgent_workspace     $red       $red           $bg
+
+#     # }
+# }

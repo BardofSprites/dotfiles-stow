@@ -1,0 +1,42 @@
+IMAPAccount home
+Host imap.gmail.com
+UserCmd "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/ACCOUNT_NAME/ { print $(NF-2); exit; }'"
+PassCmd "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/ACCOUNT_NAME/ { print $NF; exit; }'"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore home-remote
+Account home
+
+MaildirStore home-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/Mail/ACCOUNT_NAME@gmail.com/
+Inbox ~/Mail/ACCOUNT_NAME@gmail.com/Inbox
+
+Channel home-inbox
+Far :home-remote:
+Near :home-local:
+Patterns "INBOX"
+
+Channel home-sent
+Far :home-remote:"[Gmail]/Sent Mail"
+Near :home-local:sent
+
+Channel home-trash
+Far :home-remote:"[Gmail]/Trash"
+Near :home-local:trash
+
+Group home
+Channel home-inbox
+Channel home-sent
+Channel home-trash
+
+# Gmail mailboxes:
+# "All Mail"
+# "Drafts"
+# "Important"
+# "Sent Mail"
+# "Spam"
+# "Starred"
+# "Trash"

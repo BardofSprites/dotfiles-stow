@@ -1,0 +1,65 @@
+# Keybinds!
+set $term   st
+set $term2  urxvtc
+
+# start term (defined at the top of the file)
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term2
+
+# Scratchpad
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show
+
+# emacs
+bindsym $mod+x exec ~/.local/bin/scripts/emacs/emacs-daemon.sh start
+bindsym $mod+Shift+x exec ~/.local/bin/scripts/emacs/emacs-daemon.sh kill
+bindsym $mod+Ctrl+a exec emacsclient --eval "(emacs-everywhere)"
+bindsym $mod+Shift+a exec emacsclient -c -e "(emms)"
+
+# theme switching
+bindsym $mod+Shift+t exec ~/.local/bin/scripts/theme-switch.sh
+
+# adjust volume in PulseAudio
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status  && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status && pkill -RTMIN+1 i3blocks
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+
+# Brightness
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+# power menu
+# bindsym $mod+shift+p exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
+
+# kill focused window
+bindsym $mod+q kill
+
+# screen shot
+bindsym Print exec $HOME/.local/bin/scripts/maimpick
+
+# audio controls
+bindsym $mod+p exec pavucontrol
+
+# start dmenu
+# bindsym $mod+d exec --no-startup-id dmenu_run
+# Customised dmenu with colours
+bindsym $mod+d exec "dmenu_run -p 'dmenu >'"
+
+# Reloads i3 configuration
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"

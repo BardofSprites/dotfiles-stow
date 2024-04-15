@@ -1,0 +1,3 @@
+#!/bin/sh
+
+paplay --volume=40000 $HOME/.local/bin/scripts/bell.mp3

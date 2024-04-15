@@ -1,0 +1,36 @@
+# theme setting
+set $bg      #000000
+set $fg      #ffffff
+set $space   #ffffff
+set $red     #ff5f59
+set $green   #44bc44
+set $yellow  #fec43f
+set $blue    #2fafff
+set $aqua    #00d3d0
+set $purple  #b6a0ff
+set $border  #ffffff
+
+
+# class                  border   background  text  indicator   border
+client.focused           $bg      $fg         $bg   $fg         $border
+client.focused_inactive  $bg      $bg         $fg   $bg         $bg
+client.unfocused         $bg      $bg         $fg   $fg         $bg
+client.urgent            $red     $red        $fg   $red        $red
+
+bar {
+    position top
+    status_command i3status
+    # status_command SCRIPT_DIR=~/.local/bin/i3blocks i3blocks
+    colors {
+        # switch these when switching between dark and light mode
+        background $bg
+        statusline $fg
+        # workspaces section
+        #                    border     background  text
+        focused_workspace    $space     $space         $bg
+        inactive_workspace   $bg        $bg            $fg
+        active_workspace     $bg        $bg            $fg
+        urgent_workspace     $red       $red           $bg
+
+    }
+}
