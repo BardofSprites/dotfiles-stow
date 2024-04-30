@@ -5,6 +5,9 @@ alias mf='mpv "$(fzf)"'
 alias comp="picom --experimental-backends --daemon"
 alias killcomp="killall picom"
 alias kd="killall Discord"
+alias ta="tmux attach"
+alias ts="tmux-sessionizer"
+alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
 
 # directory aliases
 # cd into the previous working directory by omitting `cd`.
