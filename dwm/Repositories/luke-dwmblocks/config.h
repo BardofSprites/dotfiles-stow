@@ -1,40 +1,15 @@
 //Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
-	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
-	/* {"⌨", "sb-kbselect", 0, 30}, */
-	/* {"", "cat /tmp/recordingicon 2>/dev/null",	0,	9}, */
-	/* {"",	"sb-tasks",	10,	26}, */
-	/* /\* {"",	"sb-music",	0,	11}, *\/ */
-	/* {"",	"sb-pacpackages",	0,	8}, */
-	/* {"",	"sb-news",		0,	6}, */
-	/* /\* {"",	"sb-price xmr-btc \"Monero to Bitcoin\" 🔒 25",	9000,	25}, *\/ */
-	/* {"",	"sb-price xmr Monero 🔒 24",			9000,	24}, */
-	/* {"",	"sb-price eth Ethereum 🍸 23",			9000,	23}, */
-	/* {"",	"sb-price btc Bitcoin 💰 21",			9000,	21}, */
-	/* {"",	"sb-torrent",	20,	7}, */
-	/* {"",	"sb-memory",	10,	14}, */
-	/* {"",	"sb-cpu",		10,	18}, */
-	/* {"",	"sb-moonphase",	18000,	17}, */
-	/* {"",	"sb-doppler",	0,	13}, */
-	/* {"",	"sb-forecast",	18000,	5}, */
-	/* {"",	"sb-mailbox",	180,	12}, */
-	/* {"",	"sb-nettraf",	1,	16}, */
-	/* {"",	"sb-volume",	0,	10}, */
-	/* {"",	"sb-battery",	5,	3}, */
-	/* {"",	"sb-clock",	60,	1}, */
-	/* {"",	"sb-internet",	5,	4}, */
-	/* /\* {"",	"sb-iplocate", 0,	27}, *\/ */
-	/* {"",	"sb-help-icon",	0,	15}, */
-    /* {"Mem: ", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0}, */
-    {"", "~/.local/bin/scripts/status/memory	",				10,		0},
-    {"", "~/.local/bin/scripts/status/internet",				10,		1},
+    /*Icon*/	/*Command*/					/*Update Interval*/	/*Update Signal*/
+    {"", "~/.local/bin/scripts/status/memory",					10,		1},
+    {"", "~/.local/bin/scripts/status/internet",				10,		6},
     {"", "~/.local/bin/scripts/status/weather",				10,		2},
-    {"", "~/.local/bin/scripts/status/volume-pulseaudio",			10,		3},
-    {"🎵 ", "~/.local/bin/scripts/status/mediaplayer",			5,		10},
+    {"", "~/.local/bin/scripts/status/volume-pulseaudio",		1,			3},
+    {"🎵 ", "~/.local/bin/scripts/status/mediaplayer",		5,			10},
+    /* {"🔆: ", "~/.local/bin/scripts/status/brightness.sh",			0,		1}, */
+    {"", "~/.local/bin/scripts/status/battery.sh",				5,		7},
     {"", "date '+%Y-%m-%d (%A)'",						1,		4},
     {"", "date '+%R:%S'",							1,		5},
-    /* {"", "~/.local/bin/scripts/status/battery.sh",				5,		0}, */
-    /* {"🔆: ", "~/.local/bin/scripts/status/brightness.sh",			0,		0}, */
 
 };
 
