@@ -1,1 +1,4 @@
-/home/bard/.local/bin/scripts/startpage.sh &
+xss-lock -- /usr/bin/slock &
+nitrogen --restore &
+dwmblocks &
+$HOME/.local/bin/scripts/startpage.sh &
