@@ -6,7 +6,7 @@ selected_mode=$(printf "%s\n" "${modes[@]}" | dmenu -p "Major mode: ")
 
 case $selected_mode in
     "fundamental")
-	emacsclient -c -e "(bard/new-text-buffer)"
+	emacsclient -c -e "(bard/new-plain-buffer)"
 	;;
     "org")
 	emacsclient -c -e "(bard/new-org-buffer)"
