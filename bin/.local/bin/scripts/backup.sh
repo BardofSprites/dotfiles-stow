@@ -10,6 +10,8 @@ SOURCE_DIRS=(
     "/home/bard/Repositories/"
     "/home/bard/Music/"
     "/home/bard/Videos/"
+    "/home/bard/dotfiles/"
+    "/home/bard/Mail/"
 )
 
 DESTINATION_BASE="/mnt/hdd/"
