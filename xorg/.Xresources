@@ -1,0 +1,35 @@
+!! URxvt Appearance
+Xcursor.size: 16
+Xcursor.theme: adwaita
+URxvt.depth: 32
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: false
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: false
+URxvt.iso14755: false
+
+URxvt.font: xft:Iosevka Comfy:style=Regular:size=14
+URxvt.boldFont: xft:Iosevka Comfy:style=Bold:size=14
+URxvt.italicFont: xft:Iosevka Comfy:style=Italic:size=14
+URxvt.boldItalicFont: xft:Iosevka Comfy:style=Bold Italic:size=14
+
+!! Copy Paste
+URxvt.perl-lib: /home/bard/.urxvt/
+URxvt.perl-ext-common: default,keyboard-select,selection-to-clipboard,matcher,resize-font
+! keyboard selection with vim keys
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+! searching the terminal
+URxvt.keysym.M-s: perl:keyboard-select:searchr
+! url browser
+URxvt.url-launcher: librewolf
+URxvt.matcher.button: 1
+! font sizing
+URxvt.keysym.C-minus:  resize-font:smaller
+URxvt.keysym.C-equal:  resize-font:bigger
+URxvt.keysym.C-0:      resize-font:reset
