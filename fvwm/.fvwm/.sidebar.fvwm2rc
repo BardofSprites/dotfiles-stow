@@ -1,0 +1,98 @@
+
+DestroyModuleConfig FvwmButtons sidebar: *
+
+*sidebar: Font \
+    "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=12:antialias=True"
+
+*sidebar: ButtonGeometry 96x24-0+0
+*sidebar: Rows 45
+*sidebar: Columns 1
+*sidebar: Frame 0
+*sidebar: Colorset 0
+*sidebar: Padding 0 0
+
+*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9,  \
+            Icon "Chouchin Reinensai.png", \
+            ActiveTitle "Net", \
+            Action (Mouse 1) Exec exec firefox-bin, \
+            Action (Mouse 3) Exec exec librewolf-bin)
+
+*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
+            Icon Bonsai.png, \
+            ActiveTitle "Files", \
+            Action (Mouse 1) Exec exec emacsclient -c -e "(dired \"~/\")", \
+            Action (Mouse 3) Exec exec "$HOME/.local/bin/scripts/dired_selector" )
+
+*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Term", \
+            Icon "Yunomi (tea cup).png", \
+            Action (Mouse 1) Exec "St" exec st)
+
+*sidebar: ( 1x2, Frame 1, Colorset 8,  PressColorset 9, \
+            ActiveTitle "Editor", \
+            Icon Shodou.png, \
+            Action (Mouse 1) Exec "GNU Emacs (client)" exec emacsclient -c, \
+            Action (Mouse 3) Exec "GNU Emacs" exec emacs)
+
+*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Media", \
+            Icon Shamisen.png, \
+            Action (Mouse 1) Exec exec emacsclient -c -e '(emms)')
+
+*sidebar: ( 1x2, Frame 1, Icon "Tourist guidebook.png", \
+            ActiveTitle "Identify ...", \
+            Colorset 8,  PressColorset 9,\
+            Action Module FvwmIdent )
+
+*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Man", \
+            Icon Folder.png, Action (Mouse 1) Menu MenuHelp \
+            rectangle +$left+$top -100m 0 )
+
+*sidebar: ( 1x2, Frame 1, Colorset 8,  PressColorset 9, \
+            ActiveTitle "Configs", \
+            Icon "Singing Bowl.png", \
+            Action (Mouse 1) \
+            Menu MenuConfig \
+            Rectangle +$left+$top -100m 0, \
+            Action (Mouse 3) \
+               echo $left $top $right $bottom )
+
+*sidebar: ( 1x12 )
+
+*sidebar: ( 1x2, Frame 1, ActiveTitle "Restart", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "iChing Kouka.png", \
+            Action (Mouse 1) Restart, \
+            Action (Mouse 3) update )
+
+*sidebar: ( 1x2, Frame 1, ActiveTitle "Lock", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "Shoji2(paper sliding-door).png", \
+            Action (Mouse 1) Exec exec xscreensaver-command -lock , \
+            Action (Mouse 3) Exec "Xscreensaver-demo" \
+                exec xscreensaver-demo )
+
+*sidebar: ( 1x2 , Frame 1, ActiveTitle "Suspend", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "Futon (bed).png", \
+            Action (Mouse 1) Exec exec sudo pm-suspend )
+
+*sidebar: ( 1x2, Frame 1, ActiveTitle "Exit", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon Torii.png, Action (Mouse 1) quit,\
+            Action (Mouse 3) Exec exec sudo reboot)
+
+
+Style sidebar Sticky, NeverFocus, !Borders, NoIcon, \
+                FixedSize, !Title, WindowListSkip, Layer 0, \
+                FixedPosition
+
+
+
+
+
