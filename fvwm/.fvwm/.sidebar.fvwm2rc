@@ -2,7 +2,7 @@
 DestroyModuleConfig FvwmButtons sidebar: *
 
 *sidebar: Font \
-    "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=12:antialias=True"
+    "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=16:antialias=True"
 
 *sidebar: ButtonGeometry 96x24-0+0
 *sidebar: Rows 45
@@ -15,6 +15,7 @@ DestroyModuleConfig FvwmButtons sidebar: *
             Icon "Chouchin Reinensai.png", \
             ActiveTitle "Net", \
             Action (Mouse 1) Exec exec firefox-bin, \
+            Action (Mouse 2) Exec exec discord, \
             Action (Mouse 3) Exec exec librewolf-bin)
 
 *sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
@@ -31,41 +32,31 @@ DestroyModuleConfig FvwmButtons sidebar: *
 *sidebar: ( 1x2, Frame 1, Colorset 8,  PressColorset 9, \
             ActiveTitle "Editor", \
             Icon Shodou.png, \
-            Action (Mouse 1) Exec "GNU Emacs (client)" exec emacsclient -c, \
-            Action (Mouse 3) Exec "GNU Emacs" exec emacs)
+            Action (Mouse 1) Exec "GNU Emacs" exec emacs, \
+            Action (Mouse 3) Exec "GNU Emacs (client)" exec emacsclient -c )
 
 *sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
             ActiveTitle "Media", \
             Icon Shamisen.png, \
             Action (Mouse 1) Exec exec emacsclient -c -e '(emms)')
 
+*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Utilities", \
+            Icon "Ishidourou.png", \
+            Action (Mouse 1) Exec "Network" exec st -e nmtui, \
+            Action (Mouse 3) Exec "Monitor" exec st -e btop)
+
 *sidebar: ( 1x2, Frame 1, Icon "Tourist guidebook.png", \
             ActiveTitle "Identify ...", \
             Colorset 8,  PressColorset 9,\
             Action Module FvwmIdent )
 
-*sidebar: ( 1x2, Frame 1, Colorset 8, PressColorset 9, \
-            ActiveTitle "Man", \
-            Icon Folder.png, Action (Mouse 1) Menu MenuHelp \
-            rectangle +$left+$top -100m 0 )
-
-*sidebar: ( 1x2, Frame 1, Colorset 8,  PressColorset 9, \
-            ActiveTitle "Configs", \
-            Icon "Singing Bowl.png", \
-            Action (Mouse 1) \
-            Menu MenuConfig \
-            Rectangle +$left+$top -100m 0, \
-            Action (Mouse 3) \
-               echo $left $top $right $bottom )
-
-*sidebar: ( 1x12 )
-
-*sidebar: ( 1x2, Frame 1, ActiveTitle "Restart", \
+*sidebar: ( 1x2 , Frame 1, ActiveTitle "Update", \
             Colorset 8, \
             PressColorset 9, \
-            Icon "iChing Kouka.png", \
-            Action (Mouse 1) Restart, \
-            Action (Mouse 3) update )
+            Icon "Singing Bowl.png", \
+            Action (Mouse 1) Refresh, \
+            Action (Mouse 3) Restart)
 
 *sidebar: ( 1x2, Frame 1, ActiveTitle "Lock", \
             Colorset 8, \
@@ -79,20 +70,11 @@ DestroyModuleConfig FvwmButtons sidebar: *
             Colorset 8, \
             PressColorset 9, \
             Icon "Futon (bed).png", \
-            Action (Mouse 1) Exec exec sudo pm-suspend )
-
-*sidebar: ( 1x2, Frame 1, ActiveTitle "Exit", \
-            Colorset 8, \
-            PressColorset 9, \
-            Icon Torii.png, Action (Mouse 1) quit,\
-            Action (Mouse 3) Exec exec sudo reboot)
+            Action (Mouse 1) Exec exec "$HOME/.local/bin/scripts/sysact.sh" )
 
 
-Style sidebar Sticky, NeverFocus, !Borders, NoIcon, \
-                FixedSize, !Title, WindowListSkip, Layer 0, \
-                FixedPosition
-
-
-
-
-
+# Style sidebar Sticky, NeverFocus, !Borders, NoIcon, \
+#                 FixedSize, !Title, WindowListSkip, Layer 0, \
+#                 FixedPosition
+Style sidebar !Title, !Borders, !Handles, Sticky, \
+                 WindowListSkip, NeverFocus

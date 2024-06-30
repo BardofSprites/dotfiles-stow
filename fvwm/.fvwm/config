@@ -63,7 +63,7 @@ AddToFunc   StartFunction
 + I Test (Init) InitBackground
 + I Test (Init) Module FvwmBanner
 + I Module FvwmButtons LeftPanel
-+ I Module FvwmButtons sidebar
+# + I Module FvwmButtons sidebar
 + I Module FvwmEvent EventNewDesk
 
 # Function to set background when fvwm starts
@@ -212,7 +212,7 @@ MoveThreshold 3
 Style * SloppyFocus, MouseFocusClickRaises
 
 # Default Font
-DefaultFont "xft:Iosevka Comfy:Bold:size=12:antialias=True"
+DefaultFont "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
 
 # Window Placement
 Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
@@ -245,6 +245,8 @@ Style * IconBox 64x300-0+0
 
 # Window Specific Styles
 Style LeftPanel !Title, !Borders, !Handles, Sticky, \
+                 WindowListSkip, NeverFocus
+Style conky !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
@@ -303,8 +305,8 @@ Colorset 14 fg #ffffff, bg #2f3849, hi #aaaaaa, sh #999999, Plain, NoShape
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
-MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Iosevka Comfy:Bold:size=12:antialias=True"
+# MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
+MenuStyle * Font "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
 
 # Root Menu
 #
@@ -312,20 +314,14 @@ MenuStyle * Font "xft:Iosevka Comfy:Bold:size=12:antialias=True"
 # window or using alt-f1 (or menu).
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm" Title
-+ "&Programs%icons/programs.png%" Popup MenuPrograms
-+ "XDG &Menu%icons/apps.png%" Popup XDGMenu
-+ "&XTerm%icons/terminal.png%" Exec exec $[infostore.terminal]
++ "&Programs%Kanban (sign).png%" Popup MenuPrograms
++ "&Terminal%Yunomi (tea cup).png%" Exec exec $[infostore.terminal]
 + "" Nop
-+ "Fvwm&Console%icons/terminal.png%" Module FvwmConsole -terminal $[infostore.terminal]
-+ "&Wallpapers%icons/wallpaper.png%" Exec exec $HOME/.local/bin/scripts/wallpaper.sh
-+ "M&an Pages%icons/help.png%" Popup MenuFvwmManPages
++ "&Wallpapers%Folder2.png%" Exec exec $HOME/.local/bin/scripts/wallpaper.sh
 + "" Nop
-+ "Re&fresh%icons/refresh.png%" Refresh
-+ "&Restart%icons/restart.png%" Restart
-+ "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
-
-# Generate XDGMenu
-PipeRead "fvwm2-menu-desktop -e"
++ "Re&fresh%Futon (bed).png%" Refresh
++ "&Restart%Futon (bed).png%" Restart
++ "&Quit%Futon (bed).png%" Module FvwmScript FvwmScript-ConfirmQuit
 
 # Programs Menu
 #
@@ -491,6 +487,18 @@ Silent Key 2 A 4 GotoDesk 0 1
 Silent Key 3 A 4 GotoDesk 0 2
 Silent Key 4 A 4 GotoDesk 0 3
 
+Silent Key 1 A 4S MoveToDesk 0 0
+Silent Key 2 A 4S MoveToDesk 0 1
+Silent Key 3 A 4S MoveToDesk 0 2
+Silent Key 4 A 4S MoveToDesk 0 3
+
+DestroyMenu MenuSendToPage
+AddToMenu   MenuSendToPage
++ "Page (0,0)"	MoveToPage 0 0
++ "Page (0,1)"	MoveToPage 0 1
++ "Page (1,0)"	MoveToPage 1 0
++ "Page (1,1)"	MoveToPage 1 1
+
 # page scrolling custom
 Mouse 9 R       4   Scroll 0 -100p
 Mouse 8 R       4   Scroll 0 100p
@@ -511,7 +519,13 @@ Silent Key D        A 4     Exec exec dmenu_run
 Silent Key W A 4        Exec exec librewolf-bin
 Silent Key W A 4S       Exec exec firefox-bin
 
-# Script keybinds
+#### Media keybinds
+Silent Key XF86AudioMute         A A        Exec exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+Silent Key XF86AudioRaiseVolume  A A        Exec exec pactl set-sink-volume @DEFAULT_SINK@ +10% 
+Silent Key XF86AudioLowerVolume  A A        Exec exec pactl set-sink-volume @DEFAULT_SINK@ -10% 
+Silent Key XF86AudioMicMute      A A        Exec exec pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+
+#### Script keybinds
 Silent Key B       A 4        Exec exec "$HOME/.local/bin/scripts/scratch.sh"
 Silent Key N       A 4S       Exec exec "$HOME/.local/bin/scripts/dired_selector"
 Silent Key M       A 4S       Exec exec "$HOME/.local/bin/scripts/wallpaper.sh"
@@ -555,7 +569,7 @@ Silent Key Q        A     4       Close
 
 # Resize window
 Silent Mouse 3        A     4       Resize
-Silent Mouse  1        A     4      Move
+Silent Mouse 1        A     4       Move
 
 # alt+shift hjkl to tile left, bottom-right, top-right, full-right respectively 
 Silent Key H        A     MS      Tile 60 100 +0 +0
@@ -626,7 +640,7 @@ ButtonStyle 6 - MwmDecorMin
 # a window. One use is getting the class/resource/name of a window.
 DestroyModuleConfig FvwmIdent:*
 *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Iosevka Comfy:size=12:antialias=True"
+*FvwmIdent: Font "xft:Iosevka Comfy:size=14:antialias=True"
 
 # FvwmBanner
 #
@@ -662,8 +676,8 @@ DestroyModuleConfig LeftPanel:*
 *LeftPanel: Rows $[vp.height]
 *LeftPanel: Columns 120
 *LeftPanel: Frame 0
-*LeftPanel: Font "xft:Iosevka Comfy:Bold:size=12:antialias=True"
-# *LeftPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
+*LeftPanel: Font "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
+# *LeftPanel: (120x20, Icon "fvwm-logo-small.png", Frame 0)
 *LeftPanel: (120x5, Frame 0)
 *LeftPanel: (10x20, Frame 0)
 *LeftPanel: (25x20, Id desk0, Title "0", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
@@ -678,8 +692,73 @@ DestroyModuleConfig LeftPanel:*
 Test (x stalonetray) *LeftPanel: (120x20, Swallow(NoClose,UseOld) \
     stalonetray 'Exec exec stalonetray --config \
     "$[FVWM_DATADIR]/default-config/.stalonetrayrc"', Frame 0)
-Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-225)), \
+# Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-225)), \
+#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+
+Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x200), \
     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+
+*LeftPanel: ( 120x40, Frame 1, Colorset 8, PressColorset 9,  \
+            Icon "Chouchin Reinensai.png", \
+            ActiveTitle "Net", \
+            Action (Mouse 1) Exec exec firefox-bin, \
+            Action (Mouse 2) Exec exec discord, \
+            Action (Mouse 3) Exec exec librewolf-bin)
+
+*LeftPanel: ( 120x40, Frame 1, Colorset 8, PressColorset 9, \
+            Icon Bonsai.png, \
+            ActiveTitle "Files", \
+            Action (Mouse 1) Exec exec emacsclient -c -e "(dired \"~/\")", \
+            Action (Mouse 3) Exec exec "$HOME/.local/bin/scripts/dired_selector" )
+
+*LeftPanel: ( 120x40, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Term", \
+            Icon "Yunomi (tea cup).png", \
+            Action (Mouse 1) Exec "St" exec st)
+
+*LeftPanel: ( 120x40, Frame 1, Colorset 8,  PressColorset 9, \
+            ActiveTitle "Editor", \
+            Icon Shodou.png, \
+            Action (Mouse 1) Exec "GNU Emacs" exec emacs, \
+            Action (Mouse 3) Exec "GNU Emacs (client)" exec emacsclient -c )
+
+*LeftPanel: ( 120x40, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Media", \
+            Icon Shamisen.png, \
+            Action (Mouse 1) Exec exec emacsclient -c -e '(emms)')
+
+*LeftPanel: ( 120x40, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Utilities", \
+            Icon "Ishidourou.png", \
+            Action (Mouse 1) Exec "Network" exec st -e nmtui, \
+            Action (Mouse 3) Exec "Monitor" exec st -e btop)
+
+*LeftPanel: ( 120x40, Frame 1, Icon "Tourist guidebook.png", \
+            ActiveTitle "Identify ...", \
+            Colorset 8,  PressColorset 9,\
+            Action Module FvwmIdent )
+
+*LeftPanel: ( 120x40 , Frame 1, ActiveTitle "Update", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "Singing Bowl.png", \
+            Action (Mouse 1) Refresh, \
+            Action (Mouse 3) Restart)
+
+*LeftPanel: ( 120x40, Frame 1, ActiveTitle "Lock", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "Shoji2(paper sliding-door).png", \
+            Action (Mouse 1) Exec exec xscreensaver-command -lock , \
+            Action (Mouse 3) Exec "Xscreensaver-demo" \
+                exec xscreensaver-demo )
+
+*LeftPanel: ( 120x40 , Frame 1, ActiveTitle "Suspend", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "Futon (bed).png", \
+            Action (Mouse 1) Exec exec "$HOME/.local/bin/scripts/sysact.sh" )
+
 Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-205)),\
     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
 *LeftPanel: (120x45, Swallow DateTime 'Module FvwmScript FvwmScript-DateTime',\
@@ -697,7 +776,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: WindowColorsets 10 11
 *FvwmPager: Font None
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Iosevka Comfy:Bold:size=12:antialias=True"
+*FvwmPager: BalloonFont "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 *FvwmPager: MiniIcons
@@ -719,7 +798,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: DrawIcons always
 *FvwmIconMan: ReliefThickness 0
 *FvwmIconMan: Format "%t"
-*FvwmIconMan: Font "xft:Iosevka Comfy:Bold:size=12:antialias=True"
+*FvwmIconMan: Font "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
