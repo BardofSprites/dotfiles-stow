@@ -5,7 +5,7 @@ URxvt.background:  [90]#000000
 *.cursorColor:     #ffffff
 ! black
 *.color0:       #000000
-*.color8:       #5C6370
+*.color8:       #535353
 ! red
 *.color1:       #ff5f59
 *.color9:       #ff5f59
@@ -30,5 +30,12 @@ URxvt.background:  [90]#000000
 
 dmenu.background: #000000
 dmenu.foreground: #ffffff
-dmenu.selbackground: #5C6370
+dmenu.selbackground: #535353
 dmenu.selforeground: #ffffff
+
+Nsxiv.window.background: #000000
+Nsxiv.window.foreground: #ffffff
+Nsxiv.mark.foreground: #ffffff
+Nsxiv.bar.background: #505050
+Nsxiv.bar.foreground: #ffffff
+Nsxiv.bar.font: IosevkaComfy-16
