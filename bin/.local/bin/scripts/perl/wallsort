@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use File::Find;
+use File::Copy;
+use File::Path qw(make_path);
+use File::Spec;
+
+my $destination_base = "$ENV{HOME}/Pictures/wallpaper";
+my @modules = qw(Landscape); # Define your modules here
+my @categories = qw(Winter); # Define your categories here
+
+sub prompt_category {
+    my ($image_path) = @_;
+    system("nsxiv", $image_path);
+
+    print "Enter category for '$image_path' (e.g., Winter/Fall/Spring/Summer/Night/Day): ";
+    chomp(my $category = <STDIN>);
+
+    return $category;
+}
+
+sub process_image {
+    my $file = $File::Find::name;
+
+    return unless -f $file; # Ensure it's a file
+    return unless $file =~ /\.(png|jpe?g|gif)$/i; # Ensure it's an image
+
+    # Check if the file is in a submodule category directory
+    foreach my $category (@categories) {
+        return if $file =~ /\/$category\//;
+    }
+
+    my $category = prompt_category($file);
+
+    # Get the relative path from the module directory
+    my $relative_path = $file;
+    $relative_path =~ s/^\Q$destination_base\E\/?//;
+
+    # Determine the new path
+    my $new_path = "$destination_base/$relative_path";
+    $new_path =~ s|/[^/]+$|/$category/$&|;
+
+    # Create the new directory if it doesn't exist
+    my ($volume, $directories, $filename) = File::Spec->splitpath($new_path);
+    make_path($directories) unless -d $directories;
+
+    # Move the file
+    move($file, $new_path) or die "Failed to move $file to $new_path: $!";
+    print "Moved $file to $new_path\n";
+}
+
+foreach my $module (@modules) {
+    my $module_path = "$destination_base/$module";
+    find(\&process_image, $module_path);
+}
