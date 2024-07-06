@@ -51,27 +51,11 @@ DestroyModuleConfig FvwmButtons sidebar: *
             Colorset 8,  PressColorset 9,\
             Action Module FvwmIdent )
 
-*sidebar: ( 1x2 , Frame 1, ActiveTitle "Update", \
-            Colorset 8, \
-            PressColorset 9, \
-            Icon "Singing Bowl.png", \
-            Action (Mouse 1) Refresh, \
-            Action (Mouse 3) Restart)
-
 *sidebar: ( 1x2, Frame 1, ActiveTitle "Lock", \
             Colorset 8, \
             PressColorset 9, \
             Icon "Shoji2(paper sliding-door).png", \
-            Action (Mouse 1) Exec exec xscreensaver-command -lock , \
-            Action (Mouse 3) Exec "Xscreensaver-demo" \
-                exec xscreensaver-demo )
-
-*sidebar: ( 1x2 , Frame 1, ActiveTitle "Suspend", \
-            Colorset 8, \
-            PressColorset 9, \
-            Icon "Futon (bed).png", \
-            Action (Mouse 1) Exec exec "$HOME/.local/bin/scripts/sysact.sh" )
-
+            Action (Mouse 1) Exec exec slock)
 
 # Style sidebar Sticky, NeverFocus, !Borders, NoIcon, \
 #                 FixedSize, !Title, WindowListSkip, Layer 0, \
