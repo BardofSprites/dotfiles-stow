@@ -2,12 +2,14 @@
 
 alias pyenv="source /home/bard/.pyvenv/bin/activate"
 alias mf='mpv "$(fzf)"'
-alias comp="picom --experimental-backends --daemon"
+alias comp="picom --daemon"
 alias killcomp="killall picom"
 alias kd="killall Discord"
 alias ta="tmux attach"
 alias ts="tmux-sessionizer"
 alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
+
+alias image-date="find \"$1\/\" -type f -exec ls -t {} + | nsxiv -i -t"
 
 # directory aliases
 # cd into the previous working directory by omitting `cd`.
@@ -37,3 +39,5 @@ alias lsla='ls -lhpvA --color=auto --group-directories-first'
 # change daemon permissions for script
 alias ep="chmod 700 /run/user/1000/emacs/"
 alias en="emacsclient -c -nw"
+
+alias catworld="cat /var/lib/portage/world"
