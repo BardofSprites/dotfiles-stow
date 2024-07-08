@@ -215,7 +215,7 @@ MoveThreshold 3
 Style * SloppyFocus, MouseFocusClickRaises
 
 # Default Font
-DefaultFont "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=12:antialias=True"
+DefaultFont "xft:Iosevka Comfy Duo:size=12:antialias=True"
 
 # Window Placement
 Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
@@ -309,7 +309,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 # MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=12:antialias=True"
+MenuStyle * Font "xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
 
 # Root Menu
 #
@@ -585,10 +585,10 @@ Silent Mouse 1        A     4       Move
 # maximize/minimize window
 
 # alt+shift hjkl to tile left, bottom-right, top-right, full-right respectively 
-# Silent Key H        A     MS      Tile 60 100 +0 +0
-# Silent Key L        A     MS      Tile 40 100 -0 +0
-# Silent Key J        A     MS      Tile 40 40 -0 -0
-# Silent Key K        A     MS      Tile 40 60 -0 +0
+Silent Key H        A     4C      Tile 60 100 +0 +0
+Silent Key L        A     4C      Tile 40 100 -0 +0
+Silent Key J        A     4C      Tile 40 40 -0 -0
+Silent Key K        A     4C      Tile 40 60 -0 +0
  
 # Super+C/F/J/H/K/L - center, maximize, move window, etc
 Silent Key C        A     4       AnimatedMove 50-50w 50-50w
@@ -711,9 +711,11 @@ Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-225)), \
     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
 Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-205)),\
     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-*LeftPanel: (120x45, Swallow DateTime 'Module FvwmScript fvwmscript/FvwmScript-DateTime',\
+*LeftPanel: (120x60, Swallow DateTime 'Module FvwmScript fvwmscript/FvwmScript-DateTime',\
     Frame 0)
-*LeftPanel: (120x5, Frame 0)
+*LeftPanel: (120x50, Swallow ACPIStatus 'Module FvwmScript fvwmscript/FvwmScript-ACPIStatus',\
+    Frame 0)    
+# *LeftPanel: (120x5, Frame 0)
 
 # FvwmPager
 #
@@ -726,7 +728,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: WindowColorsets 10 11
 *FvwmPager: Font None
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=12:antialias=True"
+*FvwmPager: BalloonFont "xft:Iosevka Comfy Duo:Italic:size=14:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 *FvwmPager: MiniIcons
@@ -748,7 +750,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: DrawIcons always
 *FvwmIconMan: ReliefThickness 0
 *FvwmIconMan: Format "%t"
-*FvwmIconMan: Font "Shadow=2:xft:Iosevka Comfy Duo:Italic:size=12:antialias=True"
+*FvwmIconMan: Font "xft:Iosevka Comfy Duo:size=14:antialias=True"
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"

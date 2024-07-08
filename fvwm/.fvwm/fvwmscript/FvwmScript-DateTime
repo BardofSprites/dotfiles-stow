@@ -1,6 +1,6 @@
 WindowTitle {DateTime}
-WindowSize  120 35
-Font "xft:Iosevka Comfy:size=12"
+WindowSize  120 65
+Font "xft:Iosevka Comfy:size=14"
 
 Init
  Begin
@@ -27,7 +27,7 @@ Widget 1
 Property
  Position 0 0
  Size 120 20
- Font "xft:Iosevka Comfy:size=12"
+ Font "xft:Iosevka Comfy:size=14"
  Type ItemDraw
  Flags NoReliefString
  Title {}
@@ -41,8 +41,8 @@ End
 Widget 2
 Property
  Position 0 20
- Size 120 15
- Font "xft:Iosevka Comfy:size=12"
+ Size 120 20
+ Font "xft:Iosevka Comfy:size=14"
  Type ItemDraw
  Flags NoReliefString
  Title {}
