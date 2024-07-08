@@ -2,8 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 export TERMINAL="/usr/local/bin/st"
-export PATH="/home/bard/.local/bin:$PATH"
-export PATH="/home/bard/.local/scripts/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/scripts/:$PATH"
 export PATH="$HOME/opt/:$PATH"
 export PKG_CONFIG_PATH="$HOME/opt/raylib/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PATH="$HOME/.nimble/bin":$PATH
@@ -81,5 +81,11 @@ fi
 
 export PS1='[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]\[\033[01;35m\] λ\[\033[00m\] '
 
-[ -f "/home/bard/.ghcup/env" ] && source "/home/bard/.ghcup/env" # ghcup-env
-. "$HOME/.cargo/env"
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+# . "$HOME/.cargo/env"
+
+PATH="/home/bard/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/bard/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/bard/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/bard/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/bard/perl5"; export PERL_MM_OPT;
