@@ -63,19 +63,10 @@ SetEnv scripts $[HOME]/.fvwm/scripts
 # actions that are run after a restart.
 DestroyFunc StartFunction
 AddToFunc   StartFunction
-+ I Test (Init) InitBackground
 + I Test (Init) Module FvwmBanner
 + I Module FvwmButtons LeftPanel
-+ I Module FvwmButtons sidebar
+# + I Module FvwmButtons sidebar
 + I Module FvwmEvent EventNewDesk
-
-# Function to set background when fvwm starts
-DestroyFunc InitBackground
-AddToFunc InitBackground
-+ I Test (f $HOME/.BGdefault) \
-    Exec exec fvwm2-root $[FVWM_USERDIR]/.BGdefault
-+ I TestRc (NoMatch) Exec exec fvwm2-root \
-    $[FVWM_DATADIR]/default-config/images/background/bg1.png
 
 # Mouse Bindings Functions
 DestroyFunc RaiseMoveX
@@ -157,15 +148,15 @@ AddToFunc   ChangeDesk
 + I SendToModule FvwmButtons ChangeButton desk$0 Colorset 11
 
 # Function used for tiling/un-tiling windows.
-# DestroyFunc Tile
-# AddToFunc Tile
-# + I ThisWindow (Maximized) Maximize toggle
-# + I TestRc (Match) Break
-# + I Maximize Forget
-# + I Raise
-# + I Maximize $0 $1
-# + I Move $2 $3
-# + I Focus
+DestroyFunc Tile
+AddToFunc Tile
++ I ThisWindow (Maximized) Maximize toggle
++ I TestRc (Match) Break
++ I Maximize Forget
++ I Raise
++ I Maximize $0 $1
++ I Move $2 $3
++ I Focus
 
 #############
 # 2: Styles #
@@ -324,7 +315,7 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "" Nop
 + "Re&fresh%Futon (bed).png%" Refresh
 + "&Restart%Futon (bed).png%" Restart
-+ "&Quit%Futon (bed).png%" Module FvwmScript FvwmScript-ConfirmQuit
++ "&Quit%Futon (bed).png%" Exec exec loginctl poweroff
 
 # Programs Menu
 #
@@ -339,8 +330,7 @@ Test (x firefox-bin) + "Firefox" Exec exec firefox-bin
 Test (x librewolf) + "Librewolf" Exec exec librewolf
 Test (x librewolf-bin) + "Librewolf" Exec exec librewolf-bin
 Test (x google-chrome) + "Google-Chrome" Exec exec google-chrome
-Test (x emacs) + "Emacs" Exec exec emacs
-Test (x emacs) + "Emacsclient" Exec exec emacsclient -c
+Test (x emacs) + "Emacs" Exec exec emacsclient -c -a 'emacs'
 Test (x gimp) + "Gimp" Exec exec gimp
 Test (x vlc) + "VLC" Exec exec vlc
 
@@ -484,7 +474,7 @@ AddToMenu   MenuFvwmManPages "Help" Title
 # Silent supresses any errors (such as keyboards with no Menu key).
 Silent Key F1 A M Menu MenuFvwmRoot
 Silent Key Space A 4 Menu MenuFvwmRoot
-Silent Key Tab A M WindowList Root c c NoDeskSort, CurrentAtEnd, SelectOnRelease Meta_L
+Silent Key Tab A M WindowList Root c c CurrentDesk, NoDeskSort, CurrentAtEnd, SelectOnRelease Meta_L
 Silent Key F1 A 4 GotoDesk 0 0
 Silent Key F2 A 4 GotoDesk 0 1
 Silent Key F3 A 4 GotoDesk 0 2
@@ -534,6 +524,7 @@ Silent Key XF86AudioMute         A A        Exec exec pactl set-sink-mute @DEFAU
 Silent Key XF86AudioRaiseVolume  A A        Exec exec pactl set-sink-volume @DEFAULT_SINK@ +10% 
 Silent Key XF86AudioLowerVolume  A A        Exec exec pactl set-sink-volume @DEFAULT_SINK@ -10% 
 Silent Key XF86AudioMicMute      A A        Exec exec pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+Silent Key P                     A 4        Exec exec playerctl pause
 
 #### Script keybinds
 Silent Key B       A 4        Exec exec "$HOME/.local/bin/scripts/scratch.sh"
@@ -584,11 +575,11 @@ Silent Mouse 1        A     4       Move
 
 # maximize/minimize window
 
-# alt+shift hjkl to tile left, bottom-right, top-right, full-right respectively 
-Silent Key H        A     4C      Tile 60 100 +0 +0
-Silent Key L        A     4C      Tile 40 100 -0 +0
-Silent Key J        A     4C      Tile 40 40 -0 -0
-Silent Key K        A     4C      Tile 40 60 -0 +0
+# super + arrows for tiling
+Silent Key Left        A     4S      Tile 60 100 +0 +0
+Silent Key Right       A     4S      Tile 40 100 -0 +0
+Silent Key Up          A     4S      Tile 40 60 -0 +0
+Silent Key Down        A     4S      Tile 40 40 -0 -0
  
 # Super+C/F/J/H/K/L - center, maximize, move window, etc
 Silent Key C        A     4       AnimatedMove 50-50w 50-50w
@@ -604,10 +595,10 @@ Silent Key J        A     4S      Move w0px w20px
 Silent Key K        A     4S      Move w0px w-20px
  
 # Maximize in direction until we hit another window.
-Silent Key Left        A     MC      Maximize growleft 0
-Silent Key Right       A     MC      Maximize growright 0
-Silent Key Up          A     MC      Maximize 0 growup
-Silent Key Down        A     MC      Maximize 0 growdown
+Silent Key Left        A     4C      Maximize growleft 0
+Silent Key Right       A     4C      Maximize growright 0
+Silent Key Up          A     4C      Maximize 0 growup
+Silent Key Down        A     4C      Maximize 0 growdown
 
 #######
 # 6: Window Decor
@@ -695,27 +686,75 @@ DestroyModuleConfig LeftPanel:*
 # *LeftPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 *LeftPanel: (120x5, Frame 0)
 *LeftPanel: (10x20, Frame 0)
-*LeftPanel: (25x20, Id desk0, Title "0", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
-*LeftPanel: (25x20, Id desk1, Title "1", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
-*LeftPanel: (25x20, Id desk2, Title "2", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
-*LeftPanel: (25x20, Id desk3, Title "3", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x20, Id desk0, Title "I", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x20, Id desk1, Title "II", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x20, Id desk2, Title "III", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x20, Id desk3, Title "IV", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
 *LeftPanel: (10x20, Frame 0)
-*LeftPanel: (5x80, Frame 0)
-*LeftPanel: (110x80, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
-*LeftPanel: (5x80, Frame 0)
+*LeftPanel: (5x60, Frame 0)
+*LeftPanel: (110x60, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
+*LeftPanel: (5x60, Frame 0)
 *LeftPanel: (120x5, Frame 0)
-Test (x stalonetray) *LeftPanel: (120x20, Swallow(NoClose,UseOld) \
-    stalonetray 'Exec exec stalonetray --config \
-    "$[FVWM_DATADIR]/default-config/.stalonetrayrc"', Frame 0)
-Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-225)), \
-    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-205)),\
-    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-*LeftPanel: (120x60, Swallow DateTime 'Module FvwmScript fvwmscript/FvwmScript-DateTime',\
+
+# Test (x stalonetray) *LeftPanel: (120x20, Swallow(NoClose,UseOld) \
+#     stalonetray 'Exec exec stalonetray --config \
+#     "$[FVWM_DATADIR]/default-config/.stalonetrayrc"', Frame 0)
+# Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x20)), \
+#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+# Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x20)),\
+#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9,  \
+            Icon "Chouchin Reinensai.png", \
+            ActiveTitle "Net", \
+            Action (Mouse 1) Exec exec firefox-bin, \
+            Action (Mouse 2) Exec exec discord, \
+            Action (Mouse 3) Exec exec librewolf-bin)
+
+*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+            Icon Bonsai.png, \
+            ActiveTitle "Files", \
+            Action (Mouse 1) Exec exec emacsclient -c -e "(dired \"~/\")" -a 'emacs', \
+            Action (Mouse 3) Exec exec "$HOME/.local/bin/scripts/dired_selector" )
+
+*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Term", \
+            Icon "Yunomi (tea cup).png", \
+            Action (Mouse 1) Exec "St" exec st)
+
+*LeftPanel: ( 120x30, Frame 1, Colorset 8,  PressColorset 9, \
+            ActiveTitle "Editor", \
+            Icon Shodou.png, \
+            Action (Mouse 1) Exec "GNU Emacs" exec emacsclient -c -a 'emacs')
+
+*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Media", \
+            Icon Shamisen.png, \
+            Action (Mouse 1) Exec exec emacsclient -c -e '(emms)' -a 'emacs')
+
+*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+            ActiveTitle "Utilities", \
+            Icon "Ishidourou.png", \
+            Action (Mouse 1) Exec "Network" exec st -e nmtui, \
+            Action (Mouse 3) Exec "Monitor" exec st -e btop)
+
+*LeftPanel: ( 120x30, Frame 1, Icon "Tourist guidebook.png", \
+            ActiveTitle "Identify ...", \
+            Colorset 8,  PressColorset 9,\
+            Action Module FvwmIdent )
+
+*LeftPanel: ( 120x30, Frame 1, ActiveTitle "Lock", \
+            Colorset 8, \
+            PressColorset 9, \
+            Icon "Shoji2(paper sliding-door).png", \
+            Action (Mouse 1) Exec exec slock)
+
+*LeftPanel: (120x60, Frame 0)
+
+*LeftPanel: (120x30, Swallow DateTime 'Module FvwmScript fvwmscript/FvwmScript-DateTime',\
     Frame 0)
-*LeftPanel: (120x50, Swallow ACPIStatus 'Module FvwmScript fvwmscript/FvwmScript-ACPIStatus',\
+*LeftPanel: (120x10, Swallow ACPIStatus 'Module FvwmScript fvwmscript/FvwmScript-ACPIStatus',\
     Frame 0)    
-# *LeftPanel: (120x5, Frame 0)
+*LeftPanel: (120x5, Frame 0)
 
 # FvwmPager
 #
