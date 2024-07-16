@@ -1,0 +1,15 @@
+#### Tao Yang FVWM Colorsets
+Colorset 0  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
+Colorset 1  fg #171717, bg #2d2d2d, hi, sh, Plain, NoShape
+Colorset 2  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
+Colorset 3  fg #171717, bg #606060, hi #606060, sh #606060, Plain, NoShape
+Colorset 4  fg #171717, bg #9E9E9E, hi #9E9E9E, sh #9E9E9E, Plain, NoShape
+Colorset 5  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
+Colorset 6  fg #171717, bg #C3C3C3, hi, sh, Plain, NoShape
+Colorset 7  fg red, bg #FCFCFC, hi, sh, Plain, NoShape
+Colorset 8  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
+Colorset 10 fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
+Colorset 11 fg #FCFCFC, bg #616161, hi #FCFCFC, sh #FCFCFC, Plain, NoShape
+Colorset 12 fg #FCFCFC, bg #C3C3C3, hi, sh, Plain, NoShape
+Colorset 13 fg #FCFCFC, bg #989898, hi, sh, Plain, NoShape
+Colorset 14 fg #FCFCFC, bg red, hi #aaaaaa, sh #999999, Plain, NoShape
