@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use LWP::Simple;
+
+# URL of the NOAA weather radar GIF
+my $url = 'https://radar.weather.gov/ridge/standard/KLVX_loop.gif';
+
+# Path to save the downloaded GIF
+my $gif_path = '/tmp/latest_radaronly.gif';
+
+# Download the GIF
+print "Downloading weather radar GIF...\n";
+my $status = getstore($url, $gif_path);
+
+if (is_success($status)) {
+    print "Download successful. Saved to $gif_path\n";
+
+    # Play the GIF with MPV
+    my $mpv_command = "mpv --loop-file=inf --no-osc --no-input-default-bindings --autofit=120x480 $gif_path";
+    system($mpv_command);
+} else {
+    die "Failed to download GIF: $status\n";
+}
