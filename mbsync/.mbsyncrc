@@ -1,7 +1,7 @@
 IMAPAccount home
 Host imap.gmail.com
-UserCmd "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/ACCOUNT_NAME/ { print $(NF-2); exit; }'"
-PassCmd "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/ACCOUNT_NAME/ { print $NF; exit; }'"
+User "pass mbsync/gmail-username"
+PassCmd "pass mbsync/gmail"
 SSLType IMAPS
 AuthMechs LOGIN
 
@@ -11,8 +11,8 @@ Account home
 MaildirStore home-local
 Subfolders Verbatim
 # The trailing "/" is important
-Path ~/Mail/ACCOUNT_NAME@gmail.com/
-Inbox ~/Mail/ACCOUNT_NAME@gmail.com/Inbox
+Path ~/Mail/gmail-home/
+Inbox ~/Mail/gmail-home/Inbox
 
 Channel home-inbox
 Far :home-remote:
