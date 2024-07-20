@@ -2,3 +2,4 @@ xss-lock -- /usr/bin/slock &
 dwmblocks &
 $HOME/.local/bin/scripts/startpage.sh &
 picom --daemon &
+$HOME/.cache/wallpaper &

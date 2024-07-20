@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Clean wallpaper cache file
+sed -i '/feh/d' $HOME/.cache/wallpaper
+
 # Path to the directory containing your wallpapers
-WALLPAPER_DIRS="$HOME/Pictures/wallpaper/\n$HOME/Pictures/Anime-Wallpaper/"
+WALLPAPER_DIRS="$HOME/Pictures/wallpaper/\n$HOME/Pictures/other-wallpaper/"
 
 WALLPAPER_DIR=$(echo -e "$WALLPAPER_DIRS" | dmenu -p "Select directory: ")
 
@@ -9,7 +12,7 @@ WALLPAPER_DIR=$(echo -e "$WALLPAPER_DIRS" | dmenu -p "Select directory: ")
 selected_wallpaper=$(nsxiv -t -r -o $WALLPAPER_DIR)
 
 # Options for display modes
-OPTIONS="Tiled\nZoom Filled\nCentered"
+OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
 
 # Prompt user to select a display mode
 selected_mode=$(echo -e "$OPTIONS" | dmenu -p "Select Display Mode:")
@@ -18,12 +21,19 @@ selected_mode=$(echo -e "$OPTIONS" | dmenu -p "Select Display Mode:")
 case "$selected_mode" in
     "Tiled")
         feh --bg-tile "$selected_wallpaper"
+        echo "feh --bg-tile '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Zoom Filled")
         feh --bg-fill "$selected_wallpaper"
+        echo "feh --bg-fill '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Centered")
         feh --bg-center "$selected_wallpaper"
+        echo "feh --bg-center '$selected_wallpaper'" >> ~/.cache/wallpaper
+        ;;
+    "Max")
+        feh --bg-max "$selected_wallpaper"
+        echo "feh --bg-max '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     *)
         echo "Invalid option selected."
