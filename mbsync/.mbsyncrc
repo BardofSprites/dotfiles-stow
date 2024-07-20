@@ -1,6 +1,6 @@
 IMAPAccount home
 Host imap.gmail.com
-User "pass mbsync/gmail-username"
+UserCmd "pass mbsync/gmail-username"
 PassCmd "pass mbsync/gmail"
 SSLType IMAPS
 AuthMechs LOGIN
