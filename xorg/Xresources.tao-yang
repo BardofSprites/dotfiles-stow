@@ -26,6 +26,7 @@
 
 *.background: #171717 
 *.foreground: #FCFCFC
+*.cursorColor: #FCFCFC
 
 dmenu.background: #171717
 dmenu.foreground: #FCFCFC

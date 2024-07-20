@@ -28,10 +28,13 @@ URxvt.background:  [90]#000000
 *.color7:       #ffffff
 *.color15:      #ffffff
 
+st.font: Iosevka Comfy-14
+
 dmenu.background: #000000
 dmenu.foreground: #ffffff
 dmenu.selbackground: #535353
 dmenu.selforeground: #ffffff
+dmenu.font: Iosevka Comfy-14
 
 Nsxiv.window.background: #000000
 Nsxiv.window.foreground: #ffffff
