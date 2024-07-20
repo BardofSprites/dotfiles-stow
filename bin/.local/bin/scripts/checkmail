@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mbsync -a
+notmuch new
+
+# logging
+LOG_FILE="$HOME/.cache/checkmail"
+echo "Last mail sync at $(date)" >> $LOG_FILE

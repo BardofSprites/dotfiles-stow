@@ -11,6 +11,8 @@ alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
 
 alias image-date="find \"$1\/\" -type f -exec ls -t {} + | nsxiv -i -t"
 
+alias checkmail="$HOME/.local/bin/scripts/checkmail"
+
 # directory aliases
 # cd into the previous working directory by omitting `cd`.
 alias ..='cd ..'
