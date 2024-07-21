@@ -10,7 +10,7 @@ SOURCE_DIRS=(
     "/home/bard/Repositories/"
     "/home/bard/Music/"
     "/home/bard/Videos/"
-    "/home/bard/dotfiles/"
+    "/home/bard/dotfiles-stow/"
     "/home/bard/Mail/"
 )
 
