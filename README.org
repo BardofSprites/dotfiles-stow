@@ -1,3 +1,7 @@
 #+TITLE: My Configurations for Gentoo/Debian Linux
 
 My emacs configurations can be found [[https://github.com/BardofSprites/.emacs.d][here]].
+
+Obligatory screenshot (wallpaper changes often):
+
+g[[file:img/screenshot.png]]
