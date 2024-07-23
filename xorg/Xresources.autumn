@@ -1,4 +1,4 @@
-! Modus Vivendi Xresources theme
+! Ef Autumn Xresources theme
 *.foreground:      #cfbcba
 *.background:      #0f0e06
 URxvt.background:  [90]#0f0e06
@@ -28,7 +28,17 @@ URxvt.background:  [90]#0f0e06
 *.color7:       #cfbcba
 *.color15:      #cfbcba
 
+st.font: Iosevka Comfy-14
+
 dmenu.background: #0f0e06
 dmenu.foreground: #cfbcba
 dmenu.selbackground: #36322f
 dmenu.selforeground: #cfbcba
+dmenu.font: Iosevka Comfy-14
+
+Nsxiv.window.background: #0f0e06
+Nsxiv.window.foreground: #cfbcba
+Nsxiv.mark.foreground: #cfbcba
+Nsxiv.bar.background: #692a12
+Nsxiv.bar.foreground: #cfbcba
+Nsxiv.bar.font: IosevkaComfy-16

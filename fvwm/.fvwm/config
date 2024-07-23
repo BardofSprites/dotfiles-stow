@@ -39,6 +39,7 @@ ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki/24
 read .sidebar.fvwm2rc
 
 SetEnv fvwmscript $[HOME]/.fvwm/fvwmscript/
+SetEnv themedir $[HOME]/.fvwm/themes/
 
 ###########
 # 1: Functions
@@ -317,37 +318,25 @@ Style st FPGrabFocus
 #      14 - FvwmIconMan Iconified Button
 ###########
 
-#### Tao Yang FVWM Colorsets
-Colorset 0  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
-Colorset 1  fg #171717, bg #2d2d2d, hi, sh, Plain, NoShape
-Colorset 2  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
-Colorset 3  fg #171717, bg #606060, hi #606060, sh #606060, Plain, NoShape
-Colorset 4  fg #171717, bg #9E9E9E, hi #9E9E9E, sh #9E9E9E, Plain, NoShape
-Colorset 5  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
-Colorset 6  fg #171717, bg #C3C3C3, hi, sh, Plain, NoShape
-Colorset 7  fg red, bg #FCFCFC, hi, sh, Plain, NoShape
-Colorset 8  fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
-Colorset 10 fg #FCFCFC, bg #171717, hi, sh, Plain, NoShape
-Colorset 11 fg #FCFCFC, bg #616161, hi #FCFCFC, sh #FCFCFC, Plain, NoShape
-Colorset 12 fg #FCFCFC, bg #C3C3C3, hi, sh, Plain, NoShape
-Colorset 13 fg #FCFCFC, bg #989898, hi, sh, Plain, NoShape
-Colorset 14 fg #FCFCFC, bg red, hi #aaaaaa, sh #999999, Plain, NoShape
+Read $[themedir]/modus-vivendi.sys
 
 #### Modus Vivendi
-Colorset 0  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-Colorset 1  fg #000000, bg #2d2d2d, hi, sh, Plain, NoShape
-Colorset 2  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-Colorset 3  fg #000000, bg #606060, hi #606060, sh #606060, Plain, NoShape
-Colorset 4  fg #000000, bg #959595, hi #959595, sh #959595, Plain, NoShape
-Colorset 5  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
-Colorset 6  fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
-Colorset 7  fg red, bg #ffffff, hi, sh, Plain, NoShape
-Colorset 8  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-Colorset 10 fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-Colorset 11 fg #ffffff, bg #535353, hi #ffffff, sh #ffffff, Plain, NoShape
-Colorset 12 fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
-Colorset 13 fg #ffffff, bg #989898, hi, sh, Plain, NoShape
-Colorset 14 fg #ffffff, bg #2f3849, hi #aaaaaa, sh #999999, Plain, NoShape
+# Colorset 0  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
+# Colorset 1  fg #000000, bg #2d2d2d, hi, sh, Plain, NoShape
+# Colorset 2  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
+# Colorset 3  fg #000000, bg #606060, hi #606060, sh #606060, Plain, NoShape
+# Colorset 4  fg #000000, bg #959595, hi #959595, sh #959595, Plain, NoShape
+# Colorset 5  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
+# Colorset 6  fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
+# Colorset 7  fg red, bg #ffffff, hi, sh, Plain, NoShape
+# Colorset 8  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
+# Colorset 10 fg #ffffff, bg #000000, hi, sh, Plain, NoShape
+# Colorset 11 fg #ffffff, bg #535353, hi #ffffff, sh #ffffff, Plain, NoShape
+# Colorset 12 fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
+# Colorset 13 fg #ffffff, bg #989898, hi, sh, Plain, NoShape
+# Colorset 14 fg #ffffff, bg #2f3849, hi #aaaaaa, sh #999999, Plain, NoShape
+
+
 
 #######
 # 4: Menus
@@ -356,7 +345,7 @@ MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 # MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Iosevka Comfy:Italic:size=14:antialias=True"
+MenuStyle * Font "xft:Iosevka Comfy Motion:Thin:size=14:antialias=True"
 
 # Root Menu
 #
@@ -370,6 +359,7 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 + "" Nop
 + "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
 + "&Wallpapers%Folder2-24x24.png%" Popup MenuWallpaper
++ "&Themes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
 + "Re&fresh%Futon (bed)-24x24.png%" Refresh
 + "&Restart%Futon (bed)-24x24.png%" Restart
@@ -397,11 +387,19 @@ AddToMenu MenuWallpaper "Wallpaper" Title
 + "Choose wallpaper" Exec exec $HOME/.local/bin/scripts/wallpaper.sh
 + "Repaint wallpaper" Exec exec $HOME/.cache/wallpaper
 
+DestroyMenu MenuThemes
+AddToMenu MenuThemes "Themes" Title
++ "Vivendi" ChangeTheme 'modus-vivendi' 'vivendi'
++ "Ef Autumn" ChangeTheme 'ef-autumn' 'autumn'
++ "Operandi Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted'
++ "Ef Elea Light" ChangeTheme 'ef-elea-light' 'elea-light'
++ "" ChangeTheme 'vivendi' 'vivendi'
+
 DestroyMenu MenuEmacsApps
 AddToMenu MenuEmacsApps
-+ "Music" Exec exec emacsclient -c -e '(emms)'
-+ "RSS" Exec exec emacsclient -c -e '(elfeed)'
-+ "Email" Exec exec emacsclient -c -e '(notmuch-hello)'
+Test (x emacs) + "Music" Exec exec emacsclient -c -e '(emms)'
+Test (x emacs) + "RSS" Exec exec emacsclient -c -e '(elfeed)'
+Test (x emacs) + "Email" Exec exec emacsclient -c -e '(notmuch-hello)'
 
 DestroyMenu MenuSettings
 AddToMenu MenuSettings
@@ -797,35 +795,35 @@ DestroyModuleConfig LeftPanel:*
 #     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
 # Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x20)),\
 #     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9,  \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9,  \
             Icon "Chouchin Reinensai.png", \
             ActiveTitle "Net", \
             Action (Mouse 1) Exec exec firefox-bin, \
             Action (Mouse 2) Exec exec discord, \
             Action (Mouse 3) Exec exec librewolf-bin)
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
             Icon Bonsai.png, \
             ActiveTitle "Files", \
             Action (Mouse 1) Exec exec emacsclient -c -e "(dired \"~/\")" -a 'emacs', \
             Action (Mouse 3) Exec exec pcmanfm )
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
             ActiveTitle "Term", \
             Icon "Yunomi (tea cup).png", \
             Action (Mouse 1) Exec "St" exec st)
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 8,  PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15,  PressColorset 9, \
             ActiveTitle "Editor", \
             Icon Shodou.png, \
             Action (Mouse 1) Exec "GNU Emacs" exec emacsclient -c -a 'emacs')
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
             ActiveTitle "Media", \
             Icon Shamisen.png, \
             Action (Mouse 1) Exec exec emacsclient -c -e '(emms)' -a 'emacs')
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 8, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
             ActiveTitle "Utilities", \
             Icon "Ishidourou.png", \
             Action (Mouse 1) Exec "Network" exec st -e nmtui, \
@@ -833,11 +831,11 @@ DestroyModuleConfig LeftPanel:*
 
 *LeftPanel: ( 120x30, Frame 1, Icon "Tourist guidebook.png", \
             ActiveTitle "Identify ...", \
-            Colorset 8,  PressColorset 9,\
+            Colorset 15,  PressColorset 9,\
             Action Module FvwmIdent )
 
 *LeftPanel: ( 120x30, Frame 1, ActiveTitle "Lock", \
-            Colorset 8, \
+            Colorset 15, \
             PressColorset 9, \
             Icon "Shoji2(paper sliding-door).png", \
             Action (Mouse 1) Exec exec slock)
