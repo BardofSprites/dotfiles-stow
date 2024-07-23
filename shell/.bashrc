@@ -8,6 +8,8 @@ export PATH="$HOME/opt/:$PATH"
 export PKG_CONFIG_PATH="$HOME/opt/raylib/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PATH="$HOME/.nimble/bin":$PATH
 
+source "$HOME/.config/fzf/key-bindings.bash"
+
 # HISTORY
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
