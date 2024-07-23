@@ -149,15 +149,56 @@ AddToFunc   ChangeDesk
 + I SendToModule FvwmButtons ChangeButton desk$0 Colorset 11
 
 # Function used for tiling/un-tiling windows.
-DestroyFunc Tile
-AddToFunc Tile
-+ I ThisWindow (Maximized) Maximize toggle
-+ I TestRc (Match) Break
-+ I Maximize Forget
-+ I Raise
-+ I Maximize $0 $1
-+ I Move $2 $3
-+ I Focus
+estroyFunc TileLeft
+AddToFunc TileLeft
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 100
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
+
+DestroyFunc TileRight
+AddToFunc TileRight
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 100
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 +0
+
+DestroyFunc TileTop
+AddToFunc TileTop
++ I ThisWindow (!Shaded, !Iconic) Maximize 100 50
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
+
+DestroyFunc TileBottom
+AddToFunc TileBottom
++ I ThisWindow (!Shaded, !Iconic) Maximize 100 50
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 -0
+
+DestroyFunc TileTopLeft
+AddToFunc TileTopLeft
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 +0
+
+DestroyFunc TileTopRight
+AddToFunc TileTopRight
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 +0
+
+DestroyFunc TileBottomLeft
+AddToFunc TileBottomLeft
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move +0 -0
+
+DestroyFunc TileBottomRight
+AddToFunc TileBottomRight
++ I ThisWindow (!Shaded, !Iconic) Maximize 50 50
++ I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
+
+DestroyFunc ChangeTheme
+AddToFunc ChangeTheme
++ I Read $[themedir]/$0.sys
++ I Exec exec /bin/sh -c "xrdb -load ~/Xresources.$1"
+
+# To change the theme, you can call the function like this:
+# ChangeTheme theme_name Xresources_file_name
+# For example:
+# ChangeTheme "dark_theme" "dark_theme.Xresources"
+
 
 #############
 # 2: Styles #
@@ -624,10 +665,15 @@ Silent Mouse 1        A     4       Move
 # maximize/minimize window
 
 # super + arrows for tiling
-Silent Key Left        A     4S      Tile 60 100 +0 +0
-Silent Key Right       A     4S      Tile 40 100 -0 +0
-Silent Key Up          A     4S      Tile 40 60 -0 +0
-Silent Key Down        A     4S      Tile 40 40 -0 -0
+Silent Key Left        A     4      TileLeft 60 100 +0 +0
+Silent Key Right       A     4      TileRight 40 100 -0 +0
+Silent Key Up          A     4      TileTop 40 60 -0 +0
+Silent Key Down        A     4      TileBottom 40 40 -0 -0
+
+Silent Key Left        A     4S     TileTopLeft 60 100 +0 +0
+Silent Key Right       A     4S     TileTopRight 40 100 -0 +0
+Silent Key Up          A     4S     TileBottomLeft 40 60 -0 +0
+Silent Key Down        A     4S     TileBottomRight 40 40 -0 -0
  
 # Super+C/F/J/H/K/L - center, maximize, move window, etc
 Silent Key C        A     4S      AnimatedMove 50-50w 50-50w
