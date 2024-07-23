@@ -32,6 +32,7 @@
 InfoStoreAdd terminal st
 
 ImagePath +:$[FVWM_USERDIR]/icon/PixelFengShui
+ImagePath +:$[FVWM_USERDIR]/icon/PixelFengShui/24
 ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki
 ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki/24
 
@@ -323,8 +324,10 @@ MenuStyle * Font "xft:Iosevka Comfy:Italic:size=14:antialias=True"
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 + "&Programs%Kanban (sign)-24x24.png%" Popup MenuPrograms
++ "&Media%Kakejiku-24x24.png%" Popup MenuEmacsApps
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
++ "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
 + "&Wallpapers%Folder2-24x24.png%" Popup MenuWallpaper
 + "" Nop
 + "Re&fresh%Futon (bed)-24x24.png%" Refresh
@@ -352,6 +355,19 @@ DestroyMenu MenuWallpaper
 AddToMenu MenuWallpaper "Wallpaper" Title
 + "Choose wallpaper" Exec exec $HOME/.local/bin/scripts/wallpaper.sh
 + "Repaint wallpaper" Exec exec $HOME/.cache/wallpaper
+
+DestroyMenu MenuEmacsApps
+AddToMenu MenuEmacsApps
++ "Music" Exec exec emacsclient -c -e '(emms)'
++ "RSS" Exec exec emacsclient -c -e '(elfeed)'
++ "Email" Exec exec emacsclient -c -e '(notmuch-hello)'
+
+DestroyMenu MenuSettings
+AddToMenu MenuSettings
+Test (x nmtui) + "Network" Exec exec st -e nmtui
+Test (x arandr) + "Display" Exec exec arandr
+Test (x btop) + "System" Exec exec st -e btop
+Test (x blueman-manager) + "Bluetooth" Exec exec blueman-manager
 
 # Background Menu
 #
