@@ -3,14 +3,15 @@ auth on
 protocol smtp
 tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        ~/.msmtp.log
 
 # account_name
-account home
+account gmail-home
 host smtp.gmail.com
 port 465
 tls_starttls off
-eval echo from $(gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/account_name/ { print $(NF-2); exit; }')
-eval echo user $(gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/account_name/ { print $(NF-2); exit; }')
-passwordeval "gpg -q --for-your-eyes-only -d ~/.authinfo.gpg | awk -F ' ' '/account_name/ { print $NF; exit; }'"
+eval echo from $(pass mbsync/home-gmail-username)
+eval echo user $(pass mbsync/home-gmail-email)
+passwordeval "pass mbsync/home-gmail"
 
-account default : home
+account default : gmail-home

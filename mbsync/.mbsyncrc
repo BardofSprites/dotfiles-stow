@@ -1,7 +1,7 @@
 IMAPAccount home
 Host imap.gmail.com
-UserCmd "pass mbsync/gmail-username"
-PassCmd "pass mbsync/gmail"
+UserCmd "pass mbsync/home-gmail-email"
+PassCmd "pass mbsync/home-gmail"
 SSLType IMAPS
 AuthMechs LOGIN
 
@@ -40,3 +40,37 @@ Channel home-trash
 # "Spam"
 # "Starred"
 # "Trash"
+
+IMAPAccount devel
+Host imap.gmail.com
+UserCmd "pass mbsync/devel-gmail-email"
+PassCmd "pass mbsync/devel-gmail"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore devel-remote
+Account devel
+
+MaildirStore devel-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/Mail/gmail-devel/
+Inbox ~/Mail/gmail-devel/Inbox
+
+Channel devel-inbox
+Far :devel-remote:
+Near :devel-local:
+Patterns "INBOX"
+
+Channel devel-sent
+Far :devel-remote:"[Gmail]/Sent Mail"
+Near :devel-local:sent
+
+Channel devel-trash
+Far :devel-remote:"[Gmail]/Trash"
+Near :devel-local:trash
+
+Group devel
+Channel devel-inbox
+Channel devel-sent
+Channel devel-trash
