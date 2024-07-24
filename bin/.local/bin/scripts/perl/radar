@@ -17,7 +17,7 @@ if (is_success($status)) {
     print "Download successful. Saved to $gif_path\n";
 
     # Play the GIF with MPV
-    my $mpv_command = "mpv --loop-file=inf --no-osc --no-input-default-bindings --autofit=120x480 $gif_path";
+    my $mpv_command = "mpv --loop-file=inf --no-osc --no-input-default-bindings --autofit=400x480 $gif_path";
     system($mpv_command);
 } else {
     die "Failed to download GIF: $status\n";
