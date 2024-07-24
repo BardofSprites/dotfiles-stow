@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $log_file="$HOME/.cache/checkmail"
+
+sub update_mail {
+    system("mbsync -a");
+    system("notmuch new");
+    # read log file in append mode '>>' and log date synced
+    open(log_file, ">>")
+}
