@@ -2,6 +2,11 @@
 
 mbsync -a
 notmuch new
+notmuch search --format=text0 --output=files tag:del | xargs -0 --no-run-if-empty rm
+notmuch tag +linux +contrib -- to:lists@t2sde.org
+notmuch tag +emacs-devel +emacs +contrib -- to:emacs-devel@gnu.org
+notmuch tag +emacs-humanities +emacs -- to:emacs-humanities@gnu.org
+notmuch tag +emacs-org +emacs +org-mode -- to:emacs-orgmode@gnu.org
 
 # logging
 LOG_FILE="$HOME/.cache/checkmail"
