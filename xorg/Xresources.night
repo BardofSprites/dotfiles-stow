@@ -1,0 +1,44 @@
+! Ef Night Xresources theme
+*.foreground:      #afbcbf
+*.background:      #000e17
+URxvt.background:  [90]#000e17
+*.cursorColor:     #afbcbf
+! black
+*.color0:       #000e17
+*.color8:       #1a202b
+! red
+*.color1:       #ef656a
+*.color9:       #ef656a
+! green
+*.color2:       #1fa526
+*.color10:      #1fa526
+! yellow
+*.color3:       #cf8502
+*.color11:      #cf8502
+! blue
+*.color4:       #379cf6
+*.color12:      #379cf6
+! magenta
+*.color5:       #d570af
+*.color13:      #d570af
+! cyan
+*.color6:       #4fb0cf
+*.color14:      #4fb0cf
+! white
+*.color7:       #afbcbf
+*.color15:      #afbcbf
+
+st.font: Iosevka Comfy-14
+
+dmenu.background: #000e17
+dmenu.foreground: #afbcbf
+dmenu.selbackground: #003a7f
+dmenu.selforeground: #afbcbf
+dmenu.font: Iosevka Comfy-14
+
+Nsxiv.window.background: #000e17
+Nsxiv.window.foreground: #afbcbf
+Nsxiv.mark.foreground: #afbcbf
+Nsxiv.bar.background: #003a7f
+Nsxiv.bar.foreground: #afbcbf
+Nsxiv.bar.font: IosevkaComfy-16

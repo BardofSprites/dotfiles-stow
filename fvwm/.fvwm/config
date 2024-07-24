@@ -190,15 +190,15 @@ AddToFunc TileBottomRight
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 50
 + I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
 
-DestroyFunc ChangeTheme
-AddToFunc ChangeTheme
+DestroyFunc ChangeThemeColorset
+AddToFunc ChangeThemeColorset
 + I Read $[themedir]/$0.sys
-+ I Exec exec /bin/sh -c "xrdb -load ~/Xresources.$1"
++ I Exec exec xrdb -load ~/Xresources.$1
 
 # To change the theme, you can call the function like this:
-# ChangeTheme theme_name Xresources_file_name
+# ChangeThemeColorset theme_name Xresources_file_name
 # For example:
-# ChangeTheme "dark_theme" "dark_theme.Xresources"
+# ChangeThemeColorset "dark_theme" "dark_theme.Xresources"
 
 
 #############
@@ -320,24 +320,6 @@ Style st FPGrabFocus
 
 Read $[themedir]/modus-vivendi.sys
 
-#### Modus Vivendi
-# Colorset 0  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-# Colorset 1  fg #000000, bg #2d2d2d, hi, sh, Plain, NoShape
-# Colorset 2  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-# Colorset 3  fg #000000, bg #606060, hi #606060, sh #606060, Plain, NoShape
-# Colorset 4  fg #000000, bg #959595, hi #959595, sh #959595, Plain, NoShape
-# Colorset 5  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
-# Colorset 6  fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
-# Colorset 7  fg red, bg #ffffff, hi, sh, Plain, NoShape
-# Colorset 8  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-# Colorset 10 fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-# Colorset 11 fg #ffffff, bg #535353, hi #ffffff, sh #ffffff, Plain, NoShape
-# Colorset 12 fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
-# Colorset 13 fg #ffffff, bg #989898, hi, sh, Plain, NoShape
-# Colorset 14 fg #ffffff, bg #2f3849, hi #aaaaaa, sh #999999, Plain, NoShape
-
-
-
 #######
 # 4: Menus
 ###########
@@ -359,7 +341,7 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 + "" Nop
 + "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
 + "&Wallpapers%Folder2-24x24.png%" Popup MenuWallpaper
-+ "&Themes%Gunsen-24x24.png%" Popup MenuThemes
++ "Th&emes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
 + "Re&fresh%Futon (bed)-24x24.png%" Refresh
 + "&Restart%Futon (bed)-24x24.png%" Restart
@@ -372,28 +354,29 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 # lines as this is only to help make this menu portable.
 DestroyMenu MenuPrograms
 AddToMenu   MenuPrograms "Programs" Title
-Test (x chromium) + "Chromium" Exec exec chromium
+Test (x emacs) + "Emacs" Exec exec emacsclient -c -a 'emacs'
 Test (x firefox) + "Firefox" Exec exec firefox
 Test (x firefox-bin) + "Firefox" Exec exec firefox-bin
 Test (x librewolf) + "Librewolf" Exec exec librewolf
 Test (x librewolf-bin) + "Librewolf" Exec exec librewolf-bin
 Test (x google-chrome) + "Google-Chrome" Exec exec google-chrome
-Test (x emacs) + "Emacs" Exec exec emacsclient -c -a 'emacs'
 Test (x gimp) + "Gimp" Exec exec gimp
 Test (x vlc) + "VLC" Exec exec vlc
 
 DestroyMenu MenuWallpaper
 AddToMenu MenuWallpaper "Wallpaper" Title
 + "Choose wallpaper" Exec exec $HOME/.local/bin/scripts/wallpaper.sh
++ "Themed wallpaper" Exec exec $HOME/.local/bin/scripts/load-theme-wallpaper
 + "Repaint wallpaper" Exec exec $HOME/.cache/wallpaper
 
 DestroyMenu MenuThemes
 AddToMenu MenuThemes "Themes" Title
-+ "Vivendi" ChangeTheme 'modus-vivendi' 'vivendi'
-+ "Ef Autumn" ChangeTheme 'ef-autumn' 'autumn'
-+ "Operandi Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted'
-+ "Ef Elea Light" ChangeTheme 'ef-elea-light' 'elea-light'
-+ "" ChangeTheme 'vivendi' 'vivendi'
++ "Vivendi" ChangeThemeColorset 'modus-vivendi' 'vivendi'
++ "Operandi Tinted" ChangeThemeColorset 'operandi-tinted' 'operandi-tinted'
++ "Ef Autumn" ChangeThemeColorset 'ef-autumn' 'autumn'
++ "Ef Elea Light" ChangeThemeColorset 'ef-elea-light' 'elea-light'
++ "Ef Night" ChangeThemeColorset 'ef-night' 'night'
++ "" ChangeThemeColorset 'vivendi' 'vivendi' 'vivendi'
 
 DestroyMenu MenuEmacsApps
 AddToMenu MenuEmacsApps
