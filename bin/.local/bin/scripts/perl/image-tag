@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use File::Basename;
+
+my $wallpaper_dir = "$ENV{HOME}/Pictures/wall_test/Anime";
+opendir(my $dh, $wallpaper_dir) or die "Can't open $wallpaper_dir: $!";
+
+# all images in $wallpaper_dir
+my @images = grep { /\.(png|jp?g)$/i && !/[\[\]]/ } readdir ($dh);
+
+foreach my $image (@images) {
+    # get individual image path
+    my $image_path = "$wallpaper_dir/$image";
+
+    system("nsxiv", "$image_path");;
+
+    my $tags = `echo | dmenu -p "Enter tag(s)"`;
+    chomp($tags);
+
+    if ($tags) {
+        my ($name, $dir, $ext) = fileparse($image_path, qr/\.[^.]*/);
+        my $new_path = "$dir$name [$tags]$ext";
+        rename($image_path, $new_path) or warn "Could not tag image: $!";
+    }
+}

@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use File::Find;
+use File::HomeDir;
+
+# Define the directory to search
+my $dir = File::HomeDir->my_home() . '/Pictures/wall_test/';
+
+# Array to store matching file paths
+my @files;
+
+# Find files with specific characters in their names
+find(sub {
+    if (-f $_ && /[\[\]\(\)]/) {
+        push @files, $File::Find::name;
+    }
+}, $dir);
+
+# Display files as thumbnails using nsxiv
+if (@files) {
+    my $file_list = join(' ', map { qq("$_") } @files);
+    system("nsxiv -t $file_list");
+} else {
+    print "No files matching the criteria were found.\n";
+}
