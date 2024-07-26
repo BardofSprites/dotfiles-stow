@@ -1,0 +1,44 @@
+! Ef Cherie Xresources theme
+*.foreground:      #d3cfcf
+*.background:      #190a0f
+URxvt.background:  [90]#190a0f
+*.cursorColor:     #d3cfcf
+! black
+*.color0:       #190a0f
+*.color8:       #1a202b
+! red
+*.color1:       #ff7359
+*.color9:       #ff7359
+! green
+*.color2:       #60b444
+*.color10:      #60b444
+! yellow
+*.color3:       #e5b76f
+*.color11:      #e5b76f
+! blue
+*.color4:       #8fa5f6
+*.color12:      #8fa5f6
+! magenta
+*.color5:       #ef80bf
+*.color13:      #ef80bf
+! cyan
+*.color6:       #8fbaef
+*.color14:      #8fbaef
+! white
+*.color7:       #d3cfcf
+*.color15:      #d3cfcf
+
+st.font: Iosevka Comfy-14
+
+dmenu.background: #190a0f
+dmenu.foreground: #d3cfcf
+dmenu.selbackground: #771a4f
+dmenu.selforeground: #d3cfcf
+dmenu.font: Iosevka Comfy-14
+
+Nsxiv.window.background: #190a0f
+Nsxiv.window.foreground: #d3cfcf
+Nsxiv.mark.foreground: #d3cfcf
+Nsxiv.bar.background: #771a4f
+Nsxiv.bar.foreground: #d3cfcf
+Nsxiv.bar.font: IosevkaComfy-16

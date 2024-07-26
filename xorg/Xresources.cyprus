@@ -1,0 +1,44 @@
+! Ef Cyprus Xresources theme
+*.foreground:      #242521
+*.background:      #fcf7ef
+URxvt.background:  [90]#fcf7ef
+*.cursorColor:     #242521
+! black
+*.color0:       #242521
+*.color8:       #e5e3d8
+! red
+*.color1:       #9f0d0f
+*.color9:       #9f0d0f
+! green
+*.color2:       #006f00
+*.color10:      #006f00
+! yellow
+*.color3:       #a7601f
+*.color11:      #a7601f
+! blue
+*.color4:       #375cc6
+*.color12:      #375cc6
+! magenta
+*.color5:       #9a456f
+*.color13:      #9a456f
+! cyan
+*.color6:       #1f70ad
+*.color14:      #1f70ad
+! white
+*.color7:       #fcf7ef
+*.color15:      #fcf7ef
+
+st.font: Iosevka Comfy-14
+
+dmenu.background: #fcf7ef
+dmenu.foreground: #242521
+dmenu.selbackground: #c0df6f
+dmenu.selforeground: #242521
+dmenu.font: Iosevka Comfy-14
+
+Nsxiv.window.background: #fcf7ef
+Nsxiv.window.foreground: #242521
+Nsxiv.mark.foreground: #242521
+Nsxiv.bar.background: #c0df6f
+Nsxiv.bar.foreground: #221321
+Nsxiv.bar.font: IosevkaComfy-16

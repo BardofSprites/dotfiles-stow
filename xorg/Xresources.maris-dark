@@ -1,0 +1,44 @@
+! Ef Elea Light Xresources theme
+*.foreground:      #eaedef
+*.background:      #131c2b
+URxvt.background:  [90]#131c2b
+*.cursorColor:     #eaedef
+! black
+*.color0:       #131c2b
+*.color8:       #2a3644
+! red
+*.color1:       #ff6f6f
+*.color9:       #ff6f6f
+! green
+*.color2:       #31bf4f
+*.color10:      #31bf4f
+! yellow
+*.color3:       #d0d24f
+*.color11:      #d0d24f
+! blue
+*.color4:       #57b0ff
+*.color12:      #57b0ff
+! magenta
+*.color5:       #f59acf
+*.color13:      #f59acf
+! cyan
+*.color6:       #2fd0db
+*.color14:      #2fd0db
+! white
+*.color7:       #eaedef
+*.color15:      #eaedef
+
+st.font: Iosevka Comfy-14
+
+dmenu.background: #131c2b
+dmenu.foreground: #eaedef
+dmenu.selbackground: #2f527b
+dmenu.selforeground: #eaedef
+dmenu.font: Iosevka Comfy-14
+
+Nsxiv.window.background: #131c2b
+Nsxiv.window.foreground: #eaedef
+Nsxiv.mark.foreground: #eaedef
+Nsxiv.bar.background: #2f527b
+Nsxiv.bar.foreground: #eaedef
+Nsxiv.bar.font: IosevkaComfy-16

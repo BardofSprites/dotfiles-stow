@@ -1,0 +1,16 @@
+Colorset 0  fg #d3cfcf, bg #190a0f, hi, sh, Plain, NoShape
+Colorset 1  fg #808898, bg #291f26, hi, sh, Plain, NoShape
+Colorset 2  fg #ffcfdf, bg #190a0f, hi, sh, Plain, NoShape
+Colorset 3  fg #808898, bg #291f26, hi #291f26, sh #291f26, Plain, NoShape
+Colorset 4  fg #ffcfdf, bg #771a4f, hi #771a4f, sh #771a4f, Plain, NoShape
+Colorset 5  fg #d3cfcf, bg #190a0f, hi, sh, Plain, NoShape
+Colorset 6  fg #d3cfcf, bg #771a4f, hi, sh, Plain, NoShape
+Colorset 7  fg #d3cfcf, bg #d3cfcf, hi, sh, Plain, NoShape
+Colorset 8  fg #771a4f, bg #ffc4df, hi, sh, Plain, NoShape
+Colorset 10 fg #d3cfcf, bg #190a0f, hi, sh, Plain, NoShape
+Colorset 11 fg #d3cfcf, bg #771a4f, hi #d3cfcf, sh #d3cfcf, Plain, NoShape
+Colorset 12 fg #d3cfcf, bg #684d54, hi, sh, Plain, NoShape
+Colorset 13 fg #d3cfcf, bg #684d54, hi, sh, Plain, NoShape
+Colorset 14 fg #d3cfcf, bg #302a3a, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #d3cfcf, bg #190a0f, hi, sh, Plain, Noshape

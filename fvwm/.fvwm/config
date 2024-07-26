@@ -190,15 +190,16 @@ AddToFunc TileBottomRight
 + I ThisWindow (!Shaded, !Iconic) Maximize 50 50
 + I ThisWindow (Maximized, !Shaded, !Iconic) Move -0 -0
 
-DestroyFunc ChangeThemeColorset
-AddToFunc ChangeThemeColorset
+DestroyFunc ChangeTheme
+AddToFunc ChangeTheme
 + I Read $[themedir]/$0.sys
 + I Exec exec xrdb -load ~/Xresources.$1
++ I Exec exec echo "emacsclient -e \"$2\"" >> /tmp/fvwm_theme.log
 
 # To change the theme, you can call the function like this:
-# ChangeThemeColorset theme_name Xresources_file_name
+# ChangeTheme theme_name Xresources_file_name
 # For example:
-# ChangeThemeColorset "dark_theme" "dark_theme.Xresources"
+# ChangeTheme "dark_theme" "dark_theme.Xresources"
 
 
 #############
@@ -278,7 +279,8 @@ Style * BorderColorset 3, HilightBorderColorset 4
 # Disable Icons from appearing on desktop.
 # Comment this out or use Style * Icon to get the icons back.
 Style * Icon
-Style * IconBox 990x150-20-10, IconGrid 234 134, IconFill right bottom
+# Style * IconBox 990x150-20-10, IconGrid 234 134, IconFill right bottom
+Style * IconBox 64x300-0+0
 
 # Window Specific Styles
 Style LeftPanel !Title, !Borders, !Handles, Sticky, \
@@ -343,9 +345,7 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 + "&Wallpapers%Folder2-24x24.png%" Popup MenuWallpaper
 + "Th&emes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
-+ "Re&fresh%Futon (bed)-24x24.png%" Refresh
-+ "&Restart%Futon (bed)-24x24.png%" Restart
-+ "&Quit%Futon (bed)-24x24.png%" Module FvwmScript FvwmScript-ConfirmQuit
++ "&Power%Futon (bed)-24x24.png%" Popup MenuPower
 
 # Programs Menu
 #
@@ -371,21 +371,32 @@ AddToMenu MenuWallpaper "Wallpaper" Title
 
 DestroyMenu MenuThemes
 AddToMenu MenuThemes "Themes" Title
-+ "Vivendi" ChangeThemeColorset 'modus-vivendi' 'vivendi'
-+ "Operandi Tinted" ChangeThemeColorset 'operandi-tinted' 'operandi-tinted'
-+ "Ef Autumn" ChangeThemeColorset 'ef-autumn' 'autumn'
-+ "Ef Elea Light" ChangeThemeColorset 'ef-elea-light' 'elea-light'
-+ "Ef Night" ChangeThemeColorset 'ef-night' 'night'
-+ "" ChangeThemeColorset 'vivendi' 'vivendi' 'vivendi'
++ "&Vivendi" ChangeTheme 'modus-vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
++ "&Operandi Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted' "(modus-themes-select 'modus-operandi-tinted)"
++ "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "(ef-themes-select 'ef-autumn)"
++ "Ef &Elea Light" ChangeTheme 'ef-elea-light' 'elea-light' "(ef-themes-select 'ef-elea-light)"
++ "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
++ "Ef &Night" ChangeTheme 'ef-night' 'night' "(ef-themes-select 'ef-night)"
++ "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
++ "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
++ "" ChangeTheme 'vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
 
 DestroyMenu MenuEmacsApps
-AddToMenu MenuEmacsApps
-Test (x emacs) + "Music" Exec exec emacsclient -c -e '(emms)'
-Test (x emacs) + "RSS" Exec exec emacsclient -c -e '(elfeed)'
-Test (x emacs) + "Email" Exec exec emacsclient -c -e '(notmuch-hello)'
+AddToMenu MenuEmacsApps "Media" Title
+Test (x emacs) + "&Agenda" Exec exec emacsclient -c -e '(bard/default-agenda)'
+Test (x emacs) + "&Music" Exec exec emacsclient -c -e '(emms)'
+Test (x emacs) + "&RSS" Exec exec emacsclient -c -e '(elfeed)'
+Test (x emacs) + "&Email" Exec exec emacsclient -c -e '(notmuch-hello)'
+Test (x emacs) + "&Timers" Exec exec emacsclient -c -e '(tmr-tabulated-view)'
+
+DestroyMenu MenuPower
+AddToMenu MenuPower
++ "Re&fresh" Refresh
++ "&Restart" Restart
++ "&Quit" Module FvwmScript FvwmScript-ConfirmQuit
 
 DestroyMenu MenuSettings
-AddToMenu MenuSettings
+AddToMenu MenuSettings "Settings" Title
 Test (x nmtui) + "Network" Exec exec st -e nmtui
 Test (x arandr) + "Display" Exec exec arandr
 Test (x btop) + "System" Exec exec st -e btop
@@ -778,35 +789,35 @@ DestroyModuleConfig LeftPanel:*
 #     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
 # Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x20)),\
 #     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9,  \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15,  \
             Icon "Chouchin Reinensai.png", \
             ActiveTitle "Net", \
             Action (Mouse 1) Exec exec firefox-bin, \
             Action (Mouse 2) Exec exec discord, \
             Action (Mouse 3) Exec exec librewolf-bin)
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
             Icon Bonsai.png, \
             ActiveTitle "Files", \
             Action (Mouse 1) Exec exec emacsclient -c -e "(dired \"~/\")" -a 'emacs', \
             Action (Mouse 3) Exec exec pcmanfm )
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
             ActiveTitle "Term", \
             Icon "Yunomi (tea cup).png", \
             Action (Mouse 1) Exec "St" exec st)
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 15,  PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15,  PressColorset 15, \
             ActiveTitle "Editor", \
             Icon Shodou.png, \
-            Action (Mouse 1) Exec "GNU Emacs" exec emacsclient -c -a 'emacs')
+            Action (Mouse 1) Exec exec emacsclient -c -a 'emacs')
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
             ActiveTitle "Media", \
             Icon Shamisen.png, \
             Action (Mouse 1) Exec exec emacsclient -c -e '(emms)' -a 'emacs')
 
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 9, \
+*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
             ActiveTitle "Utilities", \
             Icon "Ishidourou.png", \
             Action (Mouse 1) Exec "Network" exec st -e nmtui, \
@@ -814,12 +825,12 @@ DestroyModuleConfig LeftPanel:*
 
 *LeftPanel: ( 120x30, Frame 1, Icon "Tourist guidebook.png", \
             ActiveTitle "Identify ...", \
-            Colorset 15,  PressColorset 9,\
+            Colorset 15,  PressColorset 15,\
             Action Module FvwmIdent )
 
 *LeftPanel: ( 120x30, Frame 1, ActiveTitle "Lock", \
             Colorset 15, \
-            PressColorset 9, \
+            PressColorset 15, \
             Icon "Shoji2(paper sliding-door).png", \
             Action (Mouse 1) Exec exec slock)
 

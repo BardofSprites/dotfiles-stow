@@ -3,9 +3,9 @@
 # Clean wallpaper cache file
 sed -i '/feh/d' $HOME/.cache/wallpaper
 
-search_string=$(echo -e "vivendi\noperandi\noperandi-tinted\nelea-light\nelea-dark\nnight\nautumn" | dmenu -p 'Select theme for search: ')
+search_string=$(echo -e "vivendi\noperandi\noperandi-tinted\nelea-light\ncyprus\ncherie\nelea-dark\nnight\nmaris-dark\nmaris-light\nautumn" | dmenu -p 'Select theme for search: ')
 
-selected_wallpaper=$(find ~/Pictures/wall_test -type f -name "*[[]${search_string}*[]]*" -exec nsxiv -t -o {} +)
+selected_wallpaper=$(find ~/Pictures/wallpaper -type f -name "*[[]${search_string}*[]]*" -exec nsxiv -t -o {} +)
 
 # Options for display modes
 OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
