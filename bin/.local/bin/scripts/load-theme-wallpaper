@@ -5,7 +5,7 @@ sed -i '/feh/d' $HOME/.cache/wallpaper
 
 search_string=$(echo -e "vivendi\noperandi\noperandi-tinted\nelea-light\ncyprus\ncherie\nelea-dark\nnight\nmaris-dark\nmaris-light\nautumn" | dmenu -p 'Select theme for search: ')
 
-selected_wallpaper=$(find ~/Pictures/wallpaper -type f -name "*[[]${search_string}*[]]*" -exec nsxiv -t -o {} +)
+selected_wallpaper=$(find ~/Pictures/wallpaper -type f -regex ".*\[\([^]]*${search_string}[^]]*\)\].*" -exec nsxiv -t -o {} +)
 
 # Options for display modes
 OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
@@ -38,4 +38,3 @@ case "$selected_mode" in
 esac
 
 echo "Wallpaper set successfully."
-
