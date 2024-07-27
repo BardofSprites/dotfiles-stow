@@ -379,6 +379,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Night" ChangeTheme 'ef-night' 'night' "(ef-themes-select 'ef-night)"
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
++ "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
 + "" ChangeTheme 'vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
 
 DestroyMenu MenuEmacsApps
