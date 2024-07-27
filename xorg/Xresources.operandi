@@ -30,5 +30,5 @@ URxvt.background:  [90]#ffffff
 
 dmenu.background: #ffffff
 dmenu.foreground: #000000
-dmenu.selbackground: #c0deff
+dmenu.selbackground: #c8c8c8
 dmenu.selforeground: #000000

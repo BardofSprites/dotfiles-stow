@@ -371,8 +371,9 @@ AddToMenu MenuWallpaper "Wallpaper" Title
 
 DestroyMenu MenuThemes
 AddToMenu MenuThemes "Themes" Title
-+ "&Vivendi" ChangeTheme 'modus-vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
-+ "&Operandi Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted' "(modus-themes-select 'modus-operandi-tinted)"
++ "Modus &Vivendi" ChangeTheme 'modus-vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
++ "Modus Operandi &Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted' "(modus-themes-select 'modus-operandi-tinted)"
++ "Modus &Operandi" ChangeTheme 'modus-operandi' 'operandi' "(modus-themes-select 'modus-operandi)"
 + "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "(ef-themes-select 'ef-autumn)"
 + "Ef &Elea Light" ChangeTheme 'ef-elea-light' 'elea-light' "(ef-themes-select 'ef-elea-light)"
 + "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
@@ -380,6 +381,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
++ "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
 + "" ChangeTheme 'vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
 
 DestroyMenu MenuEmacsApps

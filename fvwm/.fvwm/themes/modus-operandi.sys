@@ -1,0 +1,18 @@
+#### Modus Vivendi FVWM Colorsets
+
+Colorset 0  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
+Colorset 1  fg #595959, bg #e0e0e0, hi, sh, Plain, NoShape
+Colorset 2  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
+Colorset 3  fg #ffffff, bg #595959, hi #595959, sh #595959, Plain, NoShape
+Colorset 4  fg #ffffff, bg #c8c8c8, hi #c8c8c8, sh #c8c8c8, Plain, NoShape
+Colorset 5  fg #000000, bg #ffffff, hi, sh, Plain, NoShape
+Colorset 6  fg #000000, bg #c8c8c8, hi, sh, Plain, NoShape
+Colorset 7  fg #000000, bg #000000, hi, sh, Plain, NoShape
+Colorset 8  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
+Colorset 10 fg #000000, bg #ffffff, hi, sh, Plain, NoShape
+Colorset 11 fg #000000, bg #c8c8c8, hi #000000, sh #000000, Plain, NoShape
+Colorset 12 fg #000000, bg #b2e4dc, hi, sh, Plain, NoShape
+Colorset 13 fg #000000, bg #b2e4dc, hi, sh, Plain, NoShape
+Colorset 14 fg #000000, bg #302a3a, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #000000, bg #ffffff, hi, sh, Plain, Noshape
