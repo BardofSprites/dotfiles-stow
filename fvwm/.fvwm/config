@@ -337,13 +337,23 @@ MenuStyle * Font "xft:Iosevka Comfy Motion:Thin:size=14:antialias=True"
 # window or using alt-f1 (or menu).
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
-+ "&Programs%Kanban (sign)-24x24.png%" Popup MenuPrograms
-+ "&Media%Kakejiku-24x24.png%" Popup MenuEmacsApps
+# + "&Programs%Kanban (sign)-24x24.png%" Popup MenuPrograms
+Test (x emacs) + "&Emacs%Shodou-24x24.png%" Exec exec emacsclient -c -a 'emacs'
+Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
+Test (x firefox-bin) + "Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
+Test (x librewolf) + "Librewolf%Chouchin Reinensai-24x24.png%" Exec exec librewolf
+Test (x librewolf-bin) + "Librewolf%Chouchin Reinensai-24x24.png%" Exec exec librewolf-bin
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
++ "" Nop
+Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
+Test (x emacs) + "&Music%Shamisen-24x24.png%" Exec exec emacsclient -c -e '(emms)'
+Test (x emacs) + "&RSS%Shichirin (charcoal brazier)-24x24.png%" Exec exec emacsclient -c -e '(elfeed)'
+Test (x emacs) + "&Email%Kinchaku (drawstring bag)-24x24.png%" Exec exec emacsclient -c -e '(notmuch-hello)'
+Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient -c -e '(tmr-tabulated-view)'
 + "" Nop
 + "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
 + "&Wallpapers%Folder2-24x24.png%" Popup MenuWallpaper
-+ "Th&emes%Gunsen-24x24.png%" Popup MenuThemes
++ "&Color Themes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
 + "&Power%Futon (bed)-24x24.png%" Popup MenuPower
 
@@ -381,16 +391,9 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
++ "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
 + "" ChangeTheme 'vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
-
-DestroyMenu MenuEmacsApps
-AddToMenu MenuEmacsApps "Media" Title
-Test (x emacs) + "&Agenda" Exec exec emacsclient -c -e '(bard/default-agenda)'
-Test (x emacs) + "&Music" Exec exec emacsclient -c -e '(emms)'
-Test (x emacs) + "&RSS" Exec exec emacsclient -c -e '(elfeed)'
-Test (x emacs) + "&Email" Exec exec emacsclient -c -e '(notmuch-hello)'
-Test (x emacs) + "&Timers" Exec exec emacsclient -c -e '(tmr-tabulated-view)'
 
 DestroyMenu MenuPower
 AddToMenu MenuPower
@@ -774,76 +777,24 @@ DestroyModuleConfig LeftPanel:*
 *LeftPanel: Font "xft:Iosevka Comfy:Bold:size=12:antialias=True"
 # *LeftPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 *LeftPanel: (120x5, Frame 0)
-*LeftPanel: (10x10, Frame 0)
-*LeftPanel: (25x10, Id desk0, Title "1", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
-*LeftPanel: (25x10, Id desk1, Title "2", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
-*LeftPanel: (25x10, Id desk2, Title "3", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
-*LeftPanel: (25x10, Id desk3, Title "4", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
-*LeftPanel: (10x10, Frame 0)
-*LeftPanel: (5x50, Frame 0)
-*LeftPanel: (110x50, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
-*LeftPanel: (5x50, Frame 0)
+*LeftPanel: (10x30, Frame 0)
+*LeftPanel: (25x30, Id desk0, Title "0", Action (Mouse 1) GotoDesk 0 0, Colorset 11, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x30, Id desk1, Title "1", Action (Mouse 1) GotoDesk 0 1, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x30, Id desk2, Title "2", Action (Mouse 1) GotoDesk 0 2, ActiveColorset 12, Frame 0)
+*LeftPanel: (25x30, Id desk3, Title "3", Action (Mouse 1) GotoDesk 0 3, ActiveColorset 12, Frame 0)
+*LeftPanel: (10x30, Frame 0)
+*LeftPanel: (5x120, Frame 0)
+*LeftPanel: (110x120, Swallow FvwmPager 'Module FvwmPager *', Frame 0)
+*LeftPanel: (5x120, Frame 0)
 *LeftPanel: (120x5, Frame 0)
-
-# Test (x stalonetray) *LeftPanel: (120x20, Swallow(NoClose,UseOld) \
-#     stalonetray 'Exec exec stalonetray --config \
-#     "$[FVWM_DATADIR]/default-config/.stalonetrayrc"', Frame 0)
-# Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x20)), \
-#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-# Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x20)),\
-#     Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15,  \
-            Icon "Chouchin Reinensai.png", \
-            ActiveTitle "Net", \
-            Action (Mouse 1) Exec exec firefox-bin, \
-            Action (Mouse 2) Exec exec discord, \
-            Action (Mouse 3) Exec exec librewolf-bin)
-
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
-            Icon Bonsai.png, \
-            ActiveTitle "Files", \
-            Action (Mouse 1) Exec exec emacsclient -c -e "(dired \"~/\")" -a 'emacs', \
-            Action (Mouse 3) Exec exec pcmanfm )
-
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
-            ActiveTitle "Term", \
-            Icon "Yunomi (tea cup).png", \
-            Action (Mouse 1) Exec "St" exec st)
-
-*LeftPanel: ( 120x30, Frame 1, Colorset 15,  PressColorset 15, \
-            ActiveTitle "Editor", \
-            Icon Shodou.png, \
-            Action (Mouse 1) Exec exec emacsclient -c -a 'emacs')
-
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
-            ActiveTitle "Media", \
-            Icon Shamisen.png, \
-            Action (Mouse 1) Exec exec emacsclient -c -e '(emms)' -a 'emacs')
-
-*LeftPanel: ( 120x30, Frame 1, Colorset 15, PressColorset 15, \
-            ActiveTitle "Utilities", \
-            Icon "Ishidourou.png", \
-            Action (Mouse 1) Exec "Network" exec st -e nmtui, \
-            Action (Mouse 3) Exec "Monitor" exec st -e btop)
-
-*LeftPanel: ( 120x30, Frame 1, Icon "Tourist guidebook.png", \
-            ActiveTitle "Identify ...", \
-            Colorset 15,  PressColorset 15,\
-            Action Module FvwmIdent )
-
-*LeftPanel: ( 120x30, Frame 1, ActiveTitle "Lock", \
-            Colorset 15, \
-            PressColorset 15, \
-            Icon "Shoji2(paper sliding-door).png", \
-            Action (Mouse 1) Exec exec slock)
-
-*LeftPanel: (120x60, Frame 0)
-
-*LeftPanel: (120x30, Swallow DateTime 'Module FvwmScript fvwmscript/FvwmScript-DateTime',\
+Test (x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-250)), \
+    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+Test (!x stalonetray) PipeRead 'echo "*LeftPanel: (120x$(($[vp.height]-250)),\
+    Top, Swallow FvwmIconMan \'Module FvwmIconMan\', Frame 0)"'
+*LeftPanel: (120x80, Swallow DateTime 'Module FvwmScript fvwmscript/FvwmScript-DateTime',\
     Frame 0)
-*LeftPanel: (120x12, Swallow ACPIStatus 'Module FvwmScript fvwmscript/FvwmScript-ACPIStatus',\
-    Frame 0)    
-*LeftPanel: (120x5, Frame 0)
+# *LeftPanel: (120x50, Swallow ACPIStatus 'Module FvwmScript fvwmscript/FvwmScript-ACPIStatus',\
+#     Frame 0)
 
 # FvwmPager
 #
