@@ -16,3 +16,10 @@ Colorset 13 fg #ffffff, bg #989898, hi, sh, Plain, NoShape
 Colorset 14 fg #ffffff, bg #2f3849, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #ffffff, bg #000000, hi, sh, Plain, Noshape
+
+ButtonStyle All VGradient 20 #242679 #12154a  -- UseTitleStyle Flat
+ButtonStyle 2 VGradient 20 #620f2a #3a0c14 -- UseTitleStyle Flat
+AddButtonStyle 1 MiniIcon
+AddButtonStyle 6 Pixmap minimize__FFFFFF.svg:20x20
+AddButtonStyle 4 Pixmap maximize__FFFFFF.svg:20x20
+AddButtonStyle 2 Pixmap close__FFFFFF.svg:20x20

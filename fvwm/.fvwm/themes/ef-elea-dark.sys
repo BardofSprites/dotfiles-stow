@@ -1,0 +1,17 @@
+#### Ef Elea Dark FVWM Colorsets
+Colorset 0  fg #eaf2ef, bg #222524, hi, sh, Plain, NoShape
+Colorset 1  fg #969faf, bg #3e4140, hi, sh, Plain, NoShape
+Colorset 2  fg #eaf2ef, bg #222524, hi, sh, Plain, NoShape
+Colorset 3  fg #222524, bg #969faf, hi #969faf, sh #969faf, Plain, NoShape
+Colorset 4  fg #222524, bg #35605d, hi #35605d, sh #35605d, Plain, NoShape
+Colorset 5  fg #eaf2ef, bg #222524, hi, sh, Plain, NoShape
+Colorset 6  fg #eaf2ef, bg #35605d, hi, sh, Plain, NoShape
+Colorset 7  fg #eaf2ef, bg #eaf2ef, hi, sh, Plain, NoShape
+Colorset 8  fg #222524, bg #eaf2ef, hi, sh, Plain, NoShape
+Colorset 10 fg #eaf2ef, bg #222524, hi, sh, Plain, NoShape
+Colorset 11 fg #eaf2ef, bg #35605d, hi #eaf2ef, sh #eaf2ef, Plain, NoShape
+Colorset 12 fg #eaf2ef, bg #894f7a, hi, sh, Plain, NoShape
+Colorset 13 fg #eaf2ef, bg #894f7a, hi, sh, Plain, NoShape
+Colorset 14 fg #eaf2ef, bg #5a4000, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #eaf2ef, bg #222524, hi, sh, Plain, Noshape

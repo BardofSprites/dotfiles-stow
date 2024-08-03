@@ -35,6 +35,7 @@ ImagePath +:$[FVWM_USERDIR]/icon/PixelFengShui
 ImagePath +:$[FVWM_USERDIR]/icon/PixelFengShui/24
 ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki
 ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki/24
+ImagePath +:$[FVWM_USERDIR]/icon/pixmap
 
 read .sidebar.fvwm2rc
 
@@ -238,7 +239,7 @@ Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 # EwmhBaseStruts [left] [right] [top] [bottom]
 # Reserves space along the edge(s) of the Screen that will not
 # be covered when maximizing or placing windows.
-EwmhBaseStruts 120 0 0 0
+EwmhBaseStruts screen $[monitor.0.name] 120 0 0 0
 
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -280,7 +281,7 @@ Style * BorderColorset 3, HilightBorderColorset 4
 # Comment this out or use Style * Icon to get the icons back.
 Style * Icon
 # Style * IconBox 990x150-20-10, IconGrid 234 134, IconFill right bottom
-Style * IconBox 64x300-0+0
+Style * IconBox 64x1080-0+0
 
 # Window Specific Styles
 Style LeftPanel !Title, !Borders, !Handles, Sticky, \
@@ -290,8 +291,10 @@ Style conky !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
-Style st FPGrabFocus
-# Style * !Title
+Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
+Style emacs MiniIcon emacs_16.png, IconOverride, Icon emacs_icon.svg:50x50, EWMHMiniIconOverride
+Style * Font "xft:Iosevka Comfy Motion:Thin:size=14:antialias=True"
+Style * FPGrabFocus
 ## Program styles
 
 #######
@@ -327,7 +330,8 @@ Read $[themedir]/modus-vivendi.sys
 ###########
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
-MenuStyle * TrianglesSolid, TrianglesUseFore
+MenuStyle * TrianglesSolid
+MenuStyle * ActiveFore, !Animation, PopupOffset -5 100
 # MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
 MenuStyle * Font "xft:Iosevka Comfy Motion:Thin:size=14:antialias=True"
 
@@ -343,6 +347,7 @@ Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
 Test (x firefox-bin) + "Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
 Test (x librewolf) + "Librewolf%Chouchin Reinensai-24x24.png%" Exec exec librewolf
 Test (x librewolf-bin) + "Librewolf%Chouchin Reinensai-24x24.png%" Exec exec librewolf-bin
+Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
 Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
@@ -386,6 +391,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Modus &Operandi" ChangeTheme 'modus-operandi' 'operandi' "(modus-themes-select 'modus-operandi)"
 + "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "(ef-themes-select 'ef-autumn)"
 + "Ef &Elea Light" ChangeTheme 'ef-elea-light' 'elea-light' "(ef-themes-select 'ef-elea-light)"
++ "Ef &Elea Dark" ChangeTheme 'ef-elea-dark' 'elea-dark' "(ef-themes-select 'ef-elea-dark)"
 + "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
 + "Ef &Night" ChangeTheme 'ef-night' 'night' "(ef-themes-select 'ef-night)"
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
@@ -702,30 +708,37 @@ Silent Key Down        A     4C      Maximize 0 growdown
 #   4 - Maximize
 #   6 - Minimize
 ###########
-TitleStyle Centered Height 20 -- Flat
-ButtonStyle All ActiveUp Vector 5 15x15@4 15x85@3 85x85@3 85x15@3 \
-                15x15@3 -- Flat
-ButtonStyle All ToggledActiveUp Vector 5 15x15@4 15x85@3 85x85@3 \
-                85x15@3 15x15@3 -- Flat
-ButtonStyle All ActiveDown Vector 5 20x20@4 20x80@3 80x80@3 80x20@3 \
-                20x20@3 -- Flat
-ButtonStyle All ToggledActiveDown Vector 5 20x20@4 20x80@3 80x80@3 \
-                80x20@3 20x20@3 -- Flat
-ButtonStyle All ToggledInactive Vector 5 47x47@3 57x53@3 53x53@3 \
-                53x47@3 47x47@3 -- Flat
-ButtonStyle All Inactive Vector 5 47x47@3 57x53@3 53x53@3 53x47@3 \
-                47x47@3 -- Flat
-AddButtonStyle 1 Active Vector 5 45x45@3 55x45@3 55x55@3 45x55@3 45x45@3
-AddButtonStyle 2 Active Vector 4 35x35@3 65x65@3 65x35@4 35x65@3
-AddButtonStyle 4 Active Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 30x70@3 \
-                 30x50@4 50x50@3 50x70@3
-AddButtonStyle 4 ToggledActiveUp Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 \
-                 30x70@3 50x30@4 50x50@3 70x50@3
-AddButtonStyle 6 Active Vector 5 35x60@3 65x60@3 65x50@3 35x50@3 35x60@3
-ButtonStyle All - Clear
-ButtonStyle 1 - MwmDecorMenu
-ButtonStyle 4 - MwmDecorMax
-ButtonStyle 6 - MwmDecorMin
+TitleStyle Centered Height 25 -- Flat
+# ButtonStyle All ActiveUp Vector 5 15x15@4 15x85@3 85x85@3 85x15@3 \
+#                 15x15@3 -- Flat
+# ButtonStyle All ToggledActiveUp Vector 5 15x15@4 15x85@3 85x85@3 \
+#                 85x15@3 15x15@3 -- Flat
+# ButtonStyle All ActiveDown Vector 5 20x20@4 20x80@3 80x80@3 80x20@3 \
+#                 20x20@3 -- Flat
+# ButtonStyle All ToggledActiveDown Vector 5 20x20@4 20x80@3 80x80@3 \
+#                 80x20@3 20x20@3 -- Flat
+# ButtonStyle All ToggledInactive Vector 5 47x47@3 57x53@3 53x53@3 \
+#                 53x47@3 47x47@3 -- Flat
+# ButtonStyle All Inactive Vector 5 47x47@3 57x53@3 53x53@3 53x47@3 \
+#                 47x47@3 -- Flat
+# AddButtonStyle 1 Active Vector 5 45x45@3 55x45@3 55x55@3 45x55@3 45x45@3
+# AddButtonStyle 2 Active Vector 4 35x35@3 65x65@3 65x35@4 35x65@3
+# AddButtonStyle 4 Active Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 30x70@3 \
+#                  30x50@4 50x50@3 50x70@3
+# AddButtonStyle 4 ToggledActiveUp Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 \
+#                  30x70@3 50x30@4 50x50@3 70x50@3
+# AddButtonStyle 6 Active Vector 5 35x60@3 65x60@3 65x50@3 35x50@3 35x60@3
+# ButtonStyle All - Clear
+# ButtonStyle 1 - MwmDecorMenu
+# ButtonStyle 4 - MwmDecorMax
+# ButtonStyle 6 - MwmDecorMin
+
+ButtonStyle All VGradient 20 #274A66 #0F1C26 -- UseTitleStyle Flat
+ButtonStyle 2 VGradient 20 #801C2D #26080D -- UseTitleStyle Flat
+AddButtonStyle 1 MiniIcon
+AddButtonStyle 6 Pixmap minimize__FFFFFF.svg:20x20
+AddButtonStyle 4 Pixmap maximize__FFFFFF.svg:20x20
+AddButtonStyle 2 Pixmap close__FFFFFF.svg:20x20
 
 ############
 # 7: Modules
@@ -756,7 +769,7 @@ DestroyModuleConfig FvwmBanner:*
 #   - Quit - This is a popup that asks for quit confirmation before
 #     quitting fvwm.
 DestroyModuleConfig FvwmScript:*
-*FvwmScript: DefaultColorset 10
+*FvwmScript: Colorset 0
 
 # FvwmButtons - LeftPanel
 #
@@ -810,7 +823,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: BalloonFont "xft:Iosevka Comfy:Italic:size=14:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
-# *FvwmPager: MiniIcons
+*FvwmPager: MiniIcons
 
 # FvwmIconMan
 #

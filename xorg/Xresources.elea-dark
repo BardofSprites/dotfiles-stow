@@ -1,0 +1,44 @@
+! Ef Arbutus Xresources theme
+*.foreground:      #eaf2ef
+*.background:      #222524
+URxvt.background:  [90]#222524
+*.cursorColor:     #eaf2ef
+! black
+*.color0:       #222524
+*.color8:       #969faf
+! red
+*.color1:       #ff656a
+*.color9:       #ff656a
+! green
+*.color2:       #7fc87f
+*.color10:      #7fc87f
+! yellow
+*.color3:       #cac85f
+*.color11:      #cac85f
+! blue
+*.color4:       #57aff6
+*.color12:      #57aff6
+! magenta
+*.color5:       #f59acf
+*.color13:      #f59acf
+! cyan
+*.color6:       #6fcfd2
+*.color14:      #6fcfd2
+! white
+*.color7:       #eaf2ef
+*.color15:      #eaf2ef
+
+st.font: Iosevka Comfy-16
+
+dmenu.background: #222524
+dmenu.foreground: #eaf2ef
+dmenu.selbackground: #35605d
+dmenu.selforeground: #eaf2ef
+dmenu.font: Iosevka Comfy-16
+
+Nsxiv.window.background: #222524
+Nsxiv.window.foreground: #eaf2ef
+Nsxiv.mark.foreground: #eaf2ef
+Nsxiv.bar.background: #35605d
+Nsxiv.bar.foreground: #eaf2ef
+Nsxiv.bar.font: IosevkaComfy-16
