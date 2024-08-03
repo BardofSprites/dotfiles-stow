@@ -32,13 +32,13 @@ st.font: Iosevka Comfy-16
 
 dmenu.background: #edf4f8
 dmenu.foreground: #151a27
-dmenu.selbackground: #2f527b
+dmenu.selbackground: #a0c2ef
 dmenu.selforeground: #151a27
 dmenu.font: Iosevka Comfy-16
 
 Nsxiv.window.background: #edf4f8
 Nsxiv.window.foreground: #151a27
 Nsxiv.mark.foreground: #151a27
-Nsxiv.bar.background: #2f527b
+Nsxiv.bar.background: #a0c2ef
 Nsxiv.bar.foreground: #151a27
-Nsxiv.bar.font: IosevkaComfy-16
+Nsxiv.bar.font: IosevkaComfy-14
