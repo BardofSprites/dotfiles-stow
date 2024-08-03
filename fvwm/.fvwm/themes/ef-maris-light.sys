@@ -1,0 +1,24 @@
+Colorset 0  fg #151a27, bg #edf4f8, hi, sh, Plain, NoShape
+Colorset 1  fg #676470, bg #e6ecf2, hi, sh, Plain, NoShape
+Colorset 2  fg #151a27, bg #edf4f8, hi, sh, Plain, NoShape
+Colorset 3  fg #676470, bg #cfd8e3, hi #cfd8e3, sh #cfd8e3, Plain, NoShape
+Colorset 4  fg #edf4f8, bg #a0c2ef, hi #a0c2ef, sh #a0c2ef, Plain, NoShape
+Colorset 5  fg #151a27, bg #edf4f8, hi, sh, Plain, NoShape
+Colorset 6  fg #151a27, bg #a0c2ef, hi, sh, Plain, NoShape
+Colorset 7  fg #151a27, bg #151a27, hi, sh, Plain, NoShape
+Colorset 8  fg #edf4f8, bg #151a27, hi, sh, Plain, NoShape
+Colorset 10 fg #151a27, bg #edf4f8, hi #676470, sh #676470, Plain, NoShape
+Colorset 11 fg #151a27, bg #a0c2ef, hi #151a27, sh #151a27, Plain, NoShape
+Colorset 12 fg #151a27, bg #d2b4cf, hi, sh, Plain, NoShape
+Colorset 13 fg #151a27, bg #d2b4cf, hi, sh, Plain, NoShape
+Colorset 14 fg #151a27, bg #302a3a, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #151a27, bg #edf4f8, hi, sh, Plain, Noshape
+
+ButtonStyle 4 VGradient 20 #1f66af #003faf  -- UseTitleStyle Flat
+ButtonStyle 6 VGradient 20 #1f66af #003faf  -- UseTitleStyle Flat
+ButtonStyle 2 VGradient 20 #b02440 #8b4052 -- UseTitleStyle Flat
+AddButtonStyle 1 MiniIcon
+AddButtonStyle 6 Pixmap minimize__E8E4B1.svg:20x20
+AddButtonStyle 4 Pixmap maximize__E8E4B1.svg:20x20
+AddButtonStyle 2 Pixmap close__E8E4B1.svg:20x20

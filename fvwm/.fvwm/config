@@ -395,6 +395,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
 + "Ef &Night" ChangeTheme 'ef-night' 'night' "(ef-themes-select 'ef-night)"
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
++ "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "(ef-themes-select 'ef-maris-light)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
@@ -769,7 +770,7 @@ DestroyModuleConfig FvwmBanner:*
 #   - Quit - This is a popup that asks for quit confirmation before
 #     quitting fvwm.
 DestroyModuleConfig FvwmScript:*
-*FvwmScript: Colorset 0
+*FvwmScript: DefaultColorset 10
 
 # FvwmButtons - LeftPanel
 #
