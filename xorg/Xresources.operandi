@@ -1,10 +1,10 @@
-! Modus Operandi Tinted Xresources theme
+!! Modus Operandi Tinted Xresources theme
 *.foreground:      #000000
 *.background:      #ffffff
 URxvt.background:  [90]#ffffff	
 *.cursorColor:     #000000
 ! black
-*.color0:       #ffffff
+*.color0:       #000000
 *.color8:       #5C6370
 ! red
 *.color1:       #a60000

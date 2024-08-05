@@ -223,7 +223,7 @@ DesktopName 0 Main
 DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
-DesktopSize 2x2
+DesktopSize 3x3
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -576,13 +576,23 @@ Silent Key F4 A 4S MoveToDesk 0 3
 
 Silent Key 1 A 4 GotoPage 0 0
 Silent Key 2 A 4 GotoPage 1 0
-Silent Key 3 A 4 GotoPage 0 1
-Silent Key 4 A 4 GotoPage 1 1
+Silent Key 3 A 4 GotoPage 2 0
+Silent Key 4 A 4 GotoPage 0 1
+Silent Key 5 A 4 GotoPage 1 1
+Silent Key 6 A 4 GotoPage 2 1
+Silent Key 7 A 4 GotoPage 0 2
+Silent Key 8 A 4 GotoPage 1 2
+Silent Key 9 A 4 GotoPage 2 2
 
 Silent Key 1 A 4S MoveToPage 0 0
 Silent Key 2 A 4S MoveToPage 1 0
-Silent Key 3 A 4S MoveToPage 0 1
-Silent Key 4 A 4S MoveToPage 1 1
+Silent Key 3 A 4S MoveToPage 2 0
+Silent Key 4 A 4S MoveToPage 0 1
+Silent Key 5 A 4S MoveToPage 1 1
+Silent Key 6 A 4S MoveToPage 2 1
+Silent Key 7 A 4S MoveToPage 0 2
+Silent Key 8 A 4S MoveToPage 1 2
+Silent Key 9 A 4S MoveToPage 2 2
 
 DestroyMenu MenuSendToPage
 AddToMenu   MenuSendToPage
@@ -824,7 +834,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: BalloonFont "xft:Iosevka Comfy:Italic:size=14:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
-*FvwmPager: MiniIcons
+# *FvwmPager: MiniIcons
 
 # FvwmIconMan
 #
