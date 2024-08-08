@@ -745,8 +745,8 @@ TitleStyle Centered Height 25 -- Flat
 # ButtonStyle 4 - MwmDecorMax
 # ButtonStyle 6 - MwmDecorMin
 
-ButtonStyle All VGradient 20 #274A66 #0F1C26 -- UseTitleStyle Flat
-ButtonStyle 2 VGradient 20 #801C2D #26080D -- UseTitleStyle Flat
+ButtonStyle All ( Colorset 1 -- Flat )
+ButtonStyle All Active ( Colorset 0 -- Flat )
 AddButtonStyle 1 MiniIcon
 AddButtonStyle 6 Pixmap minimize__FFFFFF.svg:20x20
 AddButtonStyle 4 Pixmap maximize__FFFFFF.svg:20x20
