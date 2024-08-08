@@ -292,9 +292,9 @@ Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
 Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
-Style emacs MiniIcon emacs_16.png, IconOverride, Icon emacs_icon.svg:50x50, EWMHMiniIconOverride
-Style * Font "xft:Iosevka Comfy Motion:Thin:size=14:antialias=True"
-Style * FPGrabFocus
+Style urxvt MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
+Style emacs MiniIcon emacs_16.png, IconOverride, Icon emacs_icon.svg:50x50, EWMHMiniIconOverride, FPGrabFocus
+Style * Font "xft:Iosevka Comfy Motion:Thin:size=16:antialias=True"
 ## Program styles
 
 #######
@@ -361,6 +361,7 @@ Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient
 + "&Color Themes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
 + "&Power%Futon (bed)-24x24.png%" Popup MenuPower
++ "&Lock%Andon (lantern)-24x24.png%" Exec exec xscreensaver-command -lock
 
 # Programs Menu
 #
