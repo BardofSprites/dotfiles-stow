@@ -293,7 +293,10 @@ Style FvwmIdent WindowListSkip
 
 Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
 Style urxvt MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
-Style emacs MiniIcon emacs_16.png, IconOverride, Icon emacs_icon.svg:50x50, EWMHMiniIconOverride, FPGrabFocus
+Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.png", EWMHMiniIconOverride, IconOverride
+Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
+Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride, FPGrabFocus
+Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride, FPGrabFocus
 Style * Font "xft:Iosevka Comfy Motion:Thin:size=16:antialias=True"
 ## Program styles
 
@@ -345,8 +348,8 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 Test (x emacs) + "&Emacs%Shodou-24x24.png%" Exec exec emacsclient -c -a 'emacs'
 Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
 Test (x firefox-bin) + "Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
-Test (x librewolf) + "Librewolf%Chouchin Reinensai-24x24.png%" Exec exec librewolf
-Test (x librewolf-bin) + "Librewolf%Chouchin Reinensai-24x24.png%" Exec exec librewolf-bin
+Test (x librewolf) + "Librewolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf
+Test (x librewolf-bin) + "Librewolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf-bin
 Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
