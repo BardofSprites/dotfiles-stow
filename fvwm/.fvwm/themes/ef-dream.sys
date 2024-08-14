@@ -1,0 +1,20 @@
+Colorset 0  fg #efd5c5, bg #232025, hi, sh, Plain, NoShape
+Colorset 1  fg #8f8886, bg #3b393e, hi, sh, Plain, NoShape
+Colorset 2  fg #efd5c5, bg #232025, hi, sh, Plain, NoShape
+Colorset 3  fg #232025, bg #8f8886, hi #8f8886, sh #8f8886, Plain, NoShape
+Colorset 4  fg #232025, bg #675072, hi #675072, sh #675072, Plain, NoShape
+Colorset 5  fg #efd5c5, bg #232025, hi, sh, Plain, NoShape
+Colorset 6  fg #efd5c5, bg #675072, hi, sh, Plain, NoShape
+Colorset 7  fg #efd5c5, bg #efd5c5, hi, sh, Plain, NoShape
+Colorset 8  fg #232025, bg #efd5c5, hi, sh, Plain, NoShape
+Colorset 10 fg #efd5c5, bg #232025, hi, sh, Plain, NoShape
+Colorset 11 fg #efd5c5, bg #675072, hi #efd5c5, sh #efd5c5, Plain, NoShape
+Colorset 12 fg #efd5c5, bg #684d54, hi, sh, Plain, NoShape
+Colorset 13 fg #efd5c5, bg #684d54, hi, sh, Plain, NoShape
+Colorset 14 fg #efd5c5, bg #e3b0c0, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #efd5c5, bg #232025, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__EFD5C5.svg:20x20
+AddButtonStyle 4 Pixmap maximize__EFD5C5.svg:20x20
+AddButtonStyle 2 Pixmap close__EFD5C5.svg:20x20

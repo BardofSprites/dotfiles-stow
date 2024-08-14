@@ -1,0 +1,44 @@
+! Ef Dream Xresources theme
+*.foreground:      #efd5c5
+*.background:      #232025
+URxvt.background:  [90]#232025
+*.cursorColor:     #efd5c5
+! black
+*.color0:       #232025
+*.color8:       #3b393e
+! red
+*.color1:       #ff6f6f
+*.color9:       #ff6f6f
+! green
+*.color2:       #51b04f
+*.color10:      #51b04f
+! yellow
+*.color3:       #c0b24f
+*.color11:      #c0b24f
+! blue
+*.color4:       #57b0ff
+*.color12:      #57b0ff
+! magenta
+*.color5:       #ffaacf
+*.color13:      #ffaacf
+! cyan
+*.color6:       #6fb3c0
+*.color14:      #6fb3c0
+! white
+*.color7:       #efd5c5
+*.color15:      #efd5c5
+
+st.font: Iosevka Comfy-16
+
+dmenu.background: #232025
+dmenu.foreground: #efd5c5
+dmenu.selbackground: #675072
+dmenu.selforeground: #efd5c5
+dmenu.font: Iosevka Comfy-16
+
+Nsxiv.window.background: #232025
+Nsxiv.window.foreground: #efd5c5
+Nsxiv.mark.foreground: #efd5c5
+Nsxiv.bar.background: #675072
+Nsxiv.bar.foreground: #efd5c5
+Nsxiv.bar.font: IosevkaComfy-16
