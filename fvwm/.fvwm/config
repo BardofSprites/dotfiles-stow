@@ -347,9 +347,9 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 # + "&Programs%Kanban (sign)-24x24.png%" Popup MenuPrograms
 Test (x emacs) + "&Emacs%Shodou-24x24.png%" Exec exec emacsclient -c -a 'emacs'
 Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
-Test (x firefox-bin) + "Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
-Test (x librewolf) + "Librewolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf
-Test (x librewolf-bin) + "Librewolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf-bin
+Test (x firefox-bin) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
+Test (x librewolf) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf
+Test (x librewolf-bin) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf-bin
 Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
@@ -613,11 +613,12 @@ Mouse 9 A       4   Scroll 0 -100p
 Mouse 8 A       4   Scroll 0 100p 
 
 #### Programs Keybinding
-Silent Key Return A 4 Exec exec $[infostore.terminal]
-Silent Key Return   A 4     Exec exec $[infostore.terminal]
-Silent Key E        A 4     Exec exec emacs
-Silent Key N        A 4     Exec exec emacsclient -c
-Silent Key D        A 4     Exec exec dmenu_run
+Silent Key Return      A 4     Exec exec $[infostore.terminal]
+Silent Key Return      A 4     Exec exec $[infostore.terminal]
+Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -lq
+Silent Key E           A 4     Exec exec emacs
+Silent Key N           A 4     Exec exec emacsclient -c
+Silent Key D           A 4     Exec exec dmenu_run
 
 # browser
 Silent Key W A 4        Exec exec librewolf-bin
@@ -682,7 +683,8 @@ Silent Key Q        A     4       Close
 Silent Mouse 3        A     4       Resize
 Silent Mouse 1        A     4       Move
 
-# maximize/minimize window
+# deiconify/iconify and rearrange
+Mouse 1 I A DeiconifyAndRearrange
 
 # super + arrows for tiling
 Silent Key Left        A     4      TileLeft 60 100 +0 +0
@@ -898,3 +900,17 @@ DestroyFunc SmartPrevPageFlipFocus
 AddToFunc SmartPrevPageFlipFocus
 + I Prev (CurrentDesk,AcceptsFocus,!Iconic,Iconifiable) FuncFlipFocusWindow
 + I TestRc (Match) EchoPageNumberIfFull cyan
+
+
+
+DestroyFunc DeiconifyAndRearrange
+AddToFunc DeiconifyAndRearrange
++ C Iconify off
++ C All (CurrentPage, Iconic) PlaceAgain Icon
+
+DestroyFunc IconFunc
+AddToFunc IconFunc
++ C DeiconifyAndRearrange
++ M Raise
++ M Move
++ D DeiconifyAndRearrange
