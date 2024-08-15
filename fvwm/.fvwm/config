@@ -398,6 +398,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Elea Dark" ChangeTheme 'ef-elea-dark' 'elea-dark' "(ef-themes-select 'ef-elea-dark)"
 + "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
 + "Ef &Night" ChangeTheme 'ef-night' 'night' "(ef-themes-select 'ef-night)"
++ "Ef &Dream" ChangeTheme 'ef-dream' 'dream' "(ef-themes-select 'ef-dream)"
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
 + "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "(ef-themes-select 'ef-maris-light)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"

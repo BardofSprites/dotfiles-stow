@@ -4,9 +4,9 @@ Colorset 2  fg #afbcbf, bg #000e17, hi, sh, Plain, NoShape
 Colorset 3  fg #000e17, bg #11141f, hi #11141f, sh #11141f, Plain, NoShape
 Colorset 4  fg #000e17, bg #003a7f, hi #003a7f, sh #003a7f, Plain, NoShape
 Colorset 5  fg #afbcbf, bg #000e17, hi, sh, Plain, NoShape
-Colorset 6  fg #afbcbf, bg #003a7f, hi, sh, Plain, NoShape
+Colorset 6  fg #afbcbf, bg #6f345a, hi, sh, Plain, NoShape
 Colorset 7  fg #afbcbf, bg #afbcbf, hi, sh, Plain, NoShape
-Colorset 8  fg #000e17, bg #afbcbf, hi, sh, Plain, NoShape
+Colorset 8  fg #afbcbf, bg #003a7f, hi, sh, Plain, NoShape
 Colorset 10 fg #afbcbf, bg #000e17, hi, sh, Plain, NoShape
 Colorset 11 fg #afbcbf, bg #003a7f, hi #afbcbf, sh #afbcbf, Plain, NoShape
 Colorset 12 fg #afbcbf, bg #6f345a, hi, sh, Plain, NoShape
