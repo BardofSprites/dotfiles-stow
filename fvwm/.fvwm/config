@@ -37,7 +37,7 @@ ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki
 ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki/24
 ImagePath +:$[FVWM_USERDIR]/icon/pixmap
 
-read .sidebar.fvwm2rc
+# read .sidebar.fvwm2rc
 
 SetEnv fvwmscript $[HOME]/.fvwm/fvwmscript/
 SetEnv themedir $[HOME]/.fvwm/themes/
@@ -68,7 +68,8 @@ DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Test (Init) Module FvwmBanner
 + I Module FvwmButtons LeftPanel
-# + I Module FvwmButtons sidebar
+# + I Module FvwmScript sidebar
++ I Module FvwmScript fvwmscript/org-clock
 + I Module FvwmEvent EventNewDesk
 
 # Mouse Bindings Functions
@@ -285,7 +286,7 @@ Style * IconBox 64x1080-0+0
 
 # Window Specific Styles
 Style LeftPanel !Title, !Borders, !Handles, Sticky, \
-                 WindowListSkip, NeverFocus, StaysOnTop
+                 WindowListSkip, NeverFocus, StaysOnTop, FixedPosition
 Style conky !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
@@ -297,6 +298,8 @@ Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride, FPGrabFocus
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride, FPGrabFocus
+Style "Org-Clock" MiniIcon "Kakejiku-24x24.png", Icon "Kakejiku.png", Sticky, !Borders, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, StaysOnTop, FixedPosition
+# 50-50w 50-50w
 Style * Font "xft:Iosevka Comfy Motion:Thin:size=16:antialias=True"
 ## Program styles
 
@@ -643,6 +646,7 @@ Silent Key XF86MonBrightnessDown       A A        Exec exec xbacklight -dec 10
 Silent Key B       A 4        Exec exec "$HOME/.local/bin/scripts/scratch.sh"
 Silent Key N       A 4S       Exec exec "$HOME/.local/bin/scripts/dired_selector"
 Silent Key M       A 4        Exec exec emacsclient -c -e '(emms)'
+Silent Key C       A 4        Module FvwmScript fvwmscript/org-clock
 # screenshot
 Silent Key Print   A A        Exec exec "$HOME/.local/bin/scripts/maimpick"
 
