@@ -1,0 +1,21 @@
+#### Ef Symbiosis FVWM Colorsets
+Colorset 0  fg #d0d0d0, bg #130911, hi, sh, Plain, NoShape
+Colorset 1  fg #857f8f, bg #372d32, hi, sh, Plain, NoShape
+Colorset 2  fg #d0d0d0, bg #130911, hi, sh, Plain, NoShape
+Colorset 3  fg #130911, bg #606060, hi #606060, sh #606060, Plain, NoShape
+Colorset 4  fg #130911, bg #857f8f, hi #857f8f, sh #857f8f, Plain, NoShape
+Colorset 5  fg #d0d0d0, bg #130911, hi, sh, Plain, NoShape
+Colorset 6  fg #d0d0d0, bg #304477, hi, sh, Plain, NoShape
+Colorset 7  fg red, bg #d0d0d0, hi, sh, Plain, NoShape
+Colorset 8  fg #d0d0d0, bg #583435, hi, sh, Plain, NoShape
+Colorset 10 fg #d0d0d0, bg #130911, hi, sh, Plain, NoShape
+Colorset 11 fg #d0d0d0, bg #583435, hi #d0d0d0, sh #d0d0d0, Plain, NoShape
+Colorset 12 fg #d0d0d0, bg #304477, hi, sh, Plain, NoShape
+Colorset 13 fg #d0d0d0, bg #304477, hi, sh, Plain, NoShape
+Colorset 14 fg #857f8f, bg #004065, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #d0d0d0, bg #130911, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__D0D0D0.svg:20x20
+AddButtonStyle 4 Pixmap maximize__D0D0D0.svg:20x20
+AddButtonStyle 2 Pixmap close__D0D0D0.svg:20x20
