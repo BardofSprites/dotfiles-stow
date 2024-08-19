@@ -410,6 +410,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "(ef-themes-select 'ef-maris-light)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
 + "Ef &Bio" ChangeTheme 'ef-bio' 'bio' "(ef-themes-select 'ef-bio)"
++ "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "(ef-themes-select 'ef-springc)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
