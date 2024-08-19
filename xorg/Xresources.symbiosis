@@ -1,0 +1,44 @@
+! Ef Symbiosis Xresources theme
+*.foreground:      #d0d0d0
+*.background:      #130911
+URxvt.background:  [90]#130911
+*.cursorColor:     #d0d0d0
+! black
+*.color0:       #130911
+*.color8:       #4b3f47
+! red
+*.color1:       #fe5a7a
+*.color9:       #ff7355
+! green
+*.color2:       #0faa26
+*.color10:      #6aad0f
+! yellow
+*.color3:       #bf9032
+*.color11:      #df8a5a
+! blue
+*.color4:       #6a9fff
+*.color12:      #029fff
+! magenta
+*.color5:       #d369af
+*.color13:      #af85ff
+! cyan
+*.color6:       #4fbaef
+*.color14:      #1dbfcf
+! white
+*.color7:       #d0d0d0
+*.color15:      #d0d0d0
+
+st.font: Iosevka Comfy-14
+
+dmenu.background: #130911
+dmenu.foreground: #d0d0d0
+dmenu.selbackground: #583435
+dmenu.selforeground: #d0d0d0
+dmenu.font: Iosevka Comfy-14
+
+Nsxiv.window.background: #130911
+Nsxiv.window.foreground: #d0d0d0
+Nsxiv.mark.foreground: #d0d0d0
+Nsxiv.bar.background: #583435
+Nsxiv.bar.foreground: #d0d0d0
+Nsxiv.bar.font: IosevkaComfy-14
