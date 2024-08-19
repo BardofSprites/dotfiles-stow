@@ -367,6 +367,7 @@ Test (x emacs) + "&Email%Kinchaku (drawstring bag)-24x24.png%" Exec exec emacscl
 Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient -c -e '(tmr-tabulated-view)'
 + "" Nop
 + "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
++ "Fvwm&Ident%Tourist guidebook-24x24.png%" Module FvwmIdent
 + "&Wallpapers%Folder2-24x24.png%" Popup MenuWallpaper
 + "&Color Themes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
