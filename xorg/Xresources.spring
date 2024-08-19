@@ -1,4 +1,4 @@
-! Ef Spring Xresources theme
+!!!!! Ef Spring Xresources theme
 *.foreground:      #34494a
 *.background:      #f6fff9
 URxvt.background:  [90]#f6fff9
@@ -8,22 +8,22 @@ URxvt.background:  [90]#f6fff9
 *.color8:       #90918a
 ! red
 *.color1:       #c42d2f
-*.color9:       #c42d2f
+*.color9:       #cf2f4f
 ! green
 *.color2:       #1a870f
-*.color10:      #1a870f
+*.color10:      #007f68
 ! yellow
-*.color3:       #a45f22
+*.color3:       #b6540f
 *.color11:      #a45f22
 ! blue
-*.color4:       #375cc6
-*.color12:      #375cc6
+*.color4:       #5f5fdf
+*.color12:      #265fbf
 ! magenta
 *.color5:       #d5206f
-*.color13:      #d5206f
+*.color13:      #9435b4
 ! cyan
 *.color6:       #1f6fbf
-*.color14:      #1f6fbf
+*.color14:      #0f7b8f
 ! white
 *.color7:       #34494a
 *.color15:      #34494a

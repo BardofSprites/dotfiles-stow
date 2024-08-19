@@ -252,7 +252,7 @@ MoveThreshold 3
 Style * SloppyFocus, MouseFocusClickRaises
 
 # Default Font
-DefaultFont "xft:Iosevka Comfy:size=12:antialias=True"
+DefaultFont "xft:Comic Code:size=14:antialias=True"
 
 # Window Placement
 Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
@@ -292,15 +292,15 @@ Style conky !Title, !Borders, !Handles, Sticky, \
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
-Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
+Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride, FPGrabFocus
 Style urxvt MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
 Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.png", EWMHMiniIconOverride, IconOverride
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
-Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride, FPGrabFocus
-Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride, FPGrabFocus
+Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
+Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
 Style "Org-Clock" MiniIcon "Kakejiku-24x24.png", Icon "Kakejiku.png", Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
 # 50-50w 50-50w
-Style * Font "xft:Iosevka Comfy Motion:Thin:size=16:antialias=True"
+Style * Font "xft:Comic Code:Thin:size=14:antialias=True"
 ## Program styles
 
 #######
@@ -339,7 +339,7 @@ MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid
 MenuStyle * ActiveFore, !Animation, PopupOffset -5 100
 # MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Iosevka Comfy Motion:Thin:size=14:antialias=True"
+MenuStyle * Font "xft:Comic Code:Thin:size=14:antialias=True"
 
 # Root Menu
 #
@@ -413,6 +413,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Bio" ChangeTheme 'ef-bio' 'bio' "(ef-themes-select 'ef-bio)"
 + "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "(ef-themes-select 'ef-springc)"
 + "Ef &Symbiosis" ChangeTheme 'ef-symbiosis' 'symbiosis' "(ef-themes-select 'ef-symbiosis)"
++ "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "(ef-themes-select 'ef-springc)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
@@ -780,7 +781,7 @@ AddButtonStyle 2 Pixmap close__FFFFFF.svg:20x20
 # a window. One use is getting the class/resource/name of a window.
 DestroyModuleConfig FvwmIdent:*
 *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Iosevka Comfy:size=12:antialias=True"
+*FvwmIdent: Font "xft:Comic Code:size=14:antialias=True"
 
 # FvwmBanner
 #
@@ -817,7 +818,7 @@ DestroyModuleConfig LeftPanel:*
 *LeftPanel: Rows $[vp.height]
 *LeftPanel: Columns 120
 *LeftPanel: Frame 0
-*LeftPanel: Font "xft:Iosevka Comfy:Bold:size=12:antialias=True"
+*LeftPanel: Font "xft:Comic Code:Bold:size=14:antialias=True"
 # *LeftPanel: (120x45, Icon "fvwm-logo-small.png", Frame 0)
 *LeftPanel: (120x5, Frame 0)
 *LeftPanel: (10x30, Frame 0)
@@ -850,7 +851,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: WindowColorsets 10 11
 *FvwmPager: Font None
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Iosevka Comfy:Italic:size=14:antialias=True"
+*FvwmPager: BalloonFont "xft:Comic Code:Italic:size=14:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 # *FvwmPager: MiniIcons
@@ -872,7 +873,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: DrawIcons always
 *FvwmIconMan: ReliefThickness 0
 *FvwmIconMan: Format "%t"
-*FvwmIconMan: Font "xft:Iosevka Comfy:size=14:antialias=True"
+*FvwmIconMan: Font "xft:Comic Code:size=14:antialias=True"
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
@@ -912,8 +913,6 @@ DestroyFunc SmartPrevPageFlipFocus
 AddToFunc SmartPrevPageFlipFocus
 + I Prev (CurrentDesk,AcceptsFocus,!Iconic,Iconifiable) FuncFlipFocusWindow
 + I TestRc (Match) EchoPageNumberIfFull cyan
-
-
 
 DestroyFunc DeiconifyAndRearrange
 AddToFunc DeiconifyAndRearrange

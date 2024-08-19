@@ -1,4 +1,4 @@
-!! Modus Operandi Tinted Xresources theme
+!!!!! Modus Operandi Tinted Xresources theme
 *.foreground:      #000000
 *.background:      #fbf7f0
 URxvt.background:  [90]#fbf7f0	

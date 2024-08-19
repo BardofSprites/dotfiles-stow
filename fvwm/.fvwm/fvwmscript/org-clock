@@ -1,6 +1,6 @@
 WindowTitle {Org-Clock}
 WindowSize  1000 30
-Font "xft:Iosevka Comfy Motion:Thin:size=20"
+Font "xft:Comic Code:Thin:size=20"
 
 Init
  Begin
@@ -21,7 +21,7 @@ Widget 1
 Property
  Position 0 0
  Size 1000 30
- Font "xft:Iosevka Comfy Motion:Thin:size=20"
+ Font "xft:Comic Code:Thin:size=20"
  Type ItemDraw
  Flags NoReliefString
  Title {}
