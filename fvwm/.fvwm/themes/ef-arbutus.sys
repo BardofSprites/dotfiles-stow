@@ -18,9 +18,6 @@ Colorset 15 fg #393330, bg #ffead8, hi, sh, Plain, Noshape
 ButtonStyle All ( Colorset 1 -- Flat )
 ButtonStyle All Active ( Colorset 0 -- Flat )
 AddButtonStyle 1 MiniIcon
-AddButtonStyle 6 InActive Pixmap minimize__6E678F.svg:20x20
-AddButtonStyle 4 InActive Pixmap maximize__6E678F.svg:20x20
-AddButtonStyle 2 InActive Pixmap close__6E678F.svg:20x20
 AddButtonStyle 6 Active Pixmap minimize__393330.svg:20x20
 AddButtonStyle 4 Active Pixmap maximize__393330.svg:20x20
 AddButtonStyle 2 Active Pixmap close__393330.svg:20x20

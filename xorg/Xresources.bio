@@ -1,0 +1,44 @@
+! Ef Bio Xresources theme
+*.foreground:      #cfdfd5
+*.background:      #111111
+URxvt.background:  [90]#111111
+*.cursorColor:     #cfdfd5
+! black
+*.color0:       #111111
+*.color8:       #2a3644
+! red
+*.color1:       #ef6560
+*.color9:       #f47360
+! green
+*.color2:       #3fb83f
+*.color10:      #7fc500
+! yellow
+*.color3:       #d4aa02
+*.color11:      #e09a0f
+! blue
+*.color4:       #37aff6
+*.color12:      #78afff
+! magenta
+*.color5:       #d38faf
+*.color13:      #af9fff
+! cyan
+*.color6:       #6fc5ef
+*.color14:      #5dc0aa
+! white
+*.color7:       #cfdfd5
+*.color15:      #cfdfd5
+
+st.font: Iosevka Comfy-16
+
+dmenu.background: #111111
+dmenu.foreground: #cfdfd5
+dmenu.selbackground: #00552f
+dmenu.selforeground: #cfdfd5
+dmenu.font: Iosevka Comfy-16
+
+Nsxiv.window.background: #111111
+Nsxiv.window.foreground: #cfdfd5
+Nsxiv.mark.foreground: #cfdfd5
+Nsxiv.bar.background: #00552f
+Nsxiv.bar.foreground: #cfdfd5
+Nsxiv.bar.font: IosevkaComfy-16

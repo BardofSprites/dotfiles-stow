@@ -298,7 +298,7 @@ Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride, FPGrabFocus
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride, FPGrabFocus
-Style "Org-Clock" MiniIcon "Kakejiku-24x24.png", Icon "Kakejiku.png", Sticky, !Borders, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, StaysOnTop, FixedPosition
+Style "Org-Clock" MiniIcon "Kakejiku-24x24.png", Icon "Kakejiku.png", Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
 # 50-50w 50-50w
 Style * Font "xft:Iosevka Comfy Motion:Thin:size=16:antialias=True"
 ## Program styles
@@ -356,6 +356,10 @@ Test (x librewolf-bin) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec li
 Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
++ "&Anki%Yoritsuki_disk-24x24.png%" Exec exec flatpak run net.ankiweb.Anki
++ "Libre&office%Tsukubai-24x24.png%" Exec exec flatpak run org.libreoffice.LibreOffice
++ "&Calibre%yukata-24x24.png%" Exec exec flatpak run com.calibre_ebook.calibre
++ "" Nop
 Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
 Test (x emacs) + "&Music%Shamisen-24x24.png%" Exec exec emacsclient -c -e '(emms)'
 Test (x emacs) + "&RSS%Shichirin (charcoal brazier)-24x24.png%" Exec exec emacsclient -c -e '(elfeed)'
@@ -367,7 +371,7 @@ Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient
 + "&Color Themes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
 + "&Power%Futon (bed)-24x24.png%" Popup MenuPower
-+ "&Lock%Andon (lantern)-24x24.png%" Exec exec xscreensaver-command -lock
++ "&Xscreensaver%Andon (lantern)-24x24.png%" Exec exec xscreensaver-command -lock
 
 # Programs Menu
 #
@@ -405,6 +409,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
 + "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "(ef-themes-select 'ef-maris-light)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
++ "Ef &Bio" ChangeTheme 'ef-bio' 'bio' "(ef-themes-select 'ef-bio)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
