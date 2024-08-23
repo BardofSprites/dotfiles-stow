@@ -629,9 +629,8 @@ Mouse 9 A       4   Scroll 0 -100p
 Mouse 8 A       4   Scroll 0 100p 
 
 #### Programs Keybinding
-Silent Key Return      A 4     Exec exec $[infostore.terminal]
-Silent Key Return      A 4     Exec exec $[infostore.terminal]
-Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -lq
+Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32 -f "Comic Code:size=14"
+Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -l
 Silent Key E           A 4     Exec exec emacs
 Silent Key N           A 4     Exec exec emacsclient -c
 Silent Key D           A 4     Exec exec dmenu_run
