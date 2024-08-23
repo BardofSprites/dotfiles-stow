@@ -293,15 +293,19 @@ Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
 Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride, FPGrabFocus
-Style urxvt MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride
+Style urxvt MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride, FPGrabFocus
 Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.png", EWMHMiniIconOverride, IconOverride
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
 Style "Org-Clock" MiniIcon "Kakejiku-24x24.png", Icon "Kakejiku.png", Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
-# 50-50w 50-50w
 Style * Font "xft:Comic Code:Thin:size=14:antialias=True"
 ## Program styles
+# Style "*EMMS Playlist*" MiniIcon Shamisen-24x24.png, IconOverride, Icon Shamisen.png, EWMHMiniIconOverride, FPGrabFocus
+# Style "*tmr-tabulated-view*" MiniIcon "Furoisu (bath chair)-24x24.png", IconOverride, "Icon Furoisu (bath chair).png", EWMHMiniIconOverride, FPGrabFocus
+Style *notmuch* MiniIcon "Kinchaku (drawstring bag)-24x24.png", IconOverride, Icon "Kinchaku (drawstring bag).png", EWMHMiniIconOverride, FPGrabFocus
+# Style "*elfeed-search*" MiniIcon "Shichirin (charcoal brazier)-24x24.png", IconOverride, Icon "Shichirin (charcoal brazier).png", EWMHMiniIconOverride, FPGrabFocus
+# Style "*Org Agenda*" MiniIcon "Kakejiku-24x24.png", IconOverride, Icon "Kakejiku.png", EWMHMiniIconOverride, FPGrabFocus
 
 #######
 # 3: Colorsets
