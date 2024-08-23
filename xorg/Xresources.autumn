@@ -7,23 +7,23 @@ URxvt.background:  [90]#0f0e06
 *.color0:       #0f0e06
 *.color8:       #36322f
 ! red
-*.color1:       #ef656a
-*.color9:       #ef656a
+*.color1:       #ff7a7f
+*.color9:       #f06a3f
 ! green
 *.color2:       #2fa526
-*.color10:      #2fa526
+*.color10:      #64aa0f
 ! yellow
 *.color3:       #c48702
-*.color11:      #c48702
+*.color11:      #d0730f
 ! blue
-*.color4:       #379cf6
-*.color12:      #379cf6
+*.color4:       #6a88ff
+*.color12:      #029fff
 ! magenta
 *.color5:       #d570af
-*.color13:      #d570af
+*.color13:      #af8aff
 ! cyan
 *.color6:       #4fb0cf
-*.color14:      #4fb0cf
+*.color14:      #6fafff
 ! white
 *.color7:       #cfbcba
 *.color15:      #cfbcba
@@ -32,7 +32,7 @@ st.font: Comic Code-14
 
 dmenu.background: #0f0e06
 dmenu.foreground: #cfbcba
-dmenu.selbackground: #36322f
+dmenu.selbackground: #692a12
 dmenu.selforeground: #cfbcba
 dmenu.font: Comic Code-14
 

@@ -5,25 +5,25 @@ URxvt.background:  [90]#000000
 *.cursorColor:     #ffffff
 ! black
 *.color0:       #000000
-*.color8:       #535353
+*.color8:       #595959
 ! red
 *.color1:       #ff5f59
-*.color9:       #ff5f59
+*.color9:       #ff6b55
 ! green
 *.color2:       #44BC44
-*.color10:      #44BC44
+*.color10:      #00c06f
 ! yellow
-*.color3:       #fec43f
+*.color3:       #d0bc00
 *.color11:      #fec43f
 ! blue
 *.color4:       #2FAFFF
-*.color12:      #2FAFFF
+*.color12:      #79a8ff
 ! magenta
 *.color5:       #FEACD0
-*.color13:      #FEACD0
+*.color13:      #b6a0ff
 ! cyan
 *.color6:       #00D3D0
-*.color14:      #00D3D0
+*.color14:      #6ae4b9
 ! white
 *.color7:       #ffffff
 *.color15:      #ffffff
@@ -32,7 +32,7 @@ st.font: Comic Code-14
 
 dmenu.background: #000000
 dmenu.foreground: #ffffff
-dmenu.selbackground: #535353
+dmenu.selbackground: #505050
 dmenu.selforeground: #ffffff
 dmenu.font: Comic Code-14
 
