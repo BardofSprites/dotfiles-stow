@@ -1,0 +1,40 @@
+!!!!!! Ef Kassio Xresources theme
+*.foreground:      #201f36
+*.background:      #fff7f7
+URxvt.background:  [90]#fff7f7
+*.cursorColor:     #201f36
+! black
+*.color0:       #201f36
+*.color8:       #776f79
+! red
+*.color1:       #b00234
+*.color9:       #e00033
+! green
+*.color2:       #217a3c
+*.color10:      #4a7d00
+! yellow
+*.color3:       #9a6012
+*.color11:      #a04646
+! blue
+*.color4:       #3c3bbe
+*.color12:      #4250ef
+! magenta
+*.color5:       #a01f64
+*.color13:      #7022bf
+! cyan
+*.color6:       #2f5f9f
+*.color14:      #1077ab
+! white
+*.color7:       #fff7f7
+*.color15:      #fff7f7
+
+dmenu.background: #fff7f7
+dmenu.foreground: #201f36
+dmenu.selbackground: #e0bfba
+dmenu.selforeground: #151515
+
+Nsxiv.window.background: #fff7f7
+Nsxiv.window.foreground: #201f36
+Nsxiv.mark.foreground: #201f36
+Nsxiv.bar.background: #e0bfba
+Nsxiv.bar.foreground: #151515
