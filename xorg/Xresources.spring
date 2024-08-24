@@ -4,8 +4,8 @@
 URxvt.background:  [90]#f6fff9
 *.cursorColor:     #34494a
 ! black
-*.color0:       #f6fff9
-*.color8:       #90918a
+*.color0:       #34494a
+*.color8:       #595959
 ! red
 *.color1:       #c42d2f
 *.color9:       #cf2f4f
@@ -25,10 +25,17 @@ URxvt.background:  [90]#f6fff9
 *.color6:       #1f6fbf
 *.color14:      #0f7b8f
 ! white
-*.color7:       #34494a
-*.color15:      #34494a
+*.color7:       #f6fff9
+*.color15:      #f6fff9
+
 
 dmenu.background: #f6fff9
 dmenu.foreground: #34494a
 dmenu.selbackground: #90e8b0
 dmenu.selforeground: #34494a
+
+Nsxiv.window.background: #f6fff9
+Nsxiv.window.foreground: #34494a
+Nsxiv.mark.foreground: #34494a
+Nsxiv.bar.background: #90e8b0
+Nsxiv.bar.foreground: #34494a

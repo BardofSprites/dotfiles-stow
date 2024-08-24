@@ -28,17 +28,14 @@ URxvt.background:  [90]#000000
 *.color7:       #ffffff
 *.color15:      #ffffff
 
-st.font: Comic Code-14
 
 dmenu.background: #000000
 dmenu.foreground: #ffffff
 dmenu.selbackground: #505050
 dmenu.selforeground: #ffffff
-dmenu.font: Comic Code-14
 
 Nsxiv.window.background: #000000
 Nsxiv.window.foreground: #ffffff
 Nsxiv.mark.foreground: #ffffff
 Nsxiv.bar.background: #505050
 Nsxiv.bar.foreground: #ffffff
-Nsxiv.bar.font: Comic Code-14

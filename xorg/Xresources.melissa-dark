@@ -32,3 +32,9 @@ dmenu.background: #352718
 dmenu.foreground: #e8e4b1
 dmenu.selbackground: #704f00
 dmenu.selforeground: #e8e4b1
+
+Nsxiv.window.background: #352718
+Nsxiv.window.foreground: #e8e4b1
+Nsxiv.mark.foreground: #e8e4b1
+Nsxiv.bar.background: #704f00
+Nsxiv.bar.foreground: #f8efd8
