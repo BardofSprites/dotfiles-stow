@@ -1,7 +1,6 @@
 ! Ef Arbutus Xresources theme
 *.foreground:      #393330
 *.background:      #ffead8
-URxvt.background:  [90]#ffead8
 *.cursorColor:     #393330
 ! black
 *.color0:       #393330

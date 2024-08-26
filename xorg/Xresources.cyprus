@@ -1,7 +1,6 @@
 ! Ef Cyprus Xresources theme
 *.foreground:      #242521
 *.background:      #fcf7ef
-URxvt.background:  [90]#fcf7ef
 *.cursorColor:     #242521
 ! black
 *.color0:       #242521

@@ -1,7 +1,6 @@
 ! Ef Cherie Xresources theme
 *.foreground:      #d3cfcf
 *.background:      #190a0f
-URxvt.background:  [90]#190a0f
 *.cursorColor:     #d3cfcf
 ! black
 *.color0:       #190a0f

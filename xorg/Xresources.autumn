@@ -1,7 +1,6 @@
 ! Ef Autumn Xresources theme
 *.foreground:      #cfbcba
 *.background:      #0f0e06
-URxvt.background:  [90]#0f0e06
 *.cursorColor:     #cfbcba
 ! black
 *.color0:       #0f0e06

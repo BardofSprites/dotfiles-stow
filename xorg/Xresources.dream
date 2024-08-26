@@ -1,7 +1,6 @@
 ! Ef Dream Xresources theme
 *.foreground:      #efd5c5
 *.background:      #232025
-URxvt.background:  [90]#232025
 *.cursorColor:     #efd5c5
 ! black
 *.color0:       #232025

@@ -1,7 +1,6 @@
 !!!!!! Ef Kassio Xresources theme
 *.foreground:      #201f36
 *.background:      #fff7f7
-URxvt.background:  [90]#fff7f7
 *.cursorColor:     #201f36
 ! black
 *.color0:       #201f36

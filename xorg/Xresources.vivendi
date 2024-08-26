@@ -1,7 +1,6 @@
 ! Modus Vivendi Xresources theme
 *.foreground:      #ffffff
 *.background:      #000000
-URxvt.background:  [90]#000000
 *.cursorColor:     #ffffff
 ! black
 *.color0:       #000000

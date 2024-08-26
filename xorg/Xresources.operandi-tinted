@@ -1,7 +1,6 @@
 !!!!! Modus Operandi Tinted Xresources theme
 *.foreground:      #000000
 *.background:      #fbf7f0
-URxvt.background:  [90]#fbf7f0	
 *.cursorColor:     #000000
 ! black
 *.color0:       #000000

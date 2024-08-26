@@ -1,7 +1,6 @@
 ! Ef Elea Light Xresources theme
 *.foreground:      #151a27
 *.background:      #edf4f8
-URxvt.background:  [90]#edf4f8
 *.cursorColor:     #151a27
 ! black
 *.color0:       #131c2b

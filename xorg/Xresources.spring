@@ -1,7 +1,6 @@
 !!!!! Ef Spring Xresources theme
 *.foreground:      #34494a
 *.background:      #f6fff9
-URxvt.background:  [90]#f6fff9
 *.cursorColor:     #34494a
 ! black
 *.color0:       #34494a

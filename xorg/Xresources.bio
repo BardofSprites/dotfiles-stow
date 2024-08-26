@@ -1,7 +1,6 @@
 ! Ef Bio Xresources theme
 *.foreground:      #cfdfd5
 *.background:      #111111
-URxvt.background:  [90]#111111
 *.cursorColor:     #cfdfd5
 ! black
 *.color0:       #111111
