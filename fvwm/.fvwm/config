@@ -630,10 +630,10 @@ Mouse 9 A       4   Scroll 0 -100p
 Mouse 8 A       4   Scroll 0 100p 
 
 #### Programs Keybinding
-Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32 -f "Comic Code:size=14"
+Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32
 Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -l
 Silent Key E           A 4     Exec exec emacs
-Silent Key N           A 4     Exec exec emacsclient -c
+Silent Key N           A 4     LimitApplication Emacs emacsclient -c
 Silent Key D           A 4     Exec exec dmenu_run
 
 # browser
@@ -929,3 +929,20 @@ AddToFunc IconFunc
 + M Raise
 + M Move
 + D DeiconifyAndRearrange
+
+DestroyFunc LimitApplication
+AddToFunc   LimitApplication
++ I Next ($0, CurrentDesk, CirculateHit) FlipFocus
++ I TestRc (NoMatch) None ($0, CurrentDesk) Exec exec $[1-]
+
+DestroyFunc ShowDesktop
+AddToFunc   ShowDesktop
++ I All (CurrentPage, Iconic, State 1) RestoreDesktop
++ I TestRc (Match) Break
++ I All (CurrentPage, !Iconic, !State 1) ThisWindow State 1 True
++ I All (CurrentPage, !Iconic, State 1) Iconify
+
+DestroyFunc RestoreDesktop
+AddToFunc   RestoreDesktop
++ I All (CurrentPage, Iconic, State 1) Iconify off
++ I All (CurrentPage, State 1) ThisWindow State 1 False
