@@ -362,12 +362,13 @@ Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "" Nop
 + "&Anki%Yoritsuki_disk-24x24.png%" Exec exec flatpak run net.ankiweb.Anki
 + "Libre&office%Tsukubai-24x24.png%" Exec exec flatpak run org.libreoffice.LibreOffice
-+ "&Calibre%yukata-24x24.png%" Exec exec flatpak run com.calibre_ebook.calibre
++ "Cali&bre%yukata-24x24.png%" Exec exec flatpak run com.calibre_ebook.calibre
 + "" Nop
 Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
+Test (x emacs) + "&Calendar%Kanban (sign)-24x24.png%" Exec exec emacsclient -c -e '(progn (calendar)(delete-other-windows))'
+Test (x emacs) + "&Email%Kinchaku (drawstring bag)-24x24.png%" Exec exec emacsclient -c -e '(notmuch-hello)'
 Test (x emacs) + "&Music%Shamisen-24x24.png%" Exec exec emacsclient -c -e '(emms)'
 Test (x emacs) + "&RSS%Shichirin (charcoal brazier)-24x24.png%" Exec exec emacsclient -c -e '(elfeed)'
-Test (x emacs) + "&Email%Kinchaku (drawstring bag)-24x24.png%" Exec exec emacsclient -c -e '(notmuch-hello)'
 Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient -c -e '(tmr-tabulated-view)'
 + "" Nop
 + "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
