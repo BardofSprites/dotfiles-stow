@@ -195,7 +195,7 @@ AddToFunc TileBottomRight
 DestroyFunc ChangeTheme
 AddToFunc ChangeTheme
 + I Read $[themedir]/$0.sys
-+ I Exec exec xrdb -load ~/Xresources.$1
++ I Exec exec xrdb -merge ~/Xresources.$1
 + I Exec exec echo "emacsclient -e \"$2\"" >> /tmp/fvwm_theme.log
 
 # To change the theme, you can call the function like this:
