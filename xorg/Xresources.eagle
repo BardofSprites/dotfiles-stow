@@ -1,0 +1,39 @@
+!!!!!! Ef Eagle Xresources theme
+*.foreground:      #231a1f
+*.background:      #f1ecd0
+*.cursorColor:     #231a1f
+! black
+*.color0:       #231a1f
+*.color8:       #685f53
+! red
+*.color1:       #8f0038
+*.color9:       #9a0000
+! green
+*.color2:       #226022
+*.color10:      #3a7800
+! yellow
+*.color3:       #6b4500
+*.color11:      #775228
+! blue
+*.color4:       #3a3da0
+*.color12:      #000080
+! magenta
+*.color5:       #822478
+*.color13:      #50119f
+! cyan
+*.color6:       #2f5f9f
+*.color14:      #1077ab
+! white
+*.color7:       #f1ecd0
+*.color15:      #f1ecd0
+
+dmenu.background: #f1ecd0
+dmenu.foreground: #231a1f
+dmenu.selbackground: #cfab80
+dmenu.selforeground: #2f1005
+
+Nsxiv.window.background: #f1ecd0
+Nsxiv.window.foreground: #231a1f
+Nsxiv.mark.foreground: #231a1f
+Nsxiv.bar.background: #cfab80
+Nsxiv.bar.foreground: #2f1005

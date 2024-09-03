@@ -1,0 +1,21 @@
+#### Ef Winter FVWM Colorsets
+Colorset 0  fg #b8c6d5, bg #0f0b15, hi, sh, Plain, NoShape
+Colorset 1  fg #807c9f, bg #1d202f, hi, sh, Plain, NoShape
+Colorset 2  fg #b8c6d5, bg #0f0b15, hi, sh, Plain, NoShape
+Colorset 3  fg #0f0b15, bg #807c9f, hi #807c9f, sh #807c9f, Plain, NoShape
+Colorset 4  fg #0f0b15, bg #5f1f5f, hi #5f1f5f, sh #5f1f5f, Plain, NoShape
+Colorset 5  fg #b8c6d5, bg #0f0b15, hi, sh, Plain, NoShape
+Colorset 6  fg #b8c6d5, bg #00474f, hi, sh, Plain, NoShape
+Colorset 7  fg red, bg #b8c6d5, hi, sh, Plain, NoShape
+Colorset 8  fg #b8c6d5, bg #5f1f5f, hi, sh, Plain, NoShape
+Colorset 10 fg #b8c6d5, bg #0f0b15, hi, sh, Plain, NoShape
+Colorset 11 fg #b8c6d5, bg #5f1f5f, hi #b8c6d5, sh #b8c6d5, Plain, NoShape
+Colorset 12 fg #b8c6d5, bg #00474f, hi, sh, Plain, NoShape
+Colorset 13 fg #b8c6d5, bg #00474f, hi, sh, Plain, NoShape
+Colorset 14 fg #807c9f, bg #1d202f, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #b8c6d5, bg #0f0b15, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__B8C6D5.svg:20x20
+AddButtonStyle 4 Pixmap maximize__B8C6D5.svg:20x20
+AddButtonStyle 2 Pixmap close__B8C6D5.svg:20x20

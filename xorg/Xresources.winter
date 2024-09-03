@@ -1,0 +1,39 @@
+! Ef Winter Xresources theme
+*.foreground:      #b8c6d5
+*.background:      #0f0b15
+*.cursorColor:     #b8c6d5
+! black
+*.color0:       #0f0b15
+*.color8:       #2a2f42
+! red
+*.color1:       #ff6a7a
+*.color9:       #ef6560
+! green
+*.color2:       #29a444
+*.color10:      #6aad0f
+! yellow
+*.color3:       #b58a52
+*.color11:      #d1803f
+! blue
+*.color4:       #6a9fff
+*.color12:      #029fff
+! magenta
+*.color5:       #d369af
+*.color13:      #af85ea
+! cyan
+*.color6:       #4fbaef
+*.color14:      #35afbf
+! white
+*.color7:       #b8c6d5
+*.color15:      #b8c6d5
+
+dmenu.background: #0f0b15
+dmenu.foreground: #b8c6d5
+dmenu.selbackground: #5f1f5f
+dmenu.selforeground: #dedeff
+
+Nsxiv.window.background: #0f0b15
+Nsxiv.window.foreground: #b8c6d5
+Nsxiv.mark.foreground: #b8c6d5
+Nsxiv.bar.background: #5f1f5f
+Nsxiv.bar.foreground: #dedeff
