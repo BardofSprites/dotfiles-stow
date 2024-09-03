@@ -935,6 +935,7 @@ AddToFunc IconFunc
 DestroyFunc LimitApplication
 AddToFunc   LimitApplication
 + I Next ($0, CurrentDesk, CirculateHit) FlipFocus
++ I Next ($0, CurrentDesk, CirculateHit) Raise
 + I TestRc (NoMatch) None ($0, CurrentDesk) Exec exec $[1-]
 
 DestroyFunc ShowDesktop
