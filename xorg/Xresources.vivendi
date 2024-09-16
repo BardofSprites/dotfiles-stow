@@ -27,7 +27,6 @@
 *.color7:       #ffffff
 *.color15:      #ffffff
 
-
 dmenu.background: #000000
 dmenu.foreground: #ffffff
 dmenu.selbackground: #505050
