@@ -1,4 +1,4 @@
-! Ef Arbutus Xresources theme
+! Ef Elea Dark Xresources theme
 *.foreground:      #eaf2ef
 *.background:      #222524
 *.cursorColor:     #eaf2ef
@@ -7,22 +7,22 @@
 *.color8:       #969faf
 ! red
 *.color1:       #ff656a
-*.color9:       #ff656a
+*.color9:       #ff7a5f
 ! green
 *.color2:       #7fc87f
-*.color10:      #7fc87f
+*.color10:      #50cf89
 ! yellow
 *.color3:       #cac85f
-*.color11:      #cac85f
+*.color11:      #e0b02f
 ! blue
 *.color4:       #57aff6
-*.color12:      #57aff6
+*.color12:      #78afff
 ! magenta
 *.color5:       #f59acf
-*.color13:      #f59acf
+*.color13:      #cfaaff
 ! cyan
-*.color6:       #6fcfd2
-*.color14:      #6fcfd2
+*.color6:       #7fcfdf
+*.color14:      #60d5c2
 ! white
 *.color7:       #eaf2ef
 *.color15:      #eaf2ef
@@ -30,10 +30,10 @@
 dmenu.background: #222524
 dmenu.foreground: #eaf2ef
 dmenu.selbackground: #35605d
-dmenu.selforeground: #eaf2ef
+dmenu.selforeground: #ecf0ff
 
 Nsxiv.window.background: #222524
 Nsxiv.window.foreground: #eaf2ef
 Nsxiv.mark.foreground: #eaf2ef
 Nsxiv.bar.background: #35605d
-Nsxiv.bar.foreground: #eaf2ef
+Nsxiv.bar.foreground: #ecf0ff

@@ -224,7 +224,7 @@ DesktopName 0 Main
 DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
-DesktopSize 3x3
+DesktopSize 2x2
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -286,10 +286,11 @@ Style * IconBox 64x1080-0+0
 
 # Window Specific Styles
 Style LeftPanel !Title, !Borders, !Handles, Sticky, \
-                 WindowListSkip, NeverFocus, StaysOnTop, FixedPosition
+                 WindowListSkip, NeverFocus, FixedPosition
 Style conky !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
+Style ConfirmOff !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 
 Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride, FPGrabFocus
@@ -298,12 +299,14 @@ Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
-Style "Org-Clock" MiniIcon "Kakejiku-24x24.png", Icon "Kakejiku.png", Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
-Style * Font "xft:Comic Code:Thin:size=14:antialias=True"
+Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
+Style sowon MiniIcon "Furoisu (bath chair)-24x24.png", Icon "Furoisu (bath chair).png", EWMHMiniIconOverride, IconOverride
+Style * Font "xft:Comic Code:Thin:size=16:antialias=True", FPGrabFocus
+
 ## Program styles
 # Style "*EMMS Playlist*" MiniIcon Shamisen-24x24.png, IconOverride, Icon Shamisen.png, EWMHMiniIconOverride, FPGrabFocus
 # Style "*tmr-tabulated-view*" MiniIcon "Furoisu (bath chair)-24x24.png", IconOverride, "Icon Furoisu (bath chair).png", EWMHMiniIconOverride, FPGrabFocus
-Style *notmuch* MiniIcon "Kinchaku (drawstring bag)-24x24.png", IconOverride, Icon "Kinchaku (drawstring bag).png", EWMHMiniIconOverride, FPGrabFocus
+# Style *notmuch* MiniIcon "Kinchaku (drawstring bag)-24x24.png", IconOverride, Icon "Kinchaku (drawstring bag).png", EWMHMiniIconOverride, FPGrabFocus
 # Style "*elfeed-search*" MiniIcon "Shichirin (charcoal brazier)-24x24.png", IconOverride, Icon "Shichirin (charcoal brazier).png", EWMHMiniIconOverride, FPGrabFocus
 # Style "*Org Agenda*" MiniIcon "Kakejiku-24x24.png", IconOverride, Icon "Kakejiku.png", EWMHMiniIconOverride, FPGrabFocus
 
@@ -428,9 +431,9 @@ AddToMenu MenuThemes "Themes" Title
 
 DestroyMenu MenuPower
 AddToMenu MenuPower
-+ "Re&fresh" Refresh
 + "&Restart" Restart
-+ "&Quit" Module FvwmScript FvwmScript-ConfirmQuit
++ "&Quit" Module FvwmScript fvwmscript/FvwmScript-ConfirmQuit
++ "&Poweroff" Module FvwmScript fvwmscript/FvwmScript-ConfirmOff
 
 DestroyMenu MenuSettings
 AddToMenu MenuSettings "Settings" Title
@@ -632,7 +635,8 @@ Mouse 9 A       4   Scroll 0 -100p
 Mouse 8 A       4   Scroll 0 100p 
 
 #### Programs Keybinding
-Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32
+# Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32
+Silent Key Return      A 4     Exec exec $[infostore.terminal]
 Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -l
 Silent Key E           A 4     Exec exec emacs
 Silent Key N           A 4     LimitApplication Emacs emacsclient -c
@@ -728,6 +732,8 @@ Silent Key H        A     4S      Move w-20px w0px
 Silent Key L        A     4S      Move w20px w0px
 Silent Key J        A     4S      Move w0px w20px
 Silent Key K        A     4S      Move w0px w-20px
+# Silent Key Minus    A     4       ShowDesktop
+# Silent Key Plus     A     4       RestoreDesktop
  
 # Maximize in direction until we hit another window.
 Silent Key Left        A     4C      Maximize growleft 0
@@ -860,7 +866,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: BalloonFont "xft:Comic Code:Italic:size=14:antialias=True"
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
-# *FvwmPager: MiniIcons
+*FvwmPager: MiniIcons
 
 # FvwmIconMan
 #
@@ -949,3 +955,5 @@ DestroyFunc RestoreDesktop
 AddToFunc   RestoreDesktop
 + I All (CurrentPage, Iconic, State 1) Iconify off
 + I All (CurrentPage, State 1) ThisWindow State 1 False
+
+Read $[themedir]/iosevka.sys

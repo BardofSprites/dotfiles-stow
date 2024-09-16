@@ -4,14 +4,14 @@ Colorset 2  fg #e8e4b1, bg #352718, hi, sh, Plain, NoShape
 Colorset 3  fg #90918a, bg #59463f, hi #59463f, sh #59463f, Plain, NoShape
 Colorset 4  fg #352718, bg #704f00, hi #704f00, sh #704f00, Plain, NoShape
 Colorset 5  fg #e8e4b1, bg #352718, hi, sh, Plain, NoShape
-Colorset 6  fg #e8e4b1, bg #704f00, hi, sh, Plain, NoShape
+Colorset 6  fg #e8e4b1, bg #60518f, hi, sh, Plain, NoShape
 Colorset 7  fg #e8e4b1, bg #e8e4b1, hi, sh, Plain, NoShape
-Colorset 8  fg #352718, bg #e8e4b1, hi, sh, Plain, NoShape
+Colorset 8  fg #f8efd8, bg #704f00, hi, sh, Plain, NoShape
 Colorset 10 fg #e8e4b1, bg #352718, hi #90918a, sh #90918a, Plain, NoShape
 Colorset 11 fg #e8e4b1, bg #704f00, hi #e8e4b1, sh #e8e4b1, Plain, NoShape
 Colorset 12 fg #e8e4b1, bg #60518f, hi, sh, Plain, NoShape
 Colorset 13 fg #e8e4b1, bg #60518f, hi, sh, Plain, NoShape
-Colorset 14 fg #e8e4b1, bg #302a3a, hi #aaaaaa, sh #999999, Plain, NoShape
+Colorset 14 fg #90918a, bg #3d2e1f, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #e8e4b1, bg #352718, hi, sh, Plain, Noshape
 
