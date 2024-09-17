@@ -627,6 +627,7 @@ Mouse 8 A       4   Scroll 0 100p
 #### Programs Keybinding
 # Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32
 Silent Key Return      A 4     Exec exec $[infostore.terminal]
+Silent Key Return      A 4S    Exec exec emacsclient -c -e '(bard/open-terminal-in-current-directory)'
 Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -l
 Silent Key E           A 4     Exec exec emacs
 Silent Key N           A 4     LimitApplication Emacs emacsclient -c
