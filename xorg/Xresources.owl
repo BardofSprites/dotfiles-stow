@@ -1,0 +1,40 @@
+!!!!! Ef Owl Dark Xresources theme
+*.foreground:      #d0d0d0
+*.background:      #292c2f
+URxvt.background:  [90]#292c2f
+*.cursorColor:     #d0d0d0
+! black
+*.color0:       #292c2f
+*.color8:       #40474b
+! red
+*.color1:       #d67869
+*.color9:       #df885f
+! green
+*.color2:       #70bb70
+*.color10:      #98c06f
+! yellow
+*.color3:       #c09f6f
+*.color11:      #cf9f90
+! blue
+*.color4:       #80a4e0
+*.color12:      #72aff0
+! magenta
+*.color5:       #e5a0ea
+*.color13:      #cfa0e8
+! cyan
+*.color6:       #99bfd0
+*.color14:      #7ac0b9
+! white
+*.color7:       #d0d0d0
+*.color15:      #d0d0d0
+
+dmenu.background: #292c2f
+dmenu.foreground: #d0d0d0
+dmenu.selbackground: #5b637e
+dmenu.selforeground: #dadfe5
+
+Nsxiv.window.background: #292c2f
+Nsxiv.window.foreground: #d0d0d0
+Nsxiv.mark.foreground: #d0d0d0
+Nsxiv.bar.background: #5b637e
+Nsxiv.bar.foreground: #dadfe5

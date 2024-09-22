@@ -1,0 +1,39 @@
+! Modus Vivendi Tritanopia Xresources theme
+*.foreground:      #ffffff
+*.background:      #000000
+*.cursorColor:     #ffffff
+! black
+*.color0:       #000000
+*.color8:       #535353
+! red
+*.color1:       #ff5f59
+*.color9:       #ff6b55
+! green
+*.color2:       #44BC44
+*.color10:      #00c06f
+! yellow
+*.color3:       #cabf00
+*.color11:      #ffa00f
+! blue
+*.color4:       #2FAFFF
+*.color12:      #79a8ff
+! magenta
+*.color5:       #FEACD0
+*.color13:      #b6a0ff
+! cyan
+*.color6:       #00D3D0
+*.color14:      #6ae4b9
+! white
+*.color7:       #ffffff
+*.color15:      #ffffff
+
+dmenu.background: #000000
+dmenu.foreground: #ffffff
+dmenu.selbackground: #003c52
+dmenu.selforeground: #f0f0f0
+
+Nsxiv.window.background: #000000
+Nsxiv.window.foreground: #ffffff
+Nsxiv.mark.foreground: #ffffff
+Nsxiv.bar.background: #003c52
+Nsxiv.bar.foreground: #f0f0f0

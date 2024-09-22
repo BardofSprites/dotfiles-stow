@@ -1,0 +1,21 @@
+#### Ef Owl FVWM Colorsets
+Colorset 0  fg #d0d0d0, bg #292c2f, hi, sh, Plain, NoShape
+Colorset 1  fg #857f8f, bg #373b3d, hi, sh, Plain, NoShape
+Colorset 2  fg #d0d0d0, bg #292c2f, hi, sh, Plain, NoShape
+Colorset 3  fg #857f8f, bg #40474b, hi #40474b, sh #40474b, Plain, NoShape
+Colorset 4  fg #292c2f, bg #5b637e, hi #5b637e, sh #5b637e, Plain, NoShape
+Colorset 5  fg #d0d0d0, bg #292c2f, hi, sh, Plain, NoShape
+Colorset 6  fg #d0d0d0, bg #8f7a7f, hi, sh, Plain, NoShape
+Colorset 7  fg #d0d0d0, bg #d0d0d0, hi, sh, Plain, NoShape
+Colorset 8  fg #dadfe5, bg #5b637e, hi, sh, Plain, NoShape
+Colorset 10 fg #d0d0d0, bg #292c2f, hi #857f8f, sh #857f8f, Plain, NoShape
+Colorset 11 fg #dadfe5, bg #5b637e, hi #d0d0d0, sh #d0d0d0, Plain, NoShape
+Colorset 12 fg #d0d0d0, bg #8f7a7f, hi, sh, Plain, NoShape
+Colorset 13 fg #d0d0d0, bg #8f7a7f, hi, sh, Plain, NoShape
+Colorset 14 fg #857f8f, bg #373b3d, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #d0d0d0, bg #292c2f, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__D0D0D0.svg:20x20
+AddButtonStyle 4 Pixmap maximize__D0D0D0.svg:20x20
+AddButtonStyle 2 Pixmap close__D0D0D0.svg:20x20
