@@ -2,6 +2,33 @@
 
 My emacs configurations can be found [[https://github.com/BardofSprites/.emacs.d][here]].
 
-Obligatory screenshot (wallpaper changes often):
+[[file:img/2024-09-22.png]]
+In image: GNU Emacs with org mode document open. FVWMButtons "panels" on the left and top. Featured colorscheme ~modus-vivendi~.
 
-g[[file:img/screenshot.png]]
+* Fvwm
+** Colorsets
+I have implemented colors from [[https://protesilaos.com/emacs][Protesilaos Stavrou's]] wonderful ~modus-themes~ and ~ef-themes~ GNU Emacs packages as FVWM colorsets. You can check out the screenshots for [[https://protesilaos.com/emacs/modus-themes-pictures][modus-themes]] and [[https://protesilaos.com/emacs/ef-themes-pictures][ef-themes]] to preview the colors if you don't want to test out my dotfiles.
+
+* Scripts
+** Common Lisp/Scheme Scripts
+My Common Lisp/Scheme scripts are located in ~bin/.local/bin/scripts/lisp/~.
+*** ~study.lisp~
+A simple work session manager with notifications.
+**** Dependencies
++ sbcl
++ [[https://github.com/tsoding/sowon][sowon]]
++ notify-send
++ dunst
+**** Installation
+You should compile it with:
+#+begin_src shell
+  sbcl --script ~/.local/bin/scripts/lisp/study.lisp
+#+end_src
+
+and then you can add the binary to path or move it to another directory (ex: ~/usr/local/bin~).
+*** ~wallpaper.scm~
+in progress.
+** TODO Bash scripts
+in progress.
+** TODO perl scripts
+in progress.
