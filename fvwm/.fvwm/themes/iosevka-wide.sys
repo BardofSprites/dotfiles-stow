@@ -1,0 +1,7 @@
+DefaultFont "xft:Iosevka Comfy Wide:size=16:antialias=True"
+Style * Font "xft:Iosevka Comfy Wide Motion:Thin:size=16:antialias=True"
+MenuStyle * Font "xft:Iosevka Comfy Wide Motion:Thin:size=16:antialias=True"
+*FvwmIdent: Font "xft:Iosevka Comfy Wide:size=16:antialias=True"
+*LeftPanel: Font "xft:Iosevka Comfy Wide:Bold:size=16:antialias=True"
+*FvwmPager: BalloonFont "xft:Iosevka Comfy Wide:Italic:size=14:antialias=True"
+*FvwmIconMan: Font "xft:Iosevka Comfy Wide:size=16:antialias=True"
