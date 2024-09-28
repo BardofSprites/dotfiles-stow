@@ -1,0 +1,39 @@
+! Ef Reverie Xresources theme
+*.foreground:      #4f204f
+*.background:      #f3eddf
+*.cursorColor:     #4f204f
+! black
+*.color0:       #4f204f
+*.color8:       #6f6877
+! red
+*.color1:       #ba2d2f
+*.color9:       #b21f00
+! green
+*.color2:       #5a7400
+*.color10:      #008250
+! yellow
+*.color3:       #87591f
+*.color11:      #a05900
+! blue
+*.color4:       #5059c0
+*.color12:      #265fbf
+! magenta
+*.color5:       #9f4e74
+*.color13:      #7755b4
+! cyan
+*.color6:       #3060af
+*.color14:      #0b6e8a
+! white
+*.color7:       #efd5c5
+*.color15:      #efd5c5
+
+dmenu.background: #f3eddf
+dmenu.foreground: #4f204f
+dmenu.selbackground: #d1b0df
+dmenu.selforeground: #523044
+
+Nsxiv.window.background: #f3eddf
+Nsxiv.window.foreground: #4f204f
+Nsxiv.mark.foreground: #4f204f
+Nsxiv.bar.background: #d1b0df
+Nsxiv.bar.foreground: #523044
