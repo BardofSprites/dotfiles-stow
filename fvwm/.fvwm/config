@@ -407,7 +407,7 @@ AddToMenu MenuWallpaper "Wallpaper" Title
 DestroyMenu MenuThemes
 AddToMenu MenuThemes "Themes" Title
 + "Modus &Vivendi" ChangeTheme 'modus-vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
-+ "Vivendi Tritanopia" ChangeTheme 'vivendi-tritanopia' 'vivendi-tritanopia' "(modus-themes-select 'modus-vivendi-tritanopia)"
++ "Vivendi &Tritanopia" ChangeTheme 'vivendi-tritanopia' 'vivendi-tritanopia' "(modus-themes-select 'modus-vivendi-tritanopia)"
 + "Modus Operandi &Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted' "(modus-themes-select 'modus-operandi-tinted)"
 + "Modus &Operandi" ChangeTheme 'modus-operandi' 'operandi' "(modus-themes-select 'modus-operandi)"
 + "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "(ef-themes-select 'ef-autumn)"
