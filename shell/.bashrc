@@ -3,7 +3,9 @@
 # for examples
 export TERMINAL="/usr/local/bin/st"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/scripts/:$PATH"
+export PATH="$HOME/.local/bin/scripts/:$PATH"
+export PATH="$HOME/.local/bin/scripts/perl/:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/opt/:$PATH"
 export PKG_CONFIG_PATH="$HOME/opt/raylib/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PATH="$HOME/.nimble/bin":$PATH
