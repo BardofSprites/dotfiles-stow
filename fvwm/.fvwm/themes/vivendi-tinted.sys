@@ -1,0 +1,22 @@
+#### Modus Vivendi Tritanopia FVWM Colorsets
+
+Colorset 0  fg #ffffff, bg #0d0e1c, hi, sh, Plain, NoShape
+Colorset 1  fg #969696, bg #1d2235, hi, sh, Plain, NoShape
+Colorset 2  fg #ffffff, bg #0d0e1c, hi, sh, Plain, NoShape
+Colorset 3  fg #0d0e1c, bg #606060, hi #606060, sh #606060, Plain, NoShape
+Colorset 4  fg #0d0e1c, bg #959595, hi #959595, sh #959595, Plain, NoShape
+Colorset 5  fg #ffffff, bg #0d0e1c, hi, sh, Plain, NoShape
+Colorset 6  fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
+Colorset 7  fg red, bg #ffffff, hi, sh, Plain, NoShape
+Colorset 8  fg #f0f0f0, bg #292d48, hi, sh, Plain, NoShape
+Colorset 10 fg #ffffff, bg #0d0e1c, hi, sh, Plain, NoShape
+Colorset 11 fg #f0f0f0, bg #292d48, hi #ffffff, sh #ffffff, Plain, NoShape
+Colorset 12 fg #ffffff, bg #45605e, hi, sh, Plain, NoShape
+Colorset 13 fg #ffffff, bg #989898, hi, sh, Plain, NoShape
+Colorset 14 fg #989898, bg #1d2235, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #ffffff, bg #0d0e1c, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__FFFFFF.svg:20x20
+AddButtonStyle 4 Pixmap maximize__FFFFFF.svg:20x20
+AddButtonStyle 2 Pixmap close__FFFFFF.svg:20x20
