@@ -1,0 +1,40 @@
+!!!!! Ef Day Dark Xresources theme
+*.foreground:      #d8cfd5
+*.background:      #160f0f
+URxvt.background:  [90]#160f0f
+*.cursorColor:     #ff99ff
+! black
+*.color0:       #160f0f
+*.color8:       #564f55
+! red
+*.color1:       #ff85aa
+*.color9:       #ff7560
+! green
+*.color2:       #60b444
+*.color10:      #a0c27f
+! yellow
+*.color3:       #d4a052
+*.color11:      #ef926f
+! blue
+*.color4:       #8895ff
+*.color12:      #72afff
+! magenta
+*.color5:       #d37faf
+*.color13:      #a698ef
+! cyan
+*.color6:       #8fbaff
+*.color14:      #8fcfdf
+! white
+*.color7:       #d8cfd5
+*.color15:      #d8cfd5
+
+dmenu.background: #160f0f
+dmenu.foreground: #584141
+dmenu.selbackground: #6a294f
+dmenu.selforeground: #ffdfdf
+
+Nsxiv.window.background: #160f0f
+Nsxiv.window.foreground: #d8cfd5
+Nsxiv.mark.foreground: #d8cfd5
+Nsxiv.bar.background: #6a294f
+Nsxiv.bar.foreground: #ffdfdf

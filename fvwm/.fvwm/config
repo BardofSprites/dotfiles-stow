@@ -429,6 +429,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "(ef-themes-select 'ef-spring)"
 + "Ef Kassi&o" ChangeTheme 'ef-kassio' 'kassio' "(ef-themes-select 'ef-kassio)"
 + "Ef &Symbiosis" ChangeTheme 'ef-symbiosis' 'symbiosis' "(ef-themes-select 'ef-symbiosis)"
++ "Ef &Trio Dark" ChangeTheme 'ef-trio-dark' 'trio-dark' "(ef-themes-select 'ef-trio-dark)"
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
