@@ -1,5 +1,7 @@
-xss-lock -- /usr/bin/slock &
-dwmblocks &
+xscreensaver &
 $HOME/.local/bin/scripts/startpage.sh &
+# $HOME/.screenlayout/twomonitors.sh &
 picom --daemon &
 $HOME/.cache/wallpaper &
+urxvtd &
+# dwmblocks &
