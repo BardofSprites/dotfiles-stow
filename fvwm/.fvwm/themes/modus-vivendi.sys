@@ -16,6 +16,7 @@ Colorset 13 fg #ffffff, bg #989898, hi, sh, Plain, NoShape
 Colorset 14 fg #ffffff, bg #2f3849, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #ffffff, bg #000000, hi, sh, Plain, Noshape
+Colorset 16 fg #ffffff, bg #ffffff, hi, sh, Plain, Noshape
 
 AddButtonStyle 6 Pixmap minimize__FFFFFF.svg:20x20
 AddButtonStyle 4 Pixmap maximize__FFFFFF.svg:20x20
