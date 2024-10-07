@@ -1,6 +1,6 @@
 #!/bin/bash
 
-selectable_dirs=("~/Code/" "~/Repositories/" "~/Documents/" "~/Notes/Org-Roam/" "~/Pictures/" "~/Pictures/wallpaper" "~/Pictures/screenshots/" "~/Downloads/" "~/Music/" "~/Playlists/" "~/Videos/" "~/Videos/Youtube/Programming/Prot/" "~/Desktop/" "~/.local/bin/scripts/")
+selectable_dirs=("~/Code/" "~/Repositories/" "~/Documents/" "~/Pictures/" "~/Pictures/wallpaper" "~/Pictures/screenshots/" "~/Downloads/" "~/Music/" "~/Playlists/" "~/Videos/" "~/dotfiles-stow" "~/Desktop/" "~/.local/bin/scripts/" "~/Notes/denote/")
 # Use dmenu to select a directory
 selected_dir=$(printf "%s\n" "${selectable_dirs[@]}" | dmenu -p "Dired here: ")
 
