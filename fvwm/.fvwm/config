@@ -364,6 +364,7 @@ Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
 + "&Anki%Yoritsuki_disk-24x24.png%" Exec exec flatpak run net.ankiweb.Anki
++ "&Zeal%Folder-24x24.png%" Exec exec flatpak run org.zealdocs.Zeal
 + "Libre&office%Tsukubai-24x24.png%" Exec exec flatpak run org.libreoffice.LibreOffice
 + "Cali&bre%yukata-24x24.png%" Exec exec flatpak run com.calibre_ebook.calibre
 + "" Nop
