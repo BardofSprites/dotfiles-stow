@@ -5,7 +5,7 @@ use File::Find;
 use File::HomeDir;
 
 # Define the directory to search
-my $dir = File::HomeDir->my_home() . '/Pictures/wall_test/';
+my $dir = File::HomeDir->my_home() . '/Pictures/wallpaper/';
 
 # Array to store matching file paths
 my @files;
