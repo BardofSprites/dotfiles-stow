@@ -29,7 +29,7 @@ URxvt.background:  [90]#160f0f
 *.color15:      #d8cfd5
 
 dmenu.background: #160f0f
-dmenu.foreground: #584141
+dmenu.foreground: #d8cfd5
 dmenu.selbackground: #6a294f
 dmenu.selforeground: #ffdfdf
 
