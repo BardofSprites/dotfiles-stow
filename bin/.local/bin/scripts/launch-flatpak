@@ -1,0 +1,23 @@
+#!/bin/bash
+
+flatpaks="Anki\nCalibre\nLibreOffice\nZealDocs"
+chosen=$(echo -e "$flatpaks" | dmenu -p "Select flatpak: ")
+
+case "$chosen" in
+    "Anki")
+    	flatpak run net.ankiweb.Anki
+	;;
+    "Calibre")
+        flatpak run com.calibre_ebook.calibre
+    	;;
+    "LibreOffice")
+    	flatpak run org.libreoffice.LibreOffice
+	;;
+    "ZealDocs")
+        flatpak run org.zealdocs.Zeal
+	;;
+    *)
+        echo "flatpak not installed"
+	exit 1
+	;;
+esac
