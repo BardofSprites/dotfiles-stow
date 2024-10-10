@@ -81,7 +81,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1='[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]\[\033[01;35m\] λ\[\033[00m\] '
+export PS1='\[\e[1m\]\[\e[31m\][\[\e[33m\]\u\[\e[32m\]@\[\e[34m\]\H \[\e[35m\]\w\[\e[31m\]]\[\e[0m\]\[\033[01;35m\] λ\[\033[00m\] '
+
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 # . "$HOME/.cargo/env"
