@@ -1,7 +1,7 @@
 ! Modus Vivendi Tritanopia Xresources theme
 *.foreground:      #ffffff
 *.background:      #000000
-*.cursorColor:     #ffffff
+*.cursorColor:     #ff5f5f
 ! black
 *.color0:       #000000
 *.color8:       #535353

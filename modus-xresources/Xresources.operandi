@@ -1,4 +1,4 @@
-!!!! Modus Operandi Tinted Xresources theme
+!!!! Modus Operandi Xresources theme
 *.foreground:      #000000
 *.background:      #ffffff
 URxvt.background:  [90]#ffffff	
@@ -8,22 +8,22 @@ URxvt.background:  [90]#ffffff
 *.color8:       #5C6370
 ! red
 *.color1:       #a60000
-*.color9:       #a60000
+*.color9:       #972500
 ! green
-*.color2:       #005E00
-*.color10:      #005E00
+*.color2:       #006800
+*.color10:      #00663f
 ! yellow
-*.color3:       #813E00
-*.color11:      #813E00
+*.color3:       #6f5500
+*.color11:      #884900
 ! blue
 *.color4:       #0031A9
-*.color12:      #0031A9
+*.color12:      #3548cf
 ! magenta
 *.color5:       #721045
-*.color13:      #721045
+*.color13:      #531ab6
 ! cyan
 *.color6:       #005e8b
-*.color14:      #005e8b
+*.color14:      #005f5f
 ! white
 *.color7:       #ffffff
 *.color15:      #ffffff
