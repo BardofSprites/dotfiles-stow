@@ -1,0 +1,21 @@
+Colorset 0  fg #d0d0d0, bg #070019, hi, sh, Plain, NoShape
+Colorset 1  fg #857f8f, bg #1d1a26, hi, sh, Plain, NoShape
+Colorset 2  fg #d0d0d0, bg #070019, hi, sh, Plain, NoShape
+Colorset 3  fg #070019, bg #857f8f, hi #857f8f, sh #857f8f, Plain, NoShape
+Colorset 4  fg #070019, bg #352487, hi #352487, sh #352487, Plain, NoShape
+Colorset 5  fg #d0d0d0, bg #070019, hi, sh, Plain, NoShape
+Colorset 6  fg #d0d0d0, bg #664f4a, hi, sh, Plain, NoShape
+Colorset 7  fg #d0d0d0, bg #d0d0d0, hi, sh, Plain, NoShape
+Colorset 8  fg #dedeff, bg #352487, hi, sh, Plain, NoShape
+Colorset 10 fg #d0d0d0, bg #070019, hi, sh, Plain, NoShape
+Colorset 11 fg #dedeff, bg #352487, hi #d0d0d0, sh #d0d0d0, Plain, NoShape
+Colorset 12 fg #d0d0d0, bg #664f4a, hi, sh, Plain, NoShape
+Colorset 13 fg #d0d0d0, bg #664f4a, hi, sh, Plain, NoShape
+Colorset 14 fg #857f8f, bg #1d1a26, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #d0d0d0, bg #070019, hi, sh, Plain, Noshape
+
+AddButtonStyle 1 MiniIcon
+AddButtonStyle 6 Pixmap minimize__d0d0d0.svg:20x20
+AddButtonStyle 4 Pixmap maximize__d0d0d0.svg:20x20
+AddButtonStyle 2 Pixmap close__d0d0d0.svg:20x20

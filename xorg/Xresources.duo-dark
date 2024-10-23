@@ -1,0 +1,39 @@
+! Ef Duo Dark Xresources theme
+*.foreground:      #d0d0d0
+*.background:      #070019
+*.cursorColor:     #ef6f11
+! black
+*.color0:       #070019
+*.color8:       #2a2739
+! red
+*.color1:       #ef6560
+*.color9:       #f47360
+! green
+*.color2:       #3fb83f
+*.color10:      #7fc500
+! yellow
+*.color3:       #d4aa02
+*.color11:      #e09a0f
+! blue
+*.color4:       #37aff6
+*.color12:      #78afff
+! magenta
+*.color5:       #d38faf
+*.color13:      #af9fff
+! cyan
+*.color6:       #6fc5ef
+*.color14:      #5dc0aa
+! white
+*.color7:       #d0d0d0
+*.color15:      #d0d0d0
+
+dmenu.background: #070019
+dmenu.foreground: #d0d0d0
+dmenu.selbackground: #352487
+dmenu.selforeground: #dedeff
+
+Nsxiv.window.background: #070019
+Nsxiv.window.foreground: #d0d0d0
+Nsxiv.mark.foreground: #d0d0d0
+Nsxiv.bar.background: #352487
+Nsxiv.bar.foreground: #dedeff

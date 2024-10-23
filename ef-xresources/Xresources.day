@@ -1,7 +1,7 @@
 !!!!! Ef Day Dark Xresources theme
 *.foreground:      #584141
 *.background:      #fff5ea
-URxvt.background:  [90]#fff5ea
+URxvt.background:  [93]#fff5ea
 *.cursorColor:     #584141
 ! black
 *.color0:       #584141
