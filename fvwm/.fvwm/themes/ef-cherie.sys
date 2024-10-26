@@ -4,20 +4,17 @@ Colorset 2  fg #ffcfdf, bg #190a0f, hi, sh, Plain, NoShape
 Colorset 3  fg #808898, bg #291f26, hi #291f26, sh #291f26, Plain, NoShape
 Colorset 4  fg #ffcfdf, bg #771a4f, hi #771a4f, sh #771a4f, Plain, NoShape
 Colorset 5  fg #d3cfcf, bg #190a0f, hi, sh, Plain, NoShape
-Colorset 6  fg #d3cfcf, bg #771a4f, hi, sh, Plain, NoShape
+Colorset 6  fg #d3cfcf, bg #303f6f, hi, sh, Plain, NoShape
 Colorset 7  fg #d3cfcf, bg #d3cfcf, hi, sh, Plain, NoShape
 Colorset 8  fg #ffc4df, bg #771a4f, hi, sh, Plain, NoShape
 Colorset 10 fg #d3cfcf, bg #190a0f, hi, sh, Plain, NoShape
 Colorset 11 fg #ffc4df, bg #771a4f, hi #d3cfcf, sh #d3cfcf, Plain, NoShape
-Colorset 12 fg #d3cfcf, bg #684d54, hi, sh, Plain, NoShape
-Colorset 13 fg #d3cfcf, bg #684d54, hi, sh, Plain, NoShape
+Colorset 12 fg #d3cfcf, bg #303f6f, hi, sh, Plain, NoShape
+Colorset 13 fg #d3cfcf, bg #303f6f, hi, sh, Plain, NoShape
 Colorset 14 fg #808898, bg #291f26, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #d3cfcf, bg #190a0f, hi, sh, Plain, Noshape
 
-AddButtonStyle 6 InActive Pixmap minimize__000000.svg:20x20
-AddButtonStyle 4 InActive Pixmap maximize__000000.svg:20x20
-AddButtonStyle 2 InActive Pixmap close__000000.svg:20x20
-AddButtonStyle 6 Active Pixmap minimize__CFBCBA.svg:20x20
-AddButtonStyle 4 Active Pixmap maximize__CFBCBA.svg:20x20
-AddButtonStyle 2 Active Pixmap close__CFBCBA.svg:20x20
+AddButtonStyle 6 Pixmap minimize__D3CFCF.svg:20x20
+AddButtonStyle 4 Pixmap maximize__D3CFCF.svg:20x20
+AddButtonStyle 2 Pixmap close__D3CFCF.svg:20x20

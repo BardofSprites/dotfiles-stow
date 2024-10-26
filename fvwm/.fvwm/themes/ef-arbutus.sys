@@ -4,11 +4,11 @@ Colorset 2  fg #393330, bg #ffead8, hi, sh, Plain, NoShape
 Colorset 3  fg #ffead8, bg #6e678f, hi #6e678f, sh #6e678f, Plain, NoShape
 Colorset 4  fg #ffead8, bg #e9a0a0, hi #e9a0a0, sh #e9a0a0, Plain, NoShape
 Colorset 5  fg #393330, bg #ffead8, hi, sh, Plain, NoShape
-Colorset 6  fg #393330, bg #e9a0a0, hi, sh, Plain, NoShape
+Colorset 6  fg #393330, bg #afdeaf, hi, sh, Plain, NoShape
 Colorset 7  fg #393330, bg #393330, hi, sh, Plain, NoShape
-Colorset 8  fg #ffead8, bg #393330, hi, sh, Plain, NoShape
+Colorset 8  fg #40231f, bg #e9a0a0, hi, sh, Plain, NoShape
 Colorset 10 fg #393330, bg #ffead8, hi, sh, Plain, NoShape
-Colorset 11 fg #393330, bg #e9a0a0, hi #393330, sh #393330, Plain, NoShape
+Colorset 11 fg #40231f, bg #e9a0a0, hi #393330, sh #393330, Plain, NoShape
 Colorset 12 fg #393330, bg #afdeaf, hi, sh, Plain, NoShape
 Colorset 13 fg #393330, bg #afdeaf, hi, sh, Plain, NoShape
 Colorset 14 fg #6e678f, bg #f0d8cf, hi #aaaaaa, sh #999999, Plain, NoShape

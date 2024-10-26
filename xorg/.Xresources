@@ -19,6 +19,10 @@ URxvt.boldFont: xft:Iosevka Comfy:style=Bold:size=14
 URxvt.italicFont: xft:Iosevka Comfy:style=Italic:size=14
 URxvt.boldItalicFont: xft:Iosevka Comfy:style=Bold Italic:size=14
 
+st.font: Iosevka Comfy-16
+nsxiv.bar.font: Iosevka Comfy Motion-16
+dmenu.font: Iosevka Comfy-16
+
 !! Copy Paste
 URxvt.perl-lib: /home/bard/.urxvt/
 URxvt.perl-ext-common: default,keyboard-select,selection-to-clipboard,matcher,resize-font

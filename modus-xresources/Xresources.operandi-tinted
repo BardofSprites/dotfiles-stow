@@ -27,13 +27,18 @@
 *.color7:       #fbf7f0
 *.color15:      #fbf7f0
 
-dmenu.background: #fbf7f0
-dmenu.foreground: #000000
-dmenu.selbackground: #cab9b2
-dmenu.selforeground: #000000
-
 Nsxiv.window.background: #fbf7f0
 Nsxiv.window.foreground: #000000
 Nsxiv.mark.foreground: #000000
 Nsxiv.bar.background: #cab9b2
 Nsxiv.bar.foreground: #000000
+
+dmenu.background: #fbf7f0
+dmenu.foreground: #000000
+dmenu.selbackground: #cab9b2
+dmenu.selforeground: #000000
+
+dwm.background: #fbf7f0
+dwm.foreground: #000000
+dwm.selbackground: #cab9b2
+dwm.selforeground: #000000

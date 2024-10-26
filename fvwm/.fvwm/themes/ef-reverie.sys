@@ -16,6 +16,6 @@ Colorset 14 fg #6f6877, bg #e5d6d4, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #4f204f, bg #f3eddf, hi, sh, Plain, Noshape
 
-AddButtonStyle 6 Pixmap minimize__CFBCBA.svg:20x20
-AddButtonStyle 4 Pixmap maximize__CFBCBA.svg:20x20
-AddButtonStyle 2 Pixmap close__CFBCBA.svg:20x20
+AddButtonStyle 6 Pixmap minimize__4F204F.svg:20x20
+AddButtonStyle 4 Pixmap maximize__4F204F.svg:20x20
+AddButtonStyle 2 Pixmap close__4F204F.svg:20x20

@@ -38,3 +38,7 @@ Nsxiv.window.foreground: #584141
 Nsxiv.mark.foreground: #584141
 Nsxiv.bar.background: #ffaf72
 Nsxiv.bar.foreground: #542f38
+dwm.background: #fff5ea
+dwm.foreground: #584141
+dwm.selbackground: #ffaf72
+dwm.selforeground: #542f38
