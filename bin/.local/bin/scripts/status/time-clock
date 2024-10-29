@@ -25,4 +25,4 @@ case $BLOCK_BUTTON in
 - Middle click opens Emacs calendar" ;;
 esac
 
-date "+%Y %m %d (%a) | $icon %R:%S %p "
+date "+%Y-%m-%d (%a) | $icon %R:%S %p "
