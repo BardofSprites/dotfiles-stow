@@ -1,6 +1,6 @@
 #!/bin/bash
 
-flatpaks="Anki\nCalibre\nLibreOffice\nZealDocs"
+flatpaks="Anki\nCalibre\nobs\nLibreOffice\nZealDocs\nQutebrowser\ntexmacs"
 chosen=$(echo -e "$flatpaks" | dmenu -p "Select flatpak: ")
 
 case "$chosen" in
@@ -15,7 +15,15 @@ case "$chosen" in
 	;;
     "ZealDocs")
         flatpak run org.zealdocs.Zeal
+    ;;
+    "Qutebrowser")
+        flatpak run org.qutebrowser.qutebrowser
 	;;
+    "obs")
+        flatpak run com.obsproject.Studio
+    ;;
+    "texmacs")
+        flatpak run org.texmacs.TeXmacs
     *)
         echo "flatpak not installed"
 	exit 1
