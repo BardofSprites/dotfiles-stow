@@ -32,7 +32,7 @@ dmenu.background: #171717
 dmenu.foreground: #FCFCFC
 dmenu.selbackground: #C3C3C3
 dmenu.selforeground: #171717
-dmenu.font: Terminus-16
+dmenu.font: Terminus-18
 
 Nsxiv.window.background: #171717
 Nsxiv.window.foreground: #FCFCFC
@@ -41,4 +41,9 @@ Nsxiv.bar.background: #171717
 Nsxiv.bar.foreground: #FCFCFC
 Nsxiv.bar.font: Terminus-16
 
-st.font: Terminus-16
+dwm.background: #171717
+dwm.foreground: #FCFCFC
+dwm.selbackground: #C3C3C3
+dwm.selforeground: #171717
+
+st.font: Terminus-18

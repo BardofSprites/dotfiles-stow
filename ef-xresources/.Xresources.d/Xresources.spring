@@ -43,8 +43,3 @@ dwm.background: #f6fff9
 dwm.foreground: #34494a
 dwm.selbackground: #90e8b0
 dwm.selforeground: #34494a
-
-dwm.background: #f6fff9
-dwm.foreground: #34494a
-dwm.selbackground: #90e8b0
-dwm.selforeground: #34494a

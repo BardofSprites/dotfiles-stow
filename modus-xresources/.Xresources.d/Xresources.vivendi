@@ -42,3 +42,5 @@ dwm.background: #000000
 dwm.foreground: #ffffff
 dwm.selbackground: #505050
 dwm.selforeground: #ffffff
+
+st.alpha: 1.0
