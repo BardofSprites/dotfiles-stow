@@ -1,7 +1,7 @@
 #!/bin/sh
 
 userresources=$HOME/.Xresources
-usertheme=$HOME/Xresources.vivendi
+usertheme=$HOME/.Xresources.d/Xresources.vivendi
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/Xresources
 sysmodmap=/etc/X11/xinit/Xmodmap
