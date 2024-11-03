@@ -3,7 +3,7 @@
 # Music module script for dwmblocks
 
 truncate() {
-    echo "$1" | cut -c1-20
+    echo "$1" | cut -c1-15
 }
 
 # Handle mouse events based on button clicks
@@ -28,8 +28,8 @@ case $BLOCK_BUTTON in
 esac
 
 # Get current track info
-artist="$(playerctl metadata artist 2>/dev/null || echo "Unknown Artist")"
-title="$(playerctl metadata title 2>/dev/null || echo "No Track")"
+artist="$(playerctl metadata artist 2>/dev/null || echo "none")"
+title="$(playerctl metadata title 2>/dev/null || echo "none")"
 
 # Truncate artist and title to 15 characters
 truncated_artist=$(truncate "$artist")
@@ -38,5 +38,6 @@ truncated_title=$(truncate "$title")
 # Format the output as "artist - title"
 current_track="$truncated_artist - $truncated_title"
 
+icon="🎵"
 # Print the current track
-echo "$current_track"
+echo "$icon $current_track"

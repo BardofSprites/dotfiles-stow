@@ -18,6 +18,8 @@ case "$clock" in
 	"12") icon="🕛" ;;
 esac
 
+calendar_icon="📅"
+
 case $BLOCK_BUTTON in
 	1) emacs-launcher "agenda" ;;
 	2) emacs-launcher "calendar" ;;
@@ -25,4 +27,4 @@ case $BLOCK_BUTTON in
 - Middle click opens Emacs calendar" ;;
 esac
 
-date "+%Y-%m-%d (%a) | $icon %R:%S %p "
+date "+$calendar_icon %Y-%m-%d (%a) | $icon %R:%S "
