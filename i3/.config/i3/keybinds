@@ -6,18 +6,23 @@ set $term2  urxvtc
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $term2
 
+# browser
+bindsym $mod+w exec librewolf-bin
+bindsym $mod+Shift+w exec firefox-bin
+
 # Scratchpad
 bindsym $mod+minus move scratchpad
 bindsym $mod+plus scratchpad show
 
 # emacs
-bindsym $mod+x exec ~/.local/bin/scripts/emacs/emacs-daemon.sh start
-bindsym $mod+Shift+x exec ~/.local/bin/scripts/emacs/emacs-daemon.sh kill
-bindsym $mod+Ctrl+a exec emacsclient --eval "(emacs-everywhere)"
-bindsym $mod+Shift+a exec emacsclient -c -e "(emms)"
+bindsym $mod+e exec emacs
+bindsym $mod+m exec emacsclient -c -e "(emms)"
+bindsym $mod+n exec emacsclient -c
+bindsym $mod+Shift+d exec dired_selector
+bindsym $mod+Shift+n exec emacs-launcher
 
 # theme switching
-bindsym $mod+Shift+t exec ~/.local/bin/scripts/theme-switch.sh
+# bindsym $mod+Shift+t exec ~/.local/bin/scripts/theme-switch.sh
 
 # adjust volume in PulseAudio
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -32,16 +37,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-# bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-# bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
-
 # Brightness
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
-# power menu
-# bindsym $mod+shift+p exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # kill focused window
 bindsym $mod+q kill
@@ -50,12 +48,12 @@ bindsym $mod+q kill
 bindsym Print exec $HOME/.local/bin/scripts/maimpick
 
 # audio controls
-bindsym $mod+p exec pavucontrol
+bindsym $mod+p exec alsamixer
 
 # start dmenu
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # Customised dmenu with colours
-bindsym $mod+d exec "dmenu_run -p 'dmenu >'"
+bindsym $mod+d exec "dmenu_run -p 'Run: '"
 
 # Reloads i3 configuration
 bindsym $mod+Shift+c reload

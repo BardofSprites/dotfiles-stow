@@ -2,6 +2,8 @@
 
 # borders
 for_window [class="^.*"] border pixel 3
+# specific window settings
+for_window [class="floatterm"] floating enable
 default_border pixel 3
 default_floating_border pixel 3
 # hide_edge_borders smart
@@ -29,14 +31,17 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+Shift+t layout tabbed
 bindsym $mod+t layout toggle split
+
+# sticky windows
+bindsym $mod+Shift+S sticky toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+a focus mode_toggle
 
 # Name the workspaces
 set $workspace1 "1"
