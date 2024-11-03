@@ -16,20 +16,20 @@ selected_mode=$(echo -e "$OPTIONS" | dmenu -p "Select Display Mode:")
 # Command to set wallpaper based on selected mode
 case "$selected_mode" in
     "Tiled")
-        feh --bg-tile "$selected_wallpaper"
-        echo "feh --bg-tile '$selected_wallpaper'" >> ~/.cache/wallpaper
+        feh --no-fehbg --bg-tile "$selected_wallpaper"
+        echo "feh --no-fehbg --bg-tile '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Zoom Filled")
-        feh --bg-fill "$selected_wallpaper"
-        echo "feh --bg-fill '$selected_wallpaper'" >> ~/.cache/wallpaper
+        feh --no-fehbg --bg-fill "$selected_wallpaper"
+        echo "feh --no-fehbg --bg-fill '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Centered")
-        feh --bg-center "$selected_wallpaper"
-        echo "feh --bg-center '$selected_wallpaper'" >> ~/.cache/wallpaper
+        feh --no-fehbg --bg-center "$selected_wallpaper"
+        echo "feh --no-fehbg --bg-center '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Max")
-        feh --bg-max "$selected_wallpaper"
-        echo "feh --bg-max '$selected_wallpaper'" >> ~/.cache/wallpaper
+        feh --no-fehbg --bg-max "$selected_wallpaper"
+        echo "feh --no-fehbg --bg-max '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     *)
         echo "Invalid option selected."
