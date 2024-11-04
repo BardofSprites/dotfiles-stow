@@ -2,7 +2,7 @@
 
 run_command ()
 {
-    emacsclient -c -e $1
+    emacsclient -c -e $1 >/dev/null 2>&1 &
 }
 
 options=("calendar" "agenda" "music" "scratch")
