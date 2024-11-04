@@ -24,8 +24,9 @@ case "$chosen" in
     ;;
     "texmacs")
         flatpak run org.texmacs.TeXmacs
+    ;;
     *)
-        echo "flatpak not installed"
+        echo "operation wasn't successful"
 	exit 1
 	;;
 esac
