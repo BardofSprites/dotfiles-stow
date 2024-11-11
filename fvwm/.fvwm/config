@@ -195,7 +195,7 @@ AddToFunc TileBottomRight
 DestroyFunc ChangeTheme
 AddToFunc ChangeTheme
 + I Read $[themedir]/$0.sys
-+ I Exec exec xrdb -merge ~/Xresources.$1
++ I Exec exec xrdb -merge ~/.Xresources.d/Xresources.$1
 + I Exec exec echo "emacsclient -e \"$2\"" >> /tmp/fvwm_theme.log
 
 # To change the theme, you can call the function like this:
@@ -428,6 +428,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
 + "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "(ef-themes-select 'ef-maris-light)"
 + "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
++ "Ef &Rosa" ChangeTheme 'ef-rosa' 'rosa' "(ef-themes-select 'ef-rosa)"
 + "Ef &Bio" ChangeTheme 'ef-bio' 'bio' "(ef-themes-select 'ef-bio)"
 + "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "(ef-themes-select 'ef-spring)"
 + "Ef Kassi&o" ChangeTheme 'ef-kassio' 'kassio' "(ef-themes-select 'ef-kassio)"
