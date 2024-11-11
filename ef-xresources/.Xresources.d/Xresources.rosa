@@ -1,0 +1,44 @@
+!!!!! Ef Rosa Dark Xresources theme
+*.foreground:      #e4d3e1
+*.background:      #322023
+URxvt.background:  [93]#322023
+*.cursorColor:     #ef607a
+! black
+*.color0:       #322023
+*.color8:       #6a5862
+! red
+*.color1:       #ff707f
+*.color9:       #ff7f5f
+! green
+*.color2:       #5fbb5f
+*.color10:      #8ad05a
+! yellow
+*.color3:       #e4c53f
+*.color11:      #f2a85f
+! blue
+*.color4:       #57aff6
+*.color12:      #78b2ff
+! magenta
+*.color5:       #ffb2d6
+*.color13:      #cfb1ff
+! cyan
+*.color6:       #5fc0dc
+*.color14:      #80dfbf
+! white
+*.color7:       #e4d3e1
+*.color15:      #e4d3e1
+
+dmenu.background: #322023
+dmenu.foreground: #e4d3e1
+dmenu.selbackground: #814558
+dmenu.selforeground: #e8e5e7
+
+Nsxiv.window.background: #322023
+Nsxiv.window.foreground: #e4d3e1
+Nsxiv.mark.foreground: #e4d3e1
+Nsxiv.bar.background: #814558
+Nsxiv.bar.foreground: #e8e5e7
+dwm.background: #322023
+dwm.foreground: #e4d3e1
+dwm.selbackground: #814558
+dwm.selforeground: #e8e5e7

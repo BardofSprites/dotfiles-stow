@@ -1,0 +1,21 @@
+#### Ef Rosa FVWM Colorsets
+Colorset 0  fg #e4d3e1, bg #322023, hi, sh, Plain, NoShape
+Colorset 1  fg #9d9d9d, bg #432e32, hi, sh, Plain, NoShape
+Colorset 2  fg #e4d3e1, bg #322023, hi, sh, Plain, NoShape
+Colorset 3  fg #9d9d9d, bg #96c4af, hi #96c4af, sh #96c4af, Plain, NoShape
+Colorset 4  fg #322023, bg #814558, hi #814558, sh #814558, Plain, NoShape
+Colorset 5  fg #e4d3e1, bg #322023, hi, sh, Plain, NoShape
+Colorset 6  fg #e4d3e1, bg #3f6a50, hi, sh, Plain, NoShape
+Colorset 7  fg #e4d3e1, bg #e4d3e1, hi, sh, Plain, NoShape
+Colorset 8  fg #e8e5e7, bg #814558, hi, sh, Plain, NoShape
+Colorset 10 fg #e4d3e1, bg #322023, hi #9d9d9d, sh #9d9d9d, Plain, NoShape
+Colorset 11 fg #e8e5e7, bg #814558, hi #e4d3e1, sh #e4d3e1, Plain, NoShape
+Colorset 12 fg #e4d3e1, bg #3f6a50, hi, sh, Plain, NoShape
+Colorset 13 fg #e4d3e1, bg #3f6a50, hi, sh, Plain, NoShape
+Colorset 14 fg #9d9d9d, bg #432e32, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #e4d3e1, bg #322023, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__E4D3E1.svg:20x20
+AddButtonStyle 4 Pixmap maximize__E4D3E1.svg:20x20
+AddButtonStyle 2 Pixmap close__E4D3E1.svg:20x20
