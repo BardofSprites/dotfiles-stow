@@ -1,0 +1,35 @@
+WindowTitle {ACPIStatus}
+WindowSize  120 35
+Font "xft:Iosevka Comfy:size=14"
+
+Init
+ Begin
+  Set $Battery = (GetOutput {exec acpi | sed -e 's/^.*, \([0-9]*\)%.*$/\1%/g'} 1 -1)
+
+  ChangeTitle 1 $Battery
+End
+
+PeriodicTasks
+ Begin
+  If (RemainderOfDiv (GetTime) 60)==0 Then
+  Begin
+   Set $Battery = (GetOutput {exec acpi | sed -e 's/^.*, \([0-9]*\)%.*$/\1%/g'} 1 -1)
+
+   ChangeTitle 1 $Battery
+  End
+End
+
+Widget 1
+Property
+ Position 0 -5
+ Size 40 35
+ Font "xft:Iosevka Comfy:size=14"
+ Type ItemDraw
+ Flags NoReliefString
+ Title {}
+Main
+ Case message of
+  SingleClic :
+  Begin
+  End
+End
