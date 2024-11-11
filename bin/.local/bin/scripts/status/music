@@ -38,6 +38,14 @@ truncated_title=$(truncate "$title")
 # Format the output as "artist - title"
 current_track="$truncated_artist - $truncated_title"
 
-icon="🎵"
+playerstatus=$(playerctl status)
+
+case "$playerstatus" in
+    "Playing") icon="🎵" ;;
+    "Paused") icon="⏸️" ;;
+    "Stopped") icon="⏹️" ;;
+    "*") icon="" ;;
+esac
+
 # Print the current track
 echo "$icon $current_track"
