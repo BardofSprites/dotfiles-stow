@@ -666,7 +666,8 @@ Silent Key XF86MonBrightnessDown       A A        Exec exec xbacklight -dec 10
 
 #### Script keybinds
 Silent Key B       A 4        Exec exec "$HOME/.local/bin/scripts/scratch.sh"
-Silent Key N       A 4S       Exec exec "$HOME/.local/bin/scripts/dired_selector"
+Silent Key N       A 4S       Exec exec "$HOME/.local/bin/scripts/emacs-launcher"
+Silent Key D       A 4S       Exec exec "$HOME/.local/bin/scripts/dired_selector"
 Silent Key M       A 4        Exec exec emacsclient -c -e '(emms)'
 Silent Key C       A 4        Module FvwmScript fvwmscript/org-clock
 # screenshot
