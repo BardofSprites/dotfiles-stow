@@ -1,0 +1,45 @@
+!!!!! Ef Frost Dark Xresources theme
+*.foreground:      #232323
+*.background:      #fcffff
+URxvt.background:  [93]#fcffff
+*.cursorColor:     #0055bb
+! black
+*.color0:       #232323
+*.color8:       #b5b8b8
+! red
+*.color1:       #c42d2f
+*.color9:       #cf2f4f
+! green
+*.color2:       #008a00
+*.color10:      #00845f
+! yellow
+*.color3:       #aa6100
+*.color11:      #996c4f
+! blue
+*.color4:       #4244ef
+*.color12:      #065fff
+! magenta
+*.color5:       #aa44c5
+*.color13:      #7f5ae0
+! cyan
+*.color6:       #3a6dd2
+*.color14:      #1f6fbf
+! white
+*.color7:       #eaefef
+*.color15:      #fcffff
+
+dmenu.background: #322023
+dmenu.foreground: #232323
+dmenu.selbackground: #9ad0ff
+dmenu.selforeground: #051524
+
+Nsxiv.window.background: #322023
+Nsxiv.window.foreground: #232323
+Nsxiv.mark.foreground: #232323
+Nsxiv.bar.background: #9ad0ff
+Nsxiv.bar.foreground: #051524
+
+dwm.background: #322023
+dwm.foreground: #e4d3e1
+dwm.selbackground: #9ad0ff
+dwm.selforeground: #051524

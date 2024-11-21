@@ -416,6 +416,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Modus &Operandi" ChangeTheme 'modus-operandi' 'operandi' "(modus-themes-select 'modus-operandi)"
 + "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "(ef-themes-select 'ef-autumn)"
 + "Ef &Winter" ChangeTheme 'ef-winter' 'winter' "(ef-themes-select 'ef-winter)"
++ "Ef &Frost" ChangeTheme 'ef-frost' 'frost' "(ef-themes-select 'ef-frost)"
 + "Ef &Elea Light" ChangeTheme 'ef-elea-light' 'elea-light' "(ef-themes-select 'ef-elea-light)"
 + "Ef &Elea Dark" ChangeTheme 'ef-elea-dark' 'elea-dark' "(ef-themes-select 'ef-elea-dark)"
 + "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
