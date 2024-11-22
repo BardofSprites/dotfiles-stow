@@ -708,8 +708,25 @@ Mouse 3 I    A Menu MenuIconOps
 Silent Key Q        A     4       Close
 
 # Resize window
-Silent Mouse 3        A     4       Resize
-Silent Mouse 1        A     4       Move
+DestroyFunc F-Move-Resize
+AddtoFunc F-Move-Resize
++ I Maximize 50 50
++ I WarpToWindow 50 50
++ I Move
++ I Maximize 100 100
+
+DestroyFunc F-Move
+AddtoFunc F-Move
++ I WarpToWindow 50 50
++ I Move
+
+DestroyFunc F-Resize
+AddtoFunc F-Resize
++ I WarpToWindow 100 100
++ I Resize
+
+Silent Mouse 3        A     4       F-Resize
+Silent Mouse 1        A     4       F-Move
 
 # deiconify/iconify and rearrange
 Mouse 1 I A DeiconifyAndRearrange
