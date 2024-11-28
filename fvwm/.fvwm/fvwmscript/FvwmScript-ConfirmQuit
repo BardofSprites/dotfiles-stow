@@ -1,7 +1,7 @@
 UseGettext
 WindowTitle {ConfirmQuit}
-WindowSize  260 80
-Font "xft:Comic Code:style=Bold:size=16"
+WindowSize  270 90
+Font "xft:Iosevka Comfy:style=Bold:size=16"
 Init
  Begin
  End

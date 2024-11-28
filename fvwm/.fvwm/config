@@ -253,7 +253,7 @@ MoveThreshold 3
 Style * SloppyFocus, MouseFocusClickRaises
 
 # Default Font
-DefaultFont "xft:Comic Code:size=14:antialias=True"
+DefaultFont "xft:Iosevka Comfy:size=14:antialias=True"
 
 # Window Placement
 Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
@@ -302,7 +302,7 @@ Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIc
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
 Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
 Style sowon MiniIcon "Furoisu (bath chair)-24x24.png", Icon "Furoisu (bath chair).png", EWMHMiniIconOverride, IconOverride
-Style * Font "xft:Comic Code:Thin:size=16:antialias=True", FPGrabFocus
+Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True", FPGrabFocus
 
 ## Program styles
 # Style "*EMMS Playlist*" MiniIcon Shamisen-24x24.png, IconOverride, Icon Shamisen.png, EWMHMiniIconOverride, FPGrabFocus
@@ -347,7 +347,7 @@ MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid
 MenuStyle * ActiveFore, !Animation, PopupOffset -5 100
 # MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
-MenuStyle * Font "xft:Comic Code:Thin:size=14:antialias=True"
+MenuStyle * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True"
 
 # Root Menu
 #
@@ -792,7 +792,7 @@ AddButtonStyle 2 Pixmap close__FFFFFF.svg:20x20
 # a window. One use is getting the class/resource/name of a window.
 DestroyModuleConfig FvwmIdent:*
 *FvwmIdent: Colorset 10
-*FvwmIdent: Font "xft:Comic Code:size=14:antialias=True"
+*FvwmIdent: Font "xft:Iosevka Comfy:size=14:antialias=True"
 
 # FvwmBanner
 #
@@ -862,8 +862,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: WindowColorsets 10 11
 *FvwmPager: Font None
 *FvwmPager: Balloons All
-*FvwmPager: BalloonFont "xft:Comic Code:Italic:size=14:antialias=True"
-*FvwmPager: BallonYOffset +2
+*FvwmPager: BalloonFont "xft:Iosevka Comfy:Italic:size=14:antialias=True"
 *FvwmPager: Window3dBorders
 *FvwmPager: MiniIcons
 
@@ -884,7 +883,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: DrawIcons always
 *FvwmIconMan: ReliefThickness 0
 *FvwmIconMan: Format "%t"
-*FvwmIconMan: Font "xft:Comic Code:size=14:antialias=True"
+*FvwmIconMan: Font "xft:Iosevka Comfy:size=14:antialias=True"
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
