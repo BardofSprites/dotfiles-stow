@@ -197,7 +197,7 @@ DestroyFunc ChangeTheme
 AddToFunc ChangeTheme
 + I Read $[themedir]/$0.sys
 + I Exec exec xrdb -merge ~/.Xresources.d/Xresources.$1
-+ I Exec exec echo "emacsclient -e \"$2\"" >> /tmp/fvwm_theme.log
++ I Exec exec emacsclient -e "(bard/select-theme '$2)"
 
 # To change the theme, you can call the function like this:
 # ChangeTheme theme_name Xresources_file_name
@@ -417,37 +417,37 @@ AddToMenu MenuWallpaper "Wallpaper" Title
 
 DestroyMenu MenuThemes
 AddToMenu MenuThemes "Themes" Title
-+ "Modus &Vivendi" ChangeTheme 'modus-vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
-+ "Vivendi &Tritanopia" ChangeTheme 'vivendi-tritanopia' 'vivendi-tritanopia' "(modus-themes-select 'modus-vivendi-tritanopia)"
-+ "Vivendi &Tinted" ChangeTheme 'vivendi-tinted' 'vivendi-tinted' "(modus-themes-select 'modus-vivendi-tinted)"
-+ "Modus Operandi &Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted' "(modus-themes-select 'modus-operandi-tinted)"
-+ "Modus &Operandi" ChangeTheme 'modus-operandi' 'operandi' "(modus-themes-select 'modus-operandi)"
-+ "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "(ef-themes-select 'ef-autumn)"
-+ "Ef &Winter" ChangeTheme 'ef-winter' 'winter' "(ef-themes-select 'ef-winter)"
-+ "Ef &Frost" ChangeTheme 'ef-frost' 'frost' "(ef-themes-select 'ef-frost)"
-+ "Ef &Elea Light" ChangeTheme 'ef-elea-light' 'elea-light' "(ef-themes-select 'ef-elea-light)"
-+ "Ef &Elea Dark" ChangeTheme 'ef-elea-dark' 'elea-dark' "(ef-themes-select 'ef-elea-dark)"
-+ "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "(ef-themes-select 'ef-cyprus)"
-+ "Ef &Night" ChangeTheme 'ef-night' 'night' "(ef-themes-select 'ef-night)"
-+ "Ef &Duo-Dark" ChangeTheme 'ef-duo-dark' 'duo-dark' "(ef-themes-select 'ef-duo-dark)"
-+ "Ef &Day" ChangeTheme 'ef-day' 'day' "(ef-themes-select 'ef-day)"
-+ "Ef &Eagle" ChangeTheme 'ef-eagle' 'eagle' "(ef-themes-select 'ef-eagle)"
-+ "Ef &Owl" ChangeTheme 'ef-owl' 'owl' "(ef-themes-select 'ef-owl)"
-+ "Ef &Dream" ChangeTheme 'ef-dream' 'dream' "(ef-themes-select 'ef-dream)"
-+ "Ef &Reverie" ChangeTheme 'ef-reverie' 'reverie' "(ef-themes-select 'ef-reverie)"
-+ "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "(ef-themes-select 'ef-maris-dark)"
-+ "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "(ef-themes-select 'ef-maris-light)"
-+ "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "(ef-themes-select 'ef-cherie)"
-+ "Ef &Rosa" ChangeTheme 'ef-rosa' 'rosa' "(ef-themes-select 'ef-rosa)"
-+ "Ef &Bio" ChangeTheme 'ef-bio' 'bio' "(ef-themes-select 'ef-bio)"
-+ "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "(ef-themes-select 'ef-spring)"
-+ "Ef Kassi&o" ChangeTheme 'ef-kassio' 'kassio' "(ef-themes-select 'ef-kassio)"
-+ "Ef &Symbiosis" ChangeTheme 'ef-symbiosis' 'symbiosis' "(ef-themes-select 'ef-symbiosis)"
-+ "Ef &Trio Dark" ChangeTheme 'ef-trio-dark' 'trio-dark' "(ef-themes-select 'ef-trio-dark)"
-+ "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "(ef-themes-select 'ef-melissa-dark)"
-+ "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "(ef-themes-select 'ef-melissa-light)"
-+ "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "(ef-themes-select 'ef-arbutus)"
-+ "" ChangeTheme 'vivendi' 'vivendi' "(modus-themes-select 'modus-vivendi)"
++ "Modus &Vivendi" ChangeTheme 'modus-vivendi' 'vivendi' "modus-vivendi"
++ "Vivendi &Tritanopia" ChangeTheme 'vivendi-tritanopia' 'vivendi-tritanopia' "modus-vivendi-tritanopia"
++ "Vivendi &Tinted" ChangeTheme 'vivendi-tinted' 'vivendi-tinted' "modus-vivendi-tinted"
++ "Modus Operandi &Tinted" ChangeTheme 'operandi-tinted' 'operandi-tinted' "modus-operandi-tinted"
++ "Modus &Operandi" ChangeTheme 'modus-operandi' 'operandi' "modus-operandi"
++ "Ef &Autumn" ChangeTheme 'ef-autumn' 'autumn' "ef-autumn"
++ "Ef &Winter" ChangeTheme 'ef-winter' 'winter' "ef-winter"
++ "Ef &Frost" ChangeTheme 'ef-frost' 'frost' "ef-frost"
++ "Ef &Elea Light" ChangeTheme 'ef-elea-light' 'elea-light' "ef-elea-light"
++ "Ef &Elea Dark" ChangeTheme 'ef-elea-dark' 'elea-dark' "ef-elea-dark"
++ "Ef &Cyprus" ChangeTheme 'ef-cyprus' 'cyprus' "ef-cyprus"
++ "Ef &Night" ChangeTheme 'ef-night' 'night' "ef-night"
++ "Ef &Duo-Dark" ChangeTheme 'ef-duo-dark' 'duo-dark' "ef-duo-dark"
++ "Ef &Day" ChangeTheme 'ef-day' 'day' "ef-day"
++ "Ef &Eagle" ChangeTheme 'ef-eagle' 'eagle' "ef-eagle"
++ "Ef &Owl" ChangeTheme 'ef-owl' 'owl' "ef-owl"
++ "Ef &Dream" ChangeTheme 'ef-dream' 'dream' "ef-dream"
++ "Ef &Reverie" ChangeTheme 'ef-reverie' 'reverie' "ef-reverie"
++ "Ef &Maris Dark" ChangeTheme 'ef-maris-dark' 'maris-dark' "ef-maris-dark"
++ "Ef &Maris Light" ChangeTheme 'ef-maris-light' 'maris-light' "ef-maris-light"
++ "Ef &Cherie" ChangeTheme 'ef-cherie' 'cherie' "ef-cherie"
++ "Ef &Rosa" ChangeTheme 'ef-rosa' 'rosa' "ef-rosa"
++ "Ef &Bio" ChangeTheme 'ef-bio' 'bio' "ef-bio"
++ "Ef &Spring" ChangeTheme 'ef-spring' 'spring' "ef-spring"
++ "Ef Kassi&o" ChangeTheme 'ef-kassio' 'kassio' "ef-kassio"
++ "Ef &Symbiosis" ChangeTheme 'ef-symbiosis' 'symbiosis' "ef-symbiosis"
++ "Ef &Trio Dark" ChangeTheme 'ef-trio-dark' 'trio-dark' "ef-trio-dark"
++ "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "ef-melissa-dark"
++ "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "ef-melissa-light"
++ "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "ef-arbutus"
++ "" ChangeTheme 'vivendi' 'vivendi' "modus-vivendi"
 
 DestroyMenu MenuPower
 AddToMenu MenuPower
