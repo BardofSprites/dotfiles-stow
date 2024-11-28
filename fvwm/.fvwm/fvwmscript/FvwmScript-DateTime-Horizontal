@@ -1,5 +1,5 @@
 WindowTitle {DateTime}
-WindowSize  160 35
+WindowSize  160 30
 Font "xft:Iosevka Comfy:size=14"
 
 Init
@@ -19,8 +19,8 @@ End
 
 Widget 1
 Property
- Position 0 -5
- Size 160 35
+ Position 0 -3
+ Size 160 30
  Font "xft:Iosevka Comfy:size=14"
  Type ItemDraw
  Flags NoReliefString
@@ -29,5 +29,6 @@ Main
  Case message of
   SingleClic :
   Begin
+    Do {Test (x emacs) exec emacs-launcher "calendar"
   End
 End
