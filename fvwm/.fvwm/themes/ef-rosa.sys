@@ -2,7 +2,7 @@
 Colorset 0  fg #e4d3e1, bg #322023, hi, sh, Plain, NoShape
 Colorset 1  fg #9d9d9d, bg #432e32, hi, sh, Plain, NoShape
 Colorset 2  fg #e4d3e1, bg #322023, hi, sh, Plain, NoShape
-Colorset 3  fg #9d9d9d, bg #96c4af, hi #96c4af, sh #96c4af, Plain, NoShape
+Colorset 3  fg #432e32, bg #9d9d9d, hi #9d9d9d, sh #9d9d9d, Plain, NoShape
 Colorset 4  fg #322023, bg #814558, hi #814558, sh #814558, Plain, NoShape
 Colorset 5  fg #e4d3e1, bg #322023, hi, sh, Plain, NoShape
 Colorset 6  fg #e4d3e1, bg #3f6a50, hi, sh, Plain, NoShape

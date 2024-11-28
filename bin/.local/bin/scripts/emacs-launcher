@@ -15,7 +15,7 @@ fi
 
 case $choice in
     "calendar")
-        command="(cfw:open-org-calendar)"
+        command="(bard/open-calendar)"
         run_command $command
         ;;
     "agenda")

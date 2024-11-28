@@ -308,7 +308,8 @@ Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
-Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w 0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
+Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w -0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
+
 Style sowon MiniIcon "Furoisu (bath chair)-24x24.png", Icon "Furoisu (bath chair).png", EWMHMiniIconOverride, IconOverride
 Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True", FPGrabFocus
 
@@ -373,10 +374,6 @@ Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
 + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
 + "" Nop
 + "&Flatpak%yukata-24x24.png%" Exec exec launch-flatpak
-# + "&Anki%Yoritsuki_disk-24x24.png%" Exec exec flatpak run net.ankiweb.Anki
-# + "&Zeal%Folder-24x24.png%" Exec exec flatpak run org.zealdocs.Zeal
-# + "Libre&office%Tsukubai-24x24.png%" Exec exec flatpak run org.libreoffice.LibreOffice
-# + "Cali&bre%yukata-24x24.png%" Exec exec flatpak run com.calibre_ebook.calibre
 + "" Nop
 Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
 Test (x emacs) + "&Calendar%Kanban (sign)-24x24.png%" Exec exec emacsclient -c -e '(bard/open-calendar)'
@@ -457,10 +454,11 @@ AddToMenu MenuPower
 
 DestroyMenu MenuSettings
 AddToMenu MenuSettings "Settings" Title
-Test (x nmtui) + "Network" Exec exec st -e nmtui
-Test (x arandr) + "Display" Exec exec arandr
-Test (x btop) + "System" Exec exec st -e btop
-Test (x blueman-manager) + "Bluetooth" Exec exec blueman-manager
+Test (x alsamixer) + "&Network" Exec exec st -e nmtui
+Test (x nmtui) + "&Audio"               Exec exec st -e alsamixer
+Test (x arandr) + "&Display"            Exec exec arandr
+Test (x btop) + "&System"               Exec exec st -e btop
+Test (x blueman-manager) + "&Bluetooth" Exec exec blueman-manager
 
 # Background Menu
 #
@@ -645,20 +643,24 @@ Mouse 9 A       4   Scroll 0 -100p
 Mouse 8 A       4   Scroll 0 100p 
 
 #### Programs Keybinding
-# Silent Key Return      A 4     Exec exec $[infostore.terminal] -g 80x32
-Silent Key Return      A 4     Exec exec $[infostore.terminal]
-Silent Key Return      A 4C    Exec exec $[infostore.altterminal]
-Silent Key Return      A 4S    Exec exec emacsclient -c -e '(bard/open-terminal-in-current-directory)'
-Silent Key Backslash   A 4     Exec exec $[infostore.terminal] -e bc -l
-Silent Key E           A 4     Exec exec emacs
-Silent Key N           A 4     exec emacsclient -c
-Silent Key D           A 4     Exec exec dmenu_run -c -l 15
+# Silent Key Return      A 4            Exec exec $[infostore.terminal] -g 80x32
+Silent Key Return      A 4              Exec exec $[infostore.terminal]
+Silent Key Return      A 4C             Exec exec $[infostore.altterminal]
+Silent Key Return      A 4S             Exec exec emacsclient -c -e '(bard/open-terminal-in-current-directory)'
+Silent Key Backslash   A 4              Exec exec $[infostore.terminal] -e bc -l
+Silent Key E           A 4              Exec exec emacs
+Silent Key N           A 4              exec emacsclient -c
+Silent Key D           A 4              Exec exec dmenu_run -c -l 15
+
+# restart
+Silent Key R           A 4S    Restart
 
 # browser
-Silent Key W A 4        Exec exec librewolf-bin
-Silent Key W A 4S       Exec exec firefox-bin
+Silent Key W A 4                        Exec exec librewolf-bin
+Silent Key W A 4S                       Exec exec firefox-bin
 
 #### Media keybinds
+Silent Key P                     A 4        Exec exec st -e alsamixer
 Silent Key XF86AudioMute         A A        Exec exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 Silent Key XF86AudioRaiseVolume  A A        Exec exec pactl set-sink-volume @DEFAULT_SINK@ +10% 
 Silent Key XF86AudioLowerVolume  A A        Exec exec pactl set-sink-volume @DEFAULT_SINK@ -10% 
@@ -666,7 +668,7 @@ Silent Key XF86AudioMicMute      A A        Exec exec pactl set-source-mute @DEF
 Silent Key XF86AudioPrev         A A        Exec exec playerctl prev
 Silent Key XF86AudioNext         A A        Exec exec playerctl next
 Silent Key XF86AudioPause        A A        Exec exec playerctl pause
-Silent Key P                     A 4        Exec exec playerctl pause
+Silent Key P                     A 4S       Exec exec playerctl pause
 Silent Key XF86AudioPlay         A A        Exec exec playerctl play
 
 ## brightness
@@ -740,36 +742,26 @@ Silent Mouse 1        A     4       F-Move
 Mouse 1 I A DeiconifyAndRearrange
 
 # super + arrows for tiling
-Silent Key Left        A     4      TileLeft 60 100 +0 +0
-Silent Key Right       A     4      TileRight 40 100 -0 +0
-Silent Key Up          A     4      TileTop 40 60 -0 +0
-Silent Key Down        A     4      TileBottom 40 40 -0 -0
-
-Silent Key Left        A     4S     TileTopLeft 60 100 +0 +0
-Silent Key Right       A     4S     TileTopRight 40 100 -0 +0
-Silent Key Up          A     4S     TileBottomLeft 40 60 -0 +0
-Silent Key Down        A     4S     TileBottomRight 40 40 -0 -0
+Silent Key H        A     4      TileLeft 60 100 +0 +0
+Silent Key L        A     4      TileRight 40 100 -0 +0
+Silent Key K        A     4      TileTop 40 60 -0 +0
+Silent Key J        A     4      TileBottom 40 40 -0 -0
  
 # Super+C/F/J/H/K/L - center, maximize, move window, etc
 Silent Key C        A     4S      AnimatedMove 50-50w 50-50w
 Silent Key F        A     4       Maximize toggle 100 100
 Silent Key F        A     4S      Iconify
-silent Key H        A     4       AnimatedMove +0 w0px
-Silent Key L        A     4       AnimatedMove -0 w0px
-Silent Key J        A     4       AnimatedMove w0px -0
-Silent Key K        A     4       AnimatedMove w0px +0
-Silent Key H        A     4S      Move w-20px w0px
-Silent Key L        A     4S      Move w20px w0px
-Silent Key J        A     4S      Move w0px w20px
-Silent Key K        A     4S      Move w0px w-20px
-# Silent Key Minus    A     4       ShowDesktop
-# Silent Key Plus     A     4       RestoreDesktop
- 
-# Maximize in direction until we hit another window.
-Silent Key Left        A     4C      Maximize growleft 0
-Silent Key Right       A     4C      Maximize growright 0
-Silent Key Up          A     4C      Maximize 0 growup
-Silent Key Down        A     4C      Maximize 0 growdown
+
+Silent Key H        A     4S      Maximize growleft 0
+Silent Key L        A     4S      Maximize growright 0
+Silent Key K        A     4S      Maximize 0 growup
+Silent Key J        A     4S      Maximize 0 growdown
+
+Silent Key H        A     4C     TileTopLeft 60 100 +0 +0
+Silent Key K        A     4C     TileTopRight 40 100 -0 +0
+Silent Key J        A     4C     TileBottomLeft 40 60 -0 +0
+Silent Key L        A     4C     TileBottomRight 40 40 -0 -0
+
 
 #######
 # 6: Window Decor
