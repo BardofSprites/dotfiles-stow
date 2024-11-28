@@ -1,32 +1,35 @@
 #!/bin/bash
 
-flatpaks="Anki\nCalibre\nobs\nLibreOffice\nZealDocs\nQutebrowser\ntexmacs"
+flatpaks="Anki\nCalibre\nobs\nLibreOffice\nZealDocs\nQutebrowser\ntexmacs\nkdenlive"
 chosen=$(echo -e "$flatpaks" | dmenu -p "Select flatpak: ")
 
 case "$chosen" in
     "Anki")
-    	flatpak run net.ankiweb.Anki
-	;;
+        flatpak run net.ankiweb.Anki
+    ;;
     "Calibre")
         flatpak run com.calibre_ebook.calibre
-    	;;
+        ;;
     "LibreOffice")
-    	flatpak run org.libreoffice.LibreOffice
-	;;
+        flatpak run org.libreoffice.LibreOffice
+    ;;
     "ZealDocs")
         flatpak run org.zealdocs.Zeal
     ;;
     "Qutebrowser")
         flatpak run org.qutebrowser.qutebrowser
-	;;
+    ;;
     "obs")
         flatpak run com.obsproject.Studio
     ;;
     "texmacs")
         flatpak run org.texmacs.TeXmacs
+     ;;
+    "kdenlive")
+        flatpak run org.kde.kdenlive
     ;;
     *)
         echo "operation wasn't successful"
-	exit 1
-	;;
+    exit 1
+    ;;
 esac
