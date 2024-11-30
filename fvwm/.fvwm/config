@@ -746,9 +746,15 @@ Silent Key H        A     4      TileLeft 60 100 +0 +0
 Silent Key L        A     4      TileRight 40 100 -0 +0
 Silent Key K        A     4      TileTop 40 60 -0 +0
 Silent Key J        A     4      TileBottom 40 40 -0 -0
- 
+
+DestroyFunc F-Center
+AddToFunc F-Center
++ I ThisWindow (!Iconic) Resize 1120p 800p
++ I ThisWindow AnimatedMove 50-50w 50-50w
+
 # Super+C/F/J/H/K/L - center, maximize, move window, etc
-Silent Key C        A     4S      AnimatedMove 50-50w 50-50w
+Silent Key C        A     4       AnimatedMove 50-50w 50-50w
+Silent Key C        A     4S      F-Center
 Silent Key F        A     4       Maximize toggle 100 100
 Silent Key F        A     4S      Iconify
 
