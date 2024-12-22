@@ -9,7 +9,13 @@ alias ta="tmux attach"
 alias ts="tmux-sessionizer"
 alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
 
-alias image-date="find \"$1\/\" -type f -exec ls -t {} + | nsxiv -i -t"
+function _recentimages() {
+    find "$1" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.bmp" \) -printf "%T@ %p\n" |
+        sort -nr |
+        cut -d" " -f2- |
+        nsxiv -t -; };
+
+alias recentimages='_recentimages'
 
 alias checkmail="$HOME/.local/bin/scripts/checkmail"
 # gentoo related
