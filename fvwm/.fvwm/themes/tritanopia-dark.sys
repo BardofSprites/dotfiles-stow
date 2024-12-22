@@ -1,0 +1,21 @@
+#### Ef Tritanopia Dark FVWM Colorsets
+Colorset 0  fg #dfd0d5, bg #15050f, hi, sh, Plain, NoShape
+Colorset 1  fg #908890, bg #282026, hi, sh, Plain, NoShape
+Colorset 2  fg #dfd0d5, bg #15050f, hi, sh, Plain, NoShape
+Colorset 3  fg #282026, bg #908890, hi #908890, sh #908890, Plain, NoShape
+Colorset 4  fg #ffffff, bg #671822, hi #671822, sh #671822, Plain, NoShape
+Colorset 5  fg #dfd0d5, bg #15050f, hi, sh, Plain, NoShape
+Colorset 6  fg #dfd0d5, bg #00405f, hi, sh, Plain, NoShape
+Colorset 7  fg #dfd0d5, bg #dfd0d5, hi, sh, Plain, NoShape
+Colorset 8  fg #ffffff, bg #671822, hi, sh, Plain, NoShape
+Colorset 10 fg #dfd0d5, bg #15050f, hi #908890, sh #908890, Plain, NoShape
+Colorset 11 fg #ffffff, bg #671822, hi #dfd0d5, sh #dfd0d5, Plain, NoShape
+Colorset 12 fg #dfd0d5, bg #00405f, hi, sh, Plain, NoShape
+Colorset 13 fg #dfd0d5, bg #00405f, hi, sh, Plain, NoShape
+Colorset 14 fg #908890, bg #282026, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #dfd0d5, bg #15050f, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__DFD0D5.svg:20x20
+AddButtonStyle 4 Pixmap maximize__DFD0D5.svg:20x20
+AddButtonStyle 2 Pixmap close__DFD0D5.svg:20x20
