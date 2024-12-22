@@ -12,7 +12,7 @@ Colorset 10 fg #cfdfd5, bg #111111, hi, sh, Plain, NoShape
 Colorset 11 fg #d0ffe0, bg #00552f, hi #cfdfd5, sh #cfdfd5, Plain, NoShape
 Colorset 12 fg #cfdfd5, bg #4f3f9a, hi, sh, Plain, NoShape
 Colorset 13 fg #cfdfd5, bg #4f3f9a, hi, sh, Plain, NoShape
-Colorset 14 fg #cfdfd5, bg #302a3a, hi #aaaaaa, sh #999999, Plain, NoShape
+Colorset 14 fg #808f80, bg #303230, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #cfdfd5, bg #111111, hi, sh, Plain, Noshape
 
