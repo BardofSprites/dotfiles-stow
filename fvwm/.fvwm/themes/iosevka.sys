@@ -1,6 +1,7 @@
 DefaultFont "xft:Iosevka Comfy:size=14:antialias=True"
 Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True"
 MenuStyle * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True"
+MenuStyle * TitleFont "xft:Iosevka Comfy:Bold:size=14:antialias=True"
 *HorizontalPanel: Font "xft:Iosevka Comfy:Bold:size=14:antialias=True"
 *FvwmIdent: Font "xft:Iosevka Comfy:size=14:antialias=True"
 *LeftPanel: Font "xft:Iosevka Comfy:Bold:size=14:antialias=True"

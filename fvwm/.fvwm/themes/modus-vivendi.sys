@@ -21,3 +21,5 @@ Colorset 16 fg #ffffff, bg #ffffff, hi, sh, Plain, Noshape
 AddButtonStyle 6 Pixmap minimize__FFFFFF.svg:20x20
 AddButtonStyle 4 Pixmap maximize__FFFFFF.svg:20x20
 AddButtonStyle 2 Pixmap close__FFFFFF.svg:20x20
+
+Style * NoTitle

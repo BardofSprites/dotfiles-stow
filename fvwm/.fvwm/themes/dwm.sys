@@ -1,0 +1,24 @@
+#### Dwm-like FVWM Colorsets
+Colorset 0  fg #bbbbbb, bg #222222, hi, sh, Plain, NoShape
+Colorset 1  fg #665c54, bg #222222, hi, sh, Plain, NoShape
+Colorset 2  fg #bbbbbb, bg #222222, hi, sh, Plain, NoShape
+Colorset 3  fg #222222, bg #444444, hi #444444, sh #444444, Plain, NoShape
+Colorset 4  fg #222222, bg #770000, hi #770000, sh #770000, Plain, NoShape
+Colorset 5  fg #bbbbbb, bg #222222, hi, sh, Plain, NoShape
+Colorset 6  fg #eeeeee, bg #005577, hi, sh, Plain, NoShape
+Colorset 7  fg #bbbbbb, bg #bbbbbb, hi, sh, Plain, NoShape
+Colorset 8  fg #eeeeee, bg #005577, hi, sh, Plain, NoShape
+Colorset 10 fg #bbbbbb, bg #222222, hi #665c54, sh #665c54, Plain, NoShape
+Colorset 11 fg #eeeeee, bg #005577, hi #bbbbbb, sh #bbbbbb, Plain, NoShape
+Colorset 12 fg #222222, bg #d4879c, hi, sh, Plain, NoShape
+Colorset 13 fg #222222, bg #665c54, hi, sh, Plain, NoShape
+Colorset 14 fg #665c54, bg #222222, hi #aaaaaa, sh #999999, Plain, NoShape
+# dock buttons
+Colorset 15 fg #bbbbbb, bg #222222, hi, sh, Plain, Noshape
+
+AddButtonStyle 6 Pixmap minimize__E4D3E1.svg:20x20
+AddButtonStyle 4 Pixmap maximize__E4D3E1.svg:20x20
+AddButtonStyle 2 Pixmap close__E4D3E1.svg:20x20
+
+Style * NoTitle
+Read $[themedir]/mono.sys
