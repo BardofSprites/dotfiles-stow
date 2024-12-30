@@ -732,8 +732,26 @@ AddtoFunc F-Resize
 + I WarpToWindow 100 100
 + I Resize
 
-Silent Mouse 3        A     4       F-Resize
-Silent Mouse 1        A     4       F-Move
+DestroyFunc F-MoveMonRight
+AddtoFunc F-MoveMonRight
++ I MoveToScreen $[monitor.1.name]
++ I WarpToWindow 50 50
+
+DestroyFunc F-MoveMonLeft
+AddtoFunc F-MoveMonLeft
++ I MoveToScreen $[monitor.0.name]
++ I WarpToWindow 50 50
+
+Silent Key A          A     4      Raise
+Silent Key S          A     4      Lower
+Silent Mouse 3        A     4      F-Resize
+Silent Mouse 1        A     4      F-Move
+
+# monitor
+Silent Key Left       A     4      MoveToScreen $[monitor.0.name]
+Silent Key Right      A     4      MoveToScreen $[monitor.1.name]
+Silent Key Left       A     4S     F-MoveMonLeft
+Silent Key Right      A     4S     F-MoveMonRight
 
 # deiconify/iconify and rearrange
 Mouse 1 I A DeiconifyAndRearrange
@@ -852,7 +870,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: Action Mouse 0 A ret
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
-*FvwmIconMan: Resolution global
+*FvwmIconMan: Resolution desk
 *FvwmIconMan: Tips needed
 *FvwmIconMan: Sort id
 
