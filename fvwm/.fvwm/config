@@ -364,23 +364,9 @@ MenuStyle * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True"
 # window or using alt-f1 (or menu).
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
-# + "&Programs%Kanban (sign)-24x24.png%" Popup MenuPrograms
-Test (x emacs) + "&Emacs%Shodou-24x24.png%" Exec exec emacsclient -c -a 'emacs'
-Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
-Test (x firefox-bin) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
-Test (x librewolf) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf
-Test (x librewolf-bin) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf-bin
-Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
-+ "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
-+ "" Nop
-+ "&Flatpak%yukata-24x24.png%" Exec exec launch-flatpak
-+ "" Nop
-Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
-Test (x emacs) + "&Calendar%Kanban (sign)-24x24.png%" Exec exec emacsclient -c -e '(bard/open-calendar)'
-Test (x emacs) + "&Email%Kinchaku (drawstring bag)-24x24.png%" Exec exec emacsclient -c -e '(notmuch-hello)'
-Test (x emacs) + "&Music%Shamisen-24x24.png%" Exec exec emacsclient -c -e '(emms)'
-Test (x emacs) + "&RSS%Shichirin (charcoal brazier)-24x24.png%" Exec exec emacsclient -c -e '(elfeed)'
-Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient -c -e '(tmr-tabulated-view)'
+# + "&Programs%Chouchin Shinku-24x24.png%" Popup xdgmenu
++ "&Programs%Chouchin Shinku-24x24.png%" Popup MenuPrograms
++ "&Accessories%Chabitsu (tea box)-24x24.png%" Popup MenuAccessories
 + "" Nop
 + "&Settings%Yagura1 (hot spring tower)-24x24.png%" Popup MenuSettings
 + "Fvwm&Ident%Tourist guidebook-24x24.png%" Module FvwmIdent
@@ -388,7 +374,6 @@ Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient
 + "&Color Themes%Gunsen-24x24.png%" Popup MenuThemes
 + "" Nop
 + "&Power%Futon (bed)-24x24.png%" Popup MenuPower
-+ "&Xscreensaver%Andon (lantern)-24x24.png%" Exec exec xscreensaver-command -lock
 
 # Programs Menu
 #
@@ -397,14 +382,23 @@ Test (x emacs) + "&Timers%Furoisu (bath chair)-24x24.png%" Exec exec emacsclient
 # lines as this is only to help make this menu portable.
 DestroyMenu MenuPrograms
 AddToMenu   MenuPrograms "Programs" Title
-Test (x emacs) + "Emacs" Exec exec emacsclient -c -a 'emacs'
-Test (x firefox) + "Firefox" Exec exec firefox
-Test (x firefox-bin) + "Firefox" Exec exec firefox-bin
-Test (x librewolf) + "Librewolf" Exec exec librewolf
-Test (x librewolf-bin) + "Librewolf" Exec exec librewolf-bin
-Test (x google-chrome) + "Google-Chrome" Exec exec google-chrome
-Test (x gimp) + "Gimp" Exec exec gimp
-Test (x vlc) + "VLC" Exec exec vlc
+Test (x emacs) + "&Emacs%Shodou-24x24.png%" Exec exec emacsclient -c -a 'emacs'
+Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
+Test (x firefox-bin) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
+Test (x librewolf) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf
+Test (x librewolf-bin) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf-bin
+Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
+Test (x st) + "&Terminal%Yunomi (tea cup)-24x24.png%" Exec exec $[infostore.terminal]
+Test (x flatpak) + "&Flatpak%yukata-24x24.png%" Exec exec launch-flatpak
+
+DestroyMenu MenuAccessories
+AddToMenu MenuAccessories "Accessories" Title
+Test (x emacs) + "&Agenda%Kakejiku-24x24.png%" Exec exec emacsclient -c -e '(bard/default-agenda)'
+Test (x emacs) + "&Calendar%Kanban (sign)-24x24.png%" Exec exec emacsclient -c -e '(bard/open-calendar)'
+Test (x emacs) + "&Email%Kinchaku (drawstring bag)-24x24.png%" Exec exec emacsclient -c -e '(notmuch-hello)'
+Test (x emacs) + "&Music%Shamisen-24x24.png%" Exec exec emacsclient -c -e '(emms)'
+Test (x emacs) + "&RSS%Shichirin (charcoal brazier)-24x24.png%" Exec exec emacsclient -c -e '(elfeed)'
+
 
 DestroyMenu MenuWallpaper
 AddToMenu MenuWallpaper "Wallpaper" Title
@@ -445,13 +439,15 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "ef-melissa-dark"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "ef-melissa-light"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "ef-arbutus"
++ "&Gruvbox" ChangeTheme 'gruvbox' 'gruvbox' "gruvbox-dark-medium"
++ "&Dwm" ChangeTheme 'dwm' 'gruvbox' "gruvbox-dark-medium"
 + "" ChangeTheme 'vivendi' 'vivendi' "modus-vivendi"
 
 DestroyMenu MenuPower
-AddToMenu MenuPower
+AddToMenu MenuPower "Power" Title
 + "&Restart" Restart
++ "&Lock" Exec exec slock
 + "&Quit" Module FvwmScript fvwmscript/FvwmScript-ConfirmQuit
-+ "&Poweroff" Module FvwmScript fvwmscript/FvwmScript-ConfirmOff
 
 DestroyMenu MenuSettings
 AddToMenu MenuSettings "Settings" Title
