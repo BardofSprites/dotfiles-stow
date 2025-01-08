@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# A dmenu wrapper script for system functions.
+export WM="dwm"
+case "$(readlink -f /sbin/init)" in
+    *systemd*) ctl='systemctl' ;;
+    *) ctl='loginctl' ;;
+esac
+
+wmpid(){ # This function is needed if there are multiple instances of the window manager.
+    tree="$(pstree -ps $$)"
+    tree="${tree#*$WM(}"
+    echo "${tree%%)*}"
+}
+
+confirm() {
+    case "$(printf "Yes\nNo" | dmenu -i -p 'Confirm: ')" in
+        'Yes') $1 ;;
+        'No') exit 1 ;;
+        *) exit 1 ;;  # Handles invalid inputs.
+    esac
+}
+
+case "$(printf "🔒 lock\n💤 sleep\n🔃 reboot\n🖥️ shutdown" | dmenu -i -p 'Action: ')" in
+    '🔒 lock') slock ;;
+    '💤 sleep') confirm "$ctl suspend" ;;
+    '🔃 reboot') confirm "$ctl reboot" ;;
+    '🖥️ shutdown') confirm "$ctl poweroff" ;;
+    *) exit 1 ;;  # Handles invalid inputs.
+esac
