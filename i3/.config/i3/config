@@ -1,12 +1,9 @@
 set $mod Mod4
-font pango: Iosevka Comfy 14
+font pango: Iosevka Comfy 12
 
 # Including other files
-# include ~/.config/i3/colors
-include ~/.config/i3/autostart
 include ~/.config/i3/keybinds
 include ~/.config/i3/winsettings
-include ~/.config/i3/gaps
 
 exec --no-startup-id dex --autostart --environment i3
 
@@ -48,9 +45,9 @@ for_window [class="^.*"] border pixel 5
 no_focus [window_role="pop-up"]
 
 bar {
-    position top
-    # status_command i3status
-    status_command SCRIPT_DIR=~/.local/bin/scripts/status/ i3blocks
+    position bottom
+    status_command i3status
+    # status_command SCRIPT_DIR=~/.local/bin/scripts/status/ i3blocks
     # colors {
     #     # switch these when switching between dark and light mode
     #     background $bg
