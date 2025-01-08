@@ -1,4 +1,5 @@
-xscreensaver &
+xrandr --dpi 96 &
+xss-lock -- /usr/bin/slock &
 $HOME/.local/bin/scripts/startpage.sh &
 # $HOME/.screenlayout/twomonitors.sh &
 picom --daemon &
