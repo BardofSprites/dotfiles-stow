@@ -5,13 +5,13 @@ Colorset 2  fg #ebdbb2, bg #282828, hi, sh, Plain, NoShape
 Colorset 3  fg #3c3836, bg #a89984, hi #a89984, sh #a89984, Plain, NoShape
 Colorset 4  fg #282828, bg #665c54, hi #665c54, sh #665c54, Plain, NoShape
 Colorset 5  fg #ebdbb2, bg #282828, hi, sh, Plain, NoShape
-Colorset 6  fg #ebdbb2, bg #3f6a50, hi, sh, Plain, NoShape
+Colorset 6  fg #282828, bg #98971a, hi, sh, Plain, NoShape
 Colorset 7  fg #ebdbb2, bg #ebdbb2, hi, sh, Plain, NoShape
 Colorset 8  fg #d5c4a1, bg #665c54, hi, sh, Plain, NoShape
 Colorset 10 fg #ebdbb2, bg #282828, hi #a89984, sh #a89984, Plain, NoShape
 Colorset 11 fg #d5c4a1, bg #665c54, hi #ebdbb2, sh #ebdbb2, Plain, NoShape
-Colorset 12 fg #ebdbb2, bg #3f6a50, hi, sh, Plain, NoShape
-Colorset 13 fg #ebdbb2, bg #3f6a50, hi, sh, Plain, NoShape
+Colorset 12 fg #282828, bg #98971a, hi, sh, Plain, NoShape
+Colorset 13 fg #282828, bg #98971a, hi, sh, Plain, NoShape
 Colorset 14 fg #a89984, bg #3c3836, hi #aaaaaa, sh #999999, Plain, NoShape
 # dock buttons
 Colorset 15 fg #ebdbb2, bg #282828, hi, sh, Plain, Noshape

@@ -439,8 +439,9 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Melissa Dark" ChangeTheme 'ef-melissa-dark' 'melissa-dark' "ef-melissa-dark"
 + "Ef &Melissa Light" ChangeTheme 'ef-melissa-light' 'melissa-light' "ef-melissa-light"
 + "Ef &Arbutus" ChangeTheme 'ef-arbutus' 'arbutus' "ef-arbutus"
-+ "&Gruvbox" ChangeTheme 'gruvbox' 'gruvbox' "gruvbox-dark-medium"
++ "&Gruvbox" ChangeTheme 'gruvbox' 'gruvbox' "doom-gruvbox"
 + "&Dwm" ChangeTheme 'dwm' 'gruvbox' "gruvbox-dark-medium"
++ "&Gruber" ChangeTheme 'gruber' 'gruber' "gruber-darker"
 + "" ChangeTheme 'vivendi' 'vivendi' "modus-vivendi"
 
 DestroyMenu MenuPower

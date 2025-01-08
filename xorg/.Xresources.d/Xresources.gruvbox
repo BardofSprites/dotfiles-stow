@@ -18,15 +18,15 @@
 *.foreground: white
 *.cursorColor: white
 
-dmenu.background: #222222
-dmenu.foreground: #bbbbbb
-dmenu.selbackground: #005577
-dmenu.selforeground: #eeeeee
+dmenu.background: #282828
+dmenu.foreground: #ebdbb2
+dmenu.selbackground: #665c54
+dmenu.selforeground: #ebdbb2
 
-Nsxiv.window.background: #181818
-Nsxiv.window.foreground: #E4E4E4
-Nsxiv.mark.foreground: #E4E4E4
-Nsxiv.bar.background: #2E3436
-Nsxiv.bar.foreground: #E4E4E4
+Nsxiv.window.background: #282828
+Nsxiv.window.foreground: #ebdbb2
+Nsxiv.mark.foreground: #665c54
+Nsxiv.bar.background: #665c54
+Nsxiv.bar.foreground: #ebdbb2
 
-st.alpha: 0.9
+st.alpha: 0.95
