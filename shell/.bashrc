@@ -81,7 +81,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1='\[\e[1m\]\[\e[31m\][\[\e[33m\]\u\[\e[32m\]@\[\e[34m\]\H \[\e[35m\]\w\[\e[31m\]]\[\e[0m\]\[\033[01;35m\] λ\[\033[00m\] '
+PROMPT_COMMAND='PS1X=$(p="${PWD#${HOME}}"; [ "${PWD}" != "${p}" ] && printf "~";IFS=/; for q in ${p:1}; do printf /${q:0:1}; done; printf "${q:1}")'
+GREEN='\[\033[1;32m\]'
+PURPLE='\[\033[1;35m\]'
+RESET='\[\033[0m\]'
+
+export PS1="${GREEN}\${PS1X} ${PURPLE}λ${RESET} "
+
+# export PS1='\[\e[1m\]\[\e[31m\][\[\e[33m\]\u\[\e[32m\]@\[\e[34m\]\H \[\e[35m\]\w\[\e[31m\]]\[\e[0m\]\[\033[01;35m\] λ\[\033[00m\] '
 
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
