@@ -5,7 +5,12 @@ import XMonad.Util.EZConfig
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Spacing
-import XMonad.Layout.Gaps
+import XMonad.Layout.Tabbed
+import XMonad.Layout.SubLayouts
+import XMonad.Layout.BoringWindows
+import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Simplest
 
 import XMonad.Layout.IndependentScreens
 import XMonad.Actions.PhysicalScreens
@@ -71,6 +76,7 @@ myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 myKeys =
   [("M-q", kill)
   -- window management
+  , ("M-z", windows W.swapMaster)
   , ("M-S-<Space>", withFocused $ windows . W.sink)
 
   -- workspaces
