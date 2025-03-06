@@ -23,16 +23,18 @@ import XMonad.Hooks.EwmhDesktops
 
 main :: IO()
 main = do
-  xmproc <- spawnPipe "xmobar"
+  nScreens <- countScreens
+  xmprocs <- mapM (\s -> spawnPipe $ "xmobar -x " ++ show s) [0 .. (nScreens - 1)]
+  xmprocs' <- mapM (\s -> spawnPipe $ "xmobar -x " ++ show s) [0 .. (nScreens - 1)] -- Second set of bars
   xmonad
      . ewmhFullscreen
      . ewmh
-     $ myConfig xmproc
+     $ myConfig (xmprocs ++ xmprocs')
 
 term :: String
 term = "st"
 
--- Gruber Darker Colors (using your provided theme)
+-- Gruber Darker Colors
 fg        = "#e4e4ef"
 bg        = "#181818"
 bg_alt    = "#282828"
@@ -42,23 +44,22 @@ yellow    = "#ffdd33"
 orange    = "#cc8c3c"
 wisteria  = "#9e95c7"
 
-myConfig xmproc = def
+myConfig xmprocs = def
   {
     modMask = mod4Mask
-  , layoutHook = spacingRaw False (Border 15 5 5 5) True (Border 15 5 5 5) True
-           $ myLayout
+  , layoutHook = avoidStruts $ myLayout
   , workspaces = myWorkspaces
-  , logHook = dynamicLogWithPP xmobarPP
-              { ppOutput = hPutStrLn xmproc
-              , ppTitle = xmobarColor green "" . shorten 50
-              , ppLayout = const ""  -- Hide layout name
-              , ppSep = " | "
-              , ppCurrent = xmobarColor orange "" . wrap "[" "]"   -- Focused workspace with brackets
-              , ppVisible = wrap "[" "]"  -- Visible workspaces with brackets
-              , ppHidden = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws  -- Hide workspaces with no windows, except for empty ones (NSP = no space)
-              , ppHiddenNoWindows = \ws -> ""  -- Don't show workspaces with no windows
-              , ppUrgent = xmobarColor "red" "" . wrap "!" "!"  -- Urgent workspaces
-              }
+  , logHook = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
+      { ppOutput = hPutStrLn xmproc
+      , ppTitle = xmobarColor green "" . shorten 50
+      , ppLayout = xmobarColor wisteria ""
+      , ppSep = " | "
+      , ppCurrent = xmobarColor orange "" . wrap "[" "]"
+      , ppVisible = wrap "[" "]"
+      , ppHidden = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
+      , ppHiddenNoWindows = \ws -> ""
+      , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
+      }) xmprocs
   , borderWidth = 3
   , focusedBorderColor = orange  -- Focused window border color
   , normalBorderColor = bg_alt  -- Unfocused window border color
@@ -114,10 +115,10 @@ myKeys =
   -- mouse bindings
   ]
 
-myLayout = tiled ||| Mirror tiled ||| Full ||| threeCol
+myLayout = tiled ||| Mirror tiled ||| Full ||| tabbedBottom
   where
-    threeCol = magnifiercz' 1.3 $ ThreeColMid nmaster delta ratio
     tiled    = Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
+    tabbedBottom = tabbed shrinkText def
