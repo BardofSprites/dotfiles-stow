@@ -99,6 +99,9 @@ myKeys =
   , ("M-<Return>", spawn term)
   , ("M-d", spawn "dmenu_run")
   , ("M-S-x", spawn "sysact")
+  , ("M-p", spawn "st -e alsamixer")
+  , ("M-S-m", spawn "wallpaper.sh")
+  , ("<Print>", spawn "maimpick")
 
   -- media keys
   , ("<XF86AudioPlay>", spawn "playerctl play")
