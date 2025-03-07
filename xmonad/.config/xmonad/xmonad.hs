@@ -12,7 +12,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Simplest
 
--- window swallowind
+-- window swallowing
 import XMonad.Hooks.WindowSwallowing
 
 import XMonad.Layout.IndependentScreens
@@ -57,18 +57,8 @@ myConfig xmprocs = def
     modMask = mod4Mask
   , layoutHook = avoidStruts $ myLayout
   , workspaces = myWorkspaces
-  , handleEventHook = swallowEventHook (className =? "St") (return True) -- Swallow terminal windows
-  , logHook = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
-      { ppOutput = hPutStrLn xmproc
-      , ppTitle = xmobarColor green "" . shorten 50
-      , ppLayout = xmobarColor wisteria ""
-      , ppSep = " | "
-      , ppCurrent = xmobarColor orange "" . wrap "[" "]"
-      , ppVisible = wrap "[" "]"
-      , ppHidden = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
-      , ppHiddenNoWindows = \ws -> ""
-      , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
-      }) xmprocs
+  , handleEventHook = swallowEventHook (className =? "St") (className =? "mpv" <||> className =? "Zathura")
+  , logHook = myLogHook xmprocs
   , borderWidth = 3
   , focusedBorderColor = orange  -- Focused window border color
   , normalBorderColor = bg_alt  -- Unfocused window border color
@@ -135,3 +125,15 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| tabbedBottom
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
     tabbedBottom = tabbed shrinkText def
+
+myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
+    { ppOutput = hPutStrLn xmproc
+    , ppTitle = xmobarColor green "" . shorten 50
+    , ppLayout = xmobarColor wisteria ""
+    , ppSep = " | "
+    , ppCurrent = xmobarColor orange "" . wrap "[" "]"
+    , ppVisible = wrap "[" "]"
+    , ppHidden = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
+    , ppHiddenNoWindows = \ws -> ""
+    , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
+    }) xmprocs
