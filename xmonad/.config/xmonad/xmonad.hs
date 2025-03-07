@@ -12,6 +12,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Simplest
 
+-- window swallowind
+import XMonad.Hooks.WindowSwallowing
+
 import XMonad.Layout.IndependentScreens
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.CycleWS
@@ -54,6 +57,7 @@ myConfig xmprocs = def
     modMask = mod4Mask
   , layoutHook = avoidStruts $ myLayout
   , workspaces = myWorkspaces
+  , handleEventHook = swallowEventHook (className =? "St") (return True) -- Swallow terminal windows
   , logHook = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
       { ppOutput = hPutStrLn xmproc
       , ppTitle = xmobarColor green "" . shorten 50
