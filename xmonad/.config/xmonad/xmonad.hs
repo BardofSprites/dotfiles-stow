@@ -74,6 +74,7 @@ myKeys =
   , ("M-S-<Space>", withFocused $ windows . W.sink)
 
   -- workspaces
+  -- viewing
   , ("M-1", windows $ W.view (myWorkspaces !! 0))
   , ("M-2", windows $ W.view (myWorkspaces !! 1))
   , ("M-3", windows $ W.view (myWorkspaces !! 2))
@@ -84,6 +85,19 @@ myKeys =
   , ("M-8", windows $ W.view (myWorkspaces !! 7))
   , ("M-9", windows $ W.view (myWorkspaces !! 8))
   , ("M-0", windows $ W.view (myWorkspaces !! 9))
+
+  -- moving
+  , ("M-S-1", windows $ W.shift (myWorkspaces !! 0))
+  , ("M-S-2", windows $ W.shift (myWorkspaces !! 1))
+  , ("M-S-3", windows $ W.shift (myWorkspaces !! 2))
+  , ("M-S-4", windows $ W.shift (myWorkspaces !! 3))
+  , ("M-S-5", windows $ W.shift (myWorkspaces !! 4))
+  , ("M-S-6", windows $ W.shift (myWorkspaces !! 5))
+  , ("M-S-7", windows $ W.shift (myWorkspaces !! 6))
+  , ("M-S-8", windows $ W.shift (myWorkspaces !! 7))
+  , ("M-S-9", windows $ W.shift (myWorkspaces !! 8))
+  , ("M-S-0", windows $ W.shift (myWorkspaces !! 9))
+
 
   -- system programs
   , ("M-<Return>", spawn term)
