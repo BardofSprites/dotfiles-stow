@@ -101,6 +101,9 @@ myKeys =
   , ("M-S-9", windows $ W.shift (myWorkspaces !! 8))
   , ("M-S-0", windows $ W.shift (myWorkspaces !! 9))
 
+  -- monitors
+  , ("M-S-l", nextScreen)
+  , ("M-S-h", prevScreen)
 
   -- system programs
   , ("M-<Return>", spawn term)
@@ -135,13 +138,6 @@ myKeys =
   -- mouse bindings
   ]
 
-myLayout = tiled ||| Mirror tiled ||| tabbedBottom
-  where
-    tiled    = Tall nmaster delta ratio
-    nmaster  = 1      -- Default number of windows in the master pane
-    ratio    = 1/2    -- Default proportion of screen occupied by master pane
-    delta    = 3/100  -- Percent of screen to increment by when resizing panes
-    tabbedBottom = tabbed shrinkText myTabConfig
 
 myTabConfig = def { activeColor = bg_alt
                   , inactiveColor = bg
@@ -152,9 +148,17 @@ myTabConfig = def { activeColor = bg_alt
                   , activeTextColor = orange
                   , inactiveTextColor = quartz
                   , urgentTextColor = fg
-                  , fontName = "xft:Iosevka Comfy:size=13"
                   , decoHeight = 25
+                  , fontName = "xft:Iosevka Comfy:size=13"
                   }
+
+myLayout = tiled ||| Mirror tiled ||| Full ||| tabbedBottom
+  where
+    tiled    = Tall nmaster delta ratio
+    nmaster  = 1      -- Default number of windows in the master pane
+    ratio    = 1/2    -- Default proportion of screen occupied by master pane
+    delta    = 3/100  -- Percent of screen to increment by when resizing panes
+    tabbedBottom = tabbed shrinkText myTabConfig
 
 myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
     { ppOutput = hPutStrLn xmproc
