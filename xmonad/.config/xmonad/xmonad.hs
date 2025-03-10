@@ -35,9 +35,10 @@ main = do
   xmprocs <- mapM (\s -> spawnPipe $ "xmobar -x " ++ show s) [0 .. (nScreens - 1)]
   xmprocs' <- mapM (\s -> spawnPipe $ "xmobar -x " ++ show s) [0 .. (nScreens - 1)] -- Second set of bars
   xmonad
-     . ewmhFullscreen
-     . ewmh
-     $ myConfig (xmprocs ++ xmprocs')
+    . docks
+    . ewmhFullscreen
+    . ewmh
+    $ myConfig (xmprocs ++ xmprocs')
 
 term :: String
 term = "st"
@@ -51,6 +52,7 @@ green     = "#73c936"
 yellow    = "#ffdd33"
 orange    = "#cc8c3c"
 wisteria  = "#9e95c7"
+quartz    = "#95a99f"
 
 myConfig xmprocs = def
   {
@@ -59,6 +61,7 @@ myConfig xmprocs = def
   , workspaces = myWorkspaces
   , handleEventHook = swallowEventHook (className =? "St") (className =? "mpv" <||> className =? "Zathura")
   , logHook = myLogHook xmprocs
+  , manageHook = manageDocks <+> manageHook def
   , borderWidth = 3
   , focusedBorderColor = orange  -- Focused window border color
   , normalBorderColor = bg_alt  -- Unfocused window border color
@@ -132,13 +135,26 @@ myKeys =
   -- mouse bindings
   ]
 
-myLayout = tiled ||| Mirror tiled ||| Full ||| tabbedBottom
+myLayout = tiled ||| Mirror tiled ||| tabbedBottom
   where
     tiled    = Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
     ratio    = 1/2    -- Default proportion of screen occupied by master pane
     delta    = 3/100  -- Percent of screen to increment by when resizing panes
-    tabbedBottom = tabbed shrinkText def
+    tabbedBottom = tabbed shrinkText myTabConfig
+
+myTabConfig = def { activeColor = bg_alt
+                  , inactiveColor = bg
+                  , urgentColor = red
+                  , activeBorderColor = orange
+                  , inactiveBorderColor = bg_alt
+                  , urgentBorderColor = red
+                  , activeTextColor = orange
+                  , inactiveTextColor = quartz
+                  , urgentTextColor = fg
+                  , fontName = "xft:Iosevka Comfy:size=13"
+                  , decoHeight = 25
+                  }
 
 myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
     { ppOutput = hPutStrLn xmproc
