@@ -63,5 +63,5 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 if [ -n "$failsafe" ]; then
-  exec fvwm3
+  exec dbus-run-session xmonad
 fi
