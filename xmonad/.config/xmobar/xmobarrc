@@ -2,15 +2,13 @@ Config {
   bgColor       = "#181818"
   , fgColor     = "#e4e4e4"
   , border      = BottomB
-  , borderColor = "#181818"
+  , borderColor = "#95a99f"
   , font        = "xft:Iosevka Comfy-13"
   , position    = TopH 22
   , commands = [
       -- Network activity monitor (dynamic interface resolution)
-      Run DynNetwork [] 10 -- network traffic
-    , Run Volume "default" "Master" [] 10
-    , Run Date "%Y-%m-%d (%a) %H:%M" "mydate" 10
+    Run Date "%Y-%m-%d (%a) %H:%M" "mydate" 10
     , Run StdinReader -- text coming from xmonad
     ]
-  , template = "%StdinReader% }{ %dynnetwork% | %default:Master% | %mydate% "
+  , template = "%StdinReader% }{ %mydate% "
 }
