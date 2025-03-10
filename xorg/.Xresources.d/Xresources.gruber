@@ -17,16 +17,16 @@
 *.color14: #fcaf3e
 *.color15: #EEEEEC
 
-dmenu.background: #222222
-dmenu.foreground: #bbbbbb
-dmenu.selbackground: #005577
-dmenu.selforeground: #eeeeee
+Nsxiv.window.background: #181818
+Nsxiv.window.foreground: #e4e4e4
+Nsxiv.mark.foreground: #cc8c3c
+Nsxiv.bar.background: #282828
+Nsxiv.bar.foreground: #e4e4e4
 
-Nsxiv.window.background: #222222
-Nsxiv.window.foreground: #bbbbbb
-Nsxiv.mark.foreground: #eeeeee
-Nsxiv.bar.background: #005577
-Nsxiv.bar.foreground: #eeeeee
+dmenu.background: #181818
+dmenu.foreground: #e4e4e4
+dmenu.selforeground: #181818
+dmenu.selbackground: #96a6c8
 
 st.alpha: 1.0
 *.cursor: #FFFFFF
