@@ -152,7 +152,7 @@ myTabConfig = def { activeColor = bg_alt
                   , fontName = "xft:Iosevka Comfy:size=13"
                   }
 
-myLayout = tiled ||| Mirror tiled ||| Full ||| tabbedBottom
+myLayout = tiled ||| Mirror tiled ||| tabbedBottom
   where
     tiled    = Tall nmaster delta ratio
     nmaster  = 1      -- Default number of windows in the master pane
