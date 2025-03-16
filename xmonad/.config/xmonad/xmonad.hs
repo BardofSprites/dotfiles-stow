@@ -4,10 +4,7 @@ import XMonad.Util.EZConfig
 -- window layout
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
-import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
-import XMonad.Layout.SubLayouts
-import XMonad.Layout.BoringWindows
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Simplest
@@ -61,7 +58,8 @@ myConfig xmprocs = def
   , workspaces = myWorkspaces
   , handleEventHook = swallowEventHook (className =? "St") (className =? "mpv" <||> className =? "Zathura")
   , logHook = myLogHook xmprocs
-  , manageHook = manageDocks <+> manageHook def
+  , startupHook = spawn "conky -c ~/.config/conky/conky.conf"
+  , manageHook = myManageHook
   , borderWidth = 3
   , focusedBorderColor = orange  -- Focused window border color
   , normalBorderColor = bg_alt  -- Unfocused window border color
@@ -128,6 +126,10 @@ myKeys =
   , ("<XF86AudioLowerVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
   , ("<XF86AudioMute>", spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
 
+  -- brightness
+  , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
+  , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+
   -- main programs
   -- , ("M-w", spawn "librewolf-bin")
   , ("M-S-w", spawn "firefox")
@@ -176,3 +178,8 @@ myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
     , ppHiddenNoWindows = \ws -> ""
     , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
     }) xmprocs
+
+myManageHook = composeAll
+  [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
+  , manageDocks  -- Ensure docks (like xmobar) are managed correctly
+  ] <+> manageHook def

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-emacsclient -e "$(cat show-agenda.el)"
-cat ~/.agenda
+emacsclient -e "(bard/export-agenda-to-file)"
+cat ~/.cache/agenda
