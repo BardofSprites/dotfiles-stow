@@ -101,9 +101,14 @@ myKeys =
   , ("M-S-9", windows $ W.shift (myWorkspaces !! 8))
   , ("M-S-0", windows $ W.shift (myWorkspaces !! 9))
 
+  -- shifting
+  , ("M-`", toggleWS)
+
   -- monitors
   , ("M-S-l", nextScreen)
   , ("M-S-h", prevScreen)
+  , ("M-C-h", shiftPrevScreen)
+  , ("M-C-l", shiftNextScreen)
 
   -- system programs
   , ("M-<Return>", spawn term)
