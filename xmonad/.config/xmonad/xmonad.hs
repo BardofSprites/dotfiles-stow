@@ -87,6 +87,9 @@ myKeys =
   , ("M-9", windows $ W.view (myWorkspaces !! 8))
   , ("M-0", windows $ W.view (myWorkspaces !! 9))
 
+  -- greedy view
+  , ("M-o", swapNextScreen)
+
   -- moving
   , ("M-S-1", windows $ W.shift (myWorkspaces !! 0))
   , ("M-S-2", windows $ W.shift (myWorkspaces !! 1))
