@@ -1,0 +1,54 @@
+#!/usr/bin/bash
+
+themes=("Gruber Darker" "Modus Vivendi")
+
+selected_theme=$(printf "%s\n" "${themes[@]}" | dmenu -p "Select a theme:")
+
+# Exit if no theme is selected
+if [ -z "$selected_theme" ]; then
+    exit 1
+fi
+
+apply_emacs_theme() {
+    emacsclient -e "(bard/select-theme '$1)"
+}
+
+apply_generic_theme() {
+    case $selected_theme in
+        "Gruber Darker")
+            BG_COLOR="#181818"
+            FG_COLOR="#e4e4e4"
+            BORDER_COLOR="#cc8c3c"
+            XMONAD_MODULE="GruberDarker"
+            apply_emacs_theme "gruber-darker"
+            xrdb -merge ~/.Xresources.d/Xresources.gruber
+            ;;
+        "Modus Vivendi")
+            BG_COLOR="#000000"
+            FG_COLOR="#ffffff"
+            BORDER_COLOR="#989898"
+            XMONAD_MODULE="Modus.Vivendi"
+            apply_emacs_theme "modus-vivendi"
+            xrdb -merge ~/.Xresources.d/Xresources.vivendi
+            ;;
+            *)
+            BG_COLOR="#181818"
+            FG_COLOR="#e4e4e4"
+            BORDER_COLOR="#95a99f"
+            ;;
+    esac
+
+    # Update xmonad theme library
+    sed -i "s/^import Colors\..*/import Colors.$XMONAD_MODULE/" ~/.config/xmonad/xmonad.hs
+
+    # Update xmobar config file
+    sed -i "s/bgColor = .*/bgColor = \"$BG_COLOR\"/" ~/.config/xmobar/xmobarrc
+    sed -i "s/fgColor = .*/fgColor = \"$FG_COLOR\"/" ~/.config/xmobar/xmobarrc
+    sed -i "s/borderColor = .*/borderColor = \"$BORDER_COLOR\"/" ~/.config/xmobar/xmobarrc
+}
+
+apply_generic_theme
+
+# Recompile and restart xmonad
+xmonad --recompile
+xmonad --restart

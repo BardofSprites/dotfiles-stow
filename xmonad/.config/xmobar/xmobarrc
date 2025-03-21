@@ -1,8 +1,8 @@
 Config {
-  bgColor       = "#181818"
-  , fgColor     = "#e4e4e4"
+  bgColor = "#181818"
+  , fgColor = "#e4e4e4"
   , border      = BottomB
-  , borderColor = "#95a99f"
+  , borderColor = "#cc8c3c"
   , font        = "xft:Iosevka Comfy-13"
   , position    = TopH 22
   , commands = [

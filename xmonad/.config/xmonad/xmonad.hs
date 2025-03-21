@@ -40,17 +40,6 @@ main = do
 term :: String
 term = "st"
 
--- Gruber Darker Colors
-fg        = "#e4e4ef"
-bg        = "#181818"
-bg_alt    = "#282828"
-red       = "#f43841"
-green     = "#73c936"
-yellow    = "#ffdd33"
-orange    = "#cc8c3c"
-wisteria  = "#9e95c7"
-quartz    = "#95a99f"
-
 myConfig xmprocs = def
   {
     modMask = mod4Mask
@@ -61,8 +50,8 @@ myConfig xmprocs = def
   , startupHook = spawn "conky -c ~/.config/conky/conky.conf"
   , manageHook = myManageHook
   , borderWidth = 3
-  , focusedBorderColor = orange  -- Focused window border color
-  , normalBorderColor = bg_alt  -- Unfocused window border color
+  , focusedBorderColor = active_border  -- Focused window border color
+  , normalBorderColor = inactive_border  -- Unfocused window border color
   }
   `additionalKeysP` myKeys
 
@@ -149,14 +138,14 @@ myKeys =
   ]
 
 
-myTabConfig = def { activeColor = bg_alt
+myTabConfig = def { activeColor = bg_active
                   , inactiveColor = bg
                   , urgentColor = red
-                  , activeBorderColor = orange
-                  , inactiveBorderColor = bg_alt
+                  , activeBorderColor = active_border
+                  , inactiveBorderColor = inactive_border
                   , urgentBorderColor = red
-                  , activeTextColor = orange
-                  , inactiveTextColor = quartz
+                  , activeTextColor = tab_fg
+                  , inactiveTextColor = inactive_fg
                   , urgentTextColor = fg
                   , decoHeight = 25
                   , fontName = "xft:Iosevka Comfy:size=13"
@@ -173,9 +162,9 @@ myLayout = tiled ||| Mirror tiled ||| tabbedBottom
 myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
     { ppOutput = hPutStrLn xmproc
     , ppTitle = xmobarColor green "" . shorten 50
-    , ppLayout = xmobarColor wisteria ""
+    , ppLayout = xmobarColor purple ""
     , ppSep = " | "
-    , ppCurrent = xmobarColor orange "" . wrap "[" "]"
+    , ppCurrent = xmobarColor active_fg "" . wrap "[" "]"
     , ppVisible = wrap "[" "]"
     , ppHidden = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
     , ppHiddenNoWindows = \ws -> ""
