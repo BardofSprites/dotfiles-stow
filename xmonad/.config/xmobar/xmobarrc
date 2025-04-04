@@ -21,7 +21,13 @@ Config {
                              , "--high"     , "#ff4f58"
                              ] 10
     , Run ThermalZone 0 ["-t"," : <temp>C"] 30
-    , Run MultiCpu ["-H","95","--high","red","-t","[<autovbar>]","--","--contiguous-icons"] 10
+    , Run MultiCpu       [ "--template" , "󰍛 : <total0>%|<total1>%"
+                             , "--Low"      , "50"         -- units: %
+                             , "--High"     , "85"         -- units: %
+                             , "--low"      , "#73c936"
+                             , "--normal"   , "#ce5c00"
+                             , "--high"     , "#ff4f58"
+                             ] 10
     ]
-  , template = " %StdinReader% }{ <fc=#ffdd33>%weather%</fc> | <fc=#73c936> : %mail% unread</fc> | <fc=#96a6c8>%music%</fc> | 󰍛 : %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
+  , template = " %StdinReader% }{ <fc=#ffdd33>%weather%</fc> | <fc=#73c936> : %mail% unread</fc> | <fc=#96a6c8>%music%</fc> | %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
 }
