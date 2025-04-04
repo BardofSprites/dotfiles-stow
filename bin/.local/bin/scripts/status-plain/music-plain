@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# Music module script for dwmblocks
+
+truncate() {
+    echo "$1" | cut -c1-15
+}
+
+# Handle mouse events based on button clicks
+case $BLOCK_BUTTON in
+    1)  # Left click to pause/play
+        playerctl play-pause
+        pkill -RTMIN+10 "${STATUSBAR:-dwmblocks}" ;;
+    2)  # Middle click to open the music player
+        # Replace `your-music-player` with your actual music player command
+        emacs-launcher "music" & ;;
+    3)  # Right click to show notification
+        notify-send "🎵 Music Module
+- Left click to play/pause.
+- Middle click to open music player.
+- Right click to show current track." ;;
+    4)  # Scroll up to go back
+        playerctl previous
+        pkill -RTMIN+10 "${STATUSBAR:-dwmblocks}" ;;
+    5)  # Scroll down to skip
+        playerctl next
+        pkill -RTMIN+10 "${STATUSBAR:-dwmblocks}" ;;
+esac
+
+# Get current track info
+artist="$(playerctl metadata artist 2>/dev/null || echo "none")"
+title="$(playerctl metadata title 2>/dev/null || echo "none")"
+
+# Truncate artist and title to 15 characters
+truncated_artist=$(truncate "$artist")
+truncated_title=$(truncate "$title")
+
+# Format the output as "artist - title"
+current_track="$truncated_artist - $truncated_title"
+
+playerstatus=$(playerctl status)
+
+case "$playerstatus" in
+    "Playing") icon="󰝚" ;;
+    "Paused") icon="" ;;
+    "Stopped") icon="" ;;
+    "*") icon="" ;;
+esac
+
+# Print the current track
+echo "$icon $current_track"

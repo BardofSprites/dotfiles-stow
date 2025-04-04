@@ -2,13 +2,26 @@ Config {
   bgColor = "#181818"
   , fgColor = "#e4e4e4"
   , border      = BottomB
-  , borderColor = "#cc8c3c"
-  , font        = "xft:Iosevka Comfy-13"
+  , font        = "xft:Iosevka Comfy-12"
+  , additionalFonts = ["Noto Color Emoji-12", "Iosevka Nerd Font"]
   , position    = TopH 22
   , commands = [
       -- Network activity monitor (dynamic interface resolution)
-    Run Date "%Y-%m-%d (%a) %H:%M" "mydate" 10
+    Run Date "%Y-%m-%d (%a) %H:%M:%S" "mydate" 10
+    -- Run Com "<terminal app/script>" [<app arguments>] <template identifier> <refreshrate>
+    , Run Com "notmuch" ["count"] "mail" 600
+    , Run Com "music-plain" [] "music" 50
+    , Run Com "weather-plain" [] "weather" 100
     , Run StdinReader -- text coming from xmonad
+    , Run DynNetwork [ "--template" , " :  <tx>kB/s  <rx>kB/s"
+                             , "--Low"      , "1000"       -- units: B/s
+                             , "--High"     , "5000"       -- units: B/s
+                             , "--low"      , "#73c936"
+                             , "--normal"   , "#ce5c00"
+                             , "--high"     , "#ff4f58"
+                             ] 10
+    , Run ThermalZone 0 ["-t"," : <temp>C"] 30
+    , Run MultiCpu ["-H","95","--high","red","-t","[<autovbar>]","--","--contiguous-icons"] 10
     ]
-  , template = "%StdinReader% }{ %mydate% "
+  , template = " %StdinReader% }{ <fc=#ffdd33>%weather%</fc> | <fc=#73c936> : %mail% unread</fc> | <fc=#96a6c8>%music%</fc> | 󰍛 : %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
 }

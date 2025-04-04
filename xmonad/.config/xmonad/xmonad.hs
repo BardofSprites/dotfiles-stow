@@ -30,12 +30,11 @@ main :: IO()
 main = do
   nScreens <- countScreens
   xmprocs <- mapM (\s -> spawnPipe $ "xmobar -x " ++ show s) [0 .. (nScreens - 1)]
-  xmprocs' <- mapM (\s -> spawnPipe $ "xmobar -x " ++ show s) [0 .. (nScreens - 1)] -- Second set of bars
   xmonad
     . docks
     . ewmhFullscreen
     . ewmh
-    $ myConfig (xmprocs ++ xmprocs')
+    $ myConfig xmprocs
 
 term :: String
 term = "st"
@@ -104,6 +103,7 @@ myKeys =
   , ("M-<Return>", spawn term)
   , ("M-d", spawn "dmenu_run")
   , ("M-S-x", spawn "sysact")
+  , ("M-S-z", spawn "boomer")
   , ("M-p", spawn "st -e alsamixer")
   , ("M-S-m", spawn "wallpaper.sh")
   , ("<Print>", spawn "maimpick")
