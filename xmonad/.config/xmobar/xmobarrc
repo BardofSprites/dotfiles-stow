@@ -10,7 +10,7 @@ Config {
     Run Date "%Y-%m-%d (%a) %H:%M:%S" "mydate" 10
     -- Run Com "<terminal app/script>" [<app arguments>] <template identifier> <refreshrate>
     , Run Com "notmuch" ["count", "tag:unread"] "unread-mail" 100
-    , Run Com "notmuch" ["count", "tag:unread"] "inbox-mail" 100
+    , Run Com "notmuch" ["count", "tag:inbox"] "inbox-mail" 100
     , Run Com "music-plain" [] "music" 50
     , Run Com "weather-plain" [] "weather" 100
     , Run StdinReader -- text coming from xmonad
