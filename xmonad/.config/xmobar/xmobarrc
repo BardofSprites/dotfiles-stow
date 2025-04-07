@@ -9,7 +9,8 @@ Config {
       -- Network activity monitor (dynamic interface resolution)
     Run Date "%Y-%m-%d (%a) %H:%M:%S" "mydate" 10
     -- Run Com "<terminal app/script>" [<app arguments>] <template identifier> <refreshrate>
-    , Run Com "notmuch" ["count"] "mail" 600
+    , Run Com "notmuch" ["count", "tag:unread"] "unread-mail" 100
+    , Run Com "notmuch" ["count", "tag:unread"] "inbox-mail" 100
     , Run Com "music-plain" [] "music" 50
     , Run Com "weather-plain" [] "weather" 100
     , Run StdinReader -- text coming from xmonad
@@ -29,5 +30,5 @@ Config {
                              , "--high"     , "#ff4f58"
                              ] 10
     ]
-  , template = " %StdinReader% }{ <fc=#ffdd33>%weather%</fc> | <fc=#73c936> : %mail% unread</fc> | <fc=#96a6c8>%music%</fc> | %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
+  , template = " %StdinReader% }{ <fc=#ffdd33>%weather%</fc> | <fc=#73c936> : </fc><fc=#729FCF>[U]</fc> %unread-mail% <fc=#95a99f>[I]</fc> %inbox-mail% | <fc=#96a6c8>%music%</fc> | %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
 }
