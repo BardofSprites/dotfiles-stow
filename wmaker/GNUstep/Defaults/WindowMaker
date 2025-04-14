@@ -1,0 +1,114 @@
+{
+  FTitleColor = "#d6d6d6";
+  FrameBorderColor = "#000000";
+  MenuDisabledColor = "#686868";
+  Superfluous = NO;
+  IconTitleBack = "#374a46";
+  PixmapPath = (
+    "/home/bard/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/bard/GNUstep/Library/WindowMaker/Backgrounds",
+    "/home/bard/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/usr/share/WindowMaker/Pixmaps",
+    "/usr/share/WindowMaker/Backgrounds",
+    "/usr/share/pixmaps"
+  );
+  HotCornerEdge = 2;
+  FTitleBack = (
+    spixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/focused.png",
+    "#545454"
+  );
+  ClipTitleFont = "lucidux sans:pixelsize=10";
+  IconTitleFont = "lucidux sans:pixelsize=10";
+  MenuTextBack = (
+    spixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/menu2.png",
+    "#344541"
+  );
+  LargeDisplayFont = "lucida-24:bold";
+  ResizeCursor = (
+    bitmap,
+    "/usr/share/WindowMaker/Themes/Motion.themed/dot_resize.xbm",
+    "/usr/share/WindowMaker/Themes/Motion.themed/dot_resize_mask.xbm"
+  );
+  HotCornerDelay = 250;
+  CenterKey = None;
+  TitleJustify = Right;
+  IconTitleColor = "#e2d8cb";
+  MenuTextColor = "#c7c7c7";
+  IconBack = (
+    spixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/tile.png",
+    "#404040"
+  );
+  MenuTitleColor = "#d6d6d6";
+  AntialiasedText = YES;
+  MenuTitleFont = "lucidux sans:pixelsize=13";
+  HotCorners = NO;
+  WindowTitleExtendSpace = "-1";
+  MoveTo6to12Head = None;
+  DbClickFullScreen = NO;
+  MenuTextFont = "lucidux sans:pixelsize=12";
+  WorkspaceBack = (
+    spixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/continuum.jpg",
+    "#404040"
+  );
+  HighlightTextColor = "#020202";
+  MenuTitleBack = (
+    spixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/menubar.png",
+    "#7a7a7a"
+  );
+  EnforceIconMargin = NO;
+  ClipTitleColor = "#bfbfbf";
+  MoveTo12to6Head = None;
+  HotCornerActions = (None, None, None, None);
+  WaitCursor = (
+    bitmap,
+    "/usr/share/WindowMaker/Themes/Motion.themed/dot_wait.xbm",
+    "/usr/share/WindowMaker/Themes/Motion.themed/dot_wait_mask.xbm"
+  );
+  HighlightColor = "#465c58";
+  FrameFocusedBorderColor = "#000000";
+  WindowTitleFont = "lucidux sans:pixelsize=12";
+  CClipTitleColor = gray90;
+  MoveCursor = (
+    bitmap,
+    "/usr/share/WindowMaker/Themes/Motion.themed/dot_move.xbm",
+    "/usr/share/WindowMaker/Themes/Motion.themed/dot_move_mask.xbm"
+  );
+  ResizebarBack = (
+    tpixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/unfocused.png",
+    "#545454"
+  );
+  MenuStyle = Flat;
+  IconPath = (
+    "/home/bard/GNUstep/Library/Icons",
+    "/home/bard/GNUstep/Library/WindowMaker/Pixmaps",
+    "/home/bard/GNUstep/Library/WindowMaker/CachedPixmaps",
+    "~/pixmaps",
+    "/usr/share/WindowMaker/Icons",
+    "/usr/share/WindowMaker/Pixmaps",
+    "/usr/share/pixmaps"
+  );
+  DisplayFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  PTitleBack = (
+    tpixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/unfocused.png",
+    "#4f4f4f"
+  );
+  MenuTextExtendSpace = "-1";
+  UTitleColor = "#898989";
+  UTitleBack = (
+    tpixmap,
+    "~/GNUstep/Library/WindowMaker/Themes/continuum.themed/unfocused.png",
+    "#545454"
+  );
+  PTitleColor = "#8a8a8a";
+  CloseRootMenuByLeftOrRightMouseClick = NO;
+  MenuTitleExtendSpace = "-1";
+  FrameSelectedBorderColor = "#fefefe";
+}

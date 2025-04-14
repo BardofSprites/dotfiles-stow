@@ -1,0 +1,151 @@
+{
+  Dock = {
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock -exe \"emacs-launcher 'agenda'\" %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,-1";
+        Lock = No;
+        PasteCommand = "wmclock -exe \"emacs-launcher 'agenda'\" %s";
+        Command = "wmclock -exe \"emacs-launcher 'agenda'\"";
+      },
+      {
+        Forced = No;
+        Name = emacs.Emacs;
+        DropCommand = "emacs %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,-3";
+        Lock = Yes;
+        PasteCommand = "emacs %s";
+        Command = emacs;
+      }
+    );
+    Applications1080 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = No;
+        Command = "-";
+      },
+      {
+        Forced = No;
+        Name = wmclock.WMClock;
+        DropCommand = "wmclock -exe \"emacs-launcher 'agenda'\" %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,-1";
+        Lock = No;
+        PasteCommand = "wmclock -exe \"emacs-launcher 'agenda'\" %s";
+        Command = "wmclock -exe \"emacs-launcher 'agenda'\"";
+      },
+      {
+        Forced = No;
+        Name = emacs.Emacs;
+        DropCommand = "emacs %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,-3";
+        Lock = Yes;
+        PasteCommand = "emacs %s";
+        Command = emacs;
+      }
+    );
+    Lowered = Yes;
+    Position = "0,1016";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Position = "0,0";
+    Lock = No;
+    Command = "-";
+  };
+  Drawers = (
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = (
+          {
+            Forced = No;
+            Name = firefox.Firefox;
+            DropCommand = "firefox %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "2,0";
+            Lock = No;
+            PasteCommand = "firefox %s";
+            Command = firefox;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = LibreWolf.LibreWolf;
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "1,0";
+            Lock = No;
+            Command = "librewolf-bin %s";
+            Omnipresent = No;
+          }
+        );
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer0;
+      Position = "0,888";
+    },
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = ();
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer1;
+      Position = "0,760";
+    }
+  );
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "Workspace 1";
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "Workspace 2";
+    }
+  );
+}

@@ -1,0 +1,11 @@
+{
+  firefox.Firefox = {
+    Icon = firefox.Firefox.xpm;
+  };
+  emacs.Emacs = {
+    Icon = "retro-emacs-logo.xpm";
+  };
+  LibreWolf.LibreWolf = {
+    Icon = LibreWolf.LibreWolf.xpm;
+  };
+}

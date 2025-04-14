@@ -1,0 +1,4 @@
+{
+  BoldSystemFont = "UnifontExMono:slant=0:weight=100:width=100:pixelsize=14";
+  SystemFont = "UnifontExMono:slant=0:weight=100:width=100:pixelsize=14";
+}
