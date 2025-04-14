@@ -44,7 +44,7 @@ myConfig xmprocs = def
     modMask = mod4Mask
   , layoutHook = avoidStruts $ myLayout
   , workspaces = myWorkspaces
-  , handleEventHook = swallowEventHook (className =? "St") (className =? "mpv" <||> className =? "Zathura")
+  , handleEventHook = swallowEventHook (className =? "St" <||> className =? "st") (return True)
   , logHook = myLogHook xmprocs
   , startupHook = spawn "conky -c ~/.config/conky/conky.conf"
   , manageHook = myManageHook
