@@ -8,8 +8,8 @@ Colorset 5  fg #e4e4e4, bg #181818, hi, sh, Plain, NoShape
 Colorset 6  fg #e4e4e4, bg #565f73, hi, sh, Plain, NoShape
 Colorset 7  fg #e4e4e4, bg #e4e4e4, hi, sh, Plain, NoShape
 Colorset 8  fg #e4e4e4, bg #282828, hi, sh, Plain, NoShape
-Colorset 10 fg #e4e4e4, bg 282828, hi, sh, Plain, NoShape
-Colorset 11 fg #e4e4e4, bg #282828, hi #e4e4e4, sh #e4e4e4, Plain, NoShape
+Colorset 10 fg #e4e4e4, bg #181818, hi, sh, Plain, NoShape
+Colorset 11 fg #e4e4e4, bg #453d41, hi #e4e4e4, sh #e4e4e4, Plain, NoShape
 Colorset 12 fg #e4e4e4, bg #95a99f, hi, sh, Plain, NoShape
 Colorset 13 fg #e4e4e4, bg #95a99f, hi, sh, Plain, NoShape
 Colorset 14 fg #95a99f, bg #181818, hi blue, sh purple, Plain, NoShape
