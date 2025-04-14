@@ -1,23 +1,21 @@
 #### Gruvbox medium FVWM Colorsets
-Colorset 0  fg #ffffff, bg #285577, hi, sh, Plain, NoShape
-Colorset 1  fg #ffffff, bg #383838, hi, sh, Plain, NoShape
-Colorset 2  fg #ffffff, bg #000000, hi, sh, Plain, NoShape
-Colorset 3  fg #888888, bg #333333, hi #333333, sh #333333, Plain, NoShape
-Colorset 4  fg #000000, bg #285577, hi #285577, sh #285577, Plain, NoShape
-Colorset 5  fg #ffffff, bg #222222, hi, sh, Plain, NoShape
-Colorset 6  fg #ffffff, bg #285577, hi, sh, Plain, NoShape
-Colorset 7  fg #ffffff, bg #ffffff, hi, sh, Plain, NoShape
-Colorset 8  fg #ffffff, bg #285577, hi, sh, Plain, NoShape
-Colorset 10 fg #ffffff, bg #000000, hi #333333, sh #333333, Plain, NoShape
-Colorset 11 fg #ffffff, bg #285577, hi #ffffff, sh #ffffff, Plain, NoShape
-Colorset 12 fg #ffffff, bg #285577, hi, sh, Plain, NoShape
-Colorset 13 fg #ffffff, bg #285577, hi, sh, Plain, NoShape
-Colorset 14 fg #ffffff, bg #5F676A, hi #aaaaaa, sh #999999, Plain, NoShape
+Colorset 0  fg #e4e4e4, bg #181818, hi, sh, Plain, NoShape
+Colorset 1  fg #95a99f, bg #101010, hi, sh, Plain, NoShape
+Colorset 2  fg #e4e4e4, bg #181818, hi, sh, Plain, NoShape
+Colorset 3  fg #95a99f, bg #282828, hi #282828, sh #282828, Plain, NoShape
+Colorset 4  fg #e4e4e4, bg #cc8c3c, hi #cc8c3c, sh #cc8c3c, Plain, NoShape
+Colorset 5  fg #e4e4e4, bg #181818, hi, sh, Plain, NoShape
+Colorset 6  fg #e4e4e4, bg #565f73, hi, sh, Plain, NoShape
+Colorset 7  fg #e4e4e4, bg #e4e4e4, hi, sh, Plain, NoShape
+Colorset 8  fg #e4e4e4, bg #282828, hi, sh, Plain, NoShape
+Colorset 10 fg #e4e4e4, bg 282828, hi, sh, Plain, NoShape
+Colorset 11 fg #e4e4e4, bg #282828, hi #e4e4e4, sh #e4e4e4, Plain, NoShape
+Colorset 12 fg #e4e4e4, bg #95a99f, hi, sh, Plain, NoShape
+Colorset 13 fg #e4e4e4, bg #95a99f, hi, sh, Plain, NoShape
+Colorset 14 fg #95a99f, bg #181818, hi blue, sh purple, Plain, NoShape
 # dock buttons
-Colorset 15 fg #ffffff, bg #000000, hi, sh, Plain, Noshape
+Colorset 15 fg #e4e4e4, bg #282828, hi, sh, Plain, Noshape
 
 AddButtonStyle 6 Pixmap minimize__E4D3E1.svg:20x20
 AddButtonStyle 4 Pixmap maximize__E4D3E1.svg:20x20
 AddButtonStyle 2 Pixmap close__E4D3E1.svg:20x20
-
-Style * NoTitle
