@@ -1,0 +1,39 @@
+!!!!! Ef Duo Light Xresources theme
+*.foreground:      #222222
+*.background:      #fff8f0
+*.cursorColor:     #1144ff
+! black
+*.color0:       #222222
+*.color8:       #c7c0ba
+! red
+*.color1:       #c04440
+*.color9:       #dd1100
+! green
+*.color2:       #217a3c
+*.color10:      #008058
+! yellow
+*.color3:       #8a5d00
+*.color11:      #9f4a00
+! blue
+*.color4:       #4250ef
+*.color12:      #065fff
+! magenta
+*.color5:       #ba35af
+*.color13:      #6052cf
+! cyan
+*.color6:       #3f70a0
+*.color14:      #1f77bb
+! white
+*.color7:       #f6ece8
+*.color15:      #f6ece8
+
+dmenu.background: #fff8f0
+dmenu.foreground: #222222
+dmenu.selbackground: #f8cf8f
+dmenu.selforeground: #111133
+
+Nsxiv.window.background: #fff8f0
+Nsxiv.window.foreground: #222222
+Nsxiv.mark.foreground: #222222
+Nsxiv.bar.background: #f8cf8f
+Nsxiv.bar.foreground: #222222

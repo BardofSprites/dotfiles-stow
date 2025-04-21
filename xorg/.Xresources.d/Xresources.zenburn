@@ -1,0 +1,86 @@
+#define zenburn_fg        #dcdccc
+#define zenburn_bg_1      #282828
+#define zenburn_bg        #3f3f3f
+#define zenburn_bg_01     #4f4f4f
+#define zenburn_bg_02     #5f5f5f
+#define zenburn_black     #000000
+
+#define zenburn_blue_01   #94bff3
+#define zenburn_blue      #8cd0d3
+#define zenburn_blue_1    #7cb8bb
+#define zenburn_blue_2    #6ca0a3
+#define zenburn_blue_3    #5c888b
+#define zenburn_dark_blue #506070
+#define zenburn_blue_4    #4c7073
+
+#define zenburn_cyan      #93e0e3
+#define zenburn_dark_cyan      #8cd0d3
+#define zenburn_dark_gray      #709080
+#define zenburn_dark_green     #60b48a
+#define zenburn_dark_magenta   #dc8cc3
+#define zenburn_dark_red       #705050
+#define zenburn_dark_yellow    #dfaf8f
+#define zenburn_green_01  #8fb28f
+#define zenburn_green_02  #9fc59f
+#define zenburn_green_03  #afd8af
+#define zenburn_green_04  #bfebbf
+#define zenburn_green_1   #5f7f5f
+#define zenburn_green     #7f9f7f
+#define zenburn_light_blue     #94bff3
+#define zenburn_light_cyan     #93e0e3
+#define zenburn_light_green    #c3bf9f
+#define zenburn_light_magenta  #ec93d3
+#define zenburn_light_red      #dca3a3
+#define zenburn_light_yellow   #f0dfaf
+#define zenburn_magenta   #dc8cc3
+#define zenburn_orange_01 #ffc9a4
+#define zenburn_orange    #dfaf8f
+#define zenburn_red_01    #dca3a3
+#define zenburn_red_1     #bc8383
+#define zenburn_red_2     #ac7373
+#define zenburn_red_3     #9c6363
+#define zenburn_red_4     #8c5353
+#define zenburn_red       #cc9393
+#define zenburn_white     #ffffff
+#define zenburn_yellow_1  #e0cf9f
+#define zenburn_yellow_2  #d0bf8f
+#define zenburn_yellow    #f0dfaf
+#define zenburn_light_gray zenburn_fg
+
+*background:            zenburn_bg
+*foreground:            zenburn_fg
+*fade:                  40
+*fadeColor:             zenburn_bg_1
+*cursorColor:           zenburn_orange
+
+!! black dark/light
+*color0:                zenburn_black
+*color8:                zenburn_dark_gray
+
+!! red dark/light
+*color1:                zenburn_dark_red
+*color9:                zenburn_light_red
+
+!! green dark/light
+*color2:                zenburn_dark_green
+*color10:               zenburn_light_green
+
+!! yellow dark/light
+*color3:                zenburn_dark_yellow
+*color11:               zenburn_light_yellow
+
+!! blue dark/light
+*color4:                zenburn_dark_blue
+*color12:               zenburn_light_blue
+
+!! magenta dark/light
+*color5:                zenburn_dark_magenta
+*color13:               zenburn_light_magenta
+
+!! cyan dark/light
+*color6:                zenburn_dark_cyan
+*color14:               zenburn_light_cyan
+
+!! white dark/light
+*color7:                zenburn_light_gray
+*color15:               zenburn_white

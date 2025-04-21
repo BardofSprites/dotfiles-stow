@@ -39,7 +39,8 @@ ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki/24
 ImagePath +:$[FVWM_USERDIR]/icon/pixmap
 
 # read .sidebar.fvwm2rc
-Read horizontal.sys
+Read left.sys
+# Read sidebar.sys
 
 SetEnv fvwmscript $[HOME]/.fvwm/fvwmscript/
 SetEnv themedir $[HOME]/.fvwm/themes/
@@ -70,7 +71,7 @@ DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Test (Init) Module FvwmBanner
 + I Module FvwmScript fvwmscript/org-clock
-+ I Module FvwmButtons HorizontalPanel
++ I Module FvwmButtons LeftPanel
 + I Module FvwmEvent EventNewDesk
 
 # Mouse Bindings Functions
@@ -225,7 +226,7 @@ DesktopName 0 Main
 DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
-DesktopSize 4x1
+DesktopSize 2x2
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -243,7 +244,7 @@ Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 # be covered when maximizing or placing windows.
 
 # no gaps
-EwmhBaseStruts screen $[monitor.0.name] 0 0 30 0
+EwmhBaseStruts screen $[monitor.0.name] 120 0 0 0
 EwmhBaseStruts screen $[monitor.1.name] 0 0 0 0
 
 # with gaps
@@ -282,7 +283,7 @@ Style * WindowShadeScrolls, WindowShadeSteps 10
 IgnoreModifiers L25
 
 # Decor Styles
-Style * BorderWidth 5, HandleWidth 5, MWMButtons, FvwmBorder, FirmBorder
+Style * BorderWidth 3, HandleWidth 3, MWMButtons, FvwmBorder, FirmBorder
 Style * Colorset 1, HilightColorset 2
 Style * BorderColorset 3, HilightBorderColorset 4
 
@@ -290,12 +291,17 @@ Style * BorderColorset 3, HilightBorderColorset 4
 # Comment this out or use Style * Icon to get the icons back.
 Style * Icon
 # Style * IconBox 990x150-20-10, IconGrid 234 134, IconFill right bottom
-Style * IconBox 64x1080-0+40
+Style * IconBox 64x1080-10+10
 # Style * IconBox 64x1080-0+0
 
 # Window Specific Styles
 Style HorizontalPanel !Title, !Borders, !Handles, Sticky, \
-                 WindowListSkip, NeverFocus, FixedPosition
+                 WindowListSkip, NeverFocus, FixedPosition, WindowListSkip
+Style LeftPanel !Title, !Borders, !Handles, Sticky, \
+                 WindowListSkip, NeverFocus, FixedPosition, WindowListSkip
+Style SideBar !Title, !Handles, Sticky, \
+                 WindowListSkip, NeverFocus, FixedPosition, \
+                 WindowListSkip
 Style conky !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
@@ -308,7 +314,7 @@ Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
-Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w -0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom
+Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w -0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom, WindowListSkip
 
 Style sowon MiniIcon "Furoisu (bath chair)-24x24.png", Icon "Furoisu (bath chair).png", EWMHMiniIconOverride, IconOverride
 Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True", FPGrabFocus
@@ -346,7 +352,7 @@ Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True", FPGrabFocus
 #      14 - FvwmIconMan Iconified Button
 ###########
 
-Read $[themedir]/modus-vivendi.sys
+Read $[themedir]/gruber.sys
 
 #######
 # 4: Menus
@@ -422,6 +428,7 @@ AddToMenu MenuThemes "Themes" Title
 + "Ef &Night" ChangeTheme 'ef-night' 'night' "ef-night"
 + "Ef &Trianopia Dark" ChangeTheme 'tritanopia-dark' 'tritanopia-dark' "ef-tritanopia-dark"
 + "Ef &Duo Dark" ChangeTheme 'ef-duo-dark' 'duo-dark' "ef-duo-dark"
++ "Ef &Duo Light" ChangeTheme 'ef-duo-light' 'duo-light' "ef-duo-light"
 + "Ef &Day" ChangeTheme 'ef-day' 'day' "ef-day"
 + "Ef &Eagle" ChangeTheme 'ef-eagle' 'eagle' "ef-eagle"
 + "Ef &Owl" ChangeTheme 'ef-owl' 'owl' "ef-owl"
@@ -536,7 +543,7 @@ AddToMenu   MenuSendToDesk
 + "Desk 3"	MoveToDesk 0 3
 
 DestroyMenu MenuSendToPage
-AddToMenu   MenuSendToPage
+AddToMenu   MenuSendToPage 
 + "Page (0,0)"	MoveToPage 0 0
 + "Page (0,1)"	MoveToPage 0 1
 + "Page (1,0)"	MoveToPage 1 0
@@ -619,20 +626,13 @@ Silent Key F4 A 4S MoveToDesk 0 3
 
 Silent Key 1 A 4 GotoPage 0 0
 Silent Key 2 A 4 GotoPage 1 0
-Silent Key 3 A 4 GotoPage 2 0
-Silent Key 4 A 4 GotoPage 3 0
+Silent Key 3 A 4 GotoPage 0 1
+Silent Key 4 A 4 GotoPage 1 1
 
 Silent Key 1 A 4S MoveToPage 0 0
 Silent Key 2 A 4S MoveToPage 1 0
-Silent Key 3 A 4S MoveToPage 2 0
-Silent Key 4 A 4S MoveToPage 3 0
-
-DestroyMenu MenuSendToPage
-AddToMenu   MenuSendToPage
-+ "Page (0,0)"	MoveToPage 0 0
-+ "Page (1,0)"	MoveToPage 1 0
-+ "Page (2,0)"	MoveToPage 2 0
-+ "Page (3,0)"	MoveToPage 3 0
+Silent Key 3 A 4S MoveToPage 0 1
+Silent Key 4 A 4S MoveToPage 1 1
 
 # page scrolling custom
 Mouse 9 R       4   Scroll 0 -100p
