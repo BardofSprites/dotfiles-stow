@@ -6,23 +6,23 @@
 *.color0:       #393330
 *.color8:       #c7b2ab
 ! red
-*.color1:       #b0000f
-*.color9:       #b0000f
+*.color1:       #aa184f
+*.color9:       #b20f00
 ! green
 *.color2:       #007000
-*.color10:      #007000
+*.color10:      #557000
 ! yellow
 *.color3:       #906200
-*.color11:      #906200
+*.color11:      #b44405
 ! blue
-*.color4:       #375cc6
-*.color12:      #375cc6
+*.color4:       #5f55df
+*.color12:      #265fbf
 ! magenta
 *.color5:       #a23ea4
-*.color13:      #a23ea4
+*.color13:      #6448ca
 ! cyan
 *.color6:       #3f69af
-*.color14:      #3f69af
+*.color14:      #0f7688
 ! white
 *.color7:       #ffead8
 *.color15:      #ffead8
@@ -30,13 +30,13 @@
 dmenu.background: #ffead8
 dmenu.foreground: #393330
 dmenu.selbackground: #e9a0a0
-dmenu.selforeground: #393330
+dmenu.selforeground: #40231f
 
 Nsxiv.window.background: #ffead8
 Nsxiv.window.foreground: #393330
 Nsxiv.mark.foreground: #393330
 Nsxiv.bar.background: #e9a0a0
-Nsxiv.bar.foreground: #393330
+Nsxiv.bar.foreground: #40231f
 
 dwm.background: #ffead8
 dwm.foreground: #393330
