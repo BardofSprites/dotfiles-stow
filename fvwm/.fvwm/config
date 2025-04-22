@@ -226,7 +226,7 @@ DesktopName 0 Main
 DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
-DesktopSize 2x2
+DesktopSize 3x3
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -315,16 +315,9 @@ Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshir
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
 Style "Org-Clock" Sticky, !Title, !Handles, NoClose, PositionPlacement 50-50w -0, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom, WindowListSkip
-
+Style mpv MiniIcon "Shamisen-24x24.png", Icon "Shamisen.png", EWMHMiniIconOverride, IconOverride
 Style sowon MiniIcon "Furoisu (bath chair)-24x24.png", Icon "Furoisu (bath chair).png", EWMHMiniIconOverride, IconOverride
 Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True", FPGrabFocus
-
-## Program styles
-# Style "*EMMS Playlist*" MiniIcon Shamisen-24x24.png, IconOverride, Icon Shamisen.png, EWMHMiniIconOverride, FPGrabFocus
-# Style "*tmr-tabulated-view*" MiniIcon "Furoisu (bath chair)-24x24.png", IconOverride, "Icon Furoisu (bath chair).png", EWMHMiniIconOverride, FPGrabFocus
-# Style *notmuch* MiniIcon "Kinchaku (drawstring bag)-24x24.png", IconOverride, Icon "Kinchaku (drawstring bag).png", EWMHMiniIconOverride, FPGrabFocus
-# Style "*elfeed-search*" MiniIcon "Shichirin (charcoal brazier)-24x24.png", IconOverride, Icon "Shichirin (charcoal brazier).png", EWMHMiniIconOverride, FPGrabFocus
-# Style "*Org Agenda*" MiniIcon "Kakejiku-24x24.png", IconOverride, Icon "Kakejiku.png", EWMHMiniIconOverride, FPGrabFocus
 
 #######
 # 3: Colorsets
@@ -613,7 +606,28 @@ CursorStyle WAIT left_ptr
 Silent Key F1 A M Menu MenuFvwmRoot
 Silent Key Space A 4 Menu MenuFvwmRoot
 Silent Key Space A 4S Menu MenuWindowOpsLong
-Silent Key Tab A M WindowList Root c c NoSticky, NoGeometry, NoDeskSort, CurrentAtEnd, SelectOnRelease Meta_L
+
+InfoStoreAdd TabDir Next
+
+DestroyFunc FocusRaiseAndStuff
+AddToFunc   FocusRaiseAndStuff
++ I Iconify off
++ I Focus
++ I Raise
+
+DestroyFunc SwitchDirection
+AddToFunc   SwitchDirection
++ I Test (EnvMatch infostore.TabDir Next) InfoStoreAdd TabDir Prev
++ I TestRc (NoMatch) InfoStoreAdd TabDir Next
+
+DestroyFunc SwitchWindow
+AddToFunc   SwitchWindow
++ I $[infostore.TabDir] (CurrentPage, AnyScreen, !Iconic, !Sticky) FocusRaiseAndStuff
++ I Deschedule 134000
++ I Schedule 700 134000 SwitchDirection
+
+Key Tab A M  SwitchWindow
+
 Silent Key F1 A 4 GotoDesk 0 0
 Silent Key F2 A 4 GotoDesk 0 1
 Silent Key F3 A 4 GotoDesk 0 2
