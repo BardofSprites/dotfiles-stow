@@ -300,10 +300,8 @@ Style HorizontalPanel !Title, !Borders, !Handles, Sticky, \
 Style LeftPanel !Title, !Borders, !Handles, Sticky, \
                  WindowListSkip, NeverFocus, FixedPosition, WindowListSkip
 Style SideBar !Title, !Handles, Sticky, \
-                 WindowListSkip, NeverFocus, FixedPosition, \
-                 WindowListSkip
-Style conky !Title, !Borders, !Handles, Sticky, \
-                 WindowListSkip, NeverFocus
+                 WindowListSkip, NeverFocus, FixedPosition
+Style "conky" Sticky, !Title, !Handles, NoClose, WindowListSkip, NeverFocus, FixedPosition, StaysOnBottom, !RaiseOnClick
 Style ConfirmQuit !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style ConfirmOff !Title, PositionPlacement Center, WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
