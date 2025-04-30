@@ -1,4 +1,4 @@
 {
-  BoldSystemFont = "UnifontExMono:slant=0:weight=100:width=100:pixelsize=14";
-  SystemFont = "UnifontExMono:slant=0:weight=100:width=100:pixelsize=14";
+  BoldSystemFont = "Iosevka Comfy:slant=0:weight=200:width=100:pixelsize=16";
+  SystemFont = "Iosevka Comfy:slant=0:weight=80:width=100:pixelsize=16";
 }

@@ -1,11 +1,33 @@
 {
+  pcmanfm.Pcmanfm = {
+    AlwaysUserIcon = Yes;
+    Icon = Bookshelf.xpm;
+  };
   firefox.Firefox = {
-    Icon = firefox.Firefox.xpm;
+    SharedAppIcon = No;
+    NoAppIcon = Yes;
+    Icon = Netscape.xpm;
   };
   emacs.Emacs = {
+    AlwaysUserIcon = Yes;
     Icon = "retro-emacs-logo.xpm";
+  };
+  st.St = {
+    AlwaysUserIcon = No;
+    Icon = "logan-terminal.xpm";
   };
   LibreWolf.LibreWolf = {
     Icon = LibreWolf.LibreWolf.xpm;
+  };
+  St = {
+    AlwaysUserIcon = No;
+    Icon = "logan-terminal.xpm";
+  };
+  urxvt.URxvt = {
+    Icon = TerminalLinux.xpm;
+  };
+  Navigator.firefox = {
+    AlwaysUserIcon = Yes;
+    Icon = Netscape.xpm;
   };
 }
