@@ -2,9 +2,11 @@
   "Window Maker",
   (
     Applications,
-    (Firefox, EXEC, firefox),
+    (Firefox, EXEC, "firefox-bin"),
     (PCManFM, EXEC, pcmanfm),
     (Urxvt, SHORTCUT, "Mod4+Return", EXEC, urxvt),
+    (Emacsclient, SHORTCUT, "Mod4+n", EXEC, "emacsclient -c -n"),
+    (EMMS, SHORTCUT, "Mod4+m", EXEC, "emacs-launcher \"music\""),
     (Terminals, (st, EXEC, st)),
     (Graphics, (GIMP, EXEC, gimp), ("ImageMagick Display", EXEC, display)),
     (Multimedia, (VLC, EXEC, vlc)),
@@ -29,7 +31,7 @@
     (System, (top, EXEC, "urxvtc -e btop")),
     ("P2P Network", (sftp, EXEC, "st -e sftp"))
   ),
-  (Run..., EXEC, "%A(Run, Type command:)"),
+  (Run..., SHORTCUT, "Mod4+d", EXEC, "dmenu_run -c -l 15"),
   (
     Appearance,
     (
@@ -162,11 +164,7 @@
     ("Save Session", SAVE_SESSION),
     ("Clear Session", CLEAR_SESSION)
   ),
-  (
-    "Configure Window Maker",
-    EXEC,
-    "/usr/lib64/GNUstep/Applications/WPrefs.app/WPrefs"
-  ),
+  ("Configure Window Maker", EXEC, WPrefs),
   ("Info Panel", INFO_PANEL),
   ("Restart Window Maker", RESTART),
   ("Other Window Managers", ("Start Motif Window Manager", RESTART, mwm)),

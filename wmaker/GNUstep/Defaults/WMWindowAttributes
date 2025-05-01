@@ -1,33 +1,42 @@
 {
+  firefox.Firefox = {
+    SharedAppIcon = No;
+    Icon = firefox.xpm;
+  };
   pcmanfm.Pcmanfm = {
     AlwaysUserIcon = Yes;
     Icon = Bookshelf.xpm;
   };
-  firefox.Firefox = {
-    SharedAppIcon = No;
-    NoAppIcon = Yes;
-    Icon = Netscape.xpm;
-  };
   emacs.Emacs = {
     AlwaysUserIcon = Yes;
     Icon = "retro-emacs-logo.xpm";
+  };
+  Navigator.LibreWolf = {
+    AlwaysUserIcon = Yes;
+    Icon = Mozilla.png;
+    EmulateAppIcon = Yes;
   };
   st.St = {
     AlwaysUserIcon = No;
     Icon = "logan-terminal.xpm";
   };
   LibreWolf.LibreWolf = {
-    Icon = LibreWolf.LibreWolf.xpm;
+    SharedAppIcon = No;
+    Icon = Mozilla.png;
   };
   St = {
     AlwaysUserIcon = No;
     Icon = "logan-terminal.xpm";
   };
+  Navigator.firefox = {
+    AlwaysUserIcon = Yes;
+    Icon = Mozilla_Firefox_3.5_logo.png;
+    EmulateAppIcon = Yes;
+  };
   urxvt.URxvt = {
     Icon = TerminalLinux.xpm;
   };
-  Navigator.firefox = {
-    AlwaysUserIcon = Yes;
-    Icon = Netscape.xpm;
+  groupLeader.WPrefs = {
+    Icon = groupLeader.WPrefs.xpm;
   };
 }

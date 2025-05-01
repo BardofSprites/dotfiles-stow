@@ -1,9 +1,11 @@
 {
-  FTitleColor = "#dbdbdb";
+  FTitleColor = "#d7d7d7";
   FrameBorderColor = "#000000";
   ScreenCaptureKey = None;
-  MenuDisabledColor = "#969696";
+  MiniaturizeKey = "Shift+Mod4+F";
+  MenuDisabledColor = "#959595";
   Superfluous = NO;
+  LastWorkspaceKey = "Mod4+Tab";
   PixmapPath = (
     "/home/bard/GNUstep/Library/WindowMaker/Pixmaps",
     "/home/bard/GNUstep/Library/WindowMaker/Backgrounds",
@@ -21,8 +23,12 @@
     "#3d4254"
   );
   ToggleKbdModeKey = None;
+  WindowMenuKey = "Shift+Mod4+space";
+  MiniwindowPreviewBalloons = YES;
   ClipTitleFont = "Iosevka Comfy Wide Duo:slant=0:weight=80:width=125:pixelsize=10";
+  MaximizeKey = "Mod4+F";
   DoNotMakeAppIconsBounce = YES;
+  MaximusKey = "Mod4+T";
   IconTitleFont = "Iosevka Comfy:slant=0:weight=80:width=100:pixelsize=12";
   MenuTextBack = (
     spixmap,
@@ -31,37 +37,41 @@
   );
   LargeDisplayFont = "Iosevka Comfy Wide Duo-24:slant=0:weight=200:width=125:pixelsize=24";
   KeepDockOnPrimaryHead = YES;
+  CycleWorkspaces = YES;
+  HotCornerDelay = 250;
   ResizeCursor = (
     bitmap,
     "/usr/share/WindowMaker/Themes/Motion.themed/dot_resize.xbm",
     "/usr/share/WindowMaker/Themes/Motion.themed/dot_resize_mask.xbm"
   );
-  HotCornerDelay = 250;
-  CenterKey = None;
-  IconTitleColor = "#c1c1c1";
+  CenterKey = "Mod4+C";
+  MoveToLastWorkspaceKey = "Shift+Mod4+Tab";
   TitleJustify = left;
-  MenuTextColor = "#d6d6d6";
+  IconTitleColor = "#bdbdbd";
+  MenuTextColor = "#d2d2d2";
   IconBack = (
     spixmap,
     "~/dotfiles-stow/wmaker/GNUstep/Library/WindowMaker/Themes/scylla.themed/tile.png",
     "#424242"
   );
   AntialiasedText = YES;
-  MenuTitleColor = "#d6d6d6";
+  MenuTitleColor = "#d2d2d2";
+  LowerKey = "Mod4+S";
   MenuTitleFont = "Iosevka Comfy:slant=0:weight=80:width=100:pixelsize=16";
   HotCorners = NO;
   WindowTitleExtendSpace = "-1";
   MoveTo6to12Head = None;
   DbClickFullScreen = NO;
-  IconPosition = brh;
   MenuTextFont = "Iosevka Comfy:slant=0:weight=80:width=100:pixelsize=16";
+  NoWindowOverDock = YES;
+  NoWindowOverIcons = YES;
+  OmnipresentKey = "Shift+Mod4+S";
   WorkspaceBack = (
     spixmap,
     "~/dotfiles-stow/wmaker/GNUstep/Library/WindowMaker/Themes/scylla.themed/scylla.tif",
     "#545454"
   );
-  OmnipresentKey = "Mod1+S";
-  HighlightTextColor = "#d6d6d6";
+  HighlightTextColor = "#d2d2d2";
   MenuTitleBack = (
     spixmap,
     "~/dotfiles-stow/wmaker/GNUstep/Library/WindowMaker/Themes/scylla.themed/focused.png",
@@ -69,7 +79,7 @@
   );
   EnforceIconMargin = NO;
   AutoArrangeIcons = YES;
-  ClipTitleColor = "#cccccc";
+  ClipTitleColor = "#c8c8c8";
   MoveTo12to6Head = None;
   HotCornerActions = (None, None, None, None);
   WaitCursor = (
@@ -77,17 +87,18 @@
     "/usr/share/WindowMaker/Themes/Motion.themed/dot_wait.xbm",
     "/usr/share/WindowMaker/Themes/Motion.themed/dot_wait_mask.xbm"
   );
-  HighlightColor = "#4a4d49";
+  CloseKey = "Mod4+Q";
   FrameFocusedBorderColor = "#000000";
+  HighlightColor = "#4a4d49";
   WindowTitleFont = "Iosevka Comfy:slant=0:weight=80:width=100:pixelsize=16";
-  RunKey = "Mod4+D";
-  CClipTitleColor = "#e5e5e5";
+  WrapMenus = YES;
+  CClipTitleColor = "#e1e1e1";
   MoveCursor = (
     bitmap,
     "/usr/share/WindowMaker/Themes/Motion.themed/dot_move.xbm",
     "/usr/share/WindowMaker/Themes/Motion.themed/dot_move_mask.xbm"
   );
-  RootMenuKey = "Mod1+space";
+  RootMenuKey = "Mod4+space";
   ResizebarBack = (
     spixmap,
     "~/dotfiles-stow/wmaker/GNUstep/Library/WindowMaker/Themes/scylla.themed/focused.png",
@@ -102,23 +113,26 @@
     "/usr/share/WindowMaker/Pixmaps",
     "/usr/share/pixmaps"
   );
-  MiniPreviewSize = 72;
+  MiniPreviewSize = 248;
+  RaiseKey = "Mod4+A";
   DisplayFont = "-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
   KbdModeLock = NO;
-  MenuTextExtendSpace = "-1";
+  ModifierKey = Mod4;
   PTitleBack = (
     spixmap,
     "~/dotfiles-stow/wmaker/GNUstep/Library/WindowMaker/Themes/scylla.themed/unfocused.png",
     "#3d4554"
   );
-  UTitleColor = "#989898";
+  MenuTextExtendSpace = "-1";
+  ViKeyMenus = YES;
+  UTitleColor = "#959595";
   UTitleBack = (
     spixmap,
     "~/dotfiles-stow/wmaker/GNUstep/Library/WindowMaker/Themes/scylla.themed/unfocused.png",
     "#3d4554"
   );
-  PTitleColor = "#999999";
   CloseRootMenuByLeftOrRightMouseClick = YES;
+  PTitleColor = "#959595";
   MenuTitleExtendSpace = "-1";
-  FrameSelectedBorderColor = "#fefefe";
+  FrameSelectedBorderColor = "#fafafa";
 }
