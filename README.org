@@ -2,9 +2,8 @@
 
 My emacs configurations can be found [[https://github.com/BardofSprites/.emacs.d][here]]. My ~st~, ~dwm~, ~dwmblocks~, and ~dmenu~ builds are on my profile as well.
 
-[[file:img/2025-01-27.png]]
-
-In image: GNU Emacs with org mode document open. Featured colorscheme ~ef-frost~.
+* Pictures?
+I have a image gallery on [[https://bardman.dev/technology/gallery][my website]]
 
 * Fvwm
 ** Colorsets
