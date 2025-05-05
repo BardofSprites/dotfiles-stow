@@ -13,8 +13,11 @@
   };
   Navigator.LibreWolf = {
     AlwaysUserIcon = Yes;
-    Icon = Mozilla.png;
     EmulateAppIcon = Yes;
+    Icon = Mozilla.png;
+  };
+  Drawer0.WMDrawer = {
+    Icon = Drawer.tiff;
   };
   st.St = {
     AlwaysUserIcon = No;
@@ -28,10 +31,14 @@
     AlwaysUserIcon = No;
     Icon = "logan-terminal.xpm";
   };
+  mpvk.mpv = {
+    AlwaysUserIcon = Yes;
+    Icon = Speaker.png;
+  };
   Navigator.firefox = {
     AlwaysUserIcon = Yes;
-    Icon = Mozilla_Firefox_3.5_logo.png;
     EmulateAppIcon = Yes;
+    Icon = Mozilla_Firefox_3.5_logo.png;
   };
   urxvt.URxvt = {
     Icon = TerminalLinux.xpm;

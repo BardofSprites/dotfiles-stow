@@ -10,6 +10,9 @@ XF86AudioLowerVolume
 # Pause
 "playerctl pause"
 XF86AudioPause
+# Pause
+"playerctl pause"
+Mod4+Shift + p
 # Play
 "playerctl play"
 XF86AudioPlay
@@ -19,3 +22,6 @@ XF86AudioPrev
 # Next
 "playerctl next"
 XF86AudioNext
+# Screenshot
+"maimpick"
+Print

@@ -6,6 +6,7 @@
     (PCManFM, EXEC, pcmanfm),
     (Urxvt, SHORTCUT, "Mod4+Return", EXEC, urxvt),
     (Emacsclient, SHORTCUT, "Mod4+n", EXEC, "emacsclient -c -n"),
+    ("Emacs Launcher", SHORTCUT, "Shift+Mod4+n", EXEC, "emacs-launcher"),
     (EMMS, SHORTCUT, "Mod4+m", EXEC, "emacs-launcher \"music\""),
     (Terminals, (st, EXEC, st)),
     (Graphics, (GIMP, EXEC, gimp), ("ImageMagick Display", EXEC, display)),
@@ -154,6 +155,12 @@
       "geticonset $HOME/GNUstep/Library/WindowMaker/IconSets/\"%a(IconSet name,Name to save icon set as)\""
     )
   ),
+  (
+    Wallpaper,
+    ("Choose wallpaper", EXEC, wallpaper.sh),
+    ("Load themed wallpaper", EXEC, "load-theme-wallpaper"),
+    ("Annotate wallpaper", EXEC, "wallpaper-annotate.sh")
+  ),
   (Workspaces, WORKSPACE_MENU),
   (
     Workspace,
@@ -166,6 +173,7 @@
   ),
   ("Configure Window Maker", EXEC, WPrefs),
   ("Info Panel", INFO_PANEL),
+  (Lock, EXEC, sysact),
   ("Restart Window Maker", RESTART),
   ("Other Window Managers", ("Start Motif Window Manager", RESTART, mwm)),
   ("Exit Window Maker", EXIT)

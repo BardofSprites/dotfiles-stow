@@ -13,25 +13,23 @@
       },
       {
         Forced = No;
-        Name = emacs.Emacs;
-        DropCommand = "emacsclient -c -a 'emacs' %d";
+        Name = wmclock.WMClock;
         BuggyApplication = No;
         AutoLaunch = Yes;
-        Position = "0,7";
+        Position = "0,4";
         Lock = Yes;
-        PasteCommand = "emacsclient -c -a 'emacs' %s";
-        Command = "emacsclient -c -a 'emacs'";
+        Command = "wmclock -24 -exe \"emacs-launcher 'agenda'\"";
       },
       {
         Forced = No;
-        Name = urxvt.URxvt;
-        DropCommand = "urxvt -cd /home/bard %d";
+        Name = emacs.Emacs;
+        DropCommand = "emacsclient -c %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,6";
+        Position = "0,8";
         Lock = Yes;
-        PasteCommand = "urxvt -cd /home/bard %s";
-        Command = "urxvt -cd /home/bard";
+        PasteCommand = emacs;
+        Command = "emacsclient -c -a 'emacs'";
       },
       {
         Forced = No;
@@ -46,25 +44,14 @@
       },
       {
         Forced = No;
-        Name = wmacpi.DockApp;
-        DropCommand = "wmacpi %d";
+        Name = wmamixer.Wmamixer;
+        DropCommand = "wmamixer -w -l #cc8c3c -b #181818 %d";
         BuggyApplication = No;
         AutoLaunch = Yes;
         Position = "0,2";
         Lock = Yes;
-        PasteCommand = "wmacpi %s";
-        Command = wmacpi;
-      },
-      {
-        Forced = No;
-        Name = wmamixer.Wmamixer;
-        DropCommand = "wmamixer -w %d";
-        BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,3";
-        Lock = Yes;
-        PasteCommand = "wmamixer -w %s";
-        Command = "wmamixer -w";
+        PasteCommand = "wmamixer -w -l #cc8c3c -b #181818 %s";
+        Command = "wmamixer -w -l #cc8c3c -b #181818";
       },
       {
         Forced = No;
@@ -72,21 +59,21 @@
         DropCommand = "wmusic %d";
         BuggyApplication = No;
         AutoLaunch = Yes;
-        Position = "0,4";
+        Position = "0,3";
         Lock = Yes;
         PasteCommand = "wmusic %s";
         Command = wmusic;
       },
       {
         Forced = No;
-        Name = wmclock.WMClock;
-        DropCommand = "wmclock -24 -exe \"emacs-launcher \"calendar\"\" %d";
+        Name = urxvt.URxvt;
+        DropCommand = "urxvtc %d";
         BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,5";
+        AutoLaunch = No;
+        Position = "0,7";
         Lock = Yes;
-        PasteCommand = "wmclock -24 -exe \"emacs-launcher \"calendar\"\" %s";
-        Command = "wmclock -24 -exe \"emacs-launcher \"calendar\"\"";
+        PasteCommand = "urxvtc %s";
+        Command = urxvtc;
       },
       {
         Forced = No;
@@ -94,21 +81,32 @@
         DropCommand = "pcmanfm %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,8";
+        Position = "0,10";
         Lock = Yes;
         PasteCommand = "pcmanfm %s";
         Command = pcmanfm;
       },
       {
         Forced = No;
-        Name = firefox.Firefox;
-        DropCommand = "firefox %d";
+        Name = wmomikuzi.DockApp;
+        DropCommand = "wmomikuzi %d";
         BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,9";
-        Lock = No;
-        PasteCommand = "firefox %s";
-        Command = firefox;
+        AutoLaunch = Yes;
+        Position = "0,6";
+        Lock = Yes;
+        PasteCommand = "wmomikuzi %s";
+        Command = wmomikuzi;
+      },
+      {
+        Forced = No;
+        Name = wmmoonclock.wmmoonclock;
+        DropCommand = "wmmoonclock %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,5";
+        Lock = Yes;
+        PasteCommand = "wmmoonclock %s";
+        Command = wmmoonclock;
       }
     );
     Applications1080 = (
@@ -123,25 +121,23 @@
       },
       {
         Forced = No;
-        Name = emacs.Emacs;
-        DropCommand = "emacsclient -c -a 'emacs' %d";
+        Name = wmclock.WMClock;
         BuggyApplication = No;
         AutoLaunch = Yes;
-        Position = "0,7";
+        Position = "0,4";
         Lock = Yes;
-        PasteCommand = "emacsclient -c -a 'emacs' %s";
-        Command = "emacsclient -c -a 'emacs'";
+        Command = "wmclock -24 -exe \"emacs-launcher 'agenda'\"";
       },
       {
         Forced = No;
-        Name = urxvt.URxvt;
-        DropCommand = "urxvt -cd /home/bard %d";
+        Name = emacs.Emacs;
+        DropCommand = "emacsclient -c %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,6";
+        Position = "0,8";
         Lock = Yes;
-        PasteCommand = "urxvt -cd /home/bard %s";
-        Command = "urxvt -cd /home/bard";
+        PasteCommand = emacs;
+        Command = "emacsclient -c -a 'emacs'";
       },
       {
         Forced = No;
@@ -156,25 +152,14 @@
       },
       {
         Forced = No;
-        Name = wmacpi.DockApp;
-        DropCommand = "wmacpi %d";
+        Name = wmamixer.Wmamixer;
+        DropCommand = "wmamixer -w -l #cc8c3c -b #181818 %d";
         BuggyApplication = No;
         AutoLaunch = Yes;
         Position = "0,2";
         Lock = Yes;
-        PasteCommand = "wmacpi %s";
-        Command = wmacpi;
-      },
-      {
-        Forced = No;
-        Name = wmamixer.Wmamixer;
-        DropCommand = "wmamixer -w %d";
-        BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,3";
-        Lock = Yes;
-        PasteCommand = "wmamixer -w %s";
-        Command = "wmamixer -w";
+        PasteCommand = "wmamixer -w -l #cc8c3c -b #181818 %s";
+        Command = "wmamixer -w -l #cc8c3c -b #181818";
       },
       {
         Forced = No;
@@ -182,21 +167,21 @@
         DropCommand = "wmusic %d";
         BuggyApplication = No;
         AutoLaunch = Yes;
-        Position = "0,4";
+        Position = "0,3";
         Lock = Yes;
         PasteCommand = "wmusic %s";
         Command = wmusic;
       },
       {
         Forced = No;
-        Name = wmclock.WMClock;
-        DropCommand = "wmclock -24 -exe \"emacs-launcher \"calendar\"\" %d";
+        Name = urxvt.URxvt;
+        DropCommand = "urxvtc %d";
         BuggyApplication = No;
-        AutoLaunch = Yes;
-        Position = "0,5";
+        AutoLaunch = No;
+        Position = "0,7";
         Lock = Yes;
-        PasteCommand = "wmclock -24 -exe \"emacs-launcher \"calendar\"\" %s";
-        Command = "wmclock -24 -exe \"emacs-launcher \"calendar\"\"";
+        PasteCommand = "urxvtc %s";
+        Command = urxvtc;
       },
       {
         Forced = No;
@@ -204,45 +189,92 @@
         DropCommand = "pcmanfm %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,8";
+        Position = "0,10";
         Lock = Yes;
         PasteCommand = "pcmanfm %s";
         Command = pcmanfm;
       },
       {
         Forced = No;
-        Name = firefox.Firefox;
-        DropCommand = "firefox %d";
+        Name = wmomikuzi.DockApp;
+        DropCommand = "wmomikuzi %d";
         BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,9";
-        Lock = No;
-        PasteCommand = "firefox %s";
-        Command = firefox;
+        AutoLaunch = Yes;
+        Position = "0,6";
+        Lock = Yes;
+        PasteCommand = "wmomikuzi %s";
+        Command = wmomikuzi;
+      },
+      {
+        Forced = No;
+        Name = wmmoonclock.wmmoonclock;
+        DropCommand = "wmmoonclock %d";
+        BuggyApplication = No;
+        AutoLaunch = Yes;
+        Position = "0,5";
+        Lock = Yes;
+        PasteCommand = "wmmoonclock %s";
+        Command = wmmoonclock;
       }
     );
     Lowered = Yes;
-    Position = "1856,0";
+    Position = "0,0";
   };
   Clip = {
     Forced = No;
     Name = Logo.WMClip;
     BuggyApplication = No;
     AutoLaunch = No;
-    Position = "1856,1016";
+    Position = "0,1016";
     Lock = No;
     Command = "-";
   };
   Applications = ();
-  Drawers = ();
+  Drawers = (
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = (
+          {
+            Forced = No;
+            Name = Navigator.firefox;
+            DropCommand = "/opt/firefox/firefox-bin %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "1,0";
+            Lock = Yes;
+            PasteCommand = "/opt/firefox/firefox-bin %s";
+            Command = "/opt/firefox/firefox-bin";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = Navigator.LibreWolf;
+            DropCommand = "/opt/librewolf/librewolf-bin %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "2,0";
+            Lock = Yes;
+            PasteCommand = "/opt/librewolf/librewolf-bin %s";
+            Command = "/opt/librewolf/librewolf-bin";
+            Omnipresent = No;
+          }
+        );
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer0;
+      Position = "0,576";
+    }
+  );
   Workspaces = (
     {
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
         Applications = ();
-        Collapsed = Yes;
-        AutoAttractIcons = No;
+        Collapsed = No;
+        AutoAttractIcons = Yes;
         Lowered = Yes;
       };
       Name = "Workspace 1";
@@ -257,6 +289,17 @@
         Lowered = Yes;
       };
       Name = "Workspace 2";
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = "Workspace 3";
     }
   );
   Workspace = "Workspace 1";

@@ -1,0 +1,35 @@
+{
+  pcmanfm.Pcmanfm = {
+    Icon = Bookshelf.xpm;
+  };
+  firefox.Firefox = {
+    Icon = firefox.xpm;
+  };
+  emacs.Emacs = {
+    Icon = "retro-emacs-logo.xpm";
+  };
+  Navigator.LibreWolf = {
+    Icon = Mozilla.png;
+  };
+  st.St = {
+    Icon = "logan-terminal.xpm";
+  };
+  LibreWolf.LibreWolf = {
+    Icon = Mozilla.png;
+  };
+  St = {
+    Icon = "logan-terminal.xpm";
+  };
+  urxvt.URxvt = {
+    Icon = TerminalLinux.xpm;
+  };
+  Navigator.firefox = {
+    Icon = Mozilla_Firefox_3.5_logo.png;
+  };
+  mpvk.mpv = {
+    Icon = Speaker.png;
+  };
+  groupLeader.WPrefs = {
+    Icon = groupLeader.WPrefs.xpm;
+  };
+}
