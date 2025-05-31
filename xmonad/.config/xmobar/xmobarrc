@@ -1,13 +1,13 @@
 Config {
-  bgColor = "#181818"
-  , fgColor = "#e4e4e4"
+  bgColor = "#0f0e06"
+  , fgColor = "#cfbcba"
   , border      = BottomB
   , font        = "xft:Iosevka Comfy-12"
-  , additionalFonts = ["Noto Color Emoji-12", "Iosevka Nerd Font"]
+  , additionalFonts = ["Noto Color Emoji-10", "Iosevka Nerd Font"]
   , position    = TopH 22
   , commands = [
       -- Network activity monitor (dynamic interface resolution)
-    Run Date "%Y-%m-%d (%a) %H:%M:%S" "mydate" 10
+    Run Date "%Y-%m-%d (%a) %H:%M" "mydate" 10
     -- Run Com "<terminal app/script>" [<app arguments>] <template identifier> <refreshrate>
     , Run Com "notmuch" ["count", "tag:unread"] "unread-mail" 100
     , Run Com "notmuch" ["count", "tag:inbox"] "inbox-mail" 100
@@ -17,18 +17,18 @@ Config {
     , Run DynNetwork [ "--template" , " :  <tx>kB/s  <rx>kB/s"
                              , "--Low"      , "1000"       -- units: B/s
                              , "--High"     , "5000"       -- units: B/s
-                             , "--low"      , "#73c936"
-                             , "--normal"   , "#ce5c00"
+                             , "--low"      , "#64aa0f"
+                             , "--normal"   , "#d0730f"
                              , "--high"     , "#ff4f58"
                              ] 10
     , Run ThermalZone 0 ["-t"," : <temp>C"] 30
     , Run MultiCpu       [ "--template" , "󰍛 : <total0>%|<total1>%"
                              , "--Low"      , "50"         -- units: %
                              , "--High"     , "85"         -- units: %
-                             , "--low"      , "#73c936"
-                             , "--normal"   , "#ce5c00"
+                             , "--low"      , "#64aa0f"
+                             , "--normal"   , "#d0730f"
                              , "--high"     , "#ff4f58"
                              ] 10
     ]
-  , template = " %StdinReader% }{ <fc=#ffdd33>%weather%</fc> | <fc=#73c936> : </fc><fc=#729FCF>[U]</fc> %unread-mail% <fc=#95a99f>[I]</fc> %inbox-mail% | <fc=#96a6c8>%music%</fc> | %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
+  , template = " %StdinReader% }{ <fc=#d0730f>%weather%</fc> | <fc=#64aa0f> : </fc><fc=#6a84af>[U]</fc> %unread-mail% <fc=#82a0af>[I]</fc> %inbox-mail% | <fc=#6a84af>%music%</fc> | %multicpu% | %thermal0% | %dynnetwork% | 󰃰: %mydate% "
 }

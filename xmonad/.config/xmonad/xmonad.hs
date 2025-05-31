@@ -26,6 +26,9 @@ import qualified XMonad.StackSet as W
 
 import XMonad.Hooks.EwmhDesktops
 
+-- Custom theme
+import Colors.Ef.Autumn
+
 main :: IO()
 main = do
   nScreens <- countScreens
@@ -46,7 +49,7 @@ myConfig xmprocs = def
   , workspaces = myWorkspaces
   , handleEventHook = swallowEventHook (className =? "St" <||> className =? "st") (return True)
   , logHook = myLogHook xmprocs
-  , startupHook = spawn "conky -c ~/.config/conky/conky.conf"
+  -- , startupHook = spawn "conky -c ~/.config/conky/conky.conf"
   , manageHook = myManageHook
   , borderWidth = 3
   , focusedBorderColor = active_border  -- Focused window border color
@@ -60,7 +63,6 @@ myKeys =
   [("M-q", kill)
   -- window management
   , ("M-z", windows W.swapMaster)
-  , ("M-S-<Space>", withFocused $ windows . W.sink)
 
   -- workspaces
   -- viewing
@@ -95,6 +97,7 @@ myKeys =
 
   -- monitors
   , ("M-S-l", nextScreen)
+  , ("M-i", nextScreen)
   , ("M-S-h", prevScreen)
   , ("M-C-h", shiftPrevScreen)
   , ("M-C-l", shiftNextScreen)
@@ -114,17 +117,16 @@ myKeys =
   , ("<XF86AudioPause>", spawn "playerctl pause")
   , ("<XF86AudioNext>", spawn "playerctl next")
   , ("<XF86AudioPrev>", spawn "playerctl previous")
-  , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+")
-  , ("<XF86AudioLowerVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-")
-  , ("<XF86AudioMute>", spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
+  , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+  , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
 
   -- brightness
   , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
 
   -- main programs
-  -- , ("M-w", spawn "librewolf-bin")
-  , ("M-S-w", spawn "firefox")
+  , ("M-w", spawn "firefox-bin")
 
   -- emacs
   , ("M-e", spawn "emacs")
@@ -134,7 +136,6 @@ myKeys =
   , ("M-S-n", spawn "emacs-launcher")
   , ("M-b", spawn "scratch.sh")
 
-  -- mouse bindings
   ]
 
 
@@ -162,7 +163,7 @@ myLayout = tiled ||| Mirror tiled ||| tabbedBottom
 myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
     { ppOutput = hPutStrLn xmproc
     , ppTitle = xmobarColor green "" . shorten 50
-    , ppLayout = xmobarColor purple ""
+    , ppLayout = xmobarColor yellow ""
     , ppSep = " | "
     , ppCurrent = xmobarColor active_fg "" . wrap "[" "]"
     , ppVisible = wrap "[" "]"
