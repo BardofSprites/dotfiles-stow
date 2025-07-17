@@ -9,6 +9,12 @@ alias ta="tmux attach"
 alias ts="tmux-sessionizer"
 alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
 
+# smart launcher aliases
+alias p="smart-launcher ~/Pictures/"
+alias r="smart-launcher ~/Repositories/"
+alias d="smart-launcher ~/Documents/"
+alias c="smart-launcher ~/Code/"
+
 function _recentimages() {
     find "$1" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.bmp" \) -printf "%T@ %p\n" |
         sort -nr |
@@ -16,6 +22,19 @@ function _recentimages() {
         nsxiv -t -; };
 
 alias recentimages='_recentimages'
+
+function xrdb-theme() {
+    local theme_file
+    theme_file=$(find ~/.Xresources.d/ -type l | fzf)
+
+    if [[ -n "$theme_file" ]]; then
+        xrdb -merge "$theme_file"
+        echo "Loaded theme: $(basename "$theme_file")"
+    else
+        echo "No theme selected."
+    fi
+}
+
 
 alias checkmail="$HOME/.local/bin/scripts/checkmail"
 # gentoo related

@@ -5,10 +5,13 @@ export TERMINAL="/usr/local/bin/st"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/scripts/:$PATH"
 export PATH="$HOME/.local/bin/scripts/perl/:$PATH"
+export PATH="$HOME/.local/bin/scripts/status/:$PATH"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export PATH="$HOME/opt/:$PATH"
 export PKG_CONFIG_PATH="$HOME/opt/raylib/lib/pkgconfig/:$PKG_CONFIG_PATH"
 export PATH="$HOME/.nimble/bin":$PATH
+PLAN9=/home/bard/Repositories/plan9port export PLAN9
+PATH=$PATH:$PLAN9/bin export PATH
 
 source "$HOME/.config/fzf/key-bindings.bash"
 
