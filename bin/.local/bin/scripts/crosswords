@@ -1,0 +1,18 @@
+#!/bin/bash
+
+CROSSWORDS_DIR=~/Boox/Documents/crosswords
+
+wget https://www.onlinecrosswords.net/printable-daily-crosswords-{1,2,3,4,5,6,7}.pdf
+
+# mkdir $CROSSWORDS_DIR
+mv printable-daily-crosswords* $CROSSWORDS_DIR
+mv $CROSSWORDS_DIR/printable-daily-crosswords-1.pdf $CROSSWORDS_DIR/puzz#1_$(date +%Y-%m-%d).pdf
+mv $CROSSWORDS_DIR/printable-daily-crosswords-2.pdf $CROSSWORDS_DIR/puzz#2_$(date +%Y-%m-%d).pdf
+mv $CROSSWORDS_DIR/printable-daily-crosswords-3.pdf $CROSSWORDS_DIR/puzz#3_$(date +%Y-%m-%d).pdf
+mv $CROSSWORDS_DIR/printable-daily-crosswords-4.pdf $CROSSWORDS_DIR/puzz#4_$(date +%Y-%m-%d).pdf
+mv $CROSSWORDS_DIR/printable-daily-crosswords-5.pdf $CROSSWORDS_DIR/puzz#5_$(date +%Y-%m-%d).pdf
+mv $CROSSWORDS_DIR/printable-daily-crosswords-6.pdf $CROSSWORDS_DIR/puzz#6_$(date +%Y-%m-%d).pdf
+mv $CROSSWORDS_DIR/printable-daily-crosswords-7.pdf $CROSSWORDS_DIR/puzz#7_$(date +%Y-%m-%d).pdf
+
+mkdir $CROSSWORDS_DIR/$(date +%Y-%m-%d)
+mv $CROSSWORDS_DIR/puzz#* $CROSSWORDS_DIR/$(date +%Y-%m-%d)

@@ -1,0 +1,3 @@
+#!/bin/bash
+fontsrv &
+acme -f /mnt/font/'GoMonoNFM'/12a/font & 

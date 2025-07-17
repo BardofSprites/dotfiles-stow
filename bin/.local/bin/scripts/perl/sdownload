@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+# Takes in files like this
+# Genre - link to spotify song
+# Places in ~/Music/Genre/downloaded.mp3
+
+use strict;
+use warnings;
+use File::Path qw(make_path);
+use File::HomeDir;
+
+my $file = $ARGV[0] or die "Usage: ./sdownload download.txt\n";
+
+open(my $fh, '<', $file) or die "Could not open file '$file': $!";
+
+while (my $line = <$fh>) {
+    chomp $line;
+    next unless $line =~ /^(.+?)\s*-\s*(https:\/\/open\.spotify\.com\/track\/[^\s?]+)/;
+    my ($genre, $url) = ($1, $2);
+
+    my $music_dir = File::HomeDir->my_home . "/Music/$genre";
+    make_path($music_dir) unless -d $music_dir;
+
+    print "Downloading $url into $music_dir...\n";
+    system("cd '$music_dir' && spotdl download '$url'");
+}
+
+close($fh);

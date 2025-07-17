@@ -1,0 +1,71 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use LWP::UserAgent;
+use JSON::PP;
+use POSIX qw(strftime);
+use Time::Piece;
+use Text::Table;
+use Term::ANSIColor;
+
+# Setup
+my $url = 'https://api.weather.gov/gridpoints/LMK/56,80/forecast';
+my $ua = LWP::UserAgent->new;
+$ua->agent("CoolWeatherClient/1.0");
+
+# Fetch the JSON
+my $res = $ua->get($url);
+die "Failed to get forecast: " . $res->status_line unless $res->is_success;
+
+# Decode JSON
+my $data = decode_json($res->decoded_content);
+my @periods = @{ $data->{properties}{periods} };
+
+# Prepare table
+my $tb = Text::Table->new(
+    colored("Period", "bold blue"),
+    colored("Start Time", "bold yellow"),
+    colored("End Time", "bold yellow"),
+    colored("Temperature", "bold red"),
+    colored("Precip (%)", "bold cyan"),
+    colored("Forecast", "bold green")
+);
+
+# Process and add rows
+for my $p (@periods) {
+    my $start = format_time($p->{startTime});
+    my $end   = format_time($p->{endTime});
+    my $temp  = sprintf("%d°F", $p->{temperature});
+    my $precip = defined $p->{probabilityOfPrecipitation}{value} ? $p->{probabilityOfPrecipitation}{value} : 0;
+    $tb->add(
+        $p->{name},
+        $start,
+        $end,
+        $temp,
+        "$precip%",
+        $p->{shortForecast}
+    );
+}
+
+# Output table
+print "\n", colored("7-Day Weather Forecast", "bold underline green"), "\n\n";
+print $tb;
+
+# Function to format date/time
+sub format_time {
+    my ($iso) = @_;
+    $iso =~ s/([+-]\d{2}):(\d{2})$/$1$2/;
+
+    my $t = Time::Piece->strptime($iso, "%Y-%m-%dT%H:%M:%S%z");
+    return $t->strftime("%Y-%m-%d (%a) %H:%M");
+}
+
+# Save to cache with color codes intact
+my $cache_file = "$ENV{HOME}/.cache/weather";
+
+open(my $fh, '>', $cache_file) or die "Cannot write to $cache_file: $!";
+print $fh colored("7-Day Weather Forecast", "bold underline green") . "\n\n";
+print $fh $tb;
+close $fh;
+
+print "Successfully wrote output to cache file\n";

@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Check for at least one color code
+die "Usage: convert-color #hexcolor [#hexcolor ...]\n" unless @ARGV;
+
+foreach my $hex (@ARGV) {
+    # Validate and strip the leading #
+    if ($hex =~ /^#?([a-fA-F0-9]{6})$/) {
+        my $color = $1;
+
+        # Split into RGB components
+        my ($r, $g, $b) = map { hex($_) } ($color =~ /(..)(..)(..)/);
+
+        # Output in rgba format with alpha = 1
+        print "rgba($r, $g, $b, 1)\n";
+    } else {
+        warn "Invalid color format: $hex\n";
+    }
+}
