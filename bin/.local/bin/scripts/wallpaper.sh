@@ -1,12 +1,14 @@
 #!/bin/bash
 
-# Clean wallpaper cache file
-sed -i '/feh/d' $HOME/.cache/wallpaper
 
 # Path to the directory containing your wallpapers
 WALLPAPER_DIRS="$HOME/Pictures/wallpaper/\n$HOME/Pictures/other-wallpaper/"
 
 WALLPAPER_DIR=$(echo -e "$WALLPAPER_DIRS" | dmenu -p "Select directory: ")
+
+if [ -z "$WALLPAPER_DIR" ]; then
+    exit 1
+fi
 
 # Use nsxiv to mark an image
 selected_wallpaper=$(nsxiv -t -r -o $WALLPAPER_DIR)
@@ -16,6 +18,9 @@ OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
 
 # Prompt user to select a display mode
 selected_mode=$(echo -e "$OPTIONS" | dmenu -p "Select Display Mode:")
+
+# Clean wallpaper cache file
+sed -i '/feh/d' $HOME/.cache/wallpaper
 
 # Command to set wallpaper based on selected mode
 case "$selected_mode" in
