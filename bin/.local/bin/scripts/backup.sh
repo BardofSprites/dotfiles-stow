@@ -12,6 +12,8 @@ SOURCE_DIRS=(
     "/home/bard/Videos/"
     "/home/bard/dotfiles-stow/"
     "/home/bard/Mail/"
+    "/home/bard/Calibre Library/"
+    "/home/bard/Boox/"
 )
 
 DESTINATION_BASE="/mnt/hdd/"
