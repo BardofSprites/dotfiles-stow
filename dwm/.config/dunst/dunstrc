@@ -298,7 +298,7 @@
     foreground = "#ffffff"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    default_icon = ~/.fvwm/icon/Yoritsuki/Kanban\ \(sign\).png
 
 [urgency_critical]
     background = "#9d1f1f"
