@@ -1,6 +1,6 @@
 #!/bin/bash
 
-flatpaks="Anki\nCalibre\nobs\nLibreOffice\nZealDocs\nQutebrowser\ntexmacs\nkdenlive"
+flatpaks="Anki\nCalibre\nDiscord\nobs\nLibreOffice\nZealDocs\nQutebrowser\nsteam\ntexmacs\nkdenlive\nfreetube\nGajim"
 chosen=$(echo -e "$flatpaks" | dmenu -p "Select flatpak: ")
 
 case "$chosen" in
@@ -9,6 +9,9 @@ case "$chosen" in
     ;;
     "Calibre")
         flatpak run com.calibre_ebook.calibre
+        ;;
+    "Discord")
+        flatpak run com.discordapp.Discord
         ;;
     "LibreOffice")
         flatpak run org.libreoffice.LibreOffice
@@ -24,10 +27,19 @@ case "$chosen" in
     ;;
     "texmacs")
         flatpak run org.texmacs.TeXmacs
-     ;;
+        ;;
+    "steam")
+        flatpak run com.valvesoftware.Steam
+        ;;
     "kdenlive")
         flatpak run org.kde.kdenlive
-    ;;
+        ;;
+    "freetube")
+        flatpak run io.freetubeapp.FreeTube
+        ;;
+    "Gajim")
+        flatpak run org.gajim.Gajim
+        ;;
     *)
         echo "operation wasn't successful"
     exit 1
