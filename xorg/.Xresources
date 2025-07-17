@@ -22,6 +22,8 @@ URxvt.boldItalicFont: xft:Iosevka Comfy:style=Bold Italic:size=14
 st.font: Iosevka Comfy-14
 Nsxiv.bar.font: Iosevka Comfy-14
 dmenu.font: Iosevka Comfy-14
+st.alpha: 0.95
+Nsxiv.window.alpha: 0.95
 
 !! Copy Paste
 URxvt.perl-lib: /home/bard/.urxvt/

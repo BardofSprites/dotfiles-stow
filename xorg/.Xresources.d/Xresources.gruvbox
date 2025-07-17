@@ -14,19 +14,17 @@
 *.color13: #d3869b
 *.color14: #8ec07c
 *.color15: #ebdbb2
-*.background: #282828
+*.background: #1d2021
 *.foreground: white
 *.cursorColor: white
 
-dmenu.background: #282828
-dmenu.foreground: #ebdbb2
-dmenu.selbackground: #665c54
-dmenu.selforeground: #ebdbb2
-
-Nsxiv.window.background: #282828
-Nsxiv.window.foreground: #ebdbb2
-Nsxiv.mark.foreground: #665c54
-Nsxiv.bar.background: #665c54
-Nsxiv.bar.foreground: #ebdbb2
+Nsxiv.window.background: #222222
+Nsxiv.window.foreground: #bbbbbb
+Nsxiv.mark.foreground: #bbbbbb
+Nsxiv.bar.background: #005577
+Nsxiv.bar.foreground: #eeeeee
+Nsxiv.font: monospace-13
 
 st.alpha: 0.95
+st.font: monospace-13
+dmenu.font: monospace-12

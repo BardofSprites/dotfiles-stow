@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-themes=("Gruber Darker" "Modus Vivendi")
+themes=("Gruber Darker" "Modus Vivendi" "Ef Arbutus" "Ef Autumn")
 
 selected_theme=$(printf "%s\n" "${themes[@]}" | dmenu -p "Select a theme:")
 
@@ -18,7 +18,6 @@ apply_generic_theme() {
         "Gruber Darker")
             BG_COLOR="#181818"
             FG_COLOR="#e4e4e4"
-            BORDER_COLOR="#cc8c3c"
             XMONAD_MODULE="GruberDarker"
             apply_emacs_theme "gruber-darker"
             xrdb -merge ~/.Xresources.d/Xresources.gruber
@@ -26,15 +25,26 @@ apply_generic_theme() {
         "Modus Vivendi")
             BG_COLOR="#000000"
             FG_COLOR="#ffffff"
-            BORDER_COLOR="#989898"
             XMONAD_MODULE="Modus.Vivendi"
             apply_emacs_theme "modus-vivendi"
             xrdb -merge ~/.Xresources.d/Xresources.vivendi
             ;;
+        "Ef Arbutus")
+            BG_COLOR="#ffead8"
+            FG_COLOR="#393330"
+            XMONAD_MODULE="Ef.Arbutus"
+            apply_emacs_theme "ef-arbutus"
+            xrdb -merge ~/.Xresources.d/Xresources.arbutus
+            ;;
+        "Ef Autumn")
+            BG_COLOR="#0f0e06"
+            FG_COLOR="#cfbcba"
+            XMONAD_MODULE="Ef.Autumn"
+            apply_emacs_theme "ef-autumn"
+            ;;
             *)
             BG_COLOR="#181818"
             FG_COLOR="#e4e4e4"
-            BORDER_COLOR="#95a99f"
             ;;
     esac
 
