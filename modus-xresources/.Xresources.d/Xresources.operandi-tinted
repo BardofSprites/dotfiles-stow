@@ -40,5 +40,5 @@ dmenu.selforeground: #000000
 
 dwm.background: #fbf7f0
 dwm.foreground: #000000
-dwm.selbackground: #cab9b2
+dwm.selbackground: #d00000
 dwm.selforeground: #000000

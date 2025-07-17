@@ -84,3 +84,15 @@
 !! white dark/light
 *color7:                zenburn_light_gray
 *color15:               zenburn_white
+
+Nsxiv.window.background: zenburn_bg
+Nsxiv.window.foreground: zenburn_fg
+Nsxiv.mark.foreground: zenburn_dark_gray
+Nsxiv.bar.background: zenburn_bg_01
+Nsxiv.bar.foreground: zenburn_light_yellow
+
+dmenu.background: zenburn_bg
+dmenu.foreground: zenburn_fg
+dmenu.selforeground: zenburn_light_yellow
+dmenu.selbackground: zenburn_bg_02
+
