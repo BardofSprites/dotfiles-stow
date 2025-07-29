@@ -8,6 +8,10 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Simplest
+import XMonad.Layout.Spacing
+import XMonad.Layout.ToggleLayouts
+import XMonad.Layout.LayoutCombinators (JumpToLayout(..))
+import XMonad.Layout.Renamed (renamed, Rename(Replace))
 
 -- window swallowing
 import XMonad.Hooks.WindowSwallowing
@@ -21,13 +25,14 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Hooks.DynamicLog
 import System.IO
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 
 import qualified XMonad.StackSet as W
 
 import XMonad.Hooks.EwmhDesktops
 
 -- Custom theme
-import Colors.Ef.Autumn
+import Colors.Ef.EleaDark
 
 main :: IO()
 main = do
@@ -45,7 +50,7 @@ term = "st"
 myConfig xmprocs = def
   {
     modMask = mod4Mask
-  , layoutHook = avoidStruts $ myLayout
+  , layoutHook = myLayout
   , workspaces = myWorkspaces
   , handleEventHook = swallowEventHook (className =? "St" <||> className =? "st") (return True)
   , logHook = myLogHook xmprocs
@@ -57,7 +62,7 @@ myConfig xmprocs = def
   }
   `additionalKeysP` myKeys
 
-myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+myWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
 
 myKeys =
   [("M-q", kill)
@@ -126,7 +131,8 @@ myKeys =
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
 
   -- main programs
-  , ("M-w", spawn "firefox-bin")
+  , ("M-w", spawn "librewolf-bin")
+  , ("M-S-w", spawn "firefox-bin")
 
   -- emacs
   , ("M-e", spawn "emacs")
@@ -135,6 +141,11 @@ myKeys =
   , ("M-S-d", spawn "dired_selector")
   , ("M-S-n", spawn "emacs-launcher")
   , ("M-b", spawn "scratch.sh")
+
+  , ("M-f", sendMessage $ ToggleLayout)
+  , ("M-t", sendMessage $ JumpToLayout "[T]")
+  , ("M-S-t", sendMessage $ JumpToLayout "|||")
+  , ("M-i", sendMessage $ JumpToLayout "|M|")
 
   ]
 
@@ -152,13 +163,24 @@ myTabConfig = def { activeColor = bg_active
                   , fontName = "xft:Iosevka Comfy:size=13"
                   }
 
-myLayout = tiled ||| Mirror tiled ||| tabbedBottom
+
+
+mySpacing = spacingRaw False            -- False=Apply even when single window
+                       (Border 5 5 5 5) -- Screen border size top bot rght lft
+                       True             -- Enable screen border
+                       (Border 5 5 5 5) -- Window border size
+                       True             -- Enable window borders
+
+myLayout = avoidStruts $ toggleLayouts full (tiled ||| bstack ||| tabbedBottom ||| column ||| full)
   where
-    tiled    = Tall nmaster delta ratio
-    nmaster  = 1      -- Default number of windows in the master pane
-    ratio    = 1/2    -- Default proportion of screen occupied by master pane
-    delta    = 3/100  -- Percent of screen to increment by when resizing panes
-    tabbedBottom = tabbed shrinkText myTabConfig
+    tiled        = renamed [Replace "[]"] $ mySpacing (Tall nmaster delta ratio)
+    bstack        = renamed [Replace "TTT"] $ Mirror tiled
+    nmaster      = 1
+    ratio        = 1/2
+    delta        = 3/100
+    tabbedBottom = renamed [Replace "[T]"] $ tabbed shrinkText myTabConfig
+    column       = renamed [Replace "|M|"] $ mySpacing (ThreeColMid 1 (3/100) (1/2))
+    full         = renamed [Replace "[M]"] $ Full
 
 myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
     { ppOutput = hPutStrLn xmproc
@@ -174,5 +196,6 @@ myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
 
 myManageHook = composeAll
   [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
+  , className =? "floatterm" --> doRectFloat (W.RationalRect 0.125 0.125 0.75 0.75)
   , manageDocks  -- Ensure docks (like xmobar) are managed correctly
   ] <+> manageHook def

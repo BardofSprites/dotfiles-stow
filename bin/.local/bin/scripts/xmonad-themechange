@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-themes=("Gruber Darker" "Modus Vivendi" "Ef Arbutus" "Ef Autumn")
+themes=("Gruber Darker" "Modus Vivendi" "Ef Arbutus" "Ef Elea Dark" "Ef Autumn")
 
 selected_theme=$(printf "%s\n" "${themes[@]}" | dmenu -p "Select a theme:")
 
@@ -35,6 +35,13 @@ apply_generic_theme() {
             XMONAD_MODULE="Ef.Arbutus"
             apply_emacs_theme "ef-arbutus"
             xrdb -merge ~/.Xresources.d/Xresources.arbutus
+            ;;
+        "Ef Elea Dark")
+            BG_COLOR="#222524"
+            FG_COLOR="#eaf2ef"
+            XMONAD_MODULE="Ef.EleaDark"
+            apply_emacs_theme "ef-elea-dark"
+            xrdb -merge ~/.Xresources.d/Xresources.elea-dark
             ;;
         "Ef Autumn")
             BG_COLOR="#0f0e06"
