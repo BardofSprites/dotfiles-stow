@@ -1,13 +1,38 @@
 #!/bin/bash
 
+ICON="/home/bard/dotfiles-stow/fvwm/.fvwm/icon/Yoritsuki/Kinchaku (drawstring bag).png"
+LOG_FILE="$HOME/.cache/checkmail"
+
+notify-send --icon "$ICON" "Mail sync in progress"
+
+countbefore=$(notmuch count)
+deleted=$(notmuch count tag:del)
+
+# Move "deleted" messages to Gmail Trash folder before syncing
+notmuch search --output=files --format=text0 tag:del | \
+    xargs -0 --no-run-if-empty -I{} mv {} ~/Mail/gmail-devel/trash/cur/
+
 mbsync -a
 notmuch new
-notmuch search --format=text0 --output=files tag:del | xargs -0 --no-run-if-empty rm
+
+# Tagging
 notmuch tag +linux +contrib -- to:lists@t2sde.org
 notmuch tag +emacs-devel +emacs +contrib -- to:emacs-devel@gnu.org
 notmuch tag +emacs-humanities +emacs -- to:emacs-humanities@gnu.org
 notmuch tag +emacs-org +emacs +org-mode -- to:emacs-orgmode@gnu.org
 
-# logging
-LOG_FILE="$HOME/.cache/checkmail"
-echo "Last mail sync at $(date)" >> $LOG_FILE
+countafter=$(notmuch count)
+added=$((countafter - countbefore))
+
+if [ "$added" -lt 0 ]; then
+    added=0
+fi
+
+# Logging
+echo "Last mail sync at $(date)" >> "$LOG_FILE"
+
+if [ "$added" -gt 0 ] || [ "$deleted" -gt 0 ]; then
+    notify-send --icon "$ICON" "Mail Sync Summary" "Added: $added\nDeleted: $deleted\nTotal: $countafter"
+else
+    notify-send --icon "$ICON" "Mail Sync Summary" "Nothing has changed"
+fi

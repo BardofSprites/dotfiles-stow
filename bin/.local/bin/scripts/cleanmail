@@ -1,4 +1,8 @@
 #!/bin/bash
 
+countbefore=$(notmuch count tag:del)
 notmuch search --format=text0 --output=files tag:del | xargs -0 --no-run-if-empty rm
 notmuch new
+countafter=$(notmuch count tag:del)
+
+notify-send "$countafter messages deleted"
