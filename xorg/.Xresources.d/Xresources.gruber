@@ -28,5 +28,4 @@ dmenu.foreground: #e4e4e4
 dmenu.selforeground: #181818
 dmenu.selbackground: #96a6c8
 
-st.alpha: 1.0
 *.cursorColor: #ffdd33
