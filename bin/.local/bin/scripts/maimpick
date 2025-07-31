@@ -1,14 +1,75 @@
 #!/bin/sh
 
-# variables
+# Variables
 output="$(date '+%y%m%d-%H%M-%S').png"
 xclip_cmd="xclip -sel clip -t image/png"
 
-case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
-    "a selected area") maim -u -s $HOME/Pictures/screenshots/pic-selected-"${output}" ;;
-    "current window") maim -q -d 0.2 -i "$(xdotool getactivewindow)" $HOME/Pictures/screenshots/pic-window-"${output}" ;;
-    "full screen") maim -q -d 0.2 $HOME/Pictures/screenshots/pic-full-"${output}" ;;
-    "a selected area (copy)") maim -u -s | ${xclip_cmd} ;;
-    "current window (copy)") maim -q -d 0.2 -i "$(xdotool getactivewindow)" | ${xclip_cmd} ;;
-    "full screen (copy)") maim -q -d 0.2 | ${xclip_cmd} ;;
+# Function to get monitor geometry via xrandr
+get_geometry() {
+    xrandr | grep -A1 "^$1" | grep -o '[0-9]\+x[0-9]\++[0-9]\++[0-9]\+' | head -n1
+}
+
+# Get monitor names
+monitors=$(xrandr | grep ' connected' | awk '{print $1}')
+primary_monitor=$(xrandr | grep ' connected primary' | cut -d' ' -f1)
+
+# Fallback if no primary monitor is marked
+if [ -z "$primary_monitor" ]; then
+    primary_monitor=$(echo "$monitors" | head -n1)
+fi
+
+main_monitor_geom=$(get_geometry "$primary_monitor")
+side_monitor=$(echo "$monitors" | grep -v "$primary_monitor" | head -n1)
+
+# Fallback if only one monitor is connected
+if [ -z "$side_monitor" ]; then
+    side_monitor_geom=""
+else
+    side_monitor_geom=$(get_geometry "$side_monitor")
+fi
+
+# Main menu prompt
+selection=$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")
+
+# Monitor selection logic (only for full screen options)
+select_monitor_geom() {
+    monitor_choice=$(printf "main monitor\nside monitor\nboth monitors" | dmenu -i -p "Which monitor?")
+    case "$monitor_choice" in
+        "main monitor") echo "$main_monitor_geom" ;;
+        "side monitor") echo "$side_monitor_geom" ;;
+        "both monitors") echo "" ;;  # No -g flag
+        *) exit 1 ;;
+    esac
+}
+
+# Handle screenshot selection
+case "$selection" in
+    "a selected area")
+        maim -u -s "$HOME/Pictures/screenshots/pic-selected-${output}"
+        ;;
+    "current window")
+        maim -q -d 0.2 -i "$(xdotool getactivewindow)" "$HOME/Pictures/screenshots/pic-window-${output}"
+        ;;
+    "full screen")
+        selected_geom=$(select_monitor_geom)
+        if [ -z "$selected_geom" ]; then
+            maim -q -d 0.2 "$HOME/Pictures/screenshots/pic-full-${output}"
+        else
+            maim -q -d 0.2 -g "$selected_geom" "$HOME/Pictures/screenshots/pic-full-${output}"
+        fi
+        ;;
+    "a selected area (copy)")
+        maim -u -s | ${xclip_cmd}
+        ;;
+    "current window (copy)")
+        maim -q -d 0.2 -i "$(xdotool getactivewindow)" | ${xclip_cmd}
+        ;;
+    "full screen (copy)")
+        selected_geom=$(select_monitor_geom)
+        if [ -z "$selected_geom" ]; then
+            maim -q -d 0.2 | ${xclip_cmd}
+        else
+            maim -q -d 0.2 -g "$selected_geom" | ${xclip_cmd}
+        fi
+        ;;
 esac
