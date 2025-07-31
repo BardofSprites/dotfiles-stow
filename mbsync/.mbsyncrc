@@ -1,37 +1,3 @@
-IMAPAccount home
-Host imap.gmail.com
-UserCmd "pass mbsync/home-gmail-email"
-PassCmd "pass mbsync/home-gmail"
-SSLType IMAPS
-AuthMechs LOGIN
-
-IMAPStore home-remote
-Account home
-
-MaildirStore home-local
-Subfolders Verbatim
-# The trailing "/" is important
-Path ~/Mail/gmail-home/
-Inbox ~/Mail/gmail-home/Inbox
-
-Channel home-inbox
-Far :home-remote:
-Near :home-local:
-Patterns "INBOX"
-
-Channel home-sent
-Far :home-remote:"[Gmail]/Sent Mail"
-Near :home-local:sent
-
-Channel home-trash
-Far :home-remote:"[Gmail]/Trash"
-Near :home-local:trash
-
-Group home
-Channel home-inbox
-Channel home-sent
-Channel home-trash
-
 # Gmail mailboxes:
 # "All Mail"
 # "Drafts"
@@ -58,17 +24,28 @@ Path ~/Mail/gmail-devel/
 Inbox ~/Mail/gmail-devel/Inbox
 
 Channel devel-inbox
-Far :devel-remote:
-Near :devel-local:
-Patterns "INBOX"
+Far :devel-remote:INBOX
+Near :devel-local:Inbox
+Create Both
+Expunge Both
+Sync All
+CopyArrivalDate yes
 
 Channel devel-sent
 Far :devel-remote:"[Gmail]/Sent Mail"
 Near :devel-local:sent
+Create Both
+Expunge Both
+Sync All
+CopyArrivalDate yes
 
 Channel devel-trash
 Far :devel-remote:"[Gmail]/Trash"
 Near :devel-local:trash
+Create Both
+Expunge Both
+Sync All
+CopyArrivalDate yes
 
 Group devel
 Channel devel-inbox

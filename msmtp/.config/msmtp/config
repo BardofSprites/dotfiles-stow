@@ -6,12 +6,12 @@ tls_trust_file /etc/ssl/certs/ca-certificates.crt
 logfile        ~/.msmtp.log
 
 # account_name
-account gmail-home
+account devel-gmail
 host smtp.gmail.com
 port 465
 tls_starttls off
-eval echo from $(pass mbsync/home-gmail-username)
-eval echo user $(pass mbsync/home-gmail-email)
-passwordeval "pass mbsync/home-gmail"
+eval echo from $(pass mbsync/devel-gmail-email)
+eval echo user $(pass mbsync/devel-gmail-email)
+passwordeval "pass mbsync/devel-gmail"
 
-account default : gmail-home
+account default : devel-gmail
