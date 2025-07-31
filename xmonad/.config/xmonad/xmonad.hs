@@ -4,6 +4,7 @@ import XMonad.Util.EZConfig
 -- window layout
 import XMonad.Layout.Magnifier
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Accordion
 import XMonad.Layout.Tabbed
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
@@ -18,6 +19,7 @@ import XMonad.Hooks.WindowSwallowing
 
 import XMonad.Layout.IndependentScreens
 import XMonad.Actions.PhysicalScreens
+import Data.List (isPrefixOf)
 import XMonad.Actions.CycleWS
 
 -- xmobar
@@ -32,7 +34,7 @@ import qualified XMonad.StackSet as W
 import XMonad.Hooks.EwmhDesktops
 
 -- Custom theme
-import Colors.Ef.EleaDark
+import Colors.GruberDarker
 
 main :: IO()
 main = do
@@ -51,7 +53,7 @@ myConfig xmprocs = def
   {
     modMask = mod4Mask
   , layoutHook = myLayout
-  , workspaces = myWorkspaces
+  , workspaces = myMonitorWorkspaces
   , handleEventHook = swallowEventHook (className =? "St" <||> className =? "st") (return True)
   , logHook = myLogHook xmprocs
   -- , startupHook = spawn "conky -c ~/.config/conky/conky.conf"
@@ -62,40 +64,39 @@ myConfig xmprocs = def
   }
   `additionalKeysP` myKeys
 
+
+viewWorkspace :: Int -> X ()
+viewWorkspace i = do
+  sid <- gets (W.screen . W.current . windowset)
+  let ws = marshall sid (myWorkspaces !! i)
+  windows (W.view ws)
+
+shiftWorkspace :: Int -> X ()
+shiftWorkspace i = do
+  sid <- gets (W.screen . W.current . windowset)
+  let ws = marshall sid (myWorkspaces !! i)
+  windows (W.shift ws)
+
 myWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
+
+myMonitorWorkspaces = withScreens 2 myWorkspaces
 
 myKeys =
   [("M-q", kill)
   -- window management
-  , ("M-z", windows W.swapMaster)
+  , ("M-<Space>", windows W.swapMaster)
+  , ("M-C-<Space>", withFocused $ windows . W.sink)] ++
 
   -- workspaces
   -- viewing
-  , ("M-1", windows $ W.view (myWorkspaces !! 0))
-  , ("M-2", windows $ W.view (myWorkspaces !! 1))
-  , ("M-3", windows $ W.view (myWorkspaces !! 2))
-  , ("M-4", windows $ W.view (myWorkspaces !! 3))
-  , ("M-5", windows $ W.view (myWorkspaces !! 4))
-  , ("M-6", windows $ W.view (myWorkspaces !! 5))
-  , ("M-7", windows $ W.view (myWorkspaces !! 6))
-  , ("M-8", windows $ W.view (myWorkspaces !! 7))
-  , ("M-9", windows $ W.view (myWorkspaces !! 8))
-  , ("M-0", windows $ W.view (myWorkspaces !! 9))
-
-  -- greedy view
-  , ("M-o", swapNextScreen)
-
+  [ ("M-" ++ show (i + 1), viewWorkspace i) | i <- [0..8] ] ++
+  [ ("M-0", viewWorkspace 9) ] ++
   -- moving
-  , ("M-S-1", windows $ W.shift (myWorkspaces !! 0))
-  , ("M-S-2", windows $ W.shift (myWorkspaces !! 1))
-  , ("M-S-3", windows $ W.shift (myWorkspaces !! 2))
-  , ("M-S-4", windows $ W.shift (myWorkspaces !! 3))
-  , ("M-S-5", windows $ W.shift (myWorkspaces !! 4))
-  , ("M-S-6", windows $ W.shift (myWorkspaces !! 5))
-  , ("M-S-7", windows $ W.shift (myWorkspaces !! 6))
-  , ("M-S-8", windows $ W.shift (myWorkspaces !! 7))
-  , ("M-S-9", windows $ W.shift (myWorkspaces !! 8))
-  , ("M-S-0", windows $ W.shift (myWorkspaces !! 9))
+  [ ("M-S-" ++ show (i + 1), shiftWorkspace i) | i <- [0..8] ] ++
+  [ ("M-S-0", shiftWorkspace 9) ] ++
+  
+  -- greedy view
+  [("M-o", swapNextScreen)
 
   -- shifting
   , ("M-`", toggleWS)
@@ -143,8 +144,8 @@ myKeys =
   , ("M-b", spawn "scratch.sh")
 
   , ("M-f", sendMessage $ ToggleLayout)
-  , ("M-t", sendMessage $ JumpToLayout "[T]")
-  , ("M-S-t", sendMessage $ JumpToLayout "|||")
+  , ("M-t", sendMessage $ JumpToLayout "[]=")
+  , ("M-S-t", sendMessage $ JumpToLayout "[T]")
   , ("M-i", sendMessage $ JumpToLayout "|M|")
 
   ]
@@ -165,34 +166,47 @@ myTabConfig = def { activeColor = bg_active
 
 
 
-mySpacing = spacingRaw False            -- False=Apply even when single window
-                       (Border 5 5 5 5) -- Screen border size top bot rght lft
-                       True             -- Enable screen border
-                       (Border 5 5 5 5) -- Window border size
-                       True             -- Enable window borders
+mySpacing = spacingRaw False
+            (Border 5 5 5 5)  -- outer border: top, bottom, right, left
+            True                  -- enable outer gaps
+            (Border 5 5 5 5)  -- inner spacing: top, bottom, right, left
+            True                  -- enable inner gaps
 
 myLayout = avoidStruts $ toggleLayouts full (tiled ||| bstack ||| tabbedBottom ||| column ||| full)
   where
-    tiled        = renamed [Replace "[]"] $ mySpacing (Tall nmaster delta ratio)
+    tiled        = renamed [Replace "[]="] $ mySpacing (Tall nmaster delta ratio)
     bstack        = renamed [Replace "TTT"] $ Mirror tiled
     nmaster      = 1
     ratio        = 1/2
     delta        = 3/100
     tabbedBottom = renamed [Replace "[T]"] $ tabbed shrinkText myTabConfig
     column       = renamed [Replace "|M|"] $ mySpacing (ThreeColMid 1 (3/100) (1/2))
-    full         = renamed [Replace "[M]"] $ Full
+    full         = renamed [Replace "[M]"] $ mySpacing (Full)
 
-myLogHook xmprocs = mapM_ (\xmproc -> dynamicLogWithPP xmobarPP
+stripScreenPrefix :: String -> String
+stripScreenPrefix ws = case dropWhile (/= '_') ws of
+  ('_':rest) -> rest
+  _ -> ws
+
+ppForScreen :: Int -> Handle -> X ()
+ppForScreen sid xmproc = dynamicLogWithPP xmobarPP
     { ppOutput = hPutStrLn xmproc
     , ppTitle = xmobarColor green "" . shorten 50
     , ppLayout = xmobarColor yellow ""
     , ppSep = " | "
-    , ppCurrent = xmobarColor active_fg "" . wrap "[" "]"
-    , ppVisible = wrap "[" "]"
-    , ppHidden = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
-    , ppHiddenNoWindows = \ws -> ""
+    , ppCurrent = xmobarColor active_fg "" . wrap "[" "]" . stripScreenPrefix
+    , ppVisible = wrap "[" "]" . stripScreenPrefix
+    , ppHidden = \ws -> 
+        if ws == "NSP" 
+           then "" 
+           else if (show sid ++ "_") `isPrefixOf` ws 
+                 then wrap "[" "]" (stripScreenPrefix ws) 
+                 else ""
+    , ppHiddenNoWindows = \_ -> ""
     , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
-    }) xmprocs
+    }
+
+myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
 
 myManageHook = composeAll
   [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
