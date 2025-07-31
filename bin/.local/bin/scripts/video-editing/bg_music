@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+# Get input arguments or die with usage message
+my $video_file    = $ARGV[0] or die "Usage: ./bg_music video.mp4 music.mp3 [volume] output.mp4\n";
+my $audio_file    = $ARGV[1] or die "Usage: ./bg_music video.mp4 music.mp3 [volume] output.mp4\n";
+my $volume        = (defined $ARGV[2] && $ARGV[2] =~ /^\d*\.?\d+$/) ? $ARGV[2] : 0.5;
+my $video_output  = $ARGV[3] || $ARGV[2];  # Handles case where volume is skipped
+
+# Fix usage message if output filename is still missing
+die "Usage: ./bg_music video.mp4 music.mp3 [volume] output.mp4\n" unless defined $video_output && $video_output ne $volume;
+
+# Build the FFmpeg command
+my $ffmpeg_command = "ffmpeg -i \"$video_file\" -i \"$audio_file\" " .
+    "-filter_complex \"[1:a]volume=${volume}[a1];[0:a][a1]amix=inputs=2:duration=first:dropout_transition=2[a]\" " .
+    "-map 0:v -map \"[a]\" -c:v copy -c:a aac \"$video_output\"";
+
+# Run the command
+system($ffmpeg_command) == 0
+    or die "Failed to run ffmpeg: $!";
