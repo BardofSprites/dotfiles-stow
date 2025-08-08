@@ -5,6 +5,7 @@ use LWP::UserAgent;
 use JSON::PP;
 use POSIX qw(strftime);
 use Time::Piece;
+use Time::localtime;
 use Text::Table;
 use Term::ANSIColor;
 
@@ -69,3 +70,6 @@ print $fh $tb;
 close $fh;
 
 print "Successfully wrote output to cache file\n";
+
+my $timestamp = Time::Piece::localtime->strftime("%Y-%m-%d (%a) %H:%M");
+system("notify-send 'Updated forecast' '$timestamp'");
