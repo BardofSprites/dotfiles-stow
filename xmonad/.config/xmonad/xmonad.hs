@@ -210,6 +210,6 @@ myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
 
 myManageHook = composeAll
   [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
-  , className =? "floatterm" --> doRectFloat (W.RationalRect 0.125 0.125 0.75 0.75)
+  , className =? "floatterm" --> doCenterFloat
   , manageDocks  -- Ensure docks (like xmobar) are managed correctly
   ] <+> manageHook def
