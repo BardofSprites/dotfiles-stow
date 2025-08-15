@@ -1,0 +1,16 @@
+module Colors.Ef.Eagle where
+
+fg              = "#231a1f"
+bg              = "#f1ecd0"
+bg_active       = "#cfab80"
+bg_inactive     = "#e7e0ca"
+bg_alt          = "#cec8ae"
+red             = "#882000"
+green           = "#226022"
+yellow          = "#6b4500"
+active_fg       = "#524874"
+active_border   = "#cfab80"
+tab_fg          = "#40231f"
+inactive_border = "#cec8ae"
+purple          = "#960f4f"
+inactive_fg     = "#685f53"

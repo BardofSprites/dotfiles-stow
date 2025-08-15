@@ -1,10 +1,9 @@
 module Colors.Ef.Autumn where
 
-import XMonad
-
 fg              = "#cfbcba"
 bg              = "#0f0e06"
 bg_active       = "#692a12"
+bg_inactive     = "#15140d"
 bg_alt          = "#36322f"
 red             = "#ef656a"
 green           = "#2fa526"

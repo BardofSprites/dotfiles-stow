@@ -1,0 +1,45 @@
+!!!!! Ef deuteranopia dark Xresources theme
+*.foreground:      #ddddee
+*.background:      #000a1f
+URxvt.background:  [95]#000a1f
+*.cursorColor:     #ffff00
+! black
+*.color0:       #000a1f
+*.color8:       #243145
+! red
+*.color1:       #cf7a7a
+*.color9:       #e47360
+! green
+*.color2:       #3faa26
+*.color10:      #7aad0f
+! yellow
+*.color3:       #aa9f32
+*.color11:      #cfaf00
+! blue
+*.color4:       #6a9fff
+*.color12:      #009fff
+! magenta
+*.color5:       #b379bf
+*.color13:      #9f95ff
+! cyan
+*.color6:       #5faaef
+*.color14:      #0db0ff
+! white
+*.color7:       #7f8797
+*.color15:      #ddddee
+
+dmenu.background: #000a1f
+dmenu.foreground: #ddddee
+dmenu.selbackground: #003f8f
+dmenu.selforeground: #ffffff
+
+Nsxiv.window.background: #000a1f
+Nsxiv.window.foreground: #ddddee
+Nsxiv.mark.foreground: #003f8f
+Nsxiv.bar.background: #003f8f
+Nsxiv.bar.foreground: #ffffff
+
+dwm.background: #000a1f
+dwm.foreground: #ddddee
+dwm.selbackground: #003f8f
+dwm.selforeground: #ffffff

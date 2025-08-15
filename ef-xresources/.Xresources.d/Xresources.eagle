@@ -1,7 +1,7 @@
 !!!!!! Ef Eagle Xresources theme
 *.foreground:      #231a1f
 *.background:      #f1ecd0
-*.cursorColor:     #231a1f
+*.cursorColor:     #774400
 ! black
 *.color0:       #231a1f
 *.color8:       #685f53

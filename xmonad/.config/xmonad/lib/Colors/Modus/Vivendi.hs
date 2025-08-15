@@ -5,6 +5,7 @@ import XMonad
 fg              = "#ffffff"
 bg              = "#000000"
 bg_active       = "#606060"
+bg_inactive     = "#303030"
 bg_alt          = "#303030"
 red             = "#ff5f59"
 green           = "#70b900"

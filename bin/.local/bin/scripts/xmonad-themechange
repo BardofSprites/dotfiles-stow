@@ -1,8 +1,16 @@
 #!/usr/bin/bash
 
-themes=("Gruber Darker" "Modus Vivendi" "Ef Arbutus" "Ef Elea Dark" "Ef Autumn")
+themes=("Gruber Darker"
+        "Modus Vivendi"
+        "Modus Operandi"
+        "Modus Operandi Tinted"
+        "Ef Arbutus"
+        "Ef Eagle"
+        "Ef Elea Dark"
+        "Ef Autumn"
+        "Ef Melissa Dark")
 
-selected_theme=$(printf "%s\n" "${themes[@]}" | dmenu -p "Select a theme:")
+selected_theme=$(printf "%s\n" "${themes[@]}" | dmenu -i -p "Select a theme:")
 
 # Exit if no theme is selected
 if [ -z "$selected_theme" ]; then
@@ -29,12 +37,33 @@ apply_generic_theme() {
             apply_emacs_theme "modus-vivendi"
             xrdb -merge ~/.Xresources.d/Xresources.vivendi
             ;;
+        "Modus Operandi")
+            BG_COLOR="#fbf7f0"
+            FG_COLOR="#000000"
+            XMONAD_MODULE="Modus.Operandi"
+            apply_emacs_theme "modus-operandi"
+            xrdb -merge ~/.Xresources.d/Xresources.operandi 
+            ;;
+        "Modus Operandi Tinted")
+            BG_COLOR="#fbf7f0"
+            FG_COLOR="#000000"
+            XMONAD_MODULE="Modus.OperandiTinted"
+            apply_emacs_theme "modus-operandi-tinted"
+            xrdb -merge ~/.Xresources.d/Xresources.operandi-tinted
+            ;;
         "Ef Arbutus")
             BG_COLOR="#ffead8"
             FG_COLOR="#393330"
             XMONAD_MODULE="Ef.Arbutus"
             apply_emacs_theme "ef-arbutus"
             xrdb -merge ~/.Xresources.d/Xresources.arbutus
+            ;;
+        "Ef Eagle")
+            BG_COLOR="#f1ecd0"
+            FG_COLOR="#231a1f"
+            XMONAD_MODULE="Ef.Eagle"
+            apply_emacs_theme "ef-eagle"
+            xrdb -merge ~/.Xresources.d/Xresources.eagle
             ;;
         "Ef Elea Dark")
             BG_COLOR="#222524"
@@ -48,6 +77,14 @@ apply_generic_theme() {
             FG_COLOR="#cfbcba"
             XMONAD_MODULE="Ef.Autumn"
             apply_emacs_theme "ef-autumn"
+            xrdb -merge ~/.Xresources.d/Xresources.autumn
+            ;;
+        "Ef Melissa Dark")
+            BG_COLOR="#352718"
+            FG_COLOR="#e8e4b1"
+            XMONAD_MODULE="Ef.MelissaDark"
+            apply_emacs_theme "ef-melissa-dark"
+            xrdb -merge ~/.Xresources.d/Xresources.melissa-dark
             ;;
             *)
             BG_COLOR="#181818"
