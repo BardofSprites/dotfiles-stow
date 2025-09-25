@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+magick $1 -resize 1920x1080^ -gravity center -extent 1920x1080 $2
+

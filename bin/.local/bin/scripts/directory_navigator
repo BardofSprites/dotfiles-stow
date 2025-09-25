@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Navigate directories with fzf and open a program based on file extension
 

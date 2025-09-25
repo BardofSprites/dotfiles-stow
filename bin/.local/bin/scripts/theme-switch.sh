@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define the available themes
 themes=("modus vivendi" "modus operandi tinted" "ef spring" "melissa dark")

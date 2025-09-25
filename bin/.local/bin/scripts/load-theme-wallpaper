@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Clean wallpaper cache file
 sed -i '/feh/d' $HOME/.cache/wallpaper

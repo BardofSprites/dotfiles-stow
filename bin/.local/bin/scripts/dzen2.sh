@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set the font and colors
 FONT="-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*"

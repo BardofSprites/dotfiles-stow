@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CROSSWORDS_DIR=~/Boox/Documents/crosswords
 

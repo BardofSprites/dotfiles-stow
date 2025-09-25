@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define a function to extract RSS feed URL using curl and sed
 extract_rss_url() {

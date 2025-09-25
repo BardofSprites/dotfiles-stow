@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 flatpaks="Anki\nCalibre\nDiscord\nobs\nLibreOffice\nZealDocs\nQutebrowser\nsteam\ntexmacs\nkdenlive\nfreetube\nGajim"
 chosen=$(echo -e "$flatpaks" | dmenu -p "Select flatpak: ")

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Define wallpaper path
 WALLPAPER="$HOME/Pictures/wallpaper/Stoic/library_arch.jpg"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Weather information
 weather_info="Погода $(curl -s wttr.in/?format="%c+%C+%t+%p\n")"
