@@ -40,6 +40,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+Shift+p exec playerctl pause
+bindsym $mod+bracketleft exec playerctl previous
+bindsym $mod+bracketright exec playerctl next
+bindsym $mod+Shift+p exec playerctl play-pause
 
 # Brightness
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
