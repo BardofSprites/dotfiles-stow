@@ -1,7 +1,12 @@
 # Window Manipulation Seetings
 
+gaps top 5
+gaps left 5
+gaps right 5
+gaps bottom 5
+gaps inner 10
+
 # borders
-for_window [class="^.*"] border pixel 3
 # specific window settings
 for_window [class="floatterm"] floating enable
 default_border pixel 3

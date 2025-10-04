@@ -3,7 +3,7 @@ general {
         interval = 5
 }
 
-order += "ipv6"
+# order += "ipv6"
 order += "cpu_temperature 0"
 order += "disk /"
 order += "wireless _first_"
@@ -13,36 +13,43 @@ order += "load"
 order += "tztime local"
 
 cpu_temperature 0 {
-        format = "Tea: %degrees °C"
+        # format = "Tea: %degrees °C"
+        format = " 󰶞 %degrees °C"
 }
 
 wireless _first_ {
         # format_up = "W: (%quality at %essid) %ip"
-        format_up = "W: (%quality) Leaked IP: %ip"
-        format_down = "W: down"
+        format_up = "   (%quality) [%ip] "
+        format_down = "󰖪 "
 }
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
         # format_up = "E: %ip (%speed)"
-        format_up = "E: Leaked IP: %ip (%speed)"
-        format_down = "E: down"
+        format_up = " E: Leaked IP: %ip (%speed) "
+        format_down = " E: down "
 }
 
 battery all {
-        format = "Fairy Dust: %percentage %status %remaining"
+        # format = "Fairy Dust: %percentage %status %remaining"
+        format = " %status %percentage (%remaining) "
+        status_bat = "  " 
+        status_chr = "   " 
+        status_full = "  " 
 }
 
 tztime local {
-        format = "%Y-%m-%d (%a) %H:%M:%S"
+        format = "   %Y-%m-%d (%a) 󰥔  %H:%M:%S "
 }
 
 load {
-        format = "CPU Loads: %1min"
+        # format = "CPU Loads: %1min"
+        format = "   %1min "
 }
 
 disk "/" {
-        format = "Folder: %avail"
+        # format = "Folder: %avail"
+        format = "   %avail "
 }
 
 ipv6 {

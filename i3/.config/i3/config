@@ -47,6 +47,10 @@ no_focus [window_role="pop-up"]
 bar {
     position bottom
     status_command i3status
+    colors {
+        focused_workspace #285577 #285577 #FFFFFF
+        inactive_workspace #333333 #333333 #888888
+    }
     # status_command SCRIPT_DIR=~/.local/bin/scripts/status/ i3blocks
     # colors {
     #     # switch these when switching between dark and light mode

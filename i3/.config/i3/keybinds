@@ -10,8 +10,8 @@ bindsym $mod+Shift+Return exec $term2
 bindsym $mod+Shift+x exec sysact
 
 # browser
-bindsym $mod+w exec librewolf-bin
-bindsym $mod+Shift+w exec firefox-bin
+bindsym $mod+w exec zen
+bindsym $mod+Shift+w exec librewolf
 
 # Scratchpad
 bindsym $mod+minus move scratchpad
@@ -62,6 +62,8 @@ bindsym $mod+d exec "dmenu_run -p 'Run: '"
 
 # boomer zooming application
 bindsym $mod+b exec boomer
+# change xresources and emacs theme and wallpaper
+bindsym $mod+Shift+m exec $HOME/.local/bin/scripts/generic-theme-switch
 
 # Reloads i3 configuration
 bindsym $mod+Shift+c reload

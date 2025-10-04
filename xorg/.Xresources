@@ -20,6 +20,7 @@ URxvt.italicFont: xft:Iosevka Comfy:style=Italic:size=14
 URxvt.boldItalicFont: xft:Iosevka Comfy:style=Bold Italic:size=14
 
 st.font: Iosevka Comfy-14
+st.borderpx: 30
 Nsxiv.bar.font: Iosevka Comfy-14
 dmenu.font: Iosevka Comfy-14
 st.alpha: 0.95
