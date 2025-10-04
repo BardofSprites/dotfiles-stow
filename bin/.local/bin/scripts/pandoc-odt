@@ -1,4 +1,4 @@
-#!/usr/env/bin bash
+#!/usr/bin/env bash
 
 pandoc $1 --citeproc -o $2.odt --bibliography=$HOME/Documents/bib/references.bib --csl=https://www.zotero.org/styles/apa
 
