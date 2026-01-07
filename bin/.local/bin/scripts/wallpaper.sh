@@ -1,17 +1,32 @@
 #!/usr/bin/env bash
 
+# Exit on error
+set -e
 
 # Path to the directory containing your wallpapers
-WALLPAPER_DIRS="$HOME/Pictures/wallpaper/\n$HOME/Pictures/other-wallpaper/"
+WALLPAPER_DIRS="$HOME/Pictures/wallpaper
+$HOME/Pictures/other-wallpaper"
 
-WALLPAPER_DIR=$(echo -e "$WALLPAPER_DIRS" | dmenu -p "Select directory: ")
+# If image is passed as argument, skip selection
+if [ -n "$1" ]; then
+    selected_wallpaper="$1"
 
-if [ -z "$WALLPAPER_DIR" ]; then
-    exit 1
+    # Optional: expand ~ and get absolute path
+    selected_wallpaper="$(realpath "$selected_wallpaper")"
+
+    if [ ! -f "$selected_wallpaper" ]; then
+        echo "Error: File does not exist: $selected_wallpaper"
+        exit 1
+    fi
+else
+    WALLPAPER_DIR=$(printf "%s\n" "$WALLPAPER_DIRS" | dmenu -p "Select directory:")
+
+    [ -z "$WALLPAPER_DIR" ] && exit 1
+
+    selected_wallpaper=$(nsxiv -t -r -o "$WALLPAPER_DIR")
+
+    [ -z "$selected_wallpaper" ] && exit 1
 fi
-
-# Use nsxiv to mark an image
-selected_wallpaper=$(nsxiv -t -r -o $WALLPAPER_DIR)
 
 # Options for display modes
 OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
