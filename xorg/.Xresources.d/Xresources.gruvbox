@@ -15,16 +15,16 @@
 *.color14: #8ec07c
 *.color15: #ebdbb2
 *.background: #1d2021
-*.foreground: white
+*.foreground: #ebdbb2
 *.cursorColor: white
 
-Nsxiv.window.background: #222222
-Nsxiv.window.foreground: #bbbbbb
-Nsxiv.mark.foreground: #bbbbbb
-Nsxiv.bar.background: #005577
-Nsxiv.bar.foreground: #eeeeee
-Nsxiv.font: monospace-13
+Nsxiv.window.background: #1d2021
+Nsxiv.window.foreground: #ebdbb2
+Nsxiv.mark.foreground: #fabd2f
+Nsxiv.bar.background: #928374
+Nsxiv.bar.foreground: #ebdbb2
 
-st.alpha: 0.95
-st.font: monospace-13
-dmenu.font: monospace-12
+dmenu.foreground: #ebdbb2
+dmenu.background: #1d2021
+dmenu.selforeground: #fbf1c7
+dmenu.selbackground: #665c54
