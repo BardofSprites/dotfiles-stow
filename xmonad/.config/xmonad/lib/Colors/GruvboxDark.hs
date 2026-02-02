@@ -1,0 +1,16 @@
+module Colors.GruvboxDark where
+
+fg              = "#ebdbb2"
+bg              = "#1d2021"
+bg_active       = "#282828"
+bg_inactive     = "#ff0000"
+bg_alt          = "#282828"
+red             = "#cc241d"
+green           = "#b8bb26"
+yellow          = "#dabd2f"
+active_fg       = "#83a598"
+active_border   = "#83a598"
+tab_fg          = "#83a598"
+inactive_fg     = "#928374"
+purple          = "#d3869b"
+inactive_border = "#222222"

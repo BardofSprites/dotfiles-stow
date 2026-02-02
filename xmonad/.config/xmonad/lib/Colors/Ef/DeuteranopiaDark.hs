@@ -1,0 +1,16 @@
+module Colors.Ef.DeuteranopiaDark where
+
+fg              = "#ddddee"
+bg              = "#000a1f"
+bg_active       = "#445165"
+bg_inactive     = "#0d1429"
+bg_alt          = "#243145"
+red             = "#e47360"
+green           = "#7aad0f"
+yellow          = "#cfaf00"
+active_fg       = "#009fff"
+active_border   = "#003f8f"
+tab_fg          = "#ffffff"
+inactive_border = "#7f8797"
+purple          = "#af80ea"
+inactive_fg     = "#7f8797"
