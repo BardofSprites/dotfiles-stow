@@ -9,7 +9,7 @@ use warnings;
 use File::Path qw(make_path);
 use File::HomeDir;
 
-my $file = $ARGV[0] or die "Usage: ./sdownload download.txt\n";
+my $file = $ARGV[0] or die "Usage: ./sdownload download.txt\n takes format like this: GENRE (folder name) - spotify link\n";
 
 open(my $fh, '<', $file) or die "Could not open file '$file': $!";
 
