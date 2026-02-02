@@ -1,0 +1,125 @@
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/Pictures/wallpaper"
+
+if [[ ! -d "$WALLPAPER_DIR" ]]; then
+    echo "$WALLPAPER_DIR does not exist"
+    exit 1
+fi
+
+function load_theme() {
+    THEME_DIR="$HOME/.Xresources.d"
+    LIGHT_DARK="dark"
+
+    case "$selected_theme" in
+        gruv)
+            resource_file="$THEME_DIR/Xresources.gruvbox"
+            ;;
+        *)
+            # Check if a -light or -dark variant exists
+            if [[ -f "$THEME_DIR/Xresources.$selected_theme-$LIGHT_DARK" ]]; then
+                resource_file="$THEME_DIR/Xresources.$selected_theme-$LIGHT_DARK"
+            else
+                resource_file="$THEME_DIR/Xresources.$selected_theme"
+            fi
+            ;;
+
+    esac
+
+    if [[ ! -f "$resource_file" ]]; then
+        echo "Theme file not found: $resource_file"
+        exit 1
+    fi
+
+    xrdb ~/.Xresources
+    xrdb -merge "$resource_file"
+
+    orig_dir=$(readlink -f "$resource_file")
+    theme_dir=$(basename "$(dirname "$(dirname "$orig_dir")")")
+    case $selected_theme in
+        gruv)
+            emacs_theme="doom-gruvbox"
+            ;;
+        gruber)
+            emacs_theme="gruber-darker"
+            ;;
+        *)
+            theme_prefix="${theme_dir%-xresources}"
+            emacs_theme="${theme_prefix}-${selected_theme}"
+            ;;
+    esac
+    emacsclient -e "(bard/select-theme '$emacs_theme)" >> /dev/null
+}
+
+function load_wallpaper() {
+    selected_wallpaper=$(find ~/Pictures/wallpaper -type f -regex ".*\[\([^]]*${selected_theme}[^]]*\)\].*" -exec nsxiv -t -o {} +)
+
+    if [ ! -f "$selected_wallpaper" ]; then
+        echo "Error: File does not exist: $selected_wallpaper"
+        exit 1
+    fi
+
+    bg_color=$(xrdb -query | grep '\*\.background:' | awk '{print $2}')
+
+    # Options for display modes
+    OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
+
+    # Prompt user to select a display mode
+    selected_mode=$(echo -e "$OPTIONS" | dmenu -p "Select Display Mode:")
+
+    # Command to set wallpaper based on selected mode
+    case "$selected_mode" in
+        "Tiled")
+            feh --no-fehbg --bg-tile "$selected_wallpaper"
+            echo "feh --no-fehbg --bg-tile '$selected_wallpaper'" >> ~/.cache/wallpaper
+            ;;
+        "Zoom Filled")
+            feh --no-fehbg --bg-fill "$selected_wallpaper"
+            echo "feh --no-fehbg --bg-fill '$selected_wallpaper'" >> ~/.cache/wallpaper
+            ;;
+        "Centered")
+            feh --no-fehbg --bg-center "$selected_wallpaper" -B "$bg_color"
+            echo "feh --no-fehbg --bg-center '$selected_wallpaper'" >> ~/.cache/wallpaper
+            ;;
+        "Max")
+            feh --no-fehbg --bg-max "$selected_wallpaper"
+            echo "feh --no-fehbg --bg-max '$selected_wallpaper'" >> ~/.cache/wallpaper
+            ;;
+        *)
+            echo "Invalid option selected."
+            exit 1
+            ;;
+    esac
+}
+
+theme_menu=$(echo -e "Wallpaper\nTheme\nBoth" | dmenu -p "Theme menu")
+
+[ -z "$theme_menu" ] && exit 1
+
+case "$theme_menu" in
+    "Theme")
+        selected_theme=$(find "$WALLPAPER_DIR" -path "$WALLPAPER_DIR/.git" -prune -o -type f -print0 \
+                             | xargs -0 -n1 bash -c 'grep -oP "\[\K[^\]]+" <<< "$0" | tr "," "\n"' \
+                             | sort -u \
+                             | dmenu)
+        load_theme
+        ;;
+    "Both")
+        selected_theme=$(find "$WALLPAPER_DIR" -path "$WALLPAPER_DIR/.git" -prune -o -type f -print0 \
+                             | xargs -0 -n1 bash -c 'grep -oP "\[\K[^\]]+" <<< "$0" | tr "," "\n"' \
+                             | sort -u \
+                             | dmenu)
+        load_wallpaper
+        load_theme
+        ;;
+    "Wallpaper")
+        selected_theme=$(grep -oP "\[\K[^\]]+" ~/.cache/wallpaper | tr ',' '\n' | dmenu -p "Pick theme:")
+        [ -z "$selected_theme" ] && exit 1
+
+        load_wallpaper
+        ;;
+    *)
+        echo "Invalid option selected."
+        exit 1
+        ;;
+esac
