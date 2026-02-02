@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 themes=("Gruber Darker"
+        "Gruvbox Dark"
         "Modus Vivendi"
         "Modus Operandi"
         "Modus Operandi Tinted"
         "Ef Arbutus"
+        "Ef Deuteranopia Dark"
         "Ef Eagle"
         "Ef Elea Dark"
         "Ef Autumn"
@@ -29,6 +31,13 @@ apply_generic_theme() {
             XMONAD_MODULE="GruberDarker"
             apply_emacs_theme "gruber-darker"
             xrdb -merge ~/.Xresources.d/Xresources.gruber
+            ;;
+        "Gruvbox Dark")
+            BG_COLOR="#1d2021"
+            FG_COLOR="#ebdbb2"
+            XMONAD_MODULE="GruvboxDark"
+            apply_emacs_theme "doom-gruvbox"
+            xrdb -merge ~/.Xresources.d/Xresources.gruvbox
             ;;
         "Modus Vivendi")
             BG_COLOR="#000000"
@@ -58,6 +67,13 @@ apply_generic_theme() {
             apply_emacs_theme "ef-arbutus"
             xrdb -merge ~/.Xresources.d/Xresources.arbutus
             ;;
+        "Ef Deuteranopia Dark")
+            BG_COLOR="#000a1f"
+            FG_COLOR="#ddddee"
+            XMONAD_MODULE="Ef.DeuteranopiaDark"
+            apply_emacs_theme "ef-deuteranopia-dark"
+            xrdb -merge ~/.Xresources.d/Xresources.deuteranopia-dark
+            ;;
         "Ef Eagle")
             BG_COLOR="#f1ecd0"
             FG_COLOR="#231a1f"
@@ -86,7 +102,7 @@ apply_generic_theme() {
             apply_emacs_theme "ef-melissa-dark"
             xrdb -merge ~/.Xresources.d/Xresources.melissa-dark
             ;;
-            *)
+        *)
             BG_COLOR="#181818"
             FG_COLOR="#e4e4e4"
             ;;
