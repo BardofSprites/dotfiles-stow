@@ -2,7 +2,7 @@
 
 run_command ()
 {
-    emacsclient -c -e $1 >/dev/null 2>&1 &
+    emacsclient -c -F "((name . \"$2\"))" -e "$1" >/dev/null 2>&1 &
 }
 
 options=("calendar" "agenda" "music" "rss" "scratch" "mail")
@@ -16,28 +16,28 @@ fi
 case $choice in
     "calendar")
         command="(bard/open-calendar)"
-        run_command $command
+        run_command $command "calendar"
         ;;
     "agenda")
         command="(bard/default-agenda)"
-        run_command $command
+        run_command $command "agenda"
         ;;
     "music")
         command="(emms)"
-        run_command $command
+        run_command $command "music"
         ;;
     "rss")
         command="(elfeed)"
-        run_command $command
+        run_command $command "rss"
         ;;
     "mail")
         command="(notmuch)"
-        run_command $command
+        run_command $command "mail"
         ;;
     "scratch")
-        scratch.sh
+        scratch.sh "scratch"
         ;;
-    "*")
+    *)
         exit 1;
         ;;
 esac
