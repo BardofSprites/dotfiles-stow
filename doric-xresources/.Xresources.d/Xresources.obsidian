@@ -34,4 +34,3 @@ dwm.background: #181818
 dwm.foreground: #e7e7e7
 dwm.selbackground: #505050
 dwm.selforeground: #b0b0b0
-dwm.selbordercolor: #b59487
