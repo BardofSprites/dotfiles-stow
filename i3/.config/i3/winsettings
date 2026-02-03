@@ -19,7 +19,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-#arryowkeys
+# arrow keys
 bindsym $mod+Left  focus left
 bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
@@ -47,6 +47,10 @@ bindsym $mod+Shift+space floating toggle
 
 # focus the parent container
 bindsym $mod+a focus mode_toggle
+
+# move workspace to different monitor
+bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+h move workspace to output left
 
 # Name the workspaces
 set $workspace1 "1"
