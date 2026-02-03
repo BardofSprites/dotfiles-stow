@@ -7,6 +7,7 @@ import XMonad.Layout.ThreeColumns
 import XMonad.Layout.Accordion
 import qualified XMonad.Layout.Dwindle as D
 import XMonad.Layout.Tabbed
+import XMonad.Layout.TwoPane
 import XMonad.Layout.Simplest
 import XMonad.Layout.Spacing
 import XMonad.Layout.ToggleLayouts
@@ -44,7 +45,7 @@ import Control.Monad (when)
 import Data.List (find)
 
 -- Custom theme
-import Colors.Modus.Vivendi
+import Colors.Ef.Autumn
 
 main :: IO()
 main = do
@@ -75,7 +76,8 @@ myConfig xmprocs = def
   }
   `additionalKeysP` myKeys
 
-myWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
+-- myWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
 
 myKeys =
   [("M-q", kill)
@@ -157,7 +159,6 @@ myKeys =
   , ("M-n", spawn "emacsclient -c")
   , ("M-S-d", spawn "dired_selector")
   , ("M-S-n", spawn "emacs-launcher")
-  , ("M-b", spawn "scratch.sh")
 
   -- layouts
   , ("M-f", sendMessage $ ToggleLayout)
@@ -167,6 +168,7 @@ myKeys =
   , ("M-i", sendMessage $ JumpToLayout "|M|")
   , ("M-y", sendMessage $ JumpToLayout "[\\]")
   , ("M-S-y", sendMessage $ JumpToLayout "[@]")
+  , ("M-u", sendMessage $ JumpToLayout "[D]")
 
   -- sublayouts
   , ("M-s h", sendMessage $ pullGroup L) -- move group focus left
@@ -199,12 +201,12 @@ myTabConfig = def { activeColor = bg_active
                   }
 
 mySpacing = spacingRaw False
-            (Border 10 10 10 10)  -- outer border: top, bottom, right, left
+            (Border 5 5 5 5)  -- outer border: top, bottom, right, left
             True                  -- enable outer gaps
-            (Border 10 10 10 10)  -- inner spacing: top, bottom, right, left
+            (Border 5 5 5 5)  -- inner spacing: top, bottom, right, left
             True                  -- enable inner gaps
 
-myLayout = avoidStruts $ toggleLayouts full (tiled ||| bstack ||| tabbedBottom ||| column ||| dwindle ||| spiral ||| full)
+myLayout = avoidStruts $ toggleLayouts full (tiled ||| bstack ||| tabbedBottom ||| column ||| dwindle ||| spiral ||| deck ||| full)
   where
     tiled        = renamed [Replace "[]="]
                  $ windowNavigation
@@ -219,6 +221,7 @@ myLayout = avoidStruts $ toggleLayouts full (tiled ||| bstack ||| tabbedBottom |
     column       = renamed [Replace "|M|"] $ mySpacing $ magnifier (ThreeColMid 1 (3/100) (1/2))
     dwindle      = renamed [Replace "[\\]"] $ mySpacing (D.Dwindle D.R D.CW 1.0 1.0)
     spiral       = renamed [Replace "[@]"] $ mySpacing (D.Spiral D.R D.CW 1.0 1.0)
+    deck         = renamed [Replace "[D]"] $ mySpacing (TwoPane delta ratio)
     full         = renamed [Replace "[M]"] $ Full
 
 stripScreenPrefix :: String -> String
@@ -249,6 +252,7 @@ myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
 myManageHook = composeAll
   [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
   , className =? "floatterm" --> doCenterFloat
+  , className =? "eww" --> doIgnore
   , manageDocks  -- Ensure docks (like xmobar) are managed correctly
   ]
   <+> namedScratchpadManageHook myScratchpads
