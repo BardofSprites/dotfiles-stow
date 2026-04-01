@@ -14,4 +14,13 @@ eval echo from $(pass mbsync/devel-gmail-email)
 eval echo user $(pass mbsync/devel-gmail-email)
 passwordeval "pass mbsync/devel-gmail"
 
+# account_name
+account home-gmail
+host smtp.gmail.com
+port 465
+tls_starttls off
+eval echo from $(pass mbsync/home-gmail-email)
+eval echo user $(pass mbsync/home-gmail-email)
+passwordeval "pass mbsync/home-gmail"
+
 account default : devel-gmail
