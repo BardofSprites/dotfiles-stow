@@ -1,3 +1,2 @@
 #!/bin/sh
-
-pw-cat --playback --volume 0.75 $HOME/.local/bin/scripts/bell.mp3
+ffplay -nodisp -autoexit -volume 15 "$HOME/.local/bin/scripts/bell.mp3" 2>/dev/null
