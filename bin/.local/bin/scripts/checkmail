@@ -1,38 +1,37 @@
 #!/usr/bin/env bash
-
 ICON="/home/bard/dotfiles-stow/fvwm/.fvwm/icon/Yoritsuki/Kinchaku (drawstring bag).png"
 LOG_FILE="$HOME/.cache/checkmail"
 
 notify-send --icon "$ICON" "Mail sync in progress"
-
 countbefore=$(notmuch count)
-deleted=$(notmuch count tag:del)
 
-# Move "deleted" messages to Gmail Trash folder before syncing
-notmuch search --output=files --format=text0 tag:del | \
-    xargs -0 --no-run-if-empty -I{} mv {} ~/Mail/gmail-devel/trash/cur/
+# delete local files tagged with +del
+notmuch search --format=text0 --output=files tag:del | xargs -0 --no-run-if-empty rm
 
+# sync and index new mail
 mbsync -a
 notmuch new
 
-# Tagging
-notmuch tag +linux +contrib -- to:lists@t2sde.org
-notmuch tag +emacs-devel +emacs +contrib -- to:emacs-devel@gnu.org
-notmuch tag +emacs-humanities +emacs -- to:emacs-humanities@gnu.org
-notmuch tag +emacs-org +emacs +org-mode -- to:emacs-orgmode@gnu.org
+# auto-tag based on folder location
+notmuch tag +inbox -- folder:Inbox or folder:gmail-devel/Inbox or folder:gmail-home/Inbox
+notmuch tag +sent -- folder:sent or folder:gmail-devel/sent or folder:gmail-home/sent
+notmuch tag +trash -- folder:trash or folder:gmail-devel/trash or folder:gmail-home/trash
+notmuch tag +drafts -- folder:drafts
+notmuch tag +account/devel -- folder:gmail-devel/Inbox or folder:gmail-devel/sent or folder:gmail-devel/trash or folder:gmail-devel/archive
+notmuch tag +account/home -- folder:gmail-home/Inbox or folder:gmail-home/sent or folder:gmail-home/trash or folder:gmail-home/archive
+
+# mailing list tagging
+notmuch tag +list +linux -- to:lists@t2sde.org
+notmuch tag +list +devel +emacs -- to:emacs-devel@gnu.org
+notmuch tag +list +humanities +emacs -- to:emacs-humanities@gnu.org
+notmuch tag +list +org +emacs -- to:emacs-orgmode@gnu.org
+
+# remove new tag
+notmuch tag -new -- tag:new
 
 countafter=$(notmuch count)
 added=$((countafter - countbefore))
+[ "$added" -lt 0 ] && added=0
 
-if [ "$added" -lt 0 ]; then
-    added=0
-fi
-
-# Logging
 echo "Last mail sync at $(date)" >> "$LOG_FILE"
-
-if [ "$added" -gt 0 ] || [ "$deleted" -gt 0 ]; then
-    notify-send --icon "$ICON" "Mail Sync Summary" "Added: $added\nDeleted: $deleted\nTotal: $countafter"
-else
-    notify-send --icon "$ICON" "Mail Sync Summary" "Nothing has changed"
-fi
+notify-send --icon "$ICON" "Mail Sync Summary" "Added: $added\nTotal: $countafter"

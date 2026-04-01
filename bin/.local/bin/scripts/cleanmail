@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
+ICON="/home/bard/dotfiles-stow/fvwm/.fvwm/icon/Yoritsuki/Kinchaku (drawstring bag).png"
 
 countbefore=$(notmuch count tag:del)
+
+# Only delete local files, don't sync back
 notmuch search --format=text0 --output=files tag:del | xargs -0 --no-run-if-empty rm
 notmuch new
-countafter=$(notmuch count tag:del)
 
-notify-send "$countafter messages deleted"
+countafter=$(notmuch count tag:del)
+deleted=$((countbefore - countafter))
+
+notify-send --icon "$ICON" "Local trash cleaned" "$deleted local copies removed"
