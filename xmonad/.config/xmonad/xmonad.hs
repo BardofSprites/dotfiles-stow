@@ -83,7 +83,8 @@ myConfig xmprocs = def
   `additionalKeysP` myKeys
 
 -- myWorkspaces = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十" ]
-myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+myWsNames = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+myWorkspaces = withScreens 2 myWsNames
 
 myKeys =
   [("M-q", kill)
@@ -93,28 +94,28 @@ myKeys =
 
   -- workspaces
   -- viewing
-  , ("M-1", windows $ W.view (myWorkspaces !! 0))
-  , ("M-2", windows $ W.view (myWorkspaces !! 1))
-  , ("M-3", windows $ W.view (myWorkspaces !! 2))
-  , ("M-4", windows $ W.view (myWorkspaces !! 3))
-  , ("M-5", windows $ W.view (myWorkspaces !! 4))
-  , ("M-6", windows $ W.view (myWorkspaces !! 5))
-  , ("M-7", windows $ W.view (myWorkspaces !! 6))
-  , ("M-8", windows $ W.view (myWorkspaces !! 7))
-  , ("M-9", windows $ W.view (myWorkspaces !! 8))
-  , ("M-0", windows $ W.view (myWorkspaces !! 9))
+  , ("M-1", windows $ onCurrentScreen W.view (myWsNames !! 0))
+  , ("M-2", windows $ onCurrentScreen W.view (myWsNames !! 1))
+  , ("M-3", windows $ onCurrentScreen W.view (myWsNames !! 2))
+  , ("M-4", windows $ onCurrentScreen W.view (myWsNames !! 3))
+  , ("M-5", windows $ onCurrentScreen W.view (myWsNames !! 4))
+  , ("M-6", windows $ onCurrentScreen W.view (myWsNames !! 5))
+  , ("M-7", windows $ onCurrentScreen W.view (myWsNames !! 6))
+  , ("M-8", windows $ onCurrentScreen W.view (myWsNames !! 7))
+  , ("M-9", windows $ onCurrentScreen W.view (myWsNames !! 8))
+  , ("M-0", windows $ onCurrentScreen W.view (myWsNames !! 9))
 
   -- moving
-  , ("M-S-1", windows $ W.shift (myWorkspaces !! 0))
-  , ("M-S-2", windows $ W.shift (myWorkspaces !! 1))
-  , ("M-S-3", windows $ W.shift (myWorkspaces !! 2))
-  , ("M-S-4", windows $ W.shift (myWorkspaces !! 3))
-  , ("M-S-5", windows $ W.shift (myWorkspaces !! 4))
-  , ("M-S-6", windows $ W.shift (myWorkspaces !! 5))
-  , ("M-S-7", windows $ W.shift (myWorkspaces !! 6))
-  , ("M-S-8", windows $ W.shift (myWorkspaces !! 7))
-  , ("M-S-9", windows $ W.shift (myWorkspaces !! 8))
-  , ("M-S-0", windows $ W.shift (myWorkspaces !! 9))
+  , ("M-S-1", windows $ onCurrentScreen W.shift (myWsNames !! 0))
+  , ("M-S-2", windows $ onCurrentScreen W.shift (myWsNames !! 1))
+  , ("M-S-3", windows $ onCurrentScreen W.shift (myWsNames !! 2))
+  , ("M-S-4", windows $ onCurrentScreen W.shift (myWsNames !! 3))
+  , ("M-S-5", windows $ onCurrentScreen W.shift (myWsNames !! 4))
+  , ("M-S-6", windows $ onCurrentScreen W.shift (myWsNames !! 5))
+  , ("M-S-7", windows $ onCurrentScreen W.shift (myWsNames !! 6))
+  , ("M-S-8", windows $ onCurrentScreen W.shift (myWsNames !! 7))
+  , ("M-S-9", windows $ onCurrentScreen W.shift (myWsNames !! 8))
+  , ("M-S-0", windows $ onCurrentScreen W.shift (myWsNames !! 9))
 
   -- greedy view
   , ("M-o", swapNextScreen)
@@ -236,21 +237,16 @@ stripScreenPrefix ws = case dropWhile (/= '_') ws of
   _ -> ws
 
 ppForScreen :: Int -> Handle -> X ()
-ppForScreen sid xmproc = dynamicLogWithPP xmobarPP
-    { ppOutput = hPutStrLn xmproc
-    , ppTitle = xmobarColor green "" . shorten 50
-    , ppLayout = xmobarColor yellow ""
-    , ppSep = " | "
-    , ppCurrent = xmobarColor active_fg "" . wrap "[" "]" . stripScreenPrefix
-    , ppVisible = wrap "[" "]" . stripScreenPrefix
-    , ppHidden = \ws ->
-        if ws == "NSP" || null ws
-          then ""
-          else wrap "[" "]" (stripScreenPrefix ws)
-
-    , ppHiddenNoWindows = const ""  -- hides empty workspaces
-
-    , ppUrgent = xmobarColor "red" "" . wrap "!" "!"
+ppForScreen sid xmproc = dynamicLogWithPP $ marshallPP (S sid) xmobarPP
+    { ppOutput          = hPutStrLn xmproc
+    , ppTitle           = xmobarColor green "" . shorten 50
+    , ppLayout          = xmobarColor yellow ""
+    , ppSep             = " | "
+    , ppCurrent         = xmobarColor active_fg "" . wrap "[" "]"
+    , ppVisible         = wrap "[" "]"
+    , ppHidden          = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
+    , ppHiddenNoWindows = const ""
+    , ppUrgent          = xmobarColor "red" "" . wrap "!" "!"
     }
 
 myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
