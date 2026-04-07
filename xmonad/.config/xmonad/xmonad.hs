@@ -136,8 +136,9 @@ myKeys =
   , ("M-p", namedScratchpadAction myScratchpads "spaudio")
   , ("M-d", spawn "dmenu_run")
   , ("M-S-x", spawn "sysact")
-  , ("M-S-z", spawn "boomer")
-  , ("M-S-m", spawn "wallpaper.sh")
+  , ("M-b", spawn "boomer")
+  , ("M-S-m", spawn "theme")
+  , ("M-C-m", spawn "wallpaper.sh")
   , ("<Print>", spawn "maimpick")
 
   -- media keys
@@ -146,6 +147,8 @@ myKeys =
   , ("<XF86AudioPause>", spawn "playerctl pause")
   , ("<XF86AudioNext>", spawn "playerctl next")
   , ("<XF86AudioPrev>", spawn "playerctl previous")
+  , ("M-S-]", spawn "playerctl next")
+  , ("M-S-[", spawn "playerctl previous")
   , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
   , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
   , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
@@ -204,7 +207,7 @@ myTabConfig = def { activeColor = bg_active
                   , inactiveTextColor = inactive_fg
                   , urgentTextColor = fg
                   , decoHeight = 25
-                  , fontName = "xft:Iosevka Comfy:size=13"
+                  , fontName = "xft:Iosevka Comfy Motion Duo:size=13"
                   }
 
 mySpacing = spacingRaw False
