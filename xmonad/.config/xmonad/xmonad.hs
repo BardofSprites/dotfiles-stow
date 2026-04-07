@@ -61,6 +61,12 @@ main = do
 term :: String
 term = "st"
 
+browser :: String
+browser = "zen"
+
+altbrowser :: String
+altbrowser = "zen --blank-window"
+
 myConfig xmprocs = def
   {
     modMask = mod4Mask
@@ -148,8 +154,8 @@ myKeys =
   , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
 
   -- main programs
-  , ("M-w", spawn "librewolf-bin")
-  , ("M-S-w", spawn "firefox-bin")
+  , ("M-w", spawn browser)
+  , ("M-S-w", spawn altbrowser)
 
   -- emacs
   , ("M-m", namedScratchpadAction myScratchpads "emms")
