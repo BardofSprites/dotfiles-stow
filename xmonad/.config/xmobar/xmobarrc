@@ -23,5 +23,5 @@ Config {
                              , "--high"     , "#ff4f58"
                              ] 10
     ]
-  , template = " %StdinReader% }{ <action=`st -c 'floatterm' -e btop` button=2>%memory%</action> | <action=`st -c 'floatterm' -e nmtui` button=2>%internet%</action> | <action=`st -c 'floatterm' -e less -Sfr ~/.cache/weather` button=2>%weather%</action> | <action=`emacs-launcher mail` button=2>📬: %unread-mail%/%inbox-mail%</action> | <action=`st -c 'floatterm' -e alsamixer` button=2>%volume-pulseaudio% </action>| <action=`emacs-launcher music` button=1>%music%</action> | %mydate% "
+  , template = " %StdinReader% }{ <action=`st -c 'floatterm' -e btop` button=2>%memory%</action> | <action=`st -c 'floatterm' -e nmtui` button=2>%internet%</action> | <action=`st -c 'floatterm' -e less -Sfr ~/.cache/weatherreport` button=2>%weather%</action> | <action=`st -c 'floatterm' -e alsamixer` button=2>%volume-pw% </action>| <action=`emacs-launcher music` button=1>%music%</action> | %mydate% "
 }
