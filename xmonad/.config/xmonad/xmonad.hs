@@ -331,26 +331,16 @@ myProjects =
   [ Project { projectName = "нотация"
             , projectDirectory = "~/Notes/denote"
             , projectStartHook = Just $ do
-                spawn "librewolf-bin"
                 spawn "emacsclient -c --frame-parameters '((title . \"denote\"))' -e '(dired \"~/Notes/denote\")'"
-  },
-  Project { projectName = "прог нота"
-          , projectDirectory = "~/Notes/denote"
-          , projectStartHook = Just $ do
-              spawn "librewolf-bin"
-              spawn "emacsclient -c --frame-parameters '((title . \"denote\"))' -e '(dired \"~/Notes/denote\")'"
   },
   Project { projectName = "рсс"
           , projectDirectory = "~/"
           , projectStartHook = Just $ do
-              spawn "librewolf-bin"
               spawn "emacsclient -c --frame-parameters '((title . \"elfeed\"))' -e '(elfeed)'"
   },
-
-  Project { projectName = "музыка"
+  Project { projectName = "/g/"
           , projectDirectory = "~/"
           , projectStartHook = Just $ do
-              spawn "st -e alsamixer"
-              spawn "emacsclient -c --frame-parameters '((title . \"music\"))' -e '(emms)'"
+              spawn "emacsclient -c"
   }
   ]
