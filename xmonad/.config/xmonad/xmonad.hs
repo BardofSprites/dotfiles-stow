@@ -30,6 +30,7 @@ import XMonad.Hooks.DynamicLog
 import System.IO
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import Data.List(isPrefixOf)
 
 import qualified XMonad.StackSet as W
 
@@ -237,25 +238,33 @@ myLayout = avoidStruts $ toggleLayouts full (tiled ||| bstack ||| tabbedBottom |
     deck         = renamed [Replace "[D]"] $ mySpacing (TwoPane delta ratio)
     full         = renamed [Replace "[M]"] $ Full
 
-stripScreenPrefix :: String -> String
-stripScreenPrefix ws = case dropWhile (/= '_') ws of
-  ('_':rest) -> rest
-  _ -> ws
-
 ppForScreen :: Int -> Handle -> X ()
-ppForScreen sid xmproc = dynamicLogWithPP $ marshallPP (S sid) xmobarPP
+ppForScreen sid xmproc = dynamicLogWithPP $ xmobarPP
     { ppOutput          = hPutStrLn xmproc
     , ppTitle           = xmobarColor green "" . shorten 50
     , ppLayout          = xmobarColor yellow ""
     , ppSep             = " | "
-    , ppCurrent         = xmobarColor active_fg "" . wrap "[" "]"
-    , ppVisible         = wrap "[" "]"
-    , ppHidden          = \ws -> if ws == "NSP" then "" else wrap "[" "]" ws
+    , ppCurrent         = xmobarColor active_fg "" . wrap "[" "]" . stripScreenPrefix
+    , ppVisible         = wrap "[" "]" . stripScreenPrefix
+    , ppHidden          = \ws -> if ws == "NSP" then "" else wrap "[" "]" (stripScreenPrefix ws)
     , ppHiddenNoWindows = const ""
-    , ppUrgent          = xmobarColor "red" "" . wrap "!" "!"
+    , ppUrgent          = xmobarColor "red" "" . wrap "!" "!" . stripScreenPrefix
+    , ppSort            = fmap (. filterByScreen sid) (ppSort def)
     }
 
-myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
+filterByScreen :: Int -> [WindowSpace] -> [WindowSpace]
+filterByScreen sid allWs = filter isRelevant allWs
+  where
+    isRelevant ws =
+        let tag = W.tag ws
+            prefix = show sid ++ "_"
+        in prefix `isPrefixOf` tag || not ('_' `elem` tag)
+
+stripScreenPrefix :: String -> String
+stripScreenPrefix ws =
+    case dropWhile (/= '_') ws of
+        ('_':rest) -> rest
+        _          -> ws
 
 myLogHook xmprocs = do
   sequence_ $ zipWith ppForScreen [0..] xmprocs
