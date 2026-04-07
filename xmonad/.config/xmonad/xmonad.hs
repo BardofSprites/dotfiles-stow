@@ -44,6 +44,9 @@ import XMonad.Util.Run (runProcessWithInput)
 import Control.Monad (when)
 import Data.List (find)
 
+-- mouse cursor snapping
+import XMonad.Actions.UpdatePointer
+
 -- Custom theme
 import Colors.Ef.Autumn
 
@@ -253,6 +256,10 @@ ppForScreen sid xmproc = dynamicLogWithPP $ marshallPP (S sid) xmobarPP
     }
 
 myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
+
+myLogHook xmprocs = do
+  sequence_ $ zipWith ppForScreen [0..] xmprocs
+  updatePointer (0.5, 0.5) (0, 0)
 
 myManageHook = composeAll
   [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
