@@ -47,10 +47,20 @@ Expunge Both
 Sync All
 CopyArrivalDate yes
 
+# Channel devel-archive
+# Far :devel-remote:"[Gmail]/All Mail"
+# Near :devel-local:archive
+# Create Near
+# Expunge Near
+# Sync Pull
+# CopyArrivalDate yes
+
 Group devel
 Channel devel-inbox
 Channel devel-sent
 Channel devel-trash
+# Channel devel-archive
+
 ################
 # home account #
 ################
@@ -95,7 +105,17 @@ Expunge Both
 Sync All
 CopyArrivalDate yes
 
+
+# Channel home-archive
+# Far :home-remote:"[Gmail]/All Mail"
+# Near :home-local:archive
+# Create Near
+# Expunge Near
+# Sync Pull
+# CopyArrivalDate yes
+
 Group home
 Channel home-inbox
 Channel home-sent
 Channel home-trash
+# Channel home-archive
