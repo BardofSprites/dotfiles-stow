@@ -45,9 +45,6 @@ import XMonad.Util.Run (runProcessWithInput)
 import Control.Monad (when)
 import Data.List (find)
 
--- mouse cursor snapping
-import XMonad.Actions.UpdatePointer
-
 -- Custom theme
 import Colors.Ef.Autumn
 
