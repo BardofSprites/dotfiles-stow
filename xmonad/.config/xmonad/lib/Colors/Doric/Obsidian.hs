@@ -1,0 +1,16 @@
+module Colors.Doric.Obsidian where
+
+fg              = "#ebdbb2"
+bg              = "#181818"
+bg_active       = "#505050"
+bg_inactive     = "#ff0000"
+bg_alt          = "#00f"
+red             = "#4d1f20"
+green           = "#b9d0aa"
+yellow          = "#c0b080"
+purple          = "#e9acbf"
+active_fg       = "#b0b0b0"
+active_border   = "#b0b0b0"
+tab_fg          = "#b0b0b0"
+inactive_fg     = "#505050"
+inactive_border = "#181818"

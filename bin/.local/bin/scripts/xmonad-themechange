@@ -102,6 +102,13 @@ apply_generic_theme() {
             apply_emacs_theme "ef-melissa-dark"
             xrdb -merge ~/.Xresources.d/Xresources.melissa-dark
             ;;
+        "Doric Obsidian")
+            BG_COLOR="#181818"
+            FG_COLOR="#e7e7e7"
+            XMONAD_MODULE="Doric.Obsidian"
+            apply_emacs_theme "doric-obsidian"
+            xrdb -merge ~/.Xresources.d/Xresources.obsidian
+            ;;
         *)
             BG_COLOR="#181818"
             FG_COLOR="#e4e4e4"

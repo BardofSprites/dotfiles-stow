@@ -46,7 +46,7 @@ import Control.Monad (when)
 import Data.List (find)
 
 -- Custom theme
-import Colors.Ef.Autumn
+import Colors.Doric.Obsidian
 
 main :: IO()
 main = do
