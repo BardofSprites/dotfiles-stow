@@ -1,0 +1,44 @@
+!!!!! Ef Orange Xresources theme
+*.foreground:      #6c4631
+*.background:      #ffedc9
+URxvt.background:  [93]#ffedc9
+*.cursorColor:     #cf5f00
+! black
+*.color0:       #6c4631
+*.color8:       #6f6a70
+! red
+*.color1:       #ba2d2f
+*.color9:       #c13f00
+! green
+*.color2:       #007a0a
+*.color10:      #5f7200
+! yellow
+*.color3:       #a05a22
+*.color11:      #b05115
+! blue
+*.color4:       #375cc6
+*.color12:      #5f50df
+! magenta
+*.color5:       #ba3e54
+*.color13:      #c32f80
+! cyan
+*.color6:       #467080
+*.color14:      #3f6fa2
+! white
+*.color7:       #cfbe9b
+*.color15:      #efdbac
+
+dmenu.background: #ffedc9
+dmenu.foreground: #6c4631
+dmenu.selbackground: #ffc255
+dmenu.selforeground: #742f18
+
+Nsxiv.window.background: #ffedc9
+Nsxiv.window.foreground: #6c4631
+Nsxiv.mark.foreground: #6c4631
+Nsxiv.bar.background: #ffc255
+Nsxiv.bar.foreground: #742f18
+dwm.background: #ffedc9
+dwm.foreground: #6c4631
+dwm.selbackground: #ffc255
+dwm.selforeground: #742f18

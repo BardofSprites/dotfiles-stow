@@ -1,0 +1,36 @@
+*.foreground: #ffffff
+*.background: #000000
+*.cursorColor: #ccaaee
+
+*.color0: #332d38
+*.color8: #a2a0b2
+
+*.color9: #eca28f
+*.color10: #b9d0aa
+*.color11: #c0b080
+*.color12: #9fbfe7
+*.color13: #e9acbf
+*.color14: #a0c0d0
+
+*.color1: #eca28f
+*.color2: #b9d0aa
+*.color3: b9d0aa
+*.color4: #9fbfe7
+*.color5: #e9acbf
+*.color6: #a0c0d0
+
+dmenu.background: #000000
+dmenu.foreground: #ffffff
+dmenu.selbackground: #50447f
+dmenu.selforeground: #cfcff8
+
+Nsxiv.window.background: #000000
+Nsxiv.window.foreground: #ffffff
+Nsxiv.mark.foreground: #ffffff
+Nsxiv.bar.background: #50447f
+Nsxiv.bar.foreground: #cfcff8
+
+dwm.background: #000000
+dwm.foreground: #ffffff
+dwm.selbackground: #50447f
+dwm.selforeground: #cfcff8
