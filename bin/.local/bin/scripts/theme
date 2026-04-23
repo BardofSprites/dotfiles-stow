@@ -70,23 +70,18 @@ function load_wallpaper() {
     # Command to set wallpaper based on selected mode
     case "$selected_mode" in
         "Tiled")
-            feh --no-fehbg --bg-tile "$selected_wallpaper"
-            echo "feh --no-fehbg --bg-tile '$selected_wallpaper'" >> ~/.cache/wallpaper
+            feh --bg-tile "$selected_wallpaper"
             ;;
         "Zoom Filled")
-            feh --no-fehbg --bg-fill "$selected_wallpaper"
-            echo "feh --no-fehbg --bg-fill '$selected_wallpaper'" >> ~/.cache/wallpaper
+            feh --bg-fill "$selected_wallpaper"
             ;;
         "Centered")
-            feh --no-fehbg --bg-center "$selected_wallpaper" -B "$bg_color"
-            echo "feh --no-fehbg --bg-center '$selected_wallpaper'" >> ~/.cache/wallpaper
+            feh --bg-center "$selected_wallpaper" -B "$bg_color"
             ;;
         "Max")
-            feh --no-fehbg --bg-max "$selected_wallpaper"
-            echo "feh --no-fehbg --bg-max '$selected_wallpaper'" >> ~/.cache/wallpaper
+            feh --bg-max "$selected_wallpaper"
             ;;
         *)
-            echo "Invalid option selected."
             exit 1
             ;;
     esac

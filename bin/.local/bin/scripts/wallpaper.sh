@@ -41,22 +41,17 @@ sed -i '/feh/d' $HOME/.cache/wallpaper
 case "$selected_mode" in
     "Tiled")
         feh --bg-tile "$selected_wallpaper"
-        echo "feh --no-fehbg --bg-tile '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Zoom Filled")
         feh --no-fehbg --bg-fill "$selected_wallpaper"
-        echo "feh --no-fehbg --bg-fill '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Centered")
         feh --no-fehbg --bg-center "$selected_wallpaper"
-        echo "feh --no-fehbg --bg-center '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     "Max")
         feh --no-fehbg --bg-max "$selected_wallpaper"
-        echo "feh --no-fehbg --bg-max '$selected_wallpaper'" >> ~/.cache/wallpaper
         ;;
     *)
-        echo "Invalid option selected."
         exit 1
         ;;
 esac
