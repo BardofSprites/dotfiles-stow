@@ -31,6 +31,8 @@
 # that FvwmConsole uses. Change this to your terminal of choice
 InfoStoreAdd terminal st
 InfoStoreAdd altterminal urxvtc
+InfoStoreAdd browser zen
+InfoStoreAdd altbrowser librewolf-bin
 
 ImagePath +:$[FVWM_USERDIR]/icon/PixelFengShui
 ImagePath +:$[FVWM_USERDIR]/icon/PixelFengShui/24
@@ -39,7 +41,8 @@ ImagePath +:$[FVWM_USERDIR]/icon/Yoritsuki/24
 ImagePath +:$[FVWM_USERDIR]/icon/pixmap
 
 # read .sidebar.fvwm2rc
-Read left.sys
+# Read left.sys
+Read horizontal.sys
 # Read sidebar.sys
 
 SetEnv fvwmscript $[HOME]/.fvwm/fvwmscript/
@@ -71,7 +74,7 @@ DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Test (Init) Module FvwmBanner
 + I Module FvwmScript fvwmscript/org-clock
-+ I Module FvwmButtons LeftPanel
++ I Module FvwmButtons HorizontalPanel
 + I Module FvwmEvent EventNewDesk
 
 # Mouse Bindings Functions
@@ -226,7 +229,7 @@ DesktopName 0 Main
 DesktopName 1 Desk1
 DesktopName 2 Desk2
 DesktopName 3 Desk3
-DesktopSize 3x3
+DesktopSize 4x1
 
 # EdgeScroll will move the view port between the Pages when the mouse
 # moves to the edge of the screen. This set the amount of distance to
@@ -244,12 +247,12 @@ Style * EdgeMoveDelay 350, EdgeMoveResistance 350
 # be covered when maximizing or placing windows.
 
 # no gaps
-EwmhBaseStruts screen $[monitor.0.name] 120 0 0 0
-EwmhBaseStruts screen $[monitor.1.name] 0 0 0 0
+# EwmhBaseStruts screen $[monitor.0.name] 120 0 0 0
+# EwmhBaseStruts screen $[monitor.1.name] 0 0 0 0
 
 # with gaps
-# EwmhBaseStruts screen $[monitor.0.name] 20 20 50 20
-# EwmhBaseStruts screen $[monitor.1.name] 20 20 20 20
+EwmhBaseStruts screen $[monitor.0.name] 10 10 40 10
+EwmhBaseStruts screen $[monitor.1.name] 10 10 10 10
 
 # This sets the ClickTime and MoveThreshold used to determine
 # Double Clicks, Hold and Move for the mouse.
@@ -289,9 +292,9 @@ Style * BorderColorset 3, HilightBorderColorset 4
 
 # Disable Icons from appearing on desktop.
 # Comment this out or use Style * Icon to get the icons back.
-Style * Icon
+# Style * Icon
 # Style * IconBox 990x150-20-10, IconGrid 234 134, IconFill right bottom
-Style * IconBox 64x1080-10+10
+# Style * IconBox 64x1080-10+10
 # Style * IconBox 64x1080-0+0
 
 # Window Specific Styles
@@ -309,6 +312,7 @@ Style FvwmIdent WindowListSkip
 Style st MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride, FPGrabFocus
 Style urxvt MiniIcon teacup.png, Icon teacup-big.png, EWMHMiniIconOverride, FPGrabFocus
 Style firefox MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.png", EWMHMiniIconOverride, IconOverride
+Style zen MiniIcon "Chouchin Reinensai-24x24.png", Icon "Chouchin Reinensai.png", EWMHMiniIconOverride, IconOverride
 Style LibreWolf MiniIcon "Chouchin Kuroshiro-24x24.png", Icon "Chouchin Kuroshiro.png", EWMHMiniIconOverride, IconOverride
 Style emacs MiniIcon Shodou-24x24.png, IconOverride, Icon Shodou.png, EWMHMiniIconOverride
 Style Pcmanfm MiniIcon Bonsai-24x24.png, IconOverride, Icon Bonsai.png, EWMHMiniIconOverride
@@ -343,7 +347,7 @@ Style * Font "xft:Iosevka Comfy:Thin:size=14:antialias=True", FPGrabFocus
 #      14 - FvwmIconMan Iconified Button
 ###########
 
-Read $[themedir]/gruber.sys
+Read $[themedir]/gruvbox.sys
 
 #######
 # 4: Menus
@@ -380,8 +384,8 @@ AddToMenu   MenuFvwmRoot "Fvwm Menu" Title
 DestroyMenu MenuPrograms
 AddToMenu   MenuPrograms "Programs" Title
 Test (x emacs) + "&Emacs%Shodou-24x24.png%" Exec exec emacsclient -c -a 'emacs'
-Test (x firefox) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox
-Test (x firefox-bin) + "&Firefox%Chouchin Reinensai-24x24.png%" Exec exec firefox-bin
+Test (x zen) + "&Zen%Chouchin Reinensai-24x24.png%" Exec exec zen
+Test (x zen-bin) + "&Zen%Chouchin Reinensai-24x24.png%" Exec exec zen-bin
 Test (x librewolf) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf
 Test (x librewolf-bin) + "Libre&wolf%Chouchin Kuroshiro-24x24.png%" Exec exec librewolf-bin
 Test (x pcmanfm) + "&Files%Bonsai-24x24.png%" Exec exec pcmanfm
@@ -445,7 +449,7 @@ AddToMenu MenuThemes "Themes" Title
 DestroyMenu MenuPower
 AddToMenu MenuPower "Power" Title
 + "&Restart" Restart
-+ "&Lock" Exec exec slock
++ "&Lock" Exec exec sysact
 + "&Quit" Module FvwmScript fvwmscript/FvwmScript-ConfirmQuit
 
 DestroyMenu MenuSettings
@@ -626,6 +630,19 @@ AddToFunc   SwitchWindow
 
 Key Tab A M  SwitchWindow
 
+# Custom Focus Function
+DestroyFunc MyFocusFunc
+AddToFunc MyFocusFunc
++ I Iconify off
++ I FlipFocus
++ I Raise
++ I WarpToWindow !raise 5 5
+
+# Key Bindings
+# Key Tab A M Prev (CurrentDesk, AcceptsFocus) MyFocusFunc
+# Key Tab A MS Next (CurrentDesk, AcceptsFocus) MyFocusFunc
+# Key Tab A M WindowList Root c c NoDeskSort, NoGeometry, SelectOnRelease Meta_L, CurrentAtEnd
+
 Silent Key F1 A 4 GotoDesk 0 0
 Silent Key F2 A 4 GotoDesk 0 1
 Silent Key F3 A 4 GotoDesk 0 2
@@ -638,23 +655,28 @@ Silent Key F4 A 4S MoveToDesk 0 3
 
 Silent Key 1 A 4 GotoPage 0 0
 Silent Key 2 A 4 GotoPage 1 0
-Silent Key 3 A 4 GotoPage 2 0
-Silent Key 4 A 4 GotoPage 0 1
-Silent Key 5 A 4 GotoPage 1 1
-Silent Key 6 A 4 GotoPage 2 1
-Silent Key 7 A 4 GotoPage 0 2
-Silent Key 8 A 4 GotoPage 1 2
-Silent Key 9 A 4 GotoPage 2 2
+Silent Key 3 A 4 GotoPage 0 1
+Silent Key 4 A 4 GotoPage 1 1
 
-Silent Key 1 A 4S MoveToPage 0 0
-Silent Key 2 A 4S MoveToPage 1 0
-Silent Key 3 A 4S MoveToPage 2 0
-Silent Key 4 A 4S MoveToPage 0 1
-Silent Key 5 A 4S MoveToPage 1 1
-Silent Key 6 A 4S MoveToPage 2 1
-Silent Key 7 A 4S MoveToPage 0 2
-Silent Key 8 A 4S MoveToPage 1 2
-Silent Key 9 A 4S MoveToPage 2 2
+# Silent Key 1 A 4 GotoPage 0 0
+# Silent Key 2 A 4 GotoPage 1 0
+# Silent Key 3 A 4 GotoPage 2 0
+# Silent Key 4 A 4 GotoPage 0 1
+# Silent Key 5 A 4 GotoPage 1 1
+# Silent Key 6 A 4 GotoPage 2 1
+# Silent Key 7 A 4 GotoPage 0 2
+# Silent Key 8 A 4 GotoPage 1 2
+# Silent Key 9 A 4 GotoPage 2 2
+
+# Silent Key 1 A 4S MoveToPage 0 0
+# Silent Key 2 A 4S MoveToPage 1 0
+# Silent Key 3 A 4S MoveToPage 2 0
+# Silent Key 4 A 4S MoveToPage 0 1
+# Silent Key 5 A 4S MoveToPage 1 1
+# Silent Key 6 A 4S MoveToPage 2 1
+# Silent Key 7 A 4S MoveToPage 0 2
+# Silent Key 8 A 4S MoveToPage 1 2
+# Silent Key 9 A 4S MoveToPage 2 2
 
 # page scrolling custom
 Mouse 9 R       4   Scroll 0 -100p
@@ -676,8 +698,7 @@ Silent Key D           A 4              Exec exec dmenu_run -c -l 15
 Silent Key R           A 4S    Restart
 
 # browser
-Silent Key W A 4                        Exec exec librewolf-bin
-Silent Key W A 4S                       Exec exec firefox-bin
+Silent Key W A 4                        Exec exec $[infostore.browser]
 
 #### Media keybinds
 Silent Key P                     A 4        Exec exec st -e alsamixer
@@ -703,6 +724,7 @@ Silent Key M       A 4        Exec exec emacsclient -c -e '(emms)'
 Silent Key C       A 4        Module FvwmScript fvwmscript/org-clock
 # screenshot
 Silent Key Print   A A        Exec exec "$HOME/.local/bin/scripts/maimpick"
+Silent Key Z       A 4S       Exec exec boomer
 
 # Window Buttons: [1 3 5 7 9  TTTTT  0 8 6 4 2]
 #   1 - Open the WindowOps menu.
