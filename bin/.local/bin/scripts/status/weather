@@ -7,7 +7,7 @@ url="${WTTRURL:-wttr.in}"
 weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
 
 # Get a weather report from 'wttr.in' and save it locally.
-getforecast() { curl -sf "$url/Louisville?M" > "$weatherreport" || exit 1; }
+getforecast() { curl -sf "$url/Louisville?m" > "$weatherreport" || exit 1; }
 
 # Forecast should be updated only once a day.
 checkforecast() {
@@ -39,7 +39,7 @@ showweather() {
 }
 
 case $BLOCK_BUTTON in
-    1) setsid -f "$TERMINAL" -n "floatterm" -g "165x18" -e less ~/.cache/weather ;;
+    1) setsid -f "$TERMINAL" -n "floatterm" -g "150x35" -e less -Sfr "$weatherreport" ;;
     2) getforecast && showweather ;;
     3) notify-send "🌈 Weather module" "\- Left click for full forecast.
 - Middle click to update forecast.
