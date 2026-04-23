@@ -1,6 +1,8 @@
 # Keybinds!
 set $term   st
 set $term2  urxvtc
+set $browser zen
+set $altbrowser librewolf
 
 # start term (defined at the top of the file)
 bindsym $mod+Return exec $term
@@ -10,8 +12,8 @@ bindsym $mod+Shift+Return exec $term2
 bindsym $mod+Shift+x exec sysact
 
 # browser
-bindsym $mod+w exec zen
-bindsym $mod+Shift+w exec librewolf
+bindsym $mod+w exec $browser
+bindsym $mod+Shift+w exec $altbrowser
 
 # Scratchpad
 bindsym $mod+minus move scratchpad
@@ -39,7 +41,6 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym $mod+Shift+p exec playerctl pause
 bindsym $mod+bracketleft exec playerctl previous
 bindsym $mod+bracketright exec playerctl next
 bindsym $mod+Shift+p exec playerctl play-pause
@@ -50,6 +51,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # kill focused window
 bindsym $mod+q kill
+
+# next focus window
+focus_wrapping yes
+bindsym $mod+Tab focus next
 
 # screen shot
 bindsym Print exec $HOME/.local/bin/scripts/maimpick
