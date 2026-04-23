@@ -1,27 +1,40 @@
 # -*- mode:sh; -*-
 
 alias pyenv="source /home/bard/.pyvenv/bin/activate"
-alias mf='mpv "$(fzf)"'
 alias comp="picom --daemon"
 alias killcomp="killall picom"
 alias kd="killall Discord"
 alias ta="tmux attach"
 alias ts="tmux-sessionizer"
 alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
+alias vim="e"
 
-# smart launcher aliases
-alias p="smart-launcher ~/Pictures/"
-alias r="smart-launcher ~/Repositories/"
-alias d="smart-launcher ~/Documents/"
-alias c="smart-launcher ~/Code/"
+# playing videos with mpv
+function _mf() {
+  file=$(find . -type f -printf '%T@ %p\n' 2>/dev/null \
+    | sort -nr \
+    | cut -d' ' -f2- \
+    | fzf -m --reverse)
+
+  [[ -n "$file" ]] && mpv "$file"
+}
+alias mf='_mf'
 
 function _recentimages() {
     find "$1" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.bmp" \) -printf "%T@ %p\n" |
         sort -nr |
         cut -d" " -f2- |
-        nsxiv -t -; };
+        nsxiv -t -o -; };
+
+function _recentselect() {
+    find "$1" -type f -printf "%T@ %p\n" |
+        sort -nr |
+        cut -d" " -f2- |
+        fzf --reverse --walker=file,dir,follow,hidden --scheme=path -m
+}
 
 alias recentimages='_recentimages'
+alias select='_recentselect'
 
 function xrdb-theme() {
     local theme_file
@@ -66,8 +79,12 @@ alias lsl='ls -lhpv --color=auto --group-directories-first'
 alias lsla='ls -lhpvA --color=auto --group-directories-first'
 
 # emacs stuff
-# change daemon permissions for script
-alias ep="chmod 700 /run/user/1000/emacs/"
-alias en="emacsclient -c -nw"
+e() {
+    if [ $# -eq 0 ]; then
+        emacsclient -c -n -a "" .
+    else
+        emacsclient -c -n -a "" "$@"
+    fi
+}
 
 alias catworld="cat /var/lib/portage/world"
