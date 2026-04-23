@@ -1,0 +1,48 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+# DRY usage string
+my $help_string = "Usage: ./speed_up video.mp4 [speed%] output.mp4\n";
+
+# Input args
+my $video_file   = $ARGV[0] or die $help_string;
+my $speed_input  = $ARGV[1] // 100;
+my $output_file  = $ARGV[2] || $ARGV[1];
+
+# Validate output file is provided
+die $help_string unless defined $output_file && $output_file ne $speed_input;
+
+# Validate speed percentage
+die "Error: speed must be a number (e.g., 150 for 150%)\n$help_string"
+    unless $speed_input =~ /^\d*\.?\d+$/;
+
+# Convert percentage to speed factor
+my $speed_factor = $speed_input / 100;
+my $setpts_value = 1 / $speed_factor;
+
+# Build proper atempo filter
+my $audio_filter;
+if ($speed_factor <= 2.0) {
+    $audio_filter = "atempo=$speed_factor";
+} else {
+    my @tempos;
+    my $remaining = $speed_factor;
+    while ($remaining > 2.0) {
+        push @tempos, "atempo=2.0";
+        $remaining /= 2.0;
+    }
+    push @tempos, "atempo=$remaining";
+    $audio_filter = join(",", @tempos);
+}
+
+# Build FFmpeg command
+my $ffmpeg_command = sprintf(
+    'ffmpeg -i "%s" -filter_complex "[0:v]setpts=%f*PTS[v];[0:a]%s[a]" -map "[v]" -map "[a]" -c:v libx264 -c:a aac "%s"',
+    $video_file, $setpts_value, $audio_filter, $output_file
+);
+
+# Run FFmpeg
+system($ffmpeg_command) == 0
+    or die "Failed to run ffmpeg: $!";
