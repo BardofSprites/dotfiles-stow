@@ -266,9 +266,7 @@ stripScreenPrefix ws =
         ('_':rest) -> rest
         _          -> ws
 
-myLogHook xmprocs = do
-  sequence_ $ zipWith ppForScreen [0..] xmprocs
-  updatePointer (0.5, 0.5) (0, 0)
+myLogHook xmprocs = sequence_ $ zipWith ppForScreen [0..] xmprocs
 
 myManageHook = composeAll
   [ className =? "conky" --> doIgnore  -- Ignore Conky so it doesn't get tiled
