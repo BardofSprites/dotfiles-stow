@@ -9,12 +9,12 @@
 *.color13: #700054
 *.color14: #005460
 
-*.color1: #e3b8a0
-*.color2: #b8caa0
-*.color3: #e2e0a8
-*.color4: #c4c8dd
-*.color5: #d8bade
-*.color6: #bee0db
+*.color1: #982500
+*.color2: #226700
+*.color3: #595000
+*.color4: #103077
+*.color5: #700054
+*.color6: #005460
 
 dmenu.background: #e0d8c7
 dmenu.foreground: #3a2018

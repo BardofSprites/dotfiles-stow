@@ -2,12 +2,15 @@
 *.foreground: #30232e
 *.cursorColor: #770000
 
-*.color1: #f0c8b5
-*.color2: #c2e3b0
-*.color3: #efe4b0
-*.color4: #bac9e5
-*.color5: #e7bfd7
-*.color6: #c9e6e0
+*.color0: #504033
+*.color8: #d1ceb6
+
+*.color1: #a03000
+*.color2: #206700
+*.color3: #705200
+*.color4: #103060
+*.color5: #690f44
+*.color6: #105f66
 
 *.color9: #a03000
 *.color10: #206700
