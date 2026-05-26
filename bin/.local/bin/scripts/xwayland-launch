@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Exit early if no command was passed
+if [ -z "$1" ]; then
+    echo "Usage: $0 <command> [arguments]"
+    exit 1
+fi
+
+# Ensure a DISPLAY environment variable is set if missing
+if [ -z "$DISPLAY" ]; then
+    export DISPLAY=:0
+    xrdb -merge ~/.Xresources
+    xrdb -merge ~/.Xresources.d/Xresources.vivendi
+fi
+
+# Check if an X11 server is already responding on this display
+if ! xset q >/dev/null 2>&1; then
+    echo "XWayland not running. Launching xwayland-satellite..."
+    # Start xwayland-satellite in the background
+    xwayland-satellite :0 &
+    SATELLITE_PID=$!
+    # Wait for the X11 server to actually become responsive
+    timeout=5
+    while ! xset q >/dev/null 2>&1; do
+        sleep 0.1
+        timeout=$((timeout - 1))
+        if [ "$timeout" -le 0 ]; then
+            echo "Error: xwayland-satellite failed to start in time."
+            kill "$SATELLITE_PID" 2>/dev/null
+            exit 1
+        fi
+    done
+fi
+
+# Execute the application with all passed arguments
+exec "$@"

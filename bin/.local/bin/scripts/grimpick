@@ -1,0 +1,62 @@
+#!/bin/sh
+
+# Ensure directory exists
+mkdir -p "$HOME/Pictures/screenshots"
+
+# Variables
+TIMESTAMP=$(date '+%y%m%d-%H%M-%S')
+DIR="$HOME/Pictures/screenshots"
+CLIP_CMD="wl-copy -t image/png"
+
+# Use fuzzel as a modern dmenu replacement (fallback to standard dmenu if running via XWayland, 
+# but fuzzel/rofi-wayland is highly recommended for Wayland native surface scaling)
+MENU_CMD="fuzzel --dmenu -p"
+
+# 1. Main menu prompt
+selection=$(printf "a selected area\ncurrent window\nfull screen\na selected area (copy)\ncurrent window (copy)\nfull screen (copy)" | $MENU_CMD "Screenshot which area?")
+
+[ -z "$selection" ] && exit 0
+
+# Helper function to get active window geometry from niri
+get_active_window_geom() {
+    # Fetches active window info via Niri IPC and formats it for grim (-g)
+    niri msg --json outputs | jq -r '.[] | .focused_window | select(. != null) | "\(.position.x),\(.position.y) \(.size.width)x\(.size.height)"'
+}
+
+# 2. Execution Logic
+case "$selection" in
+    "a selected area")
+        GEOM=$(slurp)
+        [ -n "$GEOM" ] && grim -g "$GEOM" "$DIR/pic-selected-${TIMESTAMP}.png"
+        ;;
+    "current window")
+        GEOM=$(get_active_window_geom)
+        if [ -n "$GEOM" ]; then
+            grim -g "$GEOM" "$DIR/pic-window-${TIMESTAMP}.png"
+        else
+            # Fallback to manual selection if no window is focused
+            grim -g "$(slurp)" "$DIR/pic-window-${TIMESTAMP}.png"
+        fi
+        ;;
+    "full screen")
+        # Slurp -o lets you click a specific monitor, or press Escape/Click outside to cancel
+        GEOM=$(slurp -p -o)
+        [ -n "$GEOM" ] && grim -g "$GEOM" "$DIR/pic-full-${TIMESTAMP}.png"
+        ;;
+    "a selected area (copy)")
+        GEOM=$(slurp)
+        [ -n "$GEOM" ] && grim -g "$GEOM" - | $CLIP_CMD
+        ;;
+    "current window (copy)")
+        GEOM=$(get_active_window_geom)
+        if [ -n "$GEOM" ]; then
+            grim -g "$GEOM" - | $CLIP_CMD
+        else
+            grim -g "$(slurp)" - | $CLIP_CMD
+        fi
+        ;;
+    "full screen (copy)")
+        GEOM=$(slurp -p -o)
+        [ -n "$GEOM" ] && grim -g "$GEOM" - | $CLIP_CMD
+        ;;
+esac
