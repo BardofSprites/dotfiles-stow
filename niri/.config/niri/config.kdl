@@ -38,8 +38,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        accel-profile "flat"
+        accel-speed 0.1
+        accel-profile "adaptive"
         // scroll-method "no-scroll"
     }
 
@@ -63,8 +63,8 @@ input {
 }
 
 cursor {
-    xcursor-theme "MacOS-Pixel-Dark"
-    xcursor-size 12
+    xcursor-theme "xcursor-plan9"
+    xcursor-size 16
 }
 
 gestures {
@@ -277,6 +277,7 @@ binds {
     Mod+N hotkey-overlay-title="Open a Emacsclient frame" { spawn "emacsclient" "-c"; }
     Mod+W hotkey-overlay-title="Open Zen browser" { spawn "zen"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    // Mod+Shift+B hotkey-overlay-title="Woomer (screen zoomer)" { spawn "~/Repositories/"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Shift+M hotkey-overlay-title="Select wallpaper" { spawn "ww.sh"; }
 
@@ -499,5 +500,6 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+X { power-off-monitors; }
+    Mod+X { power-off-monitors; }
+    Mod+Shift+X { spawn "sysact"; }
 }
