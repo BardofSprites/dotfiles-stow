@@ -29,7 +29,12 @@ require("lazy").setup({
 
   -- --- Colorschemes ---
   { "ellisonleao/gruvbox.nvim" },
-  { "craftzdog/solarized-osaka.nvim" },
+  {
+    "vimcolorschemes/olive-crt.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 
   -- --- File Tree ---
   {
@@ -116,6 +121,25 @@ require("lazy").setup({
     end,
   },
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      local autopairs = require("nvim-autopairs")
+      autopairs.setup({
+        check_ts = false,
+      })
+
+      -- $ pair for Typst math mode
+      local Rule = require("nvim-autopairs.rule")
+      autopairs.add_rule(Rule("$", "$", "typst"))
+
+      -- cmp integration
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      local cmp = require("cmp")
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
+  },
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -123,7 +147,16 @@ require("lazy").setup({
       require("harpoon"):setup()
     end,
   },
+  {
+    "chomosuke/typst-preview.nvim",
+    ft = "typst",          -- only load when opening a .typ file
+    version = "1.*",
+    opts = {},             -- uses default config; customize here if needed
+  },
 })
+
+-- Colorschemes
+vim.cmd.colorscheme("olive-crt")
 
 -- --- LSP Setup (native nvim 0.11 API, no lspconfig needed) ---
 -- attach keybinds whenever any LSP connects to a buffer
@@ -160,28 +193,20 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.enable("lua_ls")
 
--- --- Colorscheme ---
-require("solarized-osaka").setup({
-  transparent = false,
-  terminal_colors = true,
-  styles = {
-    comments = { italic = false },
-    keywords = { italic = false },
-    functions = {},
-    variables = {},
-    sidebars = "dark",
-    floats = "dark",
+vim.lsp.config("tinymist", {
+  cmd = { "tinymist" },
+  filetypes = { "typst" },
+  root_markers = { "typst.toml", ".git" },
+  offset_encoding = "utf-8",  -- required, tinymist needs this
+  settings = {
+    tinymist = {
+      exportPdf = "onType",   -- or "onSave" / "never"
+      formatterMode = "typstyle",
+    },
   },
-  sidebars = { "qf", "help" },
-  day_brightness = 0.3,
-  hide_inactive_statusline = false,
-  dim_inactive = false,
-  lualine_bold = false,
-  on_colors = function(colors) end,
-  on_highlights = function(highlights, colors) end,
 })
 
-vim.cmd("colorscheme solarized-osaka")
+vim.lsp.enable("tinymist")
 
 -- --- General Settings ---
 vim.cmd("syntax enable")
@@ -221,7 +246,6 @@ vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>", { silent = true })
 local harpoon = require("harpoon")
 vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end,            { desc = "Harpoon add file" })
 vim.keymap.set("n", "<C-e>",     function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
-
 
 vim.diagnostic.config({
   virtual_text = true,  -- shows the error message inline at end of the line
