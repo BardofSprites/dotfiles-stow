@@ -3,7 +3,7 @@
 if [ "$#" -eq 1 ]; then
     selected=$1
 else
-    selected=$(find ~/dotfiles-stow/ ~/Code/ ~/Repositories/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/dotfiles-stow/ ~/Code/ ~/Code/cse220-labs/ ~/Repositories/ ~/Documents/Uni/ ~/Documents/ ~/Notes/ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [ -z "$selected" ]; then
@@ -22,5 +22,8 @@ if ! tmux has-session -t="$selected_name" 2> /dev/null; then
     tmux new-session -ds "$selected_name" -c "$selected"
 fi
 
-# tmux switch-client -t "$selected"
-tmux attach
+if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$selected_name"
+else
+    tmux attach-session -t "$selected_name"
+fi
