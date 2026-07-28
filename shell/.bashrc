@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 export TERMINAL="/usr/local/bin/st"
+# export DISPLAY=:0
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/bin/scripts/:$PATH"
 export PATH="$HOME/.local/bin/scripts/perl/:$PATH"

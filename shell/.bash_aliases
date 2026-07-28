@@ -7,6 +7,7 @@ alias kd="killall Discord"
 alias ta="tmux attach"
 alias ts="tmux-sessionizer"
 alias rec="ffmpeg -f x11grab -s 1920x1080 -i :0.0+0+0 out.mp4"
+alias convert-mp3="ffmpeg -i input.flac -codec:a libmp3lame -qscale:a 0 output.mp3"
 alias vim="e"
 
 # playing videos with mpv
@@ -48,8 +49,6 @@ function xrdb-theme() {
     fi
 }
 
-
-alias checkmail="$HOME/.local/bin/scripts/checkmail"
 # gentoo related
 alias sysupdate="sudo eix-sync"
 alias sysupgrade="sudo emerge --update --deep --newuse @world"
@@ -81,9 +80,9 @@ alias lsla='ls -lhpvA --color=auto --group-directories-first'
 # emacs stuff
 e() {
     if [ $# -eq 0 ]; then
-        emacsclient -c -n -a "" .
+        emacsclient -c -n -a "nvim" .
     else
-        emacsclient -c -n -a "" "$@"
+        emacsclient -c -n -a "nvim" "$@"
     fi
 }
 
