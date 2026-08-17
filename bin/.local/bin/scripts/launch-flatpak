@@ -1,47 +1,34 @@
 #!/usr/bin/env bash
 
-flatpaks="Anki\nCalibre\nDiscord\nobs\nLibreOffice\nZealDocs\nQutebrowser\nsteam\ntexmacs\nkdenlive\nfreetube\nGajim"
-chosen=$(echo -e "$flatpaks" | dmenu -p "Select flatpak: ")
+declare -A flatpaks=(
+    [Anki]="net.ankiweb.Anki"
+    [Audacity]="org.audacityteam.Audacity"
+    [Calibre]="com.calibre_ebook.calibre"
+    [Chromium]="org.chromium.Chromium"
+    [Discord]="com.discordapp.Discord"
+    [Feishin]="org.jeffvli.feishin"
+    [FreeTube]="io.freetubeapp.FreeTube"
+    [Gajim]="org.gajim.Gajim"
+    [GIMP]="org.gimp.GIMP"
+    [Inkscape]="org.inkscape.Inkscape"
+    [Kdenlive]="org.kde.kdenlive"
+    [LibreOffice]="org.libreoffice.LibreOffice"
+    [OBS]="com.obsproject.Studio"
+    [Qutebrowser]="org.qutebrowser.qutebrowser"
+    [Steam]="com.valvesoftware.Steam"
+    [TeXmacs]="org.texmacs.TeXmacs"
+    [Zeal]="org.zealdocs.Zeal"
+)
 
-case "$chosen" in
-    "Anki")
-        flatpak run net.ankiweb.Anki
-    ;;
-    "Calibre")
-        flatpak run com.calibre_ebook.calibre
-        ;;
-    "Discord")
-        flatpak run com.discordapp.Discord
-        ;;
-    "LibreOffice")
-        flatpak run org.libreoffice.LibreOffice
-    ;;
-    "ZealDocs")
-        flatpak run org.zealdocs.Zeal
-    ;;
-    "Qutebrowser")
-        flatpak run org.qutebrowser.qutebrowser
-    ;;
-    "obs")
-        flatpak run com.obsproject.Studio
-    ;;
-    "texmacs")
-        flatpak run org.texmacs.TeXmacs
-        ;;
-    "steam")
-        flatpak run com.valvesoftware.Steam
-        ;;
-    "kdenlive")
-        flatpak run org.kde.kdenlive
-        ;;
-    "freetube")
-        flatpak run io.freetubeapp.FreeTube
-        ;;
-    "Gajim")
-        flatpak run org.gajim.Gajim
-        ;;
-    *)
-        echo "operation wasn't successful"
+chosen=$(printf '%s\n' "${!flatpaks[@]}" | sort | dmenu -i)
+
+[[ -z "$chosen" ]] && exit 0
+
+app_id="${flatpaks[$chosen]}"
+
+if [[ -z "$app_id" ]]; then
+    echo "Unknown selection: $chosen" >&2
     exit 1
-    ;;
-esac
+fi
+
+flatpak run "$app_id"
