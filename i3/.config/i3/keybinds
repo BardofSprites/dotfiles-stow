@@ -2,7 +2,7 @@
 set $term   st
 set $term2  urxvtc
 set $browser zen
-set $altbrowser librewolf
+set $altbrowser zen --blank-window
 
 # start term (defined at the top of the file)
 bindsym $mod+Return exec $term
@@ -27,7 +27,7 @@ bindsym $mod+Shift+d exec dired_selector
 bindsym $mod+Shift+n exec emacs-launcher
 
 # theme switching
-# bindsym $mod+Shift+t exec ~/.local/bin/scripts/theme-switch.sh
+bindsym $mod+Shift+m exec ~/.local/bin/scripts/theme
 
 # adjust volume in PulseAudio
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -55,9 +55,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 # kill focused window
 bindsym $mod+q kill
 
-# next focus window
-focus_wrapping yes
-bindsym $mod+Tab focus next
+bindsym $mod+Tab workspace back_and_forth
 
 # screen shot
 bindsym Print exec $HOME/.local/bin/scripts/maimpick
@@ -73,8 +71,6 @@ bindsym $mod+d exec "dmenu_run -p 'Run: '"
 
 # boomer zooming application
 bindsym $mod+b exec boomer
-# change xresources and emacs theme and wallpaper
-bindsym $mod+Shift+m exec $HOME/.local/bin/scripts/generic-theme-switch
 
 # Reloads i3 configuration
 bindsym $mod+Shift+c reload

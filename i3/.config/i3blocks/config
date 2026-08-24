@@ -1,31 +1,26 @@
 [memory]
-command=$SCRIPT_DIR/memory
+command=~/.local/bin/scripts/status/memory
 interval=10
 
 [internet]
-command=$SCRIPT_DIR/internet
+command=~/.local/bin/scripts/status/internet
 interval=10
 
 [weather]
-command=$SCRIPT_DIR/weather
+command=~/.local/bin/scripts/status/weather
 interval=18000
 signal=5
 
 [volume-pulseaudio]
-command=$SCRIPT_DIR/volume-pulseaudio -C "#ffffff" -c "#ff0000"
+command=~/.local/bin/scripts/status/volume-pw
 interval=1
 signal=1
-AUDIO_HIGH_SYMBOL=🔊
-AUDIO_MED_THRESH=50
-AUDIO_MED_SYMBOL=🔉
-AUDIO_LOW_THRESH=0
-AUDIO_LOW_SYMBOL=🔈
 
 [music]
-command=$SCRIPT_DIR/music
+command=~/.local/bin/scripts/status/music
 interval=5
 
 [time]
-command=$SCRIPT_DIR/time-clock
+command=~/.local/bin/scripts/status/time-clock
 interval=1
 markup=pango

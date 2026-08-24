@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-
 WALLPAPER_DIR="$HOME/Pictures/wallpaper"
+XRES2I3="$HOME/.local/bin/scripts/xres2i3.py"
+I3_THEME_CONF="$HOME/.config/i3/theme.conf"
 
 if [[ ! -d "$WALLPAPER_DIR" ]]; then
     echo "$WALLPAPER_DIR does not exist"
@@ -10,7 +11,6 @@ fi
 function load_theme() {
     THEME_DIR="$HOME/.Xresources.d"
     LIGHT_DARK="dark"
-
     case "$selected_theme" in
         gruv)
             resource_file="$THEME_DIR/Xresources.gruvbox"
@@ -23,25 +23,24 @@ function load_theme() {
                 resource_file="$THEME_DIR/Xresources.$selected_theme"
             fi
             ;;
-
     esac
-
     if [[ ! -f "$resource_file" ]]; then
         echo "Theme file not found: $resource_file"
         exit 1
     fi
-
     xrdb ~/.Xresources
     xrdb -merge "$resource_file"
+
+    apply_i3_theme
 
     orig_dir=$(readlink -f "$resource_file")
     theme_dir=$(basename "$(dirname "$(dirname "$orig_dir")")")
     case $selected_theme in
         gruv)
-            emacs_theme="doom-gruvbox"
+            emacs_theme="modus-gruvbox-dark"
             ;;
         gruber)
-            emacs_theme="gruber-darker"
+            emacs_theme="modus-gruber-darker"
             ;;
         *)
             theme_prefix="${theme_dir%-xresources}"
@@ -51,22 +50,34 @@ function load_theme() {
     emacsclient -e "(bard/select-theme '$emacs_theme)" >> /dev/null
 }
 
+function apply_i3_theme() {
+    if [[ ! -f "$XRES2I3" ]]; then
+        return
+    fi
+    local tmp
+    tmp=$(mktemp)
+    if python3 "$XRES2I3" "$resource_file" > "$tmp" 2>/tmp/xres2i3.err; then
+        mv "$tmp" "$I3_THEME_CONF"
+        if command -v i3-msg &>/dev/null; then
+            i3-msg reload >/dev/null
+        fi
+    else
+        echo "i3 theme not updated: $(cat /tmp/xres2i3.err)"
+        rm -f "$tmp"
+    fi
+}
+
 function load_wallpaper() {
     selected_wallpaper=$(find ~/Pictures/wallpaper -type f -regex ".*\[\([^]]*${selected_theme}[^]]*\)\].*" -exec nsxiv -t -o {} +)
-
     if [ ! -f "$selected_wallpaper" ]; then
         echo "Error: File does not exist: $selected_wallpaper"
         exit 1
     fi
-
     bg_color=$(xrdb -query | grep '\*\.background:' | awk '{print $2}')
-
     # Options for display modes
     OPTIONS="Tiled\nZoom Filled\nCentered\nMax"
-
     # Prompt user to select a display mode
     selected_mode=$(echo -e "$OPTIONS" | dmenu -p "Select Display Mode:")
-
     # Command to set wallpaper based on selected mode
     case "$selected_mode" in
         "Tiled")
@@ -88,9 +99,7 @@ function load_wallpaper() {
 }
 
 theme_menu=$(echo -e "Wallpaper\nTheme\nBoth" | dmenu -p "Theme menu")
-
 [ -z "$theme_menu" ] && exit 1
-
 case "$theme_menu" in
     "Theme")
         selected_theme=$(find "$WALLPAPER_DIR" -path "$WALLPAPER_DIR/.git" -prune -o -type f -print0 \
@@ -108,9 +117,8 @@ case "$theme_menu" in
         load_theme
         ;;
     "Wallpaper")
-        selected_theme=$(grep -oP "\[\K[^\]]+" ~/.cache/wallpaper | tr ',' '\n' | dmenu -p "Pick theme:")
+        selected_theme=$(grep -oP "\[\K[^\]]+" ~/.fehbg | tr ',' '\n' | dmenu -p "Pick theme:")
         [ -z "$selected_theme" ] && exit 1
-
         load_wallpaper
         ;;
     *)

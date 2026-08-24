@@ -1,4 +1,4 @@
-# Window Manipulation Seetings
+# window manipulation seetings
 
 gaps top 5
 gaps left 5
@@ -11,7 +11,7 @@ gaps inner 10
 for_window [class="floatterm"] floating enable
 default_border pixel 5
 default_floating_border pixel 5
-# hide_edge_borders smart
+hide_edge_borders none
 
 # change focus vim keys
 bindsym $mod+h focus left
