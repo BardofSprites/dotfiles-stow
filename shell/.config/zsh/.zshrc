@@ -2,7 +2,7 @@ autoload -U compinit promptinit
 compinit
 promptinit; prompt gentoo
 
-zstyle ':completion::complete:*' use-acache 1
+zstyle ':completion::complete:*' use-cache 1
 
 # options
 setopt AUTO_CD # only type dir to cd somewhere
@@ -22,7 +22,6 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
-bindkey -M viins '^F' autosuggest-accept
 
 # vi mode
 bindkey -v
@@ -81,7 +80,43 @@ RESET='%f%b'
 setopt PROMPT_SUBST
 export PS1="${GREEN}\${PS1X} ${PURPLE}λ${RESET} "
 
+
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# load alias file
+if [ -f ~/.config/zsh/.zsh_aliases ]; then
+    . ~/.config/zsh/.zsh_aliases
+fi
+
+# main options
+export TERMINAL="/usr/local/bin/st"
+export EDITOR="nvim"
+export VISUAL="emacsclient -"
+export BROWSER=/usr/bin/xdg-open
+
+# environment variables
+export GOPATH="$HOME/.local/share/go"
+export PATH="$GOPATH/bin:$PATH"
+# scripts
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin/scripts/:$PATH"
+export PATH="$HOME/.local/bin/scripts/perl/:$PATH"
+export PATH="$HOME/.local/bin/scripts/video-editing/:$PATH"
+export PATH="$HOME/.local/bin/scripts/image-editing/:$PATH"
+export PATH="$HOME/.local/bin/scripts/status/:$PATH"
+export PATH="$HOME/.cargo/bin/:$PATH"
+
 # load plugins
 source ${XDG_CONFIG_HOME:-$HOME/.config}/fzf/key-bindings.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
-source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+
+bindkey -M viins '^F' autosuggest-accept

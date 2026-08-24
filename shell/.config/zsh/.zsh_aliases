@@ -1,0 +1,60 @@
+# -*- mode:sh; -*-
+
+alias comp="picom --daemon"
+alias killcomp="killall picom"
+alias kd="killall Discord"
+alias ta="tmux attach"
+alias ts="tmux-sessionizer"
+
+alias neofetch="fastfetch"
+alias clipboard="xclip -selection clipboard"
+
+# playing recent stuff in mpv
+function _mf() {
+  file=$(find . -type f -printf '%T@ %p\n' 2>/dev/null \
+    | sort -nr \
+    | cut -d' ' -f2- \
+    | fzf -m --reverse)
+
+  [[ -n "$file" ]] && mpv "$file"
+}
+alias mf='_mf'
+
+function _recentimages() {
+    find "$1" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.bmp" \) -printf "%T@ %p\n" |
+        sort -nr |
+        cut -d" " -f2- |
+        nsxiv -t -o -; };
+
+alias recentimages="_recentimages"
+
+function xrdb-theme() {
+    local theme_file
+    theme_file=$(find ~/.Xresources.d/ -type l | fzf)
+
+    if [[ -n "$theme_file" ]]; then
+        xrdb -merge "$theme_file"
+        echo "Loaded theme: $(basename "$theme_file")"
+    else
+        echo "No theme selected."
+    fi
+}
+
+# gentoo related
+alias sysupdate="sudo eix-sync"
+alias sysupgrade="sudo emerge --update --deep --newuse @world"
+alias catworld="cat /var/lib/portage/world"
+
+# cd around
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -Iv'
+
+alias ls='ls -pv --color=auto --group-directories-first'
+alias lsa='ls -pvA --color=auto --group-directories-first'
+alias lsl='ls -lhpv --color=auto --group-directories-first'
+alias lsla='ls -lhpvA --color=auto --group-directories-first'
