@@ -3,8 +3,8 @@
 *.background:      #0d0e1c
 *.cursorColor:     #ff66ff
 ! black
-*.color0:       #0d0e1c
-*.color8:       #4a4f69
+*.color0:       #1d2235
+*.color8:       #989898
 ! red
 *.color1:       #ff5f59
 *.color9:       #ff6b55
@@ -29,16 +29,16 @@
 
 dmenu.background: #0d0e1c
 dmenu.foreground: #ffffff
-dmenu.selbackground: #292d48
+dmenu.selbackground: #484d67
 dmenu.selforeground: #ffffff
 
 Nsxiv.window.background: #0d0e1c
 Nsxiv.window.foreground: #ffffff
 Nsxiv.mark.foreground: #ffffff
-Nsxiv.bar.background: #292d48
+Nsxiv.bar.background: #484d67
 Nsxiv.bar.foreground: #ffffff
 
 dwm.background: #0d0e1c
 dwm.foreground: #ffffff
-dwm.selbackground: #292d48
+dwm.selbackground: #484d67
 dwm.selforeground: #ffffff

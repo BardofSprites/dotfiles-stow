@@ -1,5 +1,6 @@
 *.foreground: #e4e4ef
 *.background: #181818
+*.cursorColor: #ffdd33
 *.color0:  #2E3436
 *.color1:  #a40000
 *.color2:  #4E9A06
@@ -28,4 +29,7 @@ dmenu.foreground: #e4e4e4
 dmenu.selforeground: #181818
 dmenu.selbackground: #96a6c8
 
-*.cursorColor: #ffdd33
+dwm.background: #181818
+dwm.foreground: #e4e4e4
+dwm.selbackground: #484848
+dwm.selforeground: #e4e4e4

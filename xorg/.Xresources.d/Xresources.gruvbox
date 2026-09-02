@@ -28,3 +28,15 @@ dmenu.foreground: #ebdbb2
 dmenu.background: #1d2021
 dmenu.selforeground: #fbf1c7
 dmenu.selbackground: #665c54
+
+dwm.normbgcolor[]           = "#222222";
+dwm.normbordercolor[]       = "#444444";
+dwm.normfgcolor[]           = "#bbbbbb";
+dwm.selfgcolor[]            = "#eeeeee";
+dwm.selforeground[]        = "#770000";
+dwm.selbgcolor[]            = "#005577";
+
+dwm.background: #222222
+dwm.foreground: #bbbbbb
+dwm.selbackground: #005577
+dwm.selforeground: #eeeeee
