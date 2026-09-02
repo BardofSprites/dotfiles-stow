@@ -13,7 +13,7 @@ CLIP_CMD="wl-copy -t image/png"
 MENU_CMD="fuzzel --dmenu -p"
 
 # 1. Main menu prompt
-selection=$(printf "a selected area\ncurrent window\nfull screen\na selected area (copy)\ncurrent window (copy)\nfull screen (copy)" | $MENU_CMD "Screenshot which area?")
+selection=$(printf "a selected area (copy)\na selected area\ncurrent window\nfull screen\ncurrent window (copy)\nfull screen (copy)" | $MENU_CMD "Screenshot which area?")
 
 [ -z "$selection" ] && exit 0
 

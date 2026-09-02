@@ -29,7 +29,7 @@ else
 fi
 
 # Main menu prompt
-selection=$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")
+selection=$(printf "a selected area (copy)\\na selected area\\ncurrent window\\nfull screen\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")
 
 # Monitor selection logic (only for full screen options)
 select_monitor_geom() {
