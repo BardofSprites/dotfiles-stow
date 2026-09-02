@@ -43,13 +43,13 @@ case "$selected_mode" in
         feh --bg-tile "$selected_wallpaper"
         ;;
     "Zoom Filled")
-        feh --no-fehbg --bg-fill "$selected_wallpaper"
+        feh --bg-fill "$selected_wallpaper"
         ;;
     "Centered")
-        feh --no-fehbg --bg-center "$selected_wallpaper"
+        feh --bg-center "$selected_wallpaper"
         ;;
     "Max")
-        feh --no-fehbg --bg-max "$selected_wallpaper"
+        feh --bg-max "$selected_wallpaper"
         ;;
     *)
         exit 1
