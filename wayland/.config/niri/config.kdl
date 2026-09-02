@@ -28,7 +28,6 @@ input {
         // dwtp
         // drag false
         // drag-lock
-        natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
         // scroll-method "two-finger"
@@ -63,8 +62,8 @@ input {
 }
 
 cursor {
-    xcursor-theme "xcursor-plan9"
-    xcursor-size 16
+    xcursor-theme "Adwaita"
+    xcursor-size 20
 }
 
 gestures {
@@ -74,6 +73,10 @@ gestures {
 }
 
 output "DP-1" {
+    scale 1.0
+}
+
+output "eDP-1" {
     scale 1.0
 }
 
@@ -156,18 +159,11 @@ layout {
     }
 }
 
-spawn-at-startup "xwayland-satellite"
-spawn-at-startup "xrandr --dpi 96"
-spawn-at-startup "xss-lock -- /usr/bin/slock"
-spawn-at-startup "$HOME/.local/bin/scripts/startpage.sh"
-spawn-at-startup "$HOME/.screenlayout/twomonitors.sh"
-spawn-at-startup "picom --daemon"
-spawn-at-startup "$HOME/.fehbg"
-spawn-at-startup "xsetroot -cursor_name left_ptr"
-spawn-at-startup "playerctld"
-spawn-at-startup "foot -s"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "dunst"
+spawn-sh-at-startup "xwayland-satellite"
+spawn-sh-at-startup "playerctld"
+spawn-sh-at-startup "foot -s"
+spawn-sh-at-startup "noctalia"
+spawn-sh-at-startup "dunst"
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -250,11 +246,11 @@ window-rule {
     clip-to-geometry true
 }
 
-window-rule {
-    background-effect {
-        blur false
-    }
-}
+// window-rule {
+//     background-effect {
+//         blur false
+//     }
+// }
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -276,7 +272,7 @@ binds {
     Mod+E hotkey-overlay-title="Open a GNU Emacs frame" { spawn "emacs"; }
     Mod+N hotkey-overlay-title="Open a Emacsclient frame" { spawn "emacsclient" "-c"; }
     Mod+W hotkey-overlay-title="Open Zen browser" { spawn "zen"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+D hotkey-overlay-title="Run an Application" { spawn-sh "noctalia msg panel-toggle launcher"; }
     // Mod+Shift+B hotkey-overlay-title="Woomer (screen zoomer)" { spawn "~/Repositories/"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Shift+M hotkey-overlay-title="Select wallpaper" { spawn "ww.sh"; }
@@ -502,4 +498,8 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+X { power-off-monitors; }
     Mod+Shift+X { spawn "sysact"; }
+}
+
+overview {
+    backdrop-color "#fbf7f0"
 }
